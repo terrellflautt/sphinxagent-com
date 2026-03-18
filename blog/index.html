@@ -335,10 +335,9 @@
             localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
         });
 
-        // Article Voting System
+        // Article Voting System — Server is source of truth
         (function() {
-            const API_BASE = 'https://api.terrellflautt.com';
-            const STORAGE_KEY = 'sphinxagent_user_votes';
+            const API = 'https://api.terrellflautt.com';
             const USER_KEY = 'sphinxagent_user_id';
 
             function getUserId() {
@@ -350,70 +349,82 @@
                 return id;
             }
 
-            function getSavedVotes() {
-                try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); }
-                catch { return {}; }
-            }
-
             const userId = getUserId();
-            const userVotes = getSavedVotes();
+            const userVotes = {};
+            const counts = {};
             const grid = document.querySelector('.grid.gap-8');
             const buttons = document.querySelectorAll('.vote-btn');
 
-            // Load vote counts and sort
-            async function loadAndSort() {
-                const articleIds = Array.from(buttons).map(b => b.dataset.article);
-                const counts = {};
-
-                await Promise.all(articleIds.map(async (id) => {
-                    try {
-                        const res = await fetch(`${API_BASE}/vote/${id}`);
-                        if (res.ok) {
-                            const data = await res.json();
-                            counts[id] = data.count || 0;
-                        } else { counts[id] = 0; }
-                    } catch { counts[id] = 0; }
-                }));
-
-                // Update UI
-                buttons.forEach(btn => {
-                    const id = btn.dataset.article;
-                    const countEl = btn.querySelector('.vote-count');
-                    countEl.textContent = counts[id] || 0;
-
-                    if (userVotes[id]) {
-                        btn.classList.add('bg-gold/20', 'border-gold', 'text-gold');
-                        btn.disabled = true;
-                        btn.title = 'You voted for this article';
-                    }
-                });
-
-                // Sort articles by vote count (highest first)
-                if (grid) {
-                    const articles = Array.from(grid.children);
-                    articles.sort((a, b) => {
-                        const aBtn = a.querySelector('.vote-btn');
-                        const bBtn = b.querySelector('.vote-btn');
-                        const aCount = aBtn ? (counts[aBtn.dataset.article] || 0) : 0;
-                        const bCount = bBtn ? (counts[bBtn.dataset.article] || 0) : 0;
-                        return bCount - aCount;
-                    });
-                    articles.forEach(article => grid.appendChild(article));
+            function setBtn(btn, voted) {
+                if (voted) {
+                    btn.classList.add('bg-gold/20', 'border-gold', 'text-gold');
+                    btn.title = 'Click to remove your vote';
+                } else {
+                    btn.classList.remove('bg-gold/20', 'border-gold', 'text-gold');
+                    btn.title = 'Click to vote for this article';
                 }
             }
 
-            // Handle voting
+            function sortGrid() {
+                if (!grid) return;
+                const articles = Array.from(grid.children);
+                articles.sort((a, b) => {
+                    const aId = a.querySelector('.vote-btn')?.dataset.article;
+                    const bId = b.querySelector('.vote-btn')?.dataset.article;
+                    return (counts[bId] || 0) - (counts[aId] || 0);
+                });
+                articles.forEach(el => grid.appendChild(el));
+            }
+
+            // Load counts + user vote status from server
+            async function loadState() {
+                const ids = Array.from(buttons).map(b => b.dataset.article);
+
+                const [countResults, statusResult] = await Promise.all([
+                    Promise.allSettled(ids.map(id =>
+                        fetch(`${API}/vote/${id}`)
+                            .then(r => r.ok ? r.json() : { count: 0 })
+                            .then(d => ({ id, count: d.count || 0 }))
+                    )),
+                    fetch(`${API}/vote/status/${userId}`)
+                        .then(r => r.ok ? r.json() : { votedProjects: [] })
+                        .catch(() => ({ votedProjects: [] }))
+                ]);
+
+                countResults.forEach(r => {
+                    if (r.status === 'fulfilled') counts[r.value.id] = r.value.count;
+                });
+
+                (statusResult.votedProjects || []).forEach(pid => { userVotes[pid] = true; });
+
+                buttons.forEach(btn => {
+                    const id = btn.dataset.article;
+                    btn.querySelector('.vote-count').textContent = counts[id] || 0;
+                    setBtn(btn, userVotes[id]);
+                });
+
+                sortGrid();
+            }
+
+            // Toggle vote
             buttons.forEach(btn => {
                 btn.addEventListener('click', async (e) => {
                     e.preventDefault();
                     e.stopPropagation();
+                    if (btn.classList.contains('voting')) return;
+
                     const articleId = btn.dataset.article;
+                    const wasVoted = userVotes[articleId];
+                    btn.classList.add('voting');
 
-                    if (userVotes[articleId] || btn.disabled) return;
+                    // Optimistic UI
+                    const countEl = btn.querySelector('.vote-count');
+                    const optimistic = Math.max(0, (counts[articleId] || 0) + (wasVoted ? -1 : 1));
+                    countEl.textContent = optimistic;
+                    setBtn(btn, !wasVoted);
 
-                    btn.disabled = true;
                     try {
-                        const res = await fetch(`${API_BASE}/vote`, {
+                        const res = await fetch(`${API}/vote`, {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify({ projectId: articleId, userId })
@@ -421,15 +432,19 @@
 
                         if (res.ok) {
                             const data = await res.json();
-                            btn.querySelector('.vote-count').textContent = data.count;
-                            btn.classList.add('bg-gold/20', 'border-gold', 'text-gold');
-                            btn.title = 'You voted for this article';
-                            userVotes[articleId] = true;
-                            localStorage.setItem(STORAGE_KEY, JSON.stringify(userVotes));
-                        }
+                            counts[articleId] = data.count;
+                            userVotes[articleId] = data.voted;
+                            countEl.textContent = data.count;
+                            setBtn(btn, data.voted);
+                            sortGrid();
+                        } else { throw new Error(); }
                     } catch {
-                        btn.disabled = false;
+                        // Revert
+                        countEl.textContent = counts[articleId] || 0;
+                        setBtn(btn, wasVoted);
                     }
+
+                    btn.classList.remove('voting');
                 });
             });
 
