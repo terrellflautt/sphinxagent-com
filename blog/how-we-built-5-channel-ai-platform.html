@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon — Sphinx Agent Think Tank</title>
+    <meta name="description" content="This article is coming soon to the Sphinx Agent Think Tank. AI research, safety analysis, and strategic intelligence.">
+    <link rel="icon" href="favicon.ico" sizes="32x32">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #0f172a;
+            color: #fdf6e3;
+            overflow: hidden;
+            position: relative;
+        }
+        .bg-glow {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(212,175,55,0.15) 0%, transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+        }
+        .content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 2rem;
+            max-width: 600px;
+        }
+        .logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 20px;
+            margin: 0 auto 2rem;
+            filter: drop-shadow(0 0 30px rgba(212,175,55,0.4));
+        }
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 0.75rem;
+            background: linear-gradient(135deg, #D4AF37, #E0C252);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .subtitle {
+            font-size: 1.1rem;
+            color: rgba(253,246,227,0.6);
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+        .cta-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.25s;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+        .btn-primary {
+            background: #D4AF37;
+            color: #0f172a;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(212,175,55,0.4);
+        }
+        .btn-outline {
+            background: transparent;
+            color: #D4AF37;
+            border: 2px solid rgba(212,175,55,0.3);
+        }
+        .btn-outline:hover {
+            border-color: #D4AF37;
+            transform: translateY(-2px);
+        }
+        .divider {
+            width: 60px;
+            height: 3px;
+            background: #D4AF37;
+            margin: 2.5rem auto;
+            border-radius: 2px;
+        }
+        .back-link {
+            color: rgba(253,246,227,0.4);
+            font-size: 0.85rem;
+            text-decoration: none;
+        }
+        .back-link:hover { color: #D4AF37; }
+        .particles {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            z-index: 0;
+        }
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: rgba(212,175,55,0.3);
+            border-radius: 50%;
+            animation: float linear infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-10vh) rotate(720deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-glow"></div>
+    <div class="particles" id="particles"></div>
+
+    <div class="content">
+        <img src="logo-sphinx-64.png" alt="Sphinx Agent" class="logo">
+        <h1>Coming Soon</h1>
+        <p class="subtitle">This article is being forged in the Think Tank. Check back soon for deep AI research, guides, and strategic intelligence.</p>
+        <div class="cta-group">
+            <a href="https://sphinxagent.ai" class="btn btn-primary">Try Sphinx Agent Free</a>
+            <a href="index.html" class="btn btn-outline">Browse Think Tank</a>
+        </div>
+        <div class="divider"></div>
+        <a href="index.html" class="back-link">&larr; Back to Sphinx Agent Think Tank</a>
+    </div>
+
+    <script>
+        var container = document.getElementById('particles');
+        for (var i = 0; i < 30; i++) {
+            var p = document.createElement('div');
+            p.className = 'particle';
+            p.style.left = Math.random() * 100 + '%';
+            p.style.animationDuration = (8 + Math.random() * 12) + 's';
+            p.style.animationDelay = Math.random() * 10 + 's';
+            p.style.width = p.style.height = (2 + Math.random() * 3) + 'px';
+            container.appendChild(p);
+        }
+    </script>
+</body>
+</html>

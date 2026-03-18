@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Sphinx Agent</title>
+  <meta name="description" content="Contact Sphinx Agent for sales, support, feedback, or legal inquiries. AI-powered customer service platform.">
+  <link rel="canonical" href="https://sphinxagent.ai/contact.html">
+  <meta property="og:title" content="Contact - Sphinx Agent">
+  <meta property="og:description" content="Reach out for sales, support, feedback, or legal inquiries.">
+  <meta property="og:url" content="https://sphinxagent.ai/contact.html">
+  <meta property="og:image" content="https://sphinxagent.ai/og-image.png">
+  <link rel="icon" href="favicon.ico" sizes="32x32">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <script>if(localStorage.getItem('theme')==='dark'||(!localStorage.getItem('theme')&&window.matchMedia('(prefers-color-scheme:dark)').matches)){document.documentElement.classList.add('dark')}</script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config={darkMode:'class'}</script>
+  <style>
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:0.01ms!important;transition-duration:0.01ms!important}}
+  </style>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 dark:text-gray-100 min-h-screen flex flex-col">
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-amber-600 focus:text-white focus:px-4 focus:py-2 focus:rounded-lg">Skip to content</a>
+
+  <nav class="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+      <a href="/" class="flex items-center space-x-2">
+        <img src="images/logo-sphinx-64.png" alt="Sphinx Agent" width="34" height="34" style="border-radius:8px;filter:drop-shadow(0 0 6px rgba(212,175,55,0.5));">
+        <span class="text-xl font-bold">Sphinx Agent</span>
+      </a>
+      <div class="flex items-center space-x-4">
+        <a href="dashboard.html" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white text-sm">Dashboard</a>
+        <a href="pricing.html" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white text-sm">Pricing</a>
+        <button onclick="document.documentElement.classList.toggle('dark');localStorage.setItem('theme',document.documentElement.classList.contains('dark')?'dark':'light')" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" aria-label="Toggle dark mode">
+          <svg class="w-5 h-5 hidden dark:block text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/></svg>
+          <svg class="w-5 h-5 block dark:hidden text-gray-600" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content" class="flex-1 max-w-4xl mx-auto px-4 py-16 w-full">
+    <div class="text-center mb-12">
+      <h1 class="text-3xl font-bold mb-2">How Can We Help?</h1>
+      <p class="text-gray-500 dark:text-gray-400">Choose the type of inquiry below and we'll get you to the right team.</p>
+    </div>
+
+    <!-- Form Buttons Grid -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">
+
+      <button onclick="openContact()" class="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-100 dark:border-gray-700 hover:border-amber-400 hover:shadow-md transition text-left group">
+        <svg class="w-8 h-8 text-amber-600 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"/></svg>
+        <h3 class="font-semibold mb-1 group-hover:text-amber-600 transition">General Contact</h3>
+        <p class="text-sm text-gray-500 dark:text-gray-400">Questions, partnerships, or just saying hello.</p>
+      </button>
+
+      <button onclick="openSales()" class="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-100 dark:border-gray-700 hover:border-amber-400 hover:shadow-md transition text-left group">
+        <svg class="w-8 h-8 text-amber-600 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z"/></svg>
+        <h3 class="font-semibold mb-1 group-hover:text-amber-600 transition">Sales</h3>
+        <p class="text-sm text-gray-500 dark:text-gray-400">Pricing, enterprise plans, demos, or partnerships.</p>
+      </button>
+
+      <button onclick="openSupport()" class="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-100 dark:border-gray-700 hover:border-amber-400 hover:shadow-md transition text-left group">
+        <svg class="w-8 h-8 text-amber-600 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l5.653-4.655m0 0l1.342-1.342a2.126 2.126 0 013.006 0l.884.884a2.126 2.126 0 010 3.006L12.762 16.51M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 01-3.586-3.586l5.653-4.655"/></svg>
+        <h3 class="font-semibold mb-1 group-hover:text-amber-600 transition">Support</h3>
+        <p class="text-sm text-gray-500 dark:text-gray-400">Bug reports, technical issues, or account help.</p>
+      </button>
+
+      <button onclick="openFeedback()" class="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-100 dark:border-gray-700 hover:border-amber-400 hover:shadow-md transition text-left group">
+        <svg class="w-8 h-8 text-amber-600 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z"/></svg>
+        <h3 class="font-semibold mb-1 group-hover:text-amber-600 transition">Feedback</h3>
+        <p class="text-sm text-gray-500 dark:text-gray-400">Feature requests, suggestions, or compliments.</p>
+      </button>
+
+      <button onclick="openPrivacy()" class="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-100 dark:border-gray-700 hover:border-amber-400 hover:shadow-md transition text-left group">
+        <svg class="w-8 h-8 text-amber-600 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg>
+        <h3 class="font-semibold mb-1 group-hover:text-amber-600 transition">Privacy & Data</h3>
+        <p class="text-sm text-gray-500 dark:text-gray-400">Data rights requests, GDPR, CCPA, or opt-out.</p>
+      </button>
+
+      <button onclick="openLegal()" class="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-100 dark:border-gray-700 hover:border-amber-400 hover:shadow-md transition text-left group">
+        <svg class="w-8 h-8 text-amber-600 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v17.25m0 0c-1.472 0-2.882.265-4.185.75M12 20.25c1.472 0 2.882.265 4.185.75M18.75 4.97A48.416 48.416 0 0012 4.5c-2.291 0-4.545.16-6.75.47m13.5 0c1.01.143 2.01.317 3 .52m-3-.52l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.988 5.988 0 01-2.031.352 5.988 5.988 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L18.75 4.97zm-16.5.52c.99-.203 1.99-.377 3-.52m0 0l2.62 10.726c.122.499-.106 1.028-.589 1.202a5.989 5.989 0 01-2.031.352 5.989 5.989 0 01-2.031-.352c-.483-.174-.711-.703-.59-1.202L5.25 4.97z"/></svg>
+        <h3 class="font-semibold mb-1 group-hover:text-amber-600 transition">Legal</h3>
+        <p class="text-sm text-gray-500 dark:text-gray-400">DMCA, trademark, terms violations, or disputes.</p>
+      </button>
+
+    </div>
+
+    <!-- Other Ways to Reach Us -->
+    <div class="grid sm:grid-cols-3 gap-4 mb-12">
+      <div class="bg-white dark:bg-gray-800 rounded-xl p-5 border border-gray-100 dark:border-gray-700 text-center">
+        <svg class="w-6 h-6 text-amber-600 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
+        <h3 class="font-semibold text-sm mb-1">AI Phone Agent</h3>
+        <a href="tel:+12548529961" class="text-amber-600 text-sm hover:underline">+1 (254) 852-9961</a>
+        <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Available 24/7</p>
+      </div>
+      <div class="bg-white dark:bg-gray-800 rounded-xl p-5 border border-gray-100 dark:border-gray-700 text-center">
+        <svg class="w-6 h-6 text-amber-600 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z"/></svg>
+        <h3 class="font-semibold text-sm mb-1">Live AI Chat</h3>
+        <a href="chat.html?id=d264272d-1366-4b2a-8436-8cd7f6200fa6" class="text-amber-600 text-sm hover:underline">Chat Now</a>
+        <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Instant answers</p>
+      </div>
+      <div class="bg-white dark:bg-gray-800 rounded-xl p-5 border border-gray-100 dark:border-gray-700 text-center">
+        <svg class="w-6 h-6 text-amber-600 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
+        <h3 class="font-semibold text-sm mb-1">Office</h3>
+        <p class="text-xs text-gray-600 dark:text-gray-400">9741 N Lake Creek Pkwy<br>STE C-219, Austin, TX 78717</p>
+      </div>
+    </div>
+
+    <div class="text-center text-sm text-gray-500 dark:text-gray-400">
+      <p>Our AI agents respond instantly 24/7. Human support available Mon–Fri 9am–5pm CT.</p>
+    </div>
+  </main>
+
+  <footer class="bg-slate-900 dark:bg-black text-gray-400 py-12 px-4">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-8">
+      <div>
+        <div class="flex items-center space-x-2 mb-4">
+          <img src="images/logo-sphinx-64.png" alt="" width="34" height="34" style="border-radius:8px;filter:drop-shadow(0 0 6px rgba(212,175,55,0.5));">
+          <span class="text-white text-lg font-bold">Sphinx Agent</span>
+        </div>
+        <p class="text-sm">AI-powered customer service agents for every business.</p>
+      </div>
+      <div>
+        <h4 class="text-white font-semibold mb-4">Product</h4>
+        <ul class="space-y-2 text-sm"><li><a href="/" class="hover:text-white">Home</a></li><li><a href="pricing.html" class="hover:text-white">Pricing</a></li><li><a href="dashboard.html" class="hover:text-white">Dashboard</a></li><li><a href="docs.html" class="hover:text-white">Docs</a></li></ul>
+      </div>
+      <div>
+        <h4 class="text-white font-semibold mb-4">Company</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="about.html" class="hover:text-white">About</a></li>
+          <li><a href="#" onclick="openFeedback();return false" class="hover:text-white">Send Feedback</a></li>
+          <li><a href="#" onclick="openSupport();return false" class="hover:text-white">Get Support</a></li>
+          <li><a href="#" onclick="openSales();return false" class="hover:text-white">Talk to Sales</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white font-semibold mb-4">Legal</h4>
+        <ul class="space-y-2 text-sm"><li><a href="privacy.html" class="hover:text-white">Privacy Policy</a></li><li><a href="terms.html" class="hover:text-white">Terms of Service</a></li><li><a href="do-not-sell.html" class="hover:text-white">Do Not Sell My Info</a></li><li><a href="#" onclick="openPrivacy();return false" class="hover:text-white">Data Rights Request</a></li></ul>
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto mt-8 pt-8 border-t border-gray-800 text-center text-sm">
+      <p>&copy; 2026 <a href="https://snapitsoftware.com" target="_blank" rel="noopener" class="hover:text-white transition">SnapIT Software</a>. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/auth.js"></script>
+  <script src="js/contact-widget.js" data-app="Sphinx Agent" data-accent="#D4AF37"></script>
+  <script src="/widget/sphinx-widget.js" data-agent-id="d264272d-1366-4b2a-8436-8cd7f6200fa6" data-color="#D4AF37" data-greeting="Hi! Need help with pricing, features, or getting set up?"></script>
+</body>
+</html>

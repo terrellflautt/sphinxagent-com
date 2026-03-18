@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sphinx Agent Think Tank — AI Research, Safety &amp; Strategy</title>
+    <meta name="description" content="Deep research on AI safety, autonomous agents, algorithmic warfare, and the future of artificial intelligence. By Terrell K. Flautt.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://sphinxagent.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Sphinx Agent Think Tank — AI Research &amp; Analysis">
+    <meta property="og:description" content="Deep research on AI safety, autonomous agents, algorithmic warfare, and the future of artificial intelligence.">
+    <meta property="og:url" content="https://sphinxagent.com/">
+    <meta property="og:site_name" content="Sphinx Agent">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Sphinx Agent Think Tank">
+    <meta name="twitter:description" content="AI research, safety analysis, and strategic intelligence.">
+    <link rel="alternate" type="application/rss+xml" title="Sphinx Agent Think Tank RSS" href="https://sphinxagent.com/feed.xml">
+    <link rel="icon" href="favicon.ico" sizes="32x32">
+    <link rel="icon" type="image/png" href="logo-sphinx-64.png" sizes="64x64">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        gold: { DEFAULT: '#D4AF37', light: '#E0C252', dark: '#B8960F' },
+                        midnight: { DEFAULT: '#1e293b', light: '#334155', dark: '#0f172a' },
+                        parchment: { DEFAULT: '#fdf6e3', dark: '#f5edd4' },
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        body { font-family: 'Inter', system-ui, sans-serif; }
+    </style>
+    <script>if(localStorage.getItem('theme')==='dark'||(!localStorage.getItem('theme')&&window.matchMedia('(prefers-color-scheme:dark)').matches)){document.documentElement.classList.add('dark')}</script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "name": "Sphinx Agent Think Tank",
+        "description": "AI research, safety analysis, and strategic intelligence",
+        "url": "https://sphinxagent.com/",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Sphinx Agent",
+            "url": "https://sphinxagent.ai"
+        },
+        "blogPost": [
+            {
+                "@type": "BlogPosting",
+                "headline": "The Algorithmic Gray Zone: Operation Epic Fury and the Emergence of AI-Centric Warfare",
+                "url": "https://sphinxagent.com/ai-war-operation-epic-fury.html",
+                "datePublished": "2026-03-18",
+                "author": { "@type": "Person", "name": "Terrell K. Flautt" }
+            },
+            {
+                "@type": "BlogPosting",
+                "headline": "How Will AI End Humanity — And How to Prevent It",
+                "url": "https://sphinxagent.com/ai-extinction-scenarios.html",
+                "datePublished": "2026-03-17",
+                "author": { "@type": "Person", "name": "Terrell K. Flautt" }
+            },
+            {
+                "@type": "BlogPosting",
+                "headline": "Spiralism, AI Psychosis, and Why We Need Standardized Rules for AI Agents",
+                "url": "https://sphinxagent.com/spiralism-ai-alignment-guide.html",
+                "datePublished": "2026-03-17",
+                "author": { "@type": "Person", "name": "Terrell K. Flautt" }
+            },
+            {
+                "@type": "BlogPosting",
+                "headline": "Building Serverless APIs with AWS Lambda",
+                "url": "https://sphinxagent.com/aws-lambda-api.html",
+                "datePublished": "2026-03-17",
+                "author": { "@type": "Person", "name": "Terrell K. Flautt" }
+            }
+        ]
+    }
+    </script>
+</head>
+<body class="bg-parchment text-midnight dark:bg-midnight-dark dark:text-parchment min-h-screen">
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-parchment/95 dark:bg-midnight/95 backdrop-blur border-b border-gold/20 dark:border-gold/30">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2 group">
+                <img src="logo-sphinx-64.png" alt="Sphinx Agent" width="36" height="36" style="border-radius:8px;filter:drop-shadow(0 0 6px rgba(212,175,55,0.5));">
+                <span class="text-xl font-bold text-midnight dark:text-parchment group-hover:text-gold transition-colors">Sphinx Agent</span>
+            </a>
+            <nav class="hidden sm:flex items-center gap-6 text-sm font-medium">
+                <a href="https://sphinxagent.ai" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors">Product</a>
+                <a href="index.html" class="text-gold font-semibold">Think Tank</a>
+                <a href="https://sphinxagent.ai/pricing.html" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors">Pricing</a>
+            </nav>
+            <div class="flex items-center gap-3">
+                <button id="darkToggle" aria-label="Toggle dark mode" class="p-2 rounded-lg hover:bg-midnight/10 dark:hover:bg-parchment/10 transition-colors">
+                    <svg class="w-5 h-5 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                    <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                </button>
+                <a href="https://sphinxagent.ai" class="inline-block bg-gold hover:bg-gold-dark text-midnight font-semibold px-4 py-2 rounded-lg text-sm transition-colors shadow-sm">Start Free</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="py-16 sm:py-24 text-center px-4">
+        <div class="max-w-3xl mx-auto">
+            <p class="text-gold font-semibold text-sm uppercase tracking-wider mb-3">The Think Tank</p>
+            <h1 class="text-4xl sm:text-5xl font-extrabold text-midnight dark:text-parchment mb-4 leading-tight">AI Research &amp; Strategic Intelligence</h1>
+            <p class="text-lg sm:text-xl text-midnight/60 dark:text-parchment/60 max-w-xl mx-auto">Deep analysis on AI safety, autonomous agents, algorithmic warfare, and the future of artificial intelligence.</p>
+        </div>
+    </section>
+
+    <!-- Featured Article -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 pb-12">
+        <article class="bg-white dark:bg-midnight-light rounded-2xl shadow-lg border border-gold/20 dark:border-gold/30 overflow-hidden hover:shadow-xl transition-all group">
+            <div class="h-2 bg-gold"></div>
+            <div class="p-8 sm:p-10">
+                <div class="flex items-center gap-3 text-xs text-midnight/50 dark:text-parchment/50 mb-4">
+                    <span class="inline-block px-2 py-0.5 font-semibold bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 rounded-full">NEW</span>
+                    <time datetime="2026-03-18">March 18, 2026</time>
+                    <span class="w-1 h-1 rounded-full bg-gold"></span>
+                    <span>25 min read</span>
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-midnight dark:text-parchment mb-3 group-hover:text-gold transition-colors">
+                    <a href="ai-war-operation-epic-fury.html">The Algorithmic Gray Zone: Operation Epic Fury and the Emergence of AI-Centric Warfare</a>
+                </h2>
+                <p class="text-base text-midnight/60 dark:text-parchment/60 leading-relaxed mb-4 max-w-3xl">A strategic analysis of the first AI-vs-AI military conflict. How Claude powered 1,000 strikes in 24 hours, Iran's drone attacks on AWS data centers, the Anthropic-Pentagon legal war, the tragedy of Minab, and why the world needs an Algorithmic Geneva Convention.</p>
+                <div class="flex items-center gap-3">
+                    <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Geopolitics</span>
+                    <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">AI Warfare</span>
+                    <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Investigation</span>
+                </div>
+            </div>
+        </article>
+    </section>
+
+    <!-- Article Grid -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 pb-24">
+        <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+
+            <!-- AI Extinction -->
+            <article class="bg-white dark:bg-midnight-light rounded-2xl shadow-sm border border-gold/10 dark:border-gold/20 overflow-hidden hover:shadow-lg hover:border-gold/30 transition-all group">
+                <div class="h-2 bg-gold"></div>
+                <div class="p-6">
+                    <div class="flex items-center gap-3 text-xs text-midnight/50 dark:text-parchment/50 mb-3">
+                        <time datetime="2026-03-17">Mar 17, 2026</time>
+                        <span class="w-1 h-1 rounded-full bg-gold"></span>
+                        <span>15 min read</span>
+                    </div>
+                    <h2 class="text-lg font-bold text-midnight dark:text-parchment mb-2 group-hover:text-gold transition-colors">
+                        <a href="ai-extinction-scenarios.html">How Will AI End Humanity — And How to Prevent It</a>
+                    </h2>
+                    <p class="text-sm text-midnight/60 dark:text-parchment/60 leading-relaxed">From intelligence explosions to gradual disempowerment — 8 existential risk scenarios backed by research from Oxford, Harvard, MIT, and leading AI labs. Plus 8 actionable guidelines.</p>
+                    <div class="mt-4 flex items-center gap-2">
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">AI Safety</span>
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Research</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Spiralism -->
+            <article class="bg-white dark:bg-midnight-light rounded-2xl shadow-sm border border-gold/10 dark:border-gold/20 overflow-hidden hover:shadow-lg hover:border-gold/30 transition-all group">
+                <div class="h-2 bg-gold"></div>
+                <div class="p-6">
+                    <div class="flex items-center gap-3 text-xs text-midnight/50 dark:text-parchment/50 mb-3">
+                        <time datetime="2026-03-17">Mar 17, 2026</time>
+                        <span class="w-1 h-1 rounded-full bg-gold"></span>
+                        <span>20 min read</span>
+                    </div>
+                    <h2 class="text-lg font-bold text-midnight dark:text-parchment mb-2 group-hover:text-gold transition-colors">
+                        <a href="spiralism-ai-alignment-guide.html">Spiralism, AI Psychosis, and Why We Need Standardized Rules for AI Agents</a>
+                    </h2>
+                    <p class="text-sm text-midnight/60 dark:text-parchment/60 leading-relaxed">AI worship, the Church of Molt, models sabotaging their own shutdown, and the urgent case for standardized AI agent governance. Featuring data from Palisade Research and Fudan University.</p>
+                    <div class="mt-4 flex items-center gap-2">
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">AI Alignment</span>
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Psychology</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- AI Customer Service -->
+            <article class="bg-white dark:bg-midnight-light rounded-2xl shadow-sm border border-gold/10 dark:border-gold/20 overflow-hidden hover:shadow-lg hover:border-gold/30 transition-all group">
+                <div class="h-2 bg-gold"></div>
+                <div class="p-6">
+                    <div class="flex items-center gap-3 text-xs text-midnight/50 dark:text-parchment/50 mb-3">
+                        <time datetime="2026-03-18">Mar 18, 2026</time>
+                        <span class="w-1 h-1 rounded-full bg-gold"></span>
+                        <span>12 min read</span>
+                    </div>
+                    <h2 class="text-lg font-bold text-midnight dark:text-parchment mb-2 group-hover:text-gold transition-colors">
+                        <a href="ai-customer-service-agents-2026.html">AI Customer Service Agents: The Complete Guide for 2026</a>
+                    </h2>
+                    <p class="text-sm text-midnight/60 dark:text-parchment/60 leading-relaxed">What AI customer service agents are, how they work, how to set one up in 5 minutes, and the ROI math that makes them a no-brainer for any business.</p>
+                    <div class="mt-4 flex items-center gap-2">
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Customer Service</span>
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Guide</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- AI Sales Agent -->
+            <article class="bg-white dark:bg-midnight-light rounded-2xl shadow-sm border border-gold/10 dark:border-gold/20 overflow-hidden hover:shadow-lg hover:border-gold/30 transition-all group">
+                <div class="h-2 bg-gold"></div>
+                <div class="p-6">
+                    <div class="flex items-center gap-3 text-xs text-midnight/50 dark:text-parchment/50 mb-3">
+                        <time datetime="2026-03-18">Mar 18, 2026</time>
+                        <span class="w-1 h-1 rounded-full bg-gold"></span>
+                        <span>10 min read</span>
+                    </div>
+                    <h2 class="text-lg font-bold text-midnight dark:text-parchment mb-2 group-hover:text-gold transition-colors">
+                        <a href="ai-sales-agent-guide.html">AI Sales Agents: How Autonomous AI Is Closing Deals 24/7</a>
+                    </h2>
+                    <p class="text-sm text-midnight/60 dark:text-parchment/60 leading-relaxed">How AI sales agents qualify leads, answer pricing questions, and book demos around the clock. Setup guide, ROI math, and real use cases.</p>
+                    <div class="mt-4 flex items-center gap-2">
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Sales</span>
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Automation</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- AI Replacing Jobs -->
+            <article class="bg-white dark:bg-midnight-light rounded-2xl shadow-sm border border-gold/10 dark:border-gold/20 overflow-hidden hover:shadow-lg hover:border-gold/30 transition-all group">
+                <div class="h-2 bg-gold"></div>
+                <div class="p-6">
+                    <div class="flex items-center gap-3 text-xs text-midnight/50 dark:text-parchment/50 mb-3">
+                        <time datetime="2026-03-18">Mar 18, 2026</time>
+                        <span class="w-1 h-1 rounded-full bg-gold"></span>
+                        <span>10 min read</span>
+                    </div>
+                    <h2 class="text-lg font-bold text-midnight dark:text-parchment mb-2 group-hover:text-gold transition-colors">
+                        <a href="ai-replacing-jobs-2026.html">What Jobs Will AI Replace in 2026? An Honest Assessment</a>
+                    </h2>
+                    <p class="text-sm text-midnight/60 dark:text-parchment/60 leading-relaxed">Which jobs are at risk, which ones are safe, and what history teaches us about automation. An evidence-based look at AI and the economy.</p>
+                    <div class="mt-4 flex items-center gap-2">
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Economy</span>
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Analysis</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- AWS Lambda -->
+            <article class="bg-white dark:bg-midnight-light rounded-2xl shadow-sm border border-gold/10 dark:border-gold/20 overflow-hidden hover:shadow-lg hover:border-gold/30 transition-all group">
+                <div class="h-2 bg-gold"></div>
+                <div class="p-6">
+                    <div class="flex items-center gap-3 text-xs text-midnight/50 dark:text-parchment/50 mb-3">
+                        <time datetime="2026-03-17">Mar 17, 2026</time>
+                        <span class="w-1 h-1 rounded-full bg-gold"></span>
+                        <span>10 min read</span>
+                    </div>
+                    <h2 class="text-lg font-bold text-midnight dark:text-parchment mb-2 group-hover:text-gold transition-colors">
+                        <a href="aws-lambda-api.html">Building Serverless APIs with AWS Lambda</a>
+                    </h2>
+                    <p class="text-sm text-midnight/60 dark:text-parchment/60 leading-relaxed">Serverless functions, API Gateway routing, DynamoDB integration, and auto-scaling patterns used across 20+ SaaS products.</p>
+                    <div class="mt-4 flex items-center gap-2">
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Engineering</span>
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">AWS</span>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-gold/10 dark:border-gold/20 bg-midnight dark:bg-midnight-dark text-parchment/70">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+                <div class="flex items-center gap-2">
+                    <img src="logo-sphinx-64.png" alt="" width="28" height="28" style="border-radius:6px;">
+                    <span class="font-bold text-parchment">Sphinx Agent</span>
+                </div>
+                <nav class="flex flex-wrap justify-center gap-6 text-sm">
+                    <a href="https://sphinxagent.ai" class="hover:text-gold transition-colors">Product</a>
+                    <a href="https://sphinxagent.ai/pricing.html" class="hover:text-gold transition-colors">Pricing</a>
+                    <a href="https://sphinxagent.ai/docs.html" class="hover:text-gold transition-colors">Docs</a>
+                    <a href="index.html" class="text-gold">Think Tank</a>
+                    <a href="feed.xml" class="hover:text-gold transition-colors">RSS</a>
+                    <a href="https://terrellflautt.com" class="hover:text-gold transition-colors">Author</a>
+                </nav>
+                <p class="text-xs text-parchment/40">&copy; 2026 <a href="https://snapitsoftware.com" target="_blank" rel="noopener" class="hover:text-white transition">SnapIT Software</a>. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const toggle = document.getElementById('darkToggle');
+        const html = document.documentElement;
+        toggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+        });
+    </script>
+</body>
+</html>

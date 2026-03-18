@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Agent - Sphinx Agent</title>
+  <meta name="description" content="Create and configure your AI chatbot agent in minutes. No coding required.">
+  <link rel="canonical" href="https://sphinxagent.ai/agent-wizard.html">
+  <meta property="og:title" content="Create Agent - Sphinx Agent">
+  <meta property="og:description" content="Create and configure your AI chatbot agent in minutes.">
+  <meta property="og:url" content="https://sphinxagent.ai/agent-wizard.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://sphinxagent.ai/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Create Agent - Sphinx Agent">
+  <meta name="twitter:description" content="Create and configure your AI chatbot agent in minutes.">
+  <meta name="twitter:image" content="https://sphinxagent.ai/og-image.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config={darkMode:'class',theme:{extend:{colors:{sphinx:{gold:'#D4AF37',hover:'#C5A028',dark:'#B8960F',light:'#FFF8E1',cream:'#f9fafb',navy:'#0f172a'}}}}}</script>
+  <script>if(localStorage.getItem('theme')==='dark'||(!localStorage.getItem('theme')&&window.matchMedia('(prefers-color-scheme:dark)').matches)){document.documentElement.classList.add('dark')}</script>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <style>
+    .gradient-bg { background: #D4AF37; }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
+  </style>
+<script>window.SNAPIT_TRACKING_ID='SA_2832d882f6c2434b';</script>
+<script src="https://snapitanalytics.com/analytics.js" defer></script>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 dark:text-gray-100 min-h-screen">
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-amber-600 focus:text-white focus:px-4 focus:py-2 focus:rounded-lg">Skip to content</a>
+
+  <nav class="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <a href="/" class="flex items-center space-x-2">
+          <div class="w-8 h-8 rounded-lg gradient-bg flex items-center justify-center">
+            <span class="text-white font-bold text-sm">S</span>
+          </div>
+          <span class="text-xl font-bold">Sphinx Agent</span>
+        </a>
+        <div class="flex items-center space-x-4">
+          <a href="dashboard.html" class="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">Back to Dashboard</a>
+          <button onclick="document.documentElement.classList.toggle('dark');localStorage.setItem('theme',document.documentElement.classList.contains('dark')?'dark':'light')" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800" aria-label="Toggle dark mode">
+            <svg class="w-5 h-5 hidden dark:block text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/></svg>
+            <svg class="w-5 h-5 block dark:hidden text-gray-600" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content" class="max-w-2xl mx-auto px-4 py-8">
+    <h1 id="page-title" class="text-2xl font-bold mb-8">Create New Agent</h1>
+
+    <form id="agent-form" class="space-y-6">
+      <!-- Step 1: Agent Type -->
+      <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6 border border-gray-100 dark:border-gray-700">
+        <h2 class="text-lg font-semibold mb-2">What type of agent do you need?</h2>
+        <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">This determines how your agent introduces itself and its default behavior.</p>
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3" id="agent-type-picker">
+          <label class="relative cursor-pointer">
+            <input type="radio" name="agent-type" value="sales" class="sr-only peer">
+            <div class="border-2 border-gray-200 dark:border-gray-600 rounded-xl p-4 text-center transition-all peer-checked:border-amber-500 peer-checked:bg-amber-50 dark:peer-checked:bg-amber-900/20 hover:border-amber-300">
+              <div class="text-3xl mb-2">&#128176;</div>
+              <div class="font-semibold text-sm">Sales Agent</div>
+              <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Qualify leads, answer pricing, book demos</p>
+            </div>
+          </label>
+          <label class="relative cursor-pointer">
+            <input type="radio" name="agent-type" value="support" class="sr-only peer" checked>
+            <div class="border-2 border-gray-200 dark:border-gray-600 rounded-xl p-4 text-center transition-all peer-checked:border-amber-500 peer-checked:bg-amber-50 dark:peer-checked:bg-amber-900/20 hover:border-amber-300">
+              <div class="text-3xl mb-2">&#128736;</div>
+              <div class="font-semibold text-sm">Support Agent</div>
+              <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Troubleshoot issues, guide users, resolve problems</p>
+            </div>
+          </label>
+          <label class="relative cursor-pointer">
+            <input type="radio" name="agent-type" value="customer-service" class="sr-only peer">
+            <div class="border-2 border-gray-200 dark:border-gray-600 rounded-xl p-4 text-center transition-all peer-checked:border-amber-500 peer-checked:bg-amber-50 dark:peer-checked:bg-amber-900/20 hover:border-amber-300">
+              <div class="text-3xl mb-2">&#129309;</div>
+              <div class="font-semibold text-sm">Customer Service</div>
+              <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">General inquiries, orders, accounts, returns</p>
+            </div>
+          </label>
+          <label class="relative cursor-pointer">
+            <input type="radio" name="agent-type" value="interview" class="sr-only peer">
+            <div class="border-2 border-gray-200 dark:border-gray-600 rounded-xl p-4 text-center transition-all peer-checked:border-amber-500 peer-checked:bg-amber-50 dark:peer-checked:bg-amber-900/20 hover:border-amber-300">
+              <div class="text-3xl mb-2">&#128188;</div>
+              <div class="font-semibold text-sm">Interview Agent</div>
+              <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Screen candidates, structured interviews, hiring</p>
+            </div>
+          </label>
+          <label class="relative cursor-pointer">
+            <input type="radio" name="agent-type" value="booking" class="sr-only peer">
+            <div class="border-2 border-gray-200 dark:border-gray-600 rounded-xl p-4 text-center transition-all peer-checked:border-amber-500 peer-checked:bg-amber-50 dark:peer-checked:bg-amber-900/20 hover:border-amber-300">
+              <div class="text-3xl mb-2">&#128197;</div>
+              <div class="font-semibold text-sm">Booking Agent</div>
+              <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Schedule appointments, consultations, meetings</p>
+            </div>
+          </label>
+          <label class="relative cursor-pointer">
+            <input type="radio" name="agent-type" value="receptionist" class="sr-only peer">
+            <div class="border-2 border-gray-200 dark:border-gray-600 rounded-xl p-4 text-center transition-all peer-checked:border-amber-500 peer-checked:bg-amber-50 dark:peer-checked:bg-amber-900/20 hover:border-amber-300">
+              <div class="text-3xl mb-2">&#128587;</div>
+              <div class="font-semibold text-sm">Receptionist</div>
+              <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Greet visitors, route inquiries, take messages</p>
+            </div>
+          </label>
+          <label class="relative cursor-pointer">
+            <input type="radio" name="agent-type" value="lead-capture" class="sr-only peer">
+            <div class="border-2 border-gray-200 dark:border-gray-600 rounded-xl p-4 text-center transition-all peer-checked:border-amber-500 peer-checked:bg-amber-50 dark:peer-checked:bg-amber-900/20 hover:border-amber-300">
+              <div class="text-3xl mb-2">&#127919;</div>
+              <div class="font-semibold text-sm">Lead Capture</div>
+              <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Engage visitors, collect contact info, qualify leads</p>
+            </div>
+          </label>
+          <label class="relative cursor-pointer">
+            <input type="radio" name="agent-type" value="onboarding" class="sr-only peer">
+            <div class="border-2 border-gray-200 dark:border-gray-600 rounded-xl p-4 text-center transition-all peer-checked:border-amber-500 peer-checked:bg-amber-50 dark:peer-checked:bg-amber-900/20 hover:border-amber-300">
+              <div class="text-3xl mb-2">&#127891;</div>
+              <div class="font-semibold text-sm">Onboarding</div>
+              <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Guide new hires through policies, tools, setup</p>
+            </div>
+          </label>
+          <label class="relative cursor-pointer">
+            <input type="radio" name="agent-type" value="faq" class="sr-only peer">
+            <div class="border-2 border-gray-200 dark:border-gray-600 rounded-xl p-4 text-center transition-all peer-checked:border-amber-500 peer-checked:bg-amber-50 dark:peer-checked:bg-amber-900/20 hover:border-amber-300">
+              <div class="text-3xl mb-2">&#10067;</div>
+              <div class="font-semibold text-sm">FAQ Agent</div>
+              <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Answer common questions from your knowledge base</p>
+            </div>
+          </label>
+          <label class="relative cursor-pointer">
+            <input type="radio" name="agent-type" value="real-estate" class="sr-only peer">
+            <div class="border-2 border-gray-200 dark:border-gray-600 rounded-xl p-4 text-center transition-all peer-checked:border-amber-500 peer-checked:bg-amber-50 dark:peer-checked:bg-amber-900/20 hover:border-amber-300">
+              <div class="text-3xl mb-2">&#127968;</div>
+              <div class="font-semibold text-sm">Real Estate</div>
+              <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Property inquiries, showings, buyer qualification</p>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <!-- Step 2: Basic Info -->
+      <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6 border border-gray-100 dark:border-gray-700">
+        <h2 class="text-lg font-semibold mb-4">Basic Information</h2>
+        <div class="space-y-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 dark:text-gray-400 mb-1">Agent Name *</label>
+            <input type="text" id="agent-name" required placeholder="e.g., Alex" class="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white">
+            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">This is the name your agent uses to introduce itself to customers.</p>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 dark:text-gray-400 mb-1">Business Name</label>
+            <input type="text" id="business-name" placeholder="e.g., Acme Corp" class="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white">
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 dark:text-gray-400 mb-1">Industry</label>
+            <select id="industry" class="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white">
+              <option value="">Select an industry</option>
+              <option value="E-commerce">E-commerce / Retail</option>
+              <option value="SaaS">SaaS / Technology</option>
+              <option value="Healthcare">Healthcare / Medical</option>
+              <option value="Real Estate">Real Estate</option>
+              <option value="Education">Education / Training</option>
+              <option value="Finance">Finance / Insurance</option>
+              <option value="Restaurant">Restaurant / Food</option>
+              <option value="Legal">Legal / Law Firm</option>
+              <option value="Travel">Travel / Hospitality</option>
+              <option value="Automotive">Automotive / Dealership</option>
+              <option value="Construction">Construction / Trades</option>
+              <option value="Recruiting">Recruiting / Staffing</option>
+              <option value="Marketing">Marketing / Agency</option>
+              <option value="Nonprofit">Nonprofit / Charity</option>
+              <option value="Fitness">Fitness / Wellness</option>
+              <option value="Beauty">Beauty / Salon / Spa</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2: AI Config -->
+      <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6 border border-gray-100 dark:border-gray-700">
+        <h2 class="text-lg font-semibold mb-4">Agent Personality</h2>
+        <div class="space-y-4">
+          <input type="hidden" id="model" value="deepseek-chat">
+          <div>
+            <label class="block text-sm font-medium text-gray-700 dark:text-gray-400 mb-1">Business Description *</label>
+            <textarea id="business-info" rows="3" placeholder="Describe your business, what you sell or offer, and what makes you unique..." class="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white"></textarea>
+            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">The more detail you provide, the better your agent will answer questions.</p>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 dark:text-gray-400 mb-1">Agent Instructions</label>
+            <textarea id="instructions" rows="3" placeholder="e.g., Always be friendly. Suggest booking a demo for pricing questions. Never discuss competitors." class="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white"></textarea>
+            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Rules for how your agent should behave. These override default behavior.</p>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 dark:text-gray-400 mb-1">Greeting Message</label>
+            <input type="text" id="greeting" placeholder="" class="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white">
+            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Leave blank to use the default greeting for your agent type, or customize it.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3: Knowledge Base (URLs + Context) -->
+      <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6 border border-gray-100 dark:border-gray-700">
+        <h2 class="text-lg font-semibold mb-1">Knowledge Base</h2>
+        <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">Give your agent the info it needs to answer accurately. All fields are optional — fill in what applies to your business.</p>
+
+        <div class="space-y-4">
+          <p class="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide">Website URLs <span class="font-normal normal-case">(agent will reference these)</span></p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div>
+              <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Homepage</label>
+              <input type="url" id="url-homepage" placeholder="https://yoursite.com" class="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white">
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Pricing Page</label>
+              <input type="url" id="url-pricing" placeholder="https://yoursite.com/pricing" class="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white">
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">FAQ / Help Page</label>
+              <input type="url" id="url-faq" placeholder="https://yoursite.com/faq" class="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white">
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Contact Page</label>
+              <input type="url" id="url-contact" placeholder="https://yoursite.com/contact" class="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white">
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">About Page</label>
+              <input type="url" id="url-about" placeholder="https://yoursite.com/about" class="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white">
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Terms / Legal Page</label>
+              <input type="url" id="url-terms" placeholder="https://yoursite.com/terms" class="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white">
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Support / Docs Page</label>
+              <input type="url" id="url-support" placeholder="https://yoursite.com/docs" class="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white">
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Custom URL</label>
+              <input type="url" id="url-custom" placeholder="https://yoursite.com/..." class="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white">
+            </div>
+          </div>
+
+          <hr class="border-gray-200 dark:border-gray-700 my-2">
+
+          <p class="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide">Context Windows <span class="font-normal normal-case">(paste info directly — saves tokens, improves accuracy)</span></p>
+
+          <div>
+            <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Pricing &amp; Plans</label>
+            <textarea id="ctx-pricing" rows="3" placeholder="Paste your pricing details here. Example: Free plan $0 (100 messages), Pro plan $29/mo (10,000 messages)..." class="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white"></textarea>
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Hours &amp; Location</label>
+            <textarea id="ctx-hours" rows="2" placeholder="Mon-Fri 9am-5pm EST, Sat 10am-2pm. Located at 123 Main St, Austin TX." class="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white"></textarea>
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">FAQ / Common Questions</label>
+            <textarea id="ctx-faq" rows="4" placeholder="Q: Do you offer refunds?&#10;A: Yes, within 30 days of purchase.&#10;&#10;Q: How do I cancel?&#10;A: Go to Settings > Billing > Cancel." class="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white"></textarea>
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Products &amp; Services</label>
+            <textarea id="ctx-products" rows="3" placeholder="List your products, services, or menu items with descriptions and prices..." class="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white"></textarea>
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Additional Context</label>
+            <textarea id="ctx-extra" rows="3" placeholder="Any other info your agent should know — policies, team bios, special offers, etc." class="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- Custom Q&A -->
+      <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6 border border-gray-100 dark:border-gray-700">
+        <h2 class="text-lg font-semibold mb-1">Custom Responses</h2>
+        <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">Add exact Q&A pairs for questions your agent should always answer the same way. These override the AI's default responses.</p>
+        <div id="qa-list" class="space-y-3"></div>
+        <button type="button" onclick="addQAPair()" class="mt-3 text-sm text-amber-600 hover:text-amber-800 dark:text-amber-400 font-medium flex items-center gap-1">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+          Add Q&A Pair
+        </button>
+      </div>
+
+      <!-- Widget Style -->
+      <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6 border border-gray-100 dark:border-gray-700">
+        <h2 class="text-lg font-semibold mb-4">Widget Style</h2>
+        <div>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-400 mb-1">Widget Color</label>
+          <input type="color" id="color" value="#D4AF37" class="w-16 h-10 cursor-pointer rounded">
+        </div>
+      </div>
+
+      <!-- Step 4: Voice & Phone -->
+      <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6 border border-gray-100 dark:border-gray-700">
+        <h2 class="text-lg font-semibold mb-1">Voice &amp; Phone</h2>
+        <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">Give your agent a phone number so customers can call and talk to it. Voice agents use the same knowledge base and instructions as your chat agent.</p>
+
+        <div id="voice-section" class="space-y-4">
+          <!-- Shows current phone number or option to get one -->
+          <div id="voice-status" class="bg-gray-50 dark:bg-gray-700/50 rounded-lg p-4">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-2xl">&#128222;</span>
+              <div>
+                <p class="font-medium dark:text-white" id="voice-status-text">No phone number assigned</p>
+                <p class="text-xs text-gray-500 dark:text-gray-400" id="voice-status-sub">Voice calling is available on Pro and Business plans.</p>
+              </div>
+            </div>
+            <div id="voice-number-display" class="hidden mb-3">
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide">Phone Number</span>
+                <span class="inline-flex items-center gap-1 text-xs px-2 py-0.5 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 rounded-full">Active</span>
+              </div>
+              <code class="text-lg font-mono font-bold text-amber-600 dark:text-amber-400 select-all" id="voice-number-value"></code>
+              <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Customers can call this number to talk with your AI agent.</p>
+            </div>
+            <button type="button" id="voice-get-btn" onclick="requestPhoneNumber()" class="bg-amber-600 text-white px-4 py-2 rounded-lg hover:bg-amber-700 transition text-sm font-semibold hidden">
+              Get a Phone Number
+            </button>
+            <a href="pricing.html" id="voice-upgrade-link" class="inline-block text-sm text-amber-600 hover:text-amber-800 dark:text-amber-400 font-medium hidden">
+              Upgrade to Pro to enable voice &rarr;
+            </a>
+          </div>
+
+          <!-- Voice Selection -->
+          <div class="border-t border-gray-200 dark:border-gray-700 pt-4">
+            <div class="flex items-center gap-3 mb-3">
+              <svg class="w-5 h-5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/></svg>
+              <div>
+                <p class="font-medium text-sm dark:text-white">Agent Voice</p>
+                <p class="text-xs text-gray-500 dark:text-gray-400">Choose the voice your agent uses for phone calls and browser voice.</p>
+              </div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">English Voice</label>
+                <select id="voice-en" class="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white">
+                  <option value="25bLwNw4T14AIILU3SLV">Kira — Warm, professional (female)</option>
+                  <option value="EXAVITQu4vr4xnSDxMaL">Sarah — Natural, conversational (female)</option>
+                  <option value="TxGEqnHWrfWFTfGW9XjX">Josh — Confident, deep (male)</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1">Spanish Voice</label>
+                <select id="voice-es" class="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white">
+                  <option value="J4vZAFDEcpenkMp3f3R9">Valentina — Warm, natural (female, Colombian)</option>
+                  <option value="b2htR0pMe28pYwCY9gnP">Sof&iacute;a — Professional, clear (female, Colombian)</option>
+                  <option value="57D8YIbQSuE3REDPO6Vm">Horacio — Calm, authoritative (male, Colombian)</option>
+                </select>
+              </div>
+            </div>
+            <div class="mt-2 flex gap-2">
+              <button type="button" onclick="previewVoice('en')" class="text-xs text-amber-600 hover:text-amber-800 dark:text-amber-400 font-medium flex items-center gap-1">
+                <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>
+                Preview English
+              </button>
+              <button type="button" onclick="previewVoice('es')" class="text-xs text-amber-600 hover:text-amber-800 dark:text-amber-400 font-medium flex items-center gap-1">
+                <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>
+                Preview Spanish
+              </button>
+            </div>
+          </div>
+
+          <!-- Telegram connection -->
+          <div class="border-t border-gray-200 dark:border-gray-700 pt-4">
+            <div class="flex items-center gap-3 mb-2">
+              <span class="text-xl">&#9993;</span>
+              <div>
+                <p class="font-medium text-sm dark:text-white">Telegram Bot</p>
+                <p class="text-xs text-gray-500 dark:text-gray-400">Connect a Telegram bot so customers can message your agent on Telegram.</p>
+              </div>
+            </div>
+            <input type="text" id="telegram-token" placeholder="Paste your Telegram bot token from @BotFather" class="w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white mt-1">
+            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">Don't have one? Message <a href="https://t.me/BotFather" target="_blank" class="text-amber-600 hover:underline">@BotFather</a> on Telegram and send /newbot to create one.</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="error-msg" class="hidden bg-red-50 dark:bg-red-900/30 text-red-600 dark:text-red-400 p-3 rounded-lg text-sm"></div>
+
+      <div class="flex space-x-4">
+        <button type="submit" id="submit-btn" class="flex-1 bg-amber-600 text-white py-3 rounded-lg font-semibold hover:bg-amber-700 transition">
+          Create Agent
+        </button>
+        <a href="dashboard.html" class="px-6 py-3 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition text-center">Cancel</a>
+      </div>
+    </form>
+  </main>
+
+  <footer class="bg-slate-900 dark:bg-black text-gray-400 py-12 px-4">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-8">
+      <div>
+        <div class="flex items-center space-x-2 mb-4">
+          <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background:#D4AF37"><span class="text-white font-bold text-sm">S</span></div>
+          <span class="text-white text-lg font-bold">Sphinx Agent</span>
+        </div>
+        <p class="text-sm">AI-powered customer service chatbots for every business.</p>
+      </div>
+      <div>
+        <h4 class="text-white font-semibold mb-4">Product</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="/" class="hover:text-white transition">Home</a></li>
+          <li><a href="pricing.html" class="hover:text-white transition">Pricing</a></li>
+          <li><a href="dashboard.html" class="hover:text-white transition">Dashboard</a></li>
+          <li><a href="docs.html" class="hover:text-white transition">Documentation</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white font-semibold mb-4">SnapIT Suite</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="https://snapitsaas.com" class="hover:text-white transition" target="_blank" rel="noopener">SnapIT SaaS</a></li>
+          <li><a href="https://snapitsoftware.com" class="hover:text-white transition" target="_blank" rel="noopener">SnapIT Software</a></li>
+          <li><a href="https://snapitforms.com" class="hover:text-white transition" target="_blank" rel="noopener">SnapIT Forms</a></li>
+          <li><a href="https://snapitanalytics.com" class="hover:text-white transition" target="_blank" rel="noopener">SnapIT Analytics</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="text-white font-semibold mb-4">Legal</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="privacy.html" class="hover:text-white transition">Privacy Policy</a></li>
+          <li><a href="terms.html" class="hover:text-white transition">Terms of Service</a></li>
+          <li><a href="do-not-sell.html" class="hover:text-white transition">Do Not Sell My Info</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto mt-8 pt-8 border-t border-gray-800 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm">
+      <p>&copy; 2026 <a href="https://snapitsoftware.com" target="_blank" rel="noopener" class="hover:text-white transition">SnapIT Software</a>. All rights reserved.</p>
+      <span>A <a href="https://snapitsaas.com" class="text-amber-400 hover:text-amber-300" target="_blank" rel="noopener">SnapIT SaaS</a> Product</span>
+    </div>
+  </footer>
+
+  <div id="cookie-banner" class="hidden fixed bottom-0 left-0 right-0 z-50 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 p-4 shadow-lg">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-sm text-gray-600 dark:text-gray-300">We use localStorage for authentication. No tracking cookies. See our <a href="privacy.html" class="text-amber-600 hover:underline">Privacy Policy</a>.</p>
+      <button onclick="document.getElementById('cookie-banner').classList.add('hidden');localStorage.setItem('cookie_consent','true')" class="bg-amber-600 text-white px-6 py-2 rounded-lg hover:bg-amber-700 text-sm whitespace-nowrap">Got It</button>
+    </div>
+  </div>
+  <script>if(!localStorage.getItem('cookie_consent'))document.getElementById('cookie-banner').classList.remove('hidden')</script>
+
+  <script src="js/auth.js"></script>
+  <script src="js/contact-widget.js" data-app="Sphinx Agent" data-accent="#D4AF37"></script>
+  <script src="js/api.js"></script>
+  <script>
+    // Custom Q&A management
+    let qaCount = 0;
+    function addQAPair(q, a) {
+      qaCount++;
+      var list = document.getElementById('qa-list');
+      var div = document.createElement('div');
+      div.className = 'bg-gray-50 dark:bg-gray-700/50 rounded-lg p-3 relative';
+      div.id = 'qa-' + qaCount;
+      div.innerHTML = '<button type="button" onclick="this.parentElement.remove()" class="absolute top-2 right-2 text-gray-400 hover:text-red-500 text-lg leading-none">&times;</button>' +
+        '<input type="text" placeholder="Question: e.g., What are your hours?" value="' + (q || '').replace(/"/g, '&quot;') + '" class="qa-question w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 text-sm mb-2 focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white">' +
+        '<textarea placeholder="Answer: e.g., We are open Mon-Fri 9am-5pm EST." rows="2" class="qa-answer w-full border border-gray-300 dark:border-gray-600 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 dark:bg-gray-700 dark:text-white">' + (a || '') + '</textarea>';
+      list.appendChild(div);
+    }
+
+    function collectQAPairs() {
+      var pairs = [];
+      document.querySelectorAll('#qa-list > div').forEach(function(div) {
+        var q = div.querySelector('.qa-question').value.trim();
+        var a = div.querySelector('.qa-answer').value.trim();
+        if (q && a) pairs.push({ question: q, answer: a });
+      });
+      return pairs;
+    }
+
+    if (!window.SphinxAuth.requireLogin()) throw new Error('Not logged in');
+
+    const params = new URLSearchParams(window.location.search);
+    const editId = params.get('id');
+    let isEdit = false;
+
+    // Default greetings by agent type
+    const DEFAULT_GREETINGS = {
+      'sales': "Hi, I'm {name} from {business}. Looking for pricing, a demo, or have questions about our products?",
+      'support': "Hi, I'm {name} from {business}. What can I help you troubleshoot today?",
+      'customer-service': "Hi, I'm {name} from {business}. How can I help you today?",
+      'interview': "Hi, I'm {name} from {business}. Thanks for taking the time to chat. I'll be conducting a quick screening interview today. Ready to get started?",
+      'booking': "Hi, I'm {name} from {business}. I'd love to help you schedule an appointment. What are you looking to book?",
+      'receptionist': "Hi, welcome to {business}! I'm {name}. How can I direct you today?",
+      'lead-capture': "Hey there! I'm {name} from {business}. What brings you to our site today?",
+      'onboarding': "Welcome aboard! I'm {name} from {business}. I'm here to help you get settled in. What questions do you have?",
+      'faq': "Hi, I'm {name} from {business}. I can help answer your questions. What would you like to know?",
+      'real-estate': "Hi, I'm {name} from {business}. Looking for a property or have questions about a listing? I'm here to help."
+    };
+
+    // Update greeting placeholder when agent type changes
+    document.querySelectorAll('input[name="agent-type"]').forEach(function(radio) {
+      radio.addEventListener('change', function() {
+        var greeting = document.getElementById('greeting');
+        if (!greeting.value.trim()) {
+          var name = document.getElementById('agent-name').value.trim() || 'your agent';
+          var biz = document.getElementById('business-name').value.trim() || 'our company';
+          greeting.placeholder = DEFAULT_GREETINGS[this.value].replace('{name}', name).replace('{business}', biz);
+        }
+      });
+    });
+    // Also update placeholder when name/business changes
+    ['agent-name', 'business-name'].forEach(function(id) {
+      document.getElementById(id).addEventListener('input', function() {
+        var type = document.querySelector('input[name="agent-type"]:checked');
+        if (type) type.dispatchEvent(new Event('change'));
+      });
+    });
+    // Set initial placeholder
+    document.querySelector('input[name="agent-type"]:checked').dispatchEvent(new Event('change'));
+
+    async function init() {
+      if (editId) {
+        isEdit = true;
+        document.getElementById('page-title').textContent = 'Edit Agent';
+        document.getElementById('submit-btn').textContent = 'Save Changes';
+        try {
+          const data = await window.SphinxAPI.getAgent(editId);
+          const a = data.agent;
+          document.getElementById('agent-name').value = a.name || '';
+          document.getElementById('business-name').value = a.businessName || '';
+          document.getElementById('industry').value = a.industry || '';
+          document.getElementById('model').value = a.model || 'deepseek-chat';
+          document.getElementById('business-info').value = a.businessInfo || '';
+          document.getElementById('instructions').value = a.instructions || '';
+          document.getElementById('greeting').value = a.greeting || '';
+          document.getElementById('color').value = a.color || '#D4AF37';
+          // Populate agent type
+          if (a.type) {
+            var radio = document.querySelector('input[name="agent-type"][value="' + a.type + '"]');
+            if (radio) { radio.checked = true; radio.dispatchEvent(new Event('change')); }
+          }
+          // Populate URLs
+          if (a.businessUrls) {
+            var urls = a.businessUrls;
+            if (urls.homepage) document.getElementById('url-homepage').value = urls.homepage;
+            if (urls.pricing) document.getElementById('url-pricing').value = urls.pricing;
+            if (urls.faq) document.getElementById('url-faq').value = urls.faq;
+            if (urls.contact) document.getElementById('url-contact').value = urls.contact;
+            if (urls.about) document.getElementById('url-about').value = urls.about;
+            if (urls.terms) document.getElementById('url-terms').value = urls.terms;
+            if (urls.support) document.getElementById('url-support').value = urls.support;
+            if (urls.custom) document.getElementById('url-custom').value = urls.custom;
+          }
+          // Populate context windows
+          if (a.context) {
+            var ctx = a.context;
+            if (ctx.pricing) document.getElementById('ctx-pricing').value = ctx.pricing;
+            if (ctx.hours) document.getElementById('ctx-hours').value = ctx.hours;
+            if (ctx.faq) document.getElementById('ctx-faq').value = ctx.faq;
+            if (ctx.products) document.getElementById('ctx-products').value = ctx.products;
+            if (ctx.extra) document.getElementById('ctx-extra').value = ctx.extra;
+          }
+          // Populate voice/phone
+          if (a.phoneNumber) {
+            document.getElementById('voice-number-value').textContent = a.phoneNumber;
+            document.getElementById('voice-number-display').classList.remove('hidden');
+            document.getElementById('voice-status-text').textContent = 'Phone number active';
+            document.getElementById('voice-status-sub').textContent = 'Customers can call this number to talk with your AI agent.';
+          }
+          // Populate custom Q&A
+          if (a.customQA && Array.isArray(a.customQA)) {
+            a.customQA.forEach(function(qa) { addQAPair(qa.question, qa.answer); });
+          }
+          // Populate voice selections
+          if (a.voiceEnId) document.getElementById('voice-en').value = a.voiceEnId;
+          if (a.voiceEsId) document.getElementById('voice-es').value = a.voiceEsId;
+          // Populate Telegram
+          if (a.telegramToken) {
+            document.getElementById('telegram-token').value = a.telegramToken;
+          }
+        } catch (err) {
+          showError('Failed to load agent: ' + err.message);
+        }
+      }
+
+      // Setup voice section based on user plan
+      setupVoiceSection();
+    }
+
+    async function setupVoiceSection() {
+      try {
+        var usage = await window.SphinxAPI.getUsage();
+        var plan = usage.plan || 'free';
+        var btn = document.getElementById('voice-get-btn');
+        var link = document.getElementById('voice-upgrade-link');
+        var numberDisplay = document.getElementById('voice-number-display');
+
+        if (numberDisplay && !numberDisplay.classList.contains('hidden')) {
+          // Already has a number — don't show buttons
+          return;
+        }
+
+        if (plan === 'pro' || plan === 'business') {
+          btn.classList.remove('hidden');
+        } else {
+          link.classList.remove('hidden');
+        }
+      } catch(e) {
+        // Silently fail — voice section is optional
+      }
+    }
+
+    function showError(msg) {
+      const el = document.getElementById('error-msg');
+      el.textContent = msg;
+      el.classList.remove('hidden');
+    }
+
+    document.getElementById('agent-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = document.getElementById('submit-btn');
+      btn.disabled = true;
+      btn.textContent = isEdit ? 'Saving...' : 'Creating...';
+
+      // Collect URLs (only non-empty)
+      const businessUrls = {};
+      ['homepage','pricing','faq','contact','about','terms','support','custom'].forEach(key => {
+        const val = document.getElementById('url-' + key).value.trim();
+        if (val) businessUrls[key] = val;
+      });
+
+      // Collect context windows (only non-empty)
+      const context = {};
+      ['pricing','hours','faq','products','extra'].forEach(key => {
+        const val = document.getElementById('ctx-' + key).value.trim();
+        if (val) context[key] = val;
+      });
+
+      // Collect telegram token
+      const telegramToken = document.getElementById('telegram-token').value.trim();
+
+      // Collect custom Q&A pairs
+      const customQA = collectQAPairs();
+
+      const agentType = document.querySelector('input[name="agent-type"]:checked')?.value || 'support';
+      const agentName = document.getElementById('agent-name').value.trim();
+      const businessName = document.getElementById('business-name').value.trim();
+      let greetingVal = document.getElementById('greeting').value.trim();
+      // If no custom greeting, use the default for the agent type
+      if (!greetingVal) {
+        greetingVal = DEFAULT_GREETINGS[agentType]
+          .replace('{name}', agentName || 'your assistant')
+          .replace('{business}', businessName || 'our company');
+      }
+
+      const payload = {
+        name: agentName,
+        businessName: businessName,
+        industry: document.getElementById('industry').value,
+        model: document.getElementById('model').value,
+        businessInfo: document.getElementById('business-info').value.trim(),
+        instructions: document.getElementById('instructions').value.trim(),
+        greeting: greetingVal,
+        color: document.getElementById('color').value,
+        type: agentType,
+        businessUrls: Object.keys(businessUrls).length > 0 ? businessUrls : undefined,
+        context: Object.keys(context).length > 0 ? context : undefined,
+        telegramToken: telegramToken || undefined,
+        customQA: customQA.length > 0 ? customQA : undefined,
+        voiceEnId: document.getElementById('voice-en').value,
+        voiceEsId: document.getElementById('voice-es').value
+      };
+
+      try {
+        if (isEdit) {
+          await window.SphinxAPI.updateAgent(editId, payload);
+        } else {
+          await window.SphinxAPI.createAgent(payload);
+        }
+        window.location.href = '/dashboard.html';
+      } catch (err) {
+        showError(err.message);
+        btn.disabled = false;
+        btn.textContent = isEdit ? 'Save Changes' : 'Create Agent';
+      }
+    });
+
+    window.requestPhoneNumber = async function() {
+      if (!editId) {
+        showError('Please save your agent first, then edit it to add a phone number.');
+        return;
+      }
+      var btn = document.getElementById('voice-get-btn');
+      btn.disabled = true;
+      btn.textContent = 'Provisioning...';
+
+      try {
+        var data = await window.SphinxAuth.apiCall('/voice/provision', {
+          method: 'POST',
+          body: JSON.stringify({ agentId: editId })
+        });
+        if (data.phoneNumber) {
+          document.getElementById('voice-number-value').textContent = data.phoneNumber;
+          document.getElementById('voice-number-display').classList.remove('hidden');
+          document.getElementById('voice-status-text').textContent = 'Phone number active';
+          document.getElementById('voice-status-sub').textContent = 'Customers can call this number to talk with your AI agent.';
+          btn.classList.add('hidden');
+        }
+      } catch(err) {
+        showError('Failed to get phone number: ' + err.message);
+        btn.disabled = false;
+        btn.textContent = 'Get a Phone Number';
+      }
+    };
+
+    // Voice preview using browser SpeechSynthesis
+    window.previewVoice = function(lang) {
+      var select = document.getElementById(lang === 'es' ? 'voice-es' : 'voice-en');
+      var voiceName = select.options[select.selectedIndex].text.split('—')[0].trim();
+      var text = lang === 'es'
+        ? 'Hola, soy ' + voiceName + ', tu asistente virtual. ¿En qué puedo ayudarte hoy?'
+        : 'Hi, I\'m ' + voiceName + ', your virtual assistant. How can I help you today?';
+
+      window.speechSynthesis.cancel();
+      var utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = lang === 'es' ? 'es-ES' : 'en-US';
+      utterance.rate = 1.0;
+      utterance.pitch = 1.0;
+      window.speechSynthesis.speak(utterance);
+    };
+
+    init();
+  </script>
+</body>
+</html>

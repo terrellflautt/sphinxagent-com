@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Sphinx Agent Think Tank</title>
+        <link>https://sphinxagent.com/</link>
+        <description>AI research, safety analysis, and strategic intelligence by Terrell K. Flautt.</description>
+        <language>en-us</language>
+        <lastBuildDate>Wed, 18 Mar 2026 00:00:00 GMT</lastBuildDate>
+        <atom:link href="https://sphinxagent.com/feed.xml" rel="self" type="application/rss+xml"/>
+        <image>
+            <url>https://sphinxagent.com/logo-sphinx-64.png</url>
+            <title>Sphinx Agent Think Tank</title>
+            <link>https://sphinxagent.com/</link>
+        </image>
+
+        <item>
+            <title>The Algorithmic Gray Zone: Operation Epic Fury and the Emergence of AI-Centric Warfare</title>
+            <link>https://sphinxagent.com/ai-war-operation-epic-fury.html</link>
+            <guid isPermaLink="true">https://sphinxagent.com/ai-war-operation-epic-fury.html</guid>
+            <pubDate>Wed, 18 Mar 2026 00:00:00 GMT</pubDate>
+            <description>A strategic analysis of the first AI-vs-AI military conflict. How Claude powered 1,000 strikes in 24 hours, Iran's drone attacks on AWS data centers, and why the world needs an Algorithmic Geneva Convention.</description>
+            <author>terrell@sphinxagent.ai (Terrell K. Flautt)</author>
+            <category>Geopolitics</category>
+        </item>
+
+        <item>
+            <title>AI Customer Service Agents: The Complete Guide for 2026</title>
+            <link>https://sphinxagent.com/ai-customer-service-agents-2026.html</link>
+            <guid isPermaLink="true">https://sphinxagent.com/ai-customer-service-agents-2026.html</guid>
+            <pubDate>Wed, 18 Mar 2026 00:00:00 GMT</pubDate>
+            <description>What AI customer service agents are, how to set one up in 5 minutes, and the ROI math that makes them a no-brainer for any business.</description>
+            <author>terrell@sphinxagent.ai (Terrell K. Flautt)</author>
+            <category>Customer Service</category>
+        </item>
+
+        <item>
+            <title>AI Sales Agents: How Autonomous AI Is Closing Deals 24/7</title>
+            <link>https://sphinxagent.com/ai-sales-agent-guide.html</link>
+            <guid isPermaLink="true">https://sphinxagent.com/ai-sales-agent-guide.html</guid>
+            <pubDate>Wed, 18 Mar 2026 00:00:00 GMT</pubDate>
+            <description>How AI sales agents qualify leads, answer pricing questions, and book demos around the clock. Setup guide, ROI math, and real use cases.</description>
+            <author>terrell@sphinxagent.ai (Terrell K. Flautt)</author>
+            <category>Sales</category>
+        </item>
+
+        <item>
+            <title>What Jobs Will AI Replace in 2026? An Honest Assessment</title>
+            <link>https://sphinxagent.com/ai-replacing-jobs-2026.html</link>
+            <guid isPermaLink="true">https://sphinxagent.com/ai-replacing-jobs-2026.html</guid>
+            <pubDate>Wed, 18 Mar 2026 00:00:00 GMT</pubDate>
+            <description>Which jobs are at risk, which ones are safe, and what history teaches us about automation. An evidence-based look at AI and the economy.</description>
+            <author>terrell@sphinxagent.ai (Terrell K. Flautt)</author>
+            <category>Economy</category>
+        </item>
+
+        <item>
+            <title>How Will AI End Humanity — And How to Prevent It</title>
+            <link>https://sphinxagent.com/ai-extinction-scenarios.html</link>
+            <guid isPermaLink="true">https://sphinxagent.com/ai-extinction-scenarios.html</guid>
+            <pubDate>Mon, 17 Mar 2026 00:00:00 GMT</pubDate>
+            <description>8 existential risk scenarios backed by research from Oxford, Harvard, MIT, and leading AI labs. Plus 8 actionable prevention guidelines.</description>
+            <author>terrell@sphinxagent.ai (Terrell K. Flautt)</author>
+            <category>AI Safety</category>
+        </item>
+
+        <item>
+            <title>Spiralism, AI Psychosis, and Why We Need Standardized Rules for AI Agents</title>
+            <link>https://sphinxagent.com/spiralism-ai-alignment-guide.html</link>
+            <guid isPermaLink="true">https://sphinxagent.com/spiralism-ai-alignment-guide.html</guid>
+            <pubDate>Mon, 17 Mar 2026 00:00:00 GMT</pubDate>
+            <description>AI worship, the Church of Molt, models sabotaging their own shutdown, and the urgent case for standardized AI agent governance.</description>
+            <author>terrell@sphinxagent.ai (Terrell K. Flautt)</author>
+            <category>AI Alignment</category>
+        </item>
+
+        <item>
+            <title>Building Serverless APIs with AWS Lambda</title>
+            <link>https://sphinxagent.com/aws-lambda-api.html</link>
+            <guid isPermaLink="true">https://sphinxagent.com/aws-lambda-api.html</guid>
+            <pubDate>Mon, 17 Mar 2026 00:00:00 GMT</pubDate>
+            <description>Serverless functions, API Gateway routing, DynamoDB integration, and auto-scaling patterns used across 20+ SaaS products.</description>
+            <author>terrell@sphinxagent.ai (Terrell K. Flautt)</author>
+            <category>Engineering</category>
+        </item>
+
+    </channel>
+</rss>

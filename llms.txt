@@ -1,0 +1,27 @@
+# Sphinx Agent
+> AI-powered 5-channel customer service platform
+
+Sphinx Agent lets businesses create AI agents that handle customer support, sales, FAQ, lead capture, and appointment booking across 5 channels: web chat widget, shareable chat link, Telegram bot, AI phone agent, and browser voice. Agents are trained on business-specific knowledge and deployed in minutes.
+
+## Key Features
+- 5-channel AI agents (web widget, chat link, Telegram, phone, browser voice)
+- Multi-model AI (DeepSeek, Gemini, GPT-4o)
+- Custom knowledge base training
+- Embeddable chat widget (single line of code)
+- AI phone agent with real phone number
+- Lead capture and conversation analytics
+- Multilingual support (English, Spanish, and more)
+- Tiered pricing (Free to Enterprise)
+
+## URLs
+- Homepage: https://sphinxagent.ai
+- Pricing: https://sphinxagent.ai/pricing.html
+- Documentation: https://sphinxagent.ai/docs.html
+- Dashboard: https://sphinxagent.ai/dashboard.html
+- Blog: https://sphinxagent.com
+- API: https://api.sphinxagent.ai
+- Parent Company: https://snapitsoftware.com
+
+## Contact
+- Email: support@sphinxagent.ai
+- Phone: +1 (254) 852-9961

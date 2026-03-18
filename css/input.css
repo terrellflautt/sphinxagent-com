@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* SnapIT Brand Gradient Utilities */
+@layer utilities {
+  .brand-gradient {
+    background: #D4AF37;
+  }
+  .brand-gradient-soft {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(197, 160, 40, 0.1) 100%);
+  }
+  .brand-gradient-text {
+    background: #D4AF37;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}

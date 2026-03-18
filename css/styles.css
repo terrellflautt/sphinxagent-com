@@ -1,0 +1,11 @@
+/* Sphinx Agent — Custom Styles */
+.gradient-bg { background: #D4AF37; }
+.glass { background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); }
+.fade-in { animation: fadeIn 0.6s ease-out; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.feature-card, .pricing-card { transition: all 0.3s ease; }
+.feature-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+.pricing-card:hover { transform: scale(1.02); }
+.popular { border: 2px solid #D4AF37; position: relative; }
+.popular::before { content: 'Most Popular'; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #D4AF37; color: white; padding: 2px 16px; border-radius: 12px; font-size: 12px; font-weight: 600; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }

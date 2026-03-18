@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /dashboard.html
+Disallow: /agent-wizard.html
+Disallow: /widget-generator.html
+
+Sitemap: https://sphinxagent.ai/sitemap.xml
