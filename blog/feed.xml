@@ -5,13 +5,23 @@
         <link>https://sphinxagent.com/</link>
         <description>AI research, safety analysis, and strategic intelligence by Terrell K. Flautt.</description>
         <language>en-us</language>
-        <lastBuildDate>Wed, 18 Mar 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 19 Mar 2026 00:00:00 GMT</lastBuildDate>
         <atom:link href="https://sphinxagent.com/feed.xml" rel="self" type="application/rss+xml"/>
         <image>
             <url>https://sphinxagent.com/logo-sphinx-64.png</url>
             <title>Sphinx Agent Think Tank</title>
             <link>https://sphinxagent.com/</link>
         </image>
+
+        <item>
+            <title>The Digital Kill-Chain and the Gilded Web: Algorithmic Warfare, Total Surveillance, and the 2026 Iran Conflict</title>
+            <link>https://sphinxagent.com/digital-kill-chain-gilded-web.html</link>
+            <guid isPermaLink="true">https://sphinxagent.com/digital-kill-chain-gilded-web.html</guid>
+            <pubDate>Wed, 19 Mar 2026 00:00:00 GMT</pubDate>
+            <description>How Palantir's Ontology and Anthropic's Claude compressed the kill chain to milliseconds, LUCAS drones turned AI targeting into kinetic action, the Epstein-Thiel-Barak nexus financing the surveillance state, and the domestic expansion of military-grade AI into American policing.</description>
+            <author>terrell@sphinxagent.ai (Terrell K. Flautt)</author>
+            <category>Geopolitics</category>
+        </item>
 
         <item>
             <title>The Algorithmic Gray Zone: Operation Epic Fury and the Emergence of AI-Centric Warfare</title>
