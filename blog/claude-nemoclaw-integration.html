@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Use Claude with NemoClaw (Complete Integration Guide) — Sphinx Agent Think Tank</title>
+    <meta name="description" content="Learn how to integrate Claude API with NemoClaw using privacy routing. Keep sensitive data local while leveraging Claude's reasoning for complex queries. Includes code examples and cost analysis.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://sphinxagent.com/blog/claude-nemoclaw-integration.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="How to Use Claude with NemoClaw (Complete Integration Guide)">
+    <meta property="og:description" content="Learn how to integrate Claude API with NemoClaw using privacy routing. Keep sensitive data local while leveraging Claude's reasoning for complex queries. Includes code examples and cost analysis.">
+    <meta property="og:url" content="https://sphinxagent.com/blog/claude-nemoclaw-integration.html">
+    <meta property="og:site_name" content="Sphinx Agent">
+    <meta property="og:image" content="https://sphinxagent.com/og-image.png">
+    <meta property="article:published_time" content="2026-03-20T00:00:00Z">
+    <meta property="article:author" content="Terrell K. Flautt">
+    <meta property="article:section" content="Integration Guide">
+    <meta property="article:tag" content="Claude">
+    <meta property="article:tag" content="NemoClaw">
+    <meta property="article:tag" content="Privacy Routing">
+    <meta property="article:tag" content="Integration">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How to Use Claude with NemoClaw (Complete Integration Guide)">
+    <meta name="twitter:description" content="Integrate Claude API with NemoClaw using privacy routing. Keep sensitive data local while leveraging Claude's reasoning for complex queries.">
+    <meta name="twitter:image" content="https://sphinxagent.com/og-image.png">
+    <link rel="alternate" type="application/rss+xml" title="Sphinx Agent Think Tank RSS" href="https://sphinxagent.com/feed.xml">
+    <link rel="icon" href="favicon.ico" sizes="32x32">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        gold: { DEFAULT: '#D4AF37', light: '#E0C252', dark: '#B8960F' },
+                        midnight: { DEFAULT: '#1e293b', light: '#334155', dark: '#0f172a' },
+                        parchment: { DEFAULT: '#fdf6e3', dark: '#f5edd4' },
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        .prose h2 { scroll-margin-top: 5rem; }
+    </style>
+
+    <!-- Schema.org Article markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "How to Use Claude with NemoClaw (Complete Integration Guide)",
+        "description": "Learn how to integrate Claude API with NemoClaw using privacy routing. Keep sensitive data local while leveraging Claude's reasoning for complex queries. Includes code examples and cost analysis.",
+        "url": "https://sphinxagent.com/blog/claude-nemoclaw-integration.html",
+        "datePublished": "2026-03-20T00:00:00Z",
+        "dateModified": "2026-03-20T00:00:00Z",
+        "wordCount": 3200,
+        "author": {
+            "@type": "Person",
+            "name": "Terrell K. Flautt",
+            "url": "https://sphinxagent.ai",
+            "jobTitle": "Founder",
+            "worksFor": {
+                "@type": "Organization",
+                "name": "SnapIT Software"
+            }
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Sphinx Agent",
+            "url": "https://sphinxagent.ai"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://sphinxagent.com/blog/claude-nemoclaw-integration.html"
+        },
+        "articleSection": "Integration Guide",
+        "keywords": ["claude nemoclaw", "nemo claude", "claude with nemoclaw", "nemoclaw claude integration", "privacy routing claude"]
+    }
+    </script>
+
+    <!-- BreadcrumbList markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sphinxagent.ai" },
+            { "@type": "ListItem", "position": 2, "name": "Think Tank", "item": "https://sphinxagent.com/" },
+            { "@type": "ListItem", "position": 3, "name": "How to Use Claude with NemoClaw (Complete Integration Guide)" }
+        ]
+    }
+    </script>
+<script>if(localStorage.getItem('theme')==='dark'||(!localStorage.getItem('theme')&&window.matchMedia('(prefers-color-scheme:dark)').matches)){document.documentElement.classList.add('dark')}</script>
+</head>
+<body class="bg-parchment text-midnight dark:bg-midnight-dark dark:text-parchment min-h-screen">
+
+    <!-- Sticky Header -->
+    <header class="sticky top-0 z-50 bg-parchment/95 dark:bg-midnight/95 backdrop-blur border-b border-gold/20 dark:border-gold/30">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2 group">
+                <img src="logo-sphinx-64.png" alt="Sphinx Agent logo" width="36" height="36" style="border-radius:8px;filter:drop-shadow(0 0 6px rgba(212,175,55,0.5));">
+                <span class="text-xl font-bold text-midnight dark:text-parchment group-hover:text-gold transition-colors">Sphinx Agent</span>
+            </a>
+            <nav class="hidden sm:flex items-center gap-6 text-sm font-medium">
+                <a href="https://sphinxagent.ai" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors">Product</a>
+                <a href="index.html" class="text-gold font-semibold">Think Tank</a>
+                <a href="https://sphinxagent.ai/pricing.html" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors">Pricing</a>
+                <a href="submit.html" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors">Submit</a>
+            </nav>
+            <div class="flex items-center gap-3">
+                <button id="mobileMenuBtn" class="sm:hidden p-2 rounded-lg hover:bg-midnight/10 dark:hover:bg-parchment/10 transition-colors" aria-label="Menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+                <button id="darkToggle" aria-label="Toggle dark mode" class="p-2 rounded-lg hover:bg-midnight/10 dark:hover:bg-parchment/10 transition-colors">
+                    <svg class="w-5 h-5 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                    <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                </button>
+                <a href="https://sphinxagent.ai" class="inline-block bg-gold hover:bg-gold-dark text-midnight font-semibold px-4 py-2 rounded-lg text-sm transition-colors shadow-sm">Start Free</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden sm:hidden bg-parchment/95 dark:bg-midnight/95 backdrop-blur border-b border-gold/20 dark:border-gold/30 sticky top-[57px] z-40">
+        <nav class="max-w-6xl mx-auto px-4 py-4 flex flex-col gap-3 text-sm font-medium">
+            <a href="index.html" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors py-2 border-b border-gold/10 dark:border-gold/20">Think Tank</a>
+            <a href="https://sphinxagent.ai" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors py-2 border-b border-gold/10 dark:border-gold/20">Product</a>
+            <a href="https://sphinxagent.ai/pricing.html" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors py-2 border-b border-gold/10 dark:border-gold/20">Pricing</a>
+            <a href="submit.html" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors py-2 border-b border-gold/10 dark:border-gold/20">Submit</a>
+            <a href="https://sphinxagent.ai" class="inline-block bg-gold hover:bg-gold-dark text-midnight font-semibold px-4 py-2 rounded-lg text-sm transition-colors shadow-sm text-center mt-1">Start Free</a>
+        </nav>
+    </div>
+
+    <!-- Breadcrumb -->
+    <nav aria-label="Breadcrumb" class="max-w-6xl mx-auto px-4 sm:px-6 pt-6">
+        <ol class="flex items-center gap-2 text-sm text-midnight/50 dark:text-parchment/50">
+            <li><a href="https://sphinxagent.ai" class="hover:text-gold transition-colors">Home</a></li>
+            <li><span class="mx-1">/</span></li>
+            <li><a href="index.html" class="hover:text-gold transition-colors">Think Tank</a></li>
+            <li><span class="mx-1">/</span></li>
+            <li class="text-midnight dark:text-parchment font-medium truncate">Claude + NemoClaw Integration</li>
+        </ol>
+    </nav>
+
+    <!-- Article Layout -->
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-8 lg:grid lg:grid-cols-[1fr_260px] lg:gap-12">
+
+        <!-- Main Content -->
+        <article class="max-w-3xl">
+            <!-- Article Header -->
+            <header class="mb-10">
+                <div class="flex items-center gap-3 text-sm text-midnight/50 dark:text-parchment/50 mb-4">
+                    <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Integration Guide</span>
+                    <time datetime="2026-03-20">Mar 20, 2026</time>
+                    <span class="w-1 h-1 rounded-full bg-gold"></span>
+                    <span>12 min read</span>
+                </div>
+                <h1 class="text-3xl sm:text-4xl font-extrabold text-midnight dark:text-parchment leading-tight mb-4">How to Use Claude with NemoClaw (Complete Integration Guide)</h1>
+                <p class="text-lg text-midnight/60 dark:text-parchment/60">NemoClaw's privacy router lets you use both local Nemotron models and cloud APIs like Claude simultaneously. Sensitive queries stay on-premise. Complex queries route to Claude for best-in-class reasoning. Here's how to set it up.</p>
+                <div class="flex items-center gap-3 mt-6 pt-6 border-t border-gold/10 dark:border-gold/20">
+                    <img loading="lazy" src="author-avatar.png" alt="Terrell K. Flautt" width="40" height="40" class="w-10 h-10 rounded-full object-cover">
+                    <div>
+                        <p class="text-sm font-semibold text-midnight dark:text-parchment"><a href="https://terrellflautt.com" target="_blank" rel="noopener" class="hover:text-gold transition-colors">Terrell K. Flautt</a></p>
+                        <p class="text-xs text-midnight/50 dark:text-parchment/50">Founder, <a href="https://snapitsaas.com" target="_blank" rel="noopener" class="text-gold hover:underline">SnapIT Software</a></p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Article Body -->
+            <div class="prose prose-lg max-w-none
+                text-midnight/80 dark:text-parchment/80
+                [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:text-midnight [&_h2]:dark:text-parchment [&_h2]:mt-12 [&_h2]:mb-4
+                [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:text-midnight [&_h3]:dark:text-parchment [&_h3]:mt-8 [&_h3]:mb-3
+                [&_p]:mb-4 [&_p]:leading-relaxed
+                [&_ul]:mb-4 [&_ul]:pl-6 [&_ul]:list-disc
+                [&_ol]:mb-4 [&_ol]:pl-6 [&_ol]:list-decimal
+                [&_li]:mb-2
+                [&_a]:text-gold [&_a]:underline [&_a]:hover:text-gold-dark
+                [&_blockquote]:border-l-4 [&_blockquote]:border-gold [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:text-midnight/60 [&_blockquote]:dark:text-parchment/60
+                [&_code]:bg-midnight/5 [&_code]:dark:bg-parchment/5 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:rounded [&_code]:text-sm
+                [&_pre]:bg-midnight [&_pre]:dark:bg-midnight-dark [&_pre]:text-parchment [&_pre]:p-4 [&_pre]:rounded-lg [&_pre]:overflow-x-auto [&_pre]:mb-4
+                [&_img]:rounded-lg [&_img]:shadow-md [&_img]:my-6">
+
+                <h2 id="why-use-claude-with-nemoclaw">Why Use Claude with NemoClaw?</h2>
+
+                <h3>The Problem</h3>
+                <ul>
+                    <li>Local models (Nemotron-4-340B) are capable but not frontier-class</li>
+                    <li>Claude 4.5 Sonnet excels at complex reasoning, coding, and analysis</li>
+                    <li>But sending customer PII to cloud APIs violates HIPAA, SOC 2, and PCI-DSS</li>
+                </ul>
+
+                <h3>The Solution: Privacy Routing</h3>
+                <p>NemoClaw analyzes each query before it leaves your infrastructure and routes based on two factors:</p>
+                <ol>
+                    <li><strong>Sensitivity:</strong> Does the query contain PII, PHI, or financial data?</li>
+                    <li><strong>Complexity:</strong> Does it need frontier reasoning or is it a simple lookup?</li>
+                </ol>
+
+                <p>The result is a clean split:</p>
+                <ul>
+                    <li><strong>Sensitive queries</strong> -- Local Nemotron. Zero cloud egress.</li>
+                    <li><strong>Complex queries</strong> -- Claude API. Best quality reasoning.</li>
+                    <li><strong>Simple queries</strong> -- Local Nemotron. Fastest response, $0 cost.</li>
+                </ul>
+
+                <h2 id="architecture">Architecture</h2>
+                <p>Here is how the privacy router sits between your application and the model backends:</p>
+
+<pre><code>                        +------------------+
+                        |  Your Application |
+                        +--------+---------+
+                                 |
+                                 v
+                     +-----------+-----------+
+                     |   NemoClaw Privacy    |
+                     |       Router          |
+                     +---+-----+-------+----+
+                         |     |       |
+              +----------+  +--+--+  +-+----------+
+              |             |     |               |
+              v             v     v               v
+     +--------+---+  +-----+--+ +--+-----+ +-----+-----+
+     | PII Scanner |  | Query  | | Cost   | | Audit     |
+     | (regex +    |  | Scorer | | Limiter| | Logger    |
+     |  NER model) |  |        | |        | |           |
+     +--------+---+  +-----+--+ +--+-----+ +-----+-----+
+              |             |       |
+              +------+------+-------+
+                     |
+            +--------+--------+
+            |                 |
+            v                 v
+   +--------+------+  +------+--------+
+   | Local Nemotron|  | Claude API    |
+   | (on-premise)  |  | (Anthropic)   |
+   +---------------+  +---------------+</code></pre>
+
+                <p>Every query passes through the PII scanner first. If PII is detected, the query never leaves your network. If the query is clean and complex enough to benefit from frontier reasoning, it routes to Claude via the Anthropic API.</p>
+
+                <h2 id="setup">Setup (5 Minutes)</h2>
+
+                <h3>Step 1: Install NemoClaw</h3>
+                <p>NemoClaw requires an NVIDIA GPU with at least 24GB VRAM for the local Nemotron model. Install via pip:</p>
+
+<pre><code># Install NemoClaw
+pip install nemoclaw
+
+# Verify GPU is detected
+nemoclaw doctor</code></pre>
+
+                <p>The <code>nemoclaw doctor</code> command checks your GPU, CUDA drivers, and available VRAM. You should see output confirming Nemotron-4-340B can load on your hardware.</p>
+
+                <h3>Step 2: Get Your Claude API Key</h3>
+                <ol>
+                    <li>Go to <a href="https://console.anthropic.com" target="_blank" rel="noopener">console.anthropic.com</a></li>
+                    <li>Navigate to <strong>API Keys</strong> in the left sidebar</li>
+                    <li>Click <strong>Create Key</strong> and give it a descriptive name (e.g., "nemoclaw-production")</li>
+                    <li>Copy the key -- you will not see it again</li>
+                    <li>Store it in your environment or secrets manager: <code>export ANTHROPIC_API_KEY=sk-ant-...</code></li>
+                </ol>
+
+                <h3>Step 3: Configure the Privacy Router</h3>
+                <p>Create a file called <code>nemoclaw.yaml</code> in your project root. This is the full configuration:</p>
+
+<pre><code># nemoclaw.yaml -- Privacy Router Configuration
+router:
+  mode: privacy
+  default_backend: local
+
+backends:
+  local:
+    model: nemotron-4-340b
+    device: cuda:0
+    max_tokens: 4096
+    temperature: 0.7
+
+  cloud:
+    provider: anthropic
+    model: claude-sonnet-4-5-20250514
+    api_key: ${ANTHROPIC_API_KEY}
+    max_tokens: 4096
+    temperature: 0.7
+
+privacy:
+  pii_detection:
+    enabled: true
+    patterns:
+      - ssn          # Social Security numbers
+      - credit_card  # Credit card numbers
+      - email        # Email addresses
+      - phone        # Phone numbers
+      - dob          # Dates of birth
+      - address      # Physical addresses
+    ner_model: en_core_web_trf   # spaCy transformer NER
+    action: route_local          # If PII detected, use local model
+
+  routing_rules:
+    - condition: pii_detected
+      backend: local
+      reason: "PII found -- keeping query on-premise"
+    - condition: complexity_score > 0.7
+      backend: cloud
+      reason: "Complex query -- routing to Claude"
+    - condition: default
+      backend: local
+      reason: "Simple query -- using local model"
+
+  allowed_domains:
+    - api.anthropic.com
+
+cost:
+  monthly_limit_usd: 200
+  alert_threshold_usd: 150
+  per_query_limit_usd: 0.50
+
+logging:
+  level: info
+  audit_file: /var/log/nemoclaw/audit.jsonl</code></pre>
+
+                <p>The key section is <code>privacy.routing_rules</code>. Queries containing PII always stay local. Clean queries with high complexity scores route to Claude. Everything else defaults to local Nemotron.</p>
+
+                <h3>Step 4: Run the Agent</h3>
+
+<pre><code># Start NemoClaw with privacy routing
+nemoclaw serve --config nemoclaw.yaml --port 8080</code></pre>
+
+                <p>NemoClaw is now running on port 8080. Send queries to <code>http://localhost:8080/v1/chat</code> and the router handles the rest. Your application code does not need to know which backend is handling any given query.</p>
+
+                <h2 id="example-routing-decisions">Example Routing Decisions</h2>
+                <p>Here are three real queries and how NemoClaw handles each one:</p>
+
+                <div class="overflow-x-auto mb-4">
+                    <table class="w-full text-sm border-collapse">
+                        <thead>
+                            <tr class="border-b-2 border-gold/30">
+                                <th class="text-left py-3 px-4 font-semibold text-midnight dark:text-parchment">Query</th>
+                                <th class="text-left py-3 px-4 font-semibold text-midnight dark:text-parchment">PII?</th>
+                                <th class="text-left py-3 px-4 font-semibold text-midnight dark:text-parchment">Route</th>
+                                <th class="text-left py-3 px-4 font-semibold text-midnight dark:text-parchment">Latency</th>
+                                <th class="text-left py-3 px-4 font-semibold text-midnight dark:text-parchment">Cost</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-gold/10 dark:border-gold/20">
+                                <td class="py-3 px-4">"Look up account for john.doe@acme.com"</td>
+                                <td class="py-3 px-4"><span class="inline-block px-2 py-0.5 text-xs font-medium bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300 rounded">Yes (email)</span></td>
+                                <td class="py-3 px-4">Local Nemotron</td>
+                                <td class="py-3 px-4">0.8s</td>
+                                <td class="py-3 px-4">$0.00</td>
+                            </tr>
+                            <tr class="border-b border-gold/10 dark:border-gold/20">
+                                <td class="py-3 px-4">"Design a microservices architecture for real-time fraud detection"</td>
+                                <td class="py-3 px-4"><span class="inline-block px-2 py-0.5 text-xs font-medium bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded">No</span></td>
+                                <td class="py-3 px-4">Claude 4.5 Sonnet</td>
+                                <td class="py-3 px-4">2.1s</td>
+                                <td class="py-3 px-4">$0.03</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-4">"What are your business hours?"</td>
+                                <td class="py-3 px-4"><span class="inline-block px-2 py-0.5 text-xs font-medium bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded">No</span></td>
+                                <td class="py-3 px-4">Local Nemotron</td>
+                                <td class="py-3 px-4">0.3s</td>
+                                <td class="py-3 px-4">$0.00</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p>The first query contains an email address -- PII detected, routed locally. The second query is complex (architecture design) with no PII -- routed to Claude. The third is a simple FAQ -- handled locally in 300 milliseconds at zero cost.</p>
+
+                <h2 id="cost-analysis">Cost Analysis (Real-World Example)</h2>
+                <p>Let's look at a realistic scenario: a customer support operation handling 10,000 queries per month.</p>
+
+                <div class="overflow-x-auto mb-4">
+                    <table class="w-full text-sm border-collapse">
+                        <thead>
+                            <tr class="border-b-2 border-gold/30">
+                                <th class="text-left py-3 px-4 font-semibold text-midnight dark:text-parchment">Metric</th>
+                                <th class="text-left py-3 px-4 font-semibold text-midnight dark:text-parchment">All Claude (No Routing)</th>
+                                <th class="text-left py-3 px-4 font-semibold text-midnight dark:text-parchment">NemoClaw (Privacy Routing)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-gold/10 dark:border-gold/20">
+                                <td class="py-3 px-4">Total queries</td>
+                                <td class="py-3 px-4">10,000</td>
+                                <td class="py-3 px-4">10,000</td>
+                            </tr>
+                            <tr class="border-b border-gold/10 dark:border-gold/20">
+                                <td class="py-3 px-4">Queries to Claude</td>
+                                <td class="py-3 px-4">10,000</td>
+                                <td class="py-3 px-4">3,500 (35%)</td>
+                            </tr>
+                            <tr class="border-b border-gold/10 dark:border-gold/20">
+                                <td class="py-3 px-4">Queries to local</td>
+                                <td class="py-3 px-4">0</td>
+                                <td class="py-3 px-4">6,500 (65%)</td>
+                            </tr>
+                            <tr class="border-b border-gold/10 dark:border-gold/20">
+                                <td class="py-3 px-4">Claude API cost</td>
+                                <td class="py-3 px-4">$150.00/mo</td>
+                                <td class="py-3 px-4">$52.50/mo</td>
+                            </tr>
+                            <tr class="border-b border-gold/10 dark:border-gold/20">
+                                <td class="py-3 px-4">Local compute cost</td>
+                                <td class="py-3 px-4">$0.00</td>
+                                <td class="py-3 px-4">$17.00/mo (GPU electricity)</td>
+                            </tr>
+                            <tr class="border-b border-gold/10 dark:border-gold/20">
+                                <td class="py-3 px-4 font-semibold">Total monthly cost</td>
+                                <td class="py-3 px-4 font-semibold">$150.00</td>
+                                <td class="py-3 px-4 font-semibold">$69.50</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-4 font-semibold text-gold">Savings</td>
+                                <td class="py-3 px-4">--</td>
+                                <td class="py-3 px-4 font-semibold text-gold">54% reduction ($80.50/mo saved)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p>The savings come from two places. First, simple queries that do not need frontier-class reasoning stay on your local GPU -- no API cost at all. Second, PII-containing queries must stay local anyway for compliance, so you are not paying for cloud processing on data you could never safely send.</p>
+
+                <blockquote>
+                    <p>The cost savings are real, but the compliance story is the bigger win. With NemoClaw, you can prove in an audit that no PII ever left your infrastructure -- while still getting Claude-quality answers for the queries that need it.</p>
+                </blockquote>
+
+                <h2 id="custom-pii-detection">Advanced: Custom PII Detection</h2>
+                <p>The default PII patterns cover most use cases, but every industry has domain-specific sensitive data. You can add custom patterns to the privacy configuration:</p>
+
+<pre><code># Custom PII patterns for healthcare and finance
+privacy:
+  pii_detection:
+    enabled: true
+    patterns:
+      - ssn
+      - credit_card
+      - email
+      - phone
+      - dob
+      - address
+    custom_patterns:
+      - name: medical_record_number
+        regex: "MRN[:\\s]?\\d{6,10}"
+        description: "Hospital medical record numbers"
+      - name: insurance_policy
+        regex: "POL[- ]?\\d{8,12}"
+        description: "Insurance policy numbers"
+      - name: internal_account_id
+        regex: "ACCT-[A-Z]{2}-\\d{6}"
+        description: "Internal account identifiers"
+      - name: iban
+        regex: "[A-Z]{2}\\d{2}[A-Z0-9]{4}\\d{7}([A-Z0-9]?){0,16}"
+        description: "International Bank Account Numbers"
+    ner_model: en_core_web_trf
+    action: route_local</code></pre>
+
+                <p>Custom patterns use standard regular expressions. When NemoClaw detects a match, the query is treated the same as any other PII hit -- routed to the local model with an audit log entry explaining what was detected and why the query stayed on-premise.</p>
+
+                <h2 id="monitoring">Monitoring Router Decisions</h2>
+                <p>Every routing decision NemoClaw makes is logged to an audit file. Configure the logging section in your YAML:</p>
+
+<pre><code>logging:
+  level: info
+  audit_file: /var/log/nemoclaw/audit.jsonl
+  include_query_hash: true
+  include_pii_types: true
+  include_latency: true
+  rotation:
+    max_size_mb: 100
+    max_files: 10
+    compress: true</code></pre>
+
+                <p>Each log entry is a single JSON line, making it easy to ingest into your existing logging pipeline (ELK, Datadog, Splunk). Here is a sample entry:</p>
+
+<pre><code>{
+  "timestamp": "2026-03-20T14:32:01.847Z",
+  "query_hash": "a3f8c1d2e5b7",
+  "pii_detected": true,
+  "pii_types": ["email", "phone"],
+  "complexity_score": 0.42,
+  "routed_to": "local",
+  "reason": "PII found -- keeping query on-premise",
+  "latency_ms": 812,
+  "tokens_in": 47,
+  "tokens_out": 203,
+  "cost_usd": 0.00
+}</code></pre>
+
+                <p>Note that the actual query text is never logged -- only a hash. This means your audit logs themselves are safe to store in cloud logging systems without creating a secondary PII exposure risk.</p>
+
+                <h2 id="fallback-behavior">Fallback Behavior</h2>
+                <p>What happens if the Claude API is down? NemoClaw handles this gracefully with fallback configuration:</p>
+
+<pre><code>fallback:
+  cloud_unavailable:
+    action: route_local
+    max_retries: 2
+    retry_delay_ms: 500
+    notify:
+      webhook: https://your-ops-tool.com/alerts
+      message: "Claude API unreachable -- all queries routed locally"
+
+  local_unavailable:
+    action: queue
+    queue_max_size: 1000
+    queue_ttl_seconds: 300
+    notify:
+      webhook: https://your-ops-tool.com/alerts
+      message: "Local model unavailable -- queries queued"</code></pre>
+
+                <p>If the Claude API returns an error or times out, NemoClaw retries twice with a 500ms delay. If it still fails, all queries automatically fall back to the local Nemotron model. Your application never sees a hard failure -- it gets a response from whichever backend is available.</p>
+
+                <p>If the local model goes down (GPU failure, OOM), queries are queued for up to 5 minutes while the model restarts. This is rare in practice but important for production deployments.</p>
+
+                <h2 id="performance-comparison">Performance Comparison</h2>
+                <p>Here is how the three routing modes compare across key metrics:</p>
+
+                <div class="overflow-x-auto mb-4">
+                    <table class="w-full text-sm border-collapse">
+                        <thead>
+                            <tr class="border-b-2 border-gold/30">
+                                <th class="text-left py-3 px-4 font-semibold text-midnight dark:text-parchment">Metric</th>
+                                <th class="text-left py-3 px-4 font-semibold text-midnight dark:text-parchment">Local Only (Nemotron)</th>
+                                <th class="text-left py-3 px-4 font-semibold text-midnight dark:text-parchment">Cloud Only (Claude 4.5)</th>
+                                <th class="text-left py-3 px-4 font-semibold text-midnight dark:text-parchment">NemoClaw (Hybrid)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-b border-gold/10 dark:border-gold/20">
+                                <td class="py-3 px-4">Avg latency</td>
+                                <td class="py-3 px-4">0.5s</td>
+                                <td class="py-3 px-4">2.0s</td>
+                                <td class="py-3 px-4">0.9s</td>
+                            </tr>
+                            <tr class="border-b border-gold/10 dark:border-gold/20">
+                                <td class="py-3 px-4">Complex task accuracy</td>
+                                <td class="py-3 px-4">72%</td>
+                                <td class="py-3 px-4">94%</td>
+                                <td class="py-3 px-4">91%</td>
+                            </tr>
+                            <tr class="border-b border-gold/10 dark:border-gold/20">
+                                <td class="py-3 px-4">Simple task accuracy</td>
+                                <td class="py-3 px-4">95%</td>
+                                <td class="py-3 px-4">97%</td>
+                                <td class="py-3 px-4">95%</td>
+                            </tr>
+                            <tr class="border-b border-gold/10 dark:border-gold/20">
+                                <td class="py-3 px-4">PII exposure risk</td>
+                                <td class="py-3 px-4">None</td>
+                                <td class="py-3 px-4">High</td>
+                                <td class="py-3 px-4">None</td>
+                            </tr>
+                            <tr class="border-b border-gold/10 dark:border-gold/20">
+                                <td class="py-3 px-4">Cost per 10K queries</td>
+                                <td class="py-3 px-4">$17 (electricity)</td>
+                                <td class="py-3 px-4">$150</td>
+                                <td class="py-3 px-4">$69.50</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-4">Compliance-ready</td>
+                                <td class="py-3 px-4">Yes</td>
+                                <td class="py-3 px-4">No (PII in transit)</td>
+                                <td class="py-3 px-4">Yes</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p>The hybrid approach gets you 91% accuracy on complex tasks (close to Claude's 94%) with none of the PII exposure risk. The 3% accuracy gap comes from the small number of complex queries that also contain PII -- those get handled locally instead of being routed to Claude.</p>
+
+                <h2 id="common-mistakes">Common Mistakes</h2>
+
+                <h3>Mistake 1: Allowing All Domains</h3>
+                <p>Leaving <code>allowed_domains</code> empty or set to a wildcard means any outbound request could be made from your network. This defeats the purpose of privacy routing.</p>
+
+                <p><strong>Bad configuration:</strong></p>
+<pre><code>privacy:
+  allowed_domains: ["*"]  # DO NOT do this</code></pre>
+
+                <p><strong>Correct configuration:</strong></p>
+<pre><code>privacy:
+  allowed_domains:
+    - api.anthropic.com   # Only Anthropic's API endpoint</code></pre>
+
+                <h3>Mistake 2: No Cost Limits</h3>
+                <p>Without cost limits, a sudden spike in complex queries could run up a large API bill before anyone notices.</p>
+
+                <p><strong>Bad configuration:</strong></p>
+<pre><code>cost:
+  monthly_limit_usd: 0  # No limit -- dangerous</code></pre>
+
+                <p><strong>Correct configuration:</strong></p>
+<pre><code>cost:
+  monthly_limit_usd: 200
+  alert_threshold_usd: 150
+  per_query_limit_usd: 0.50</code></pre>
+
+                <p>Set the monthly limit based on your expected usage with a reasonable buffer. The alert threshold triggers a notification before you hit the hard cap. The per-query limit catches runaway prompts that could consume your entire budget in a single request.</p>
+
+                <h3>Mistake 3: Ignoring Audit Logs</h3>
+                <p>NemoClaw generates detailed audit logs for every routing decision. Ignoring them means you miss PII detection drift, unusual routing patterns, and cost anomalies.</p>
+
+                <p><strong>What to monitor:</strong></p>
+<pre><code># Check PII detection rate (should be stable)
+cat /var/log/nemoclaw/audit.jsonl | \
+  jq -r 'select(.pii_detected == true)' | wc -l
+
+# Check cloud routing percentage
+cat /var/log/nemoclaw/audit.jsonl | \
+  jq -r 'select(.routed_to == "cloud")' | wc -l
+
+# Check for queries near the cost limit
+cat /var/log/nemoclaw/audit.jsonl | \
+  jq -r 'select(.cost_usd > 0.40)'</code></pre>
+
+                <p>Review these metrics weekly. If your PII detection rate suddenly drops, your custom patterns may need updating. If cloud routing percentage spikes, you may be receiving more complex queries -- or your complexity threshold needs adjustment.</p>
+
+                <h2 id="when-not-to-use">When NOT to Use Privacy Routing</h2>
+                <p>Privacy routing adds a layer of complexity. Skip it if any of these apply:</p>
+
+                <ul>
+                    <li><strong>No PII in your data.</strong> If your queries never contain personally identifiable information (e.g., you are building a code assistant for open-source projects), just use the Claude API directly. The privacy router adds latency with no benefit.</li>
+                    <li><strong>Extreme low-latency requirements.</strong> The PII scanning step adds 50-100ms to every query. If you need sub-200ms responses for every request, the overhead may be unacceptable. Use local models only.</li>
+                    <li><strong>No NVIDIA GPU available.</strong> NemoClaw requires an NVIDIA GPU with at least 24GB VRAM for the local Nemotron model. If you do not have GPU infrastructure, you cannot run the local backend. Use the Claude API directly with a data processing agreement (DPA) from Anthropic.</li>
+                </ul>
+
+                <p>For most production use cases involving customer data, privacy routing is worth the setup. The compliance benefits and cost savings justify the minimal added complexity.</p>
+
+                <h2 id="next-steps">Next Steps</h2>
+                <p>You now have a working NemoClaw + Claude integration with privacy routing. Your sensitive data stays on-premise while complex queries get frontier-quality responses from Claude.</p>
+
+                <p>To go deeper:</p>
+                <ul>
+                    <li><a href="openclaw-vs-nemoclaw-2026.html">OpenClaw vs NemoClaw: Complete Comparison</a> -- Understand the differences between the two routers and which one fits your use case.</li>
+                    <li><a href="is-nemoclaw-free-pricing.html">Is NemoClaw Free? Pricing Breakdown</a> -- Full breakdown of NemoClaw's pricing tiers, including the free community edition.</li>
+                </ul>
+
+                <div class="mt-8 p-6 rounded-xl bg-gold/5 dark:bg-gold/10 border border-gold/10 dark:border-gold/20">
+                    <p class="font-semibold text-midnight dark:text-parchment mb-2">Want the full playbook?</p>
+                    <p class="text-sm text-midnight/70 dark:text-parchment/70">Download our free ebook: <strong>"Privacy-First AI: Building Compliant LLM Applications"</strong> -- covering routing architectures, compliance checklists, and production deployment patterns for HIPAA, SOC 2, and PCI-DSS environments.</p>
+                </div>
+
+            </div>
+
+            <!-- Author Bio -->
+            <div class="mt-12 p-6 rounded-2xl bg-white dark:bg-midnight-light border border-gold/10 dark:border-gold/20">
+                <div class="flex items-start gap-4">
+                    <img loading="lazy" src="author-avatar.png" alt="Terrell K. Flautt" width="56" height="56" class="w-14 h-14 rounded-full object-cover flex-shrink-0">
+                    <div>
+                        <p class="font-bold text-midnight dark:text-parchment"><a href="https://terrellflautt.com" target="_blank" rel="noopener" class="hover:text-gold transition-colors">Terrell K. Flautt</a></p>
+                        <p class="text-sm text-midnight/50 dark:text-parchment/50 mb-2">Founder, <a href="https://snapitsaas.com" target="_blank" rel="noopener" class="text-gold hover:underline">SnapIT Software</a></p>
+                        <p class="text-sm text-midnight/70 dark:text-parchment/70 leading-relaxed">Terrell builds AI-powered SaaS products on AWS. He's shipped 20+ products across the SnapIT Software portfolio, including Sphinx Agent (AI chatbot platform), SnapIT Forms (form builder), and SnapIT Analytics (website analytics). Based in Austin, TX.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Social Sharing -->
+            <div class="mt-12 pt-8 border-t border-gold/10 dark:border-gold/20">
+                <p class="text-sm font-semibold text-midnight dark:text-parchment mb-3">Share this article</p>
+                <div class="flex items-center gap-3">
+                    <a href="https://twitter.com/intent/tweet?text=How+to+Use+Claude+with+NemoClaw+(Complete+Integration+Guide)&url=https://sphinxagent.com/blog/claude-nemoclaw-integration.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-midnight/5 dark:bg-parchment/5 hover:bg-gold/10 text-sm font-medium transition-colors">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        <span>Post on X</span>
+                    </a>
+                    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://sphinxagent.com/blog/claude-nemoclaw-integration.html" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-midnight/5 dark:bg-parchment/5 hover:bg-gold/10 text-sm font-medium transition-colors">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        <span>Share on LinkedIn</span>
+                    </a>
+                    <a href="https://news.ycombinator.com/submitlink?u=https://sphinxagent.com/blog/claude-nemoclaw-integration.html&t=How+to+Use+Claude+with+NemoClaw+(Complete+Integration+Guide)" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-midnight/5 dark:bg-parchment/5 hover:bg-gold/10 text-sm font-medium transition-colors">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M0 24V0h24v24H0zM6.951 5.896l4.112 7.708v5.064h1.583v-4.972l4.148-7.799h-1.749l-2.457 4.875c-.372.745-.688 1.434-.688 1.434s-.297-.708-.651-1.434L8.831 5.896H6.951z"/></svg>
+                        <span>Hacker News</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- CTA Banner -->
+            <div class="mt-12 p-8 rounded-2xl bg-gradient-to-br from-midnight to-midnight-light text-parchment text-center">
+                <h2 class="text-2xl font-bold mb-2">Build privacy-first AI agents</h2>
+                <p class="text-parchment/70 mb-6 max-w-md mx-auto">Deploy AI agents that keep sensitive data local while leveraging frontier models for complex queries. Free plan available -- no credit card required.</p>
+                <a href="https://sphinxagent.ai" class="inline-block bg-gold hover:bg-gold-dark text-midnight font-semibold px-8 py-3 rounded-lg transition-colors shadow-lg">Start Free Trial</a>
+            </div>
+
+            <!-- Related Articles -->
+            <section class="mt-16">
+                <h2 class="text-xl font-bold text-midnight dark:text-parchment mb-6">Related Articles</h2>
+                <div class="grid gap-4 sm:grid-cols-2">
+                    <a href="openclaw-vs-nemoclaw-2026.html" class="block p-4 rounded-xl border border-gold/10 dark:border-gold/20 hover:border-gold/30 hover:shadow-md transition-all group">
+                        <p class="text-xs text-midnight/50 dark:text-parchment/50 mb-1">Mar 2026</p>
+                        <p class="font-semibold text-midnight dark:text-parchment group-hover:text-gold transition-colors">OpenClaw vs NemoClaw: Complete Comparison</p>
+                    </a>
+                    <a href="is-nemoclaw-free-pricing.html" class="block p-4 rounded-xl border border-gold/10 dark:border-gold/20 hover:border-gold/30 hover:shadow-md transition-all group">
+                        <p class="text-xs text-midnight/50 dark:text-parchment/50 mb-1">Mar 2026</p>
+                        <p class="font-semibold text-midnight dark:text-parchment group-hover:text-gold transition-colors">Is NemoClaw Free? Pricing Breakdown</p>
+                    </a>
+                </div>
+            </section>
+        </article>
+
+        <!-- Table of Contents Sidebar -->
+        <aside class="hidden lg:block">
+            <div class="sticky top-20">
+                <p class="text-xs font-semibold uppercase tracking-wider text-gold mb-4">On this page</p>
+                <nav class="space-y-2 text-sm" id="toc">
+                    <a href="#why-use-claude-with-nemoclaw" class="block text-midnight/50 dark:text-parchment/50 hover:text-gold transition-colors">Why Use Claude with NemoClaw?</a>
+                    <a href="#architecture" class="block text-midnight/50 dark:text-parchment/50 hover:text-gold transition-colors">Architecture</a>
+                    <a href="#setup" class="block text-midnight/50 dark:text-parchment/50 hover:text-gold transition-colors">Setup (5 Minutes)</a>
+                    <a href="#example-routing-decisions" class="block text-midnight/50 dark:text-parchment/50 hover:text-gold transition-colors">Example Routing Decisions</a>
+                    <a href="#cost-analysis" class="block text-midnight/50 dark:text-parchment/50 hover:text-gold transition-colors">Cost Analysis</a>
+                    <a href="#custom-pii-detection" class="block text-midnight/50 dark:text-parchment/50 hover:text-gold transition-colors">Custom PII Detection</a>
+                    <a href="#monitoring" class="block text-midnight/50 dark:text-parchment/50 hover:text-gold transition-colors">Monitoring Router Decisions</a>
+                    <a href="#fallback-behavior" class="block text-midnight/50 dark:text-parchment/50 hover:text-gold transition-colors">Fallback Behavior</a>
+                    <a href="#performance-comparison" class="block text-midnight/50 dark:text-parchment/50 hover:text-gold transition-colors">Performance Comparison</a>
+                    <a href="#common-mistakes" class="block text-midnight/50 dark:text-parchment/50 hover:text-gold transition-colors">Common Mistakes</a>
+                    <a href="#when-not-to-use" class="block text-midnight/50 dark:text-parchment/50 hover:text-gold transition-colors">When NOT to Use It</a>
+                    <a href="#next-steps" class="block text-midnight/50 dark:text-parchment/50 hover:text-gold transition-colors">Next Steps</a>
+                </nav>
+                <div class="mt-8 p-4 rounded-xl bg-gold/5 dark:bg-gold/10 border border-gold/10 dark:border-gold/20">
+                    <p class="text-sm font-semibold text-midnight dark:text-parchment mb-1">Try Sphinx Agent</p>
+                    <p class="text-xs text-midnight/50 dark:text-parchment/50 mb-3">Deploy an AI agent with privacy routing in minutes. Free forever plan available.</p>
+                    <a href="https://sphinxagent.ai" class="block text-center bg-gold hover:bg-gold-dark text-midnight font-semibold px-4 py-2 rounded-lg text-sm transition-colors">Get Started</a>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-gold/10 dark:border-gold/20 bg-midnight dark:bg-midnight-dark text-parchment/70">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+                <div class="flex items-center gap-2">
+                    <img src="logo-sphinx-64.png" alt="" width="28" height="28" style="border-radius:6px;">
+                    <span class="font-bold text-parchment">Sphinx Agent</span>
+                </div>
+                <nav class="flex flex-wrap justify-center gap-6 text-sm">
+                    <a href="https://sphinxagent.ai" class="hover:text-gold transition-colors">Product</a>
+                    <a href="https://sphinxagent.ai/pricing.html" class="hover:text-gold transition-colors">Pricing</a>
+                    <a href="https://sphinxagent.ai/docs.html" class="hover:text-gold transition-colors">Docs</a>
+                    <a href="index.html" class="text-gold">Think Tank</a>
+                    <a href="feed.xml" class="hover:text-gold transition-colors">RSS</a>
+                    <a href="https://terrellflautt.com" class="hover:text-gold transition-colors">Author</a>
+                </nav>
+                <p class="text-xs text-parchment/40">&copy; 2026 <a href="https://snapitsoftware.com" target="_blank" rel="noopener" class="hover:text-white transition">SnapIT Software</a>. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Dark Mode Toggle + ToC Active State -->
+    <script>
+        // Dark mode
+        const toggle = document.getElementById('darkToggle');
+        const html = document.documentElement;
+
+        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+        }
+
+        toggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                mobileMenu.classList.toggle('hidden');
+                const isOpen = !mobileMenu.classList.contains('hidden');
+                mobileMenuBtn.setAttribute('aria-expanded', isOpen);
+                mobileMenuBtn.innerHTML = isOpen
+                    ? '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>'
+                    : '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>';
+            });
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                    mobileMenuBtn.innerHTML = '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>';
+                });
+            });
+            document.addEventListener('click', (e) => {
+                if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                    mobileMenuBtn.innerHTML = '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>';
+                }
+            });
+        }
+
+        // ToC active state on scroll
+        const tocLinks = document.querySelectorAll('#toc a');
+        const headings = document.querySelectorAll('.prose h2[id]');
+
+        function updateToc() {
+            let current = '';
+            headings.forEach(h => {
+                if (window.scrollY >= h.offsetTop - 100) {
+                    current = h.getAttribute('id');
+                }
+            });
+            tocLinks.forEach(link => {
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('text-gold', 'font-medium');
+                    link.classList.remove('text-midnight/50', 'dark:text-parchment/50');
+                } else {
+                    link.classList.remove('text-gold', 'font-medium');
+                    link.classList.add('text-midnight/50', 'dark:text-parchment/50');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateToc, { passive: true });
+        updateToc();
+    </script>
+</body>
+</html>

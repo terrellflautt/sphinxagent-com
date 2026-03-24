@@ -12,11 +12,13 @@
     <meta property="og:description" content="An in-depth analysis of 8 AI existential risk scenarios and 8 engineering guidelines to prevent them.">
     <meta property="og:url" content="https://sphinxagent.com/ai-extinction-scenarios.html">
     <meta property="og:site_name" content="Sphinx Agent">
+    <meta property="og:image" content="https://sphinxagent.com/og-image.png">
     <meta property="article:published_time" content="2026-03-17T00:00:00Z">
     <meta property="article:author" content="Terrell K. Flautt">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="How Will AI End Humanity — And How to Prevent It">
     <meta name="twitter:description" content="An in-depth analysis of 8 AI existential risk scenarios and 8 engineering guidelines to prevent them.">
+    <meta name="twitter:image" content="https://sphinxagent.com/og-image.png">
     <link rel="alternate" type="application/rss+xml" title="Sphinx Agent Think Tank RSS" href="https://sphinxagent.com/feed.xml">
     <link rel="icon" href="favicon.ico" sizes="32x32">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -27,7 +29,7 @@
             theme: {
                 extend: {
                     colors: {
-                        gold: { DEFAULT: '#D4AF37', light: '#e0c96e', dark: '#a88a2e' },
+                        gold: { DEFAULT: '#D4AF37', light: '#E0C252', dark: '#B8960F' },
                         midnight: { DEFAULT: '#1e293b', light: '#334155', dark: '#0f172a' },
                         parchment: { DEFAULT: '#fdf6e3', dark: '#f5edd4' },
                     }
@@ -37,6 +39,7 @@
     </script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        html { scroll-behavior: smooth; }
         body { font-family: 'Inter', system-ui, sans-serif; }
         .prose h2 { scroll-margin-top: 5rem; }
     </style>
@@ -83,20 +86,22 @@
         ]
     }
     </script>
+<script>if(localStorage.getItem('theme')==='dark'||(!localStorage.getItem('theme')&&window.matchMedia('(prefers-color-scheme:dark)').matches)){document.documentElement.classList.add('dark')}</script>
 </head>
 <body class="bg-parchment text-midnight dark:bg-midnight-dark dark:text-parchment min-h-screen">
 
     <!-- Sticky Header -->
     <header class="sticky top-0 z-50 bg-parchment/95 dark:bg-midnight/95 backdrop-blur border-b border-gold/20 dark:border-gold/30">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
-            <a href="https://sphinxagent.ai" class="flex items-center gap-2 group">
-                <img src="logo-sphinx-64.png" alt="Sphinx Agent" width="32" height="32" style="border-radius:8px;filter:drop-shadow(0 0 6px rgba(212,175,55,0.5));">
+            <a href="index.html" class="flex items-center gap-2 group">
+                <img src="logo-sphinx-64.png" alt="Sphinx Agent" width="36" height="36" style="border-radius:8px;filter:drop-shadow(0 0 6px rgba(212,175,55,0.5));">
                 <span class="text-xl font-bold text-midnight dark:text-parchment group-hover:text-gold transition-colors">Sphinx Agent</span>
             </a>
             <nav class="hidden sm:flex items-center gap-6 text-sm font-medium">
-                <a href="index.html" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors">Think Tank</a>
-                <a href="https://sphinxagent.com/" class="text-gold font-semibold">Think Tank</a>
-                <a href="https://sphinxagent.ai/#pricing" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors">Pricing</a>
+                <a href="https://sphinxagent.ai" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors">Product</a>
+                <a href="index.html" class="text-gold font-semibold">Think Tank</a>
+                <a href="https://sphinxagent.ai/pricing.html" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors">Pricing</a>
+                <a href="submit.html" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors">Submit</a>
             </nav>
             <div class="flex items-center gap-3">
                 <button id="mobileMenuBtn" class="sm:hidden p-2 rounded-lg hover:bg-midnight/10 dark:hover:bg-parchment/10 transition-colors" aria-label="Menu">
@@ -116,18 +121,18 @@
         <nav class="max-w-6xl mx-auto px-4 py-4 flex flex-col gap-3 text-sm font-medium">
             <a href="index.html" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors py-2 border-b border-gold/10 dark:border-gold/20">Think Tank</a>
             <a href="https://sphinxagent.ai" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors py-2 border-b border-gold/10 dark:border-gold/20">Product</a>
-            <a href="https://sphinxagent.ai/#pricing" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors py-2 border-b border-gold/10 dark:border-gold/20">Pricing</a>
+            <a href="https://sphinxagent.ai/pricing.html" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors py-2 border-b border-gold/10 dark:border-gold/20">Pricing</a>
             <a href="submit.html" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors py-2 border-b border-gold/10 dark:border-gold/20">Submit</a>
             <a href="https://sphinxagent.ai" class="inline-block bg-gold hover:bg-gold-dark text-midnight font-semibold px-4 py-2 rounded-lg text-sm transition-colors shadow-sm text-center mt-1">Start Free</a>
         </nav>
     </div>
 
     <!-- Breadcrumb -->
-    <nav aria-label="Breadcrumb" class="max-w-4xl mx-auto px-4 sm:px-6 pt-6">
+    <nav aria-label="Breadcrumb" class="max-w-6xl mx-auto px-4 sm:px-6 pt-6">
         <ol class="flex items-center gap-2 text-sm text-midnight/50 dark:text-parchment/50">
-            <li><a href="index.html" class="hover:text-gold transition-colors">Think Tank</a></li>
+            <li><a href="https://sphinxagent.ai" class="hover:text-gold transition-colors">Home</a></li>
             <li><span class="mx-1">/</span></li>
-            <li><a href="https://sphinxagent.com/" class="hover:text-gold transition-colors">Think Tank</a></li>
+            <li><a href="index.html" class="hover:text-gold transition-colors">Think Tank</a></li>
             <li><span class="mx-1">/</span></li>
             <li class="text-midnight dark:text-parchment font-medium truncate">How Will AI End Humanity</li>
         </ol>
@@ -149,7 +154,7 @@
                 <h1 class="text-3xl sm:text-4xl font-extrabold text-midnight dark:text-parchment leading-tight mb-4">How Will AI End Humanity &mdash; And How to Prevent It</h1>
                 <p class="text-lg text-midnight/60 dark:text-parchment/60">Eight existential risk scenarios that keep AI researchers awake at night, and the eight engineering guidelines that could save us from each one.</p>
                 <div class="flex items-center gap-3 mt-6 pt-6 border-t border-gold/10 dark:border-gold/20">
-                    <img src="author-avatar.png" alt="Terrell K. Flautt" width="40" height="40" class="w-10 h-10 rounded-full object-cover">
+                    <img loading="lazy" src="author-avatar.png" alt="Terrell K. Flautt" width="40" height="40" class="w-10 h-10 rounded-full object-cover">
                     <div>
                         <p class="text-sm font-semibold text-midnight dark:text-parchment"><a href="https://terrellflautt.com" target="_blank" rel="noopener" class="hover:text-gold transition-colors">Terrell K. Flautt</a></p>
                         <p class="text-xs text-midnight/50 dark:text-parchment/50">Cloud Architect &middot; <a href="https://snapitsaas.com" target="_blank" rel="noopener" class="text-gold hover:underline">SnapIT Software</a></p>
@@ -177,7 +182,7 @@
 
                 <p>This article is not speculative fiction. Every scenario described below is grounded in published research from institutions like the Machine Intelligence Research Institute (MIRI), the Center for AI Safety (CAIS), DeepMind, Anthropic, and Oxford&rsquo;s Future of Humanity Institute. We examine eight plausible extinction-level failure modes and then propose eight concrete engineering guidelines &mdash; not policy wishes, but technical constraints that AI builders can implement today.</p>
 
-                <p>As someone who has spent over 5,000 hours building with large language models since 2022, I believe we have a narrow window to get this right. The companies building these systems need to internalize safety as a first-class engineering requirement, not a PR strategy. Here is how things could go wrong, and how we can prevent each scenario.</p>
+                <p>As someone who has been building with large language models since 2022, I believe we have a narrow window to get this right. The companies building these systems need to internalize safety as a first-class engineering requirement, not a PR strategy. Here is how things could go wrong, and how we can prevent each scenario.</p>
 
                 <h2 id="scenario-1">Scenario 1: Intelligence Explosion</h2>
                 <p>The intelligence explosion hypothesis, first articulated by mathematician I.J. Good in 1965, describes a feedback loop where a sufficiently intelligent AI system improves its own architecture, which makes it smarter, which lets it improve itself further, rapidly reaching a level of intelligence that dwarfs every human mind combined. Good called this the &ldquo;last invention that man need ever make.&rdquo;</p>
@@ -306,7 +311,7 @@
 
                 <p>The eight guidelines are not silver bullets. They are engineering practices that reduce risk. Implemented together, they create layers of defense that make catastrophic failures less likely. No single guideline is sufficient on its own, but in combination they represent a framework that responsible AI builders can adopt today.</p>
 
-                <p>We are in a unique moment in history. The decisions made by AI developers, policymakers, and users in the next five to ten years will determine whether artificial intelligence becomes the most transformative technology humanity has ever created &mdash; or the last one. The existential risks are real. The engineering solutions exist. What remains is the will to implement them, even when doing so is slower, more expensive, and less competitive than ignoring them.</p>
+                <p>The decisions made by AI developers, policymakers, and users in the next five to ten years will shape whether artificial intelligence remains a tool under human direction or becomes something we can no longer correct. The existential risks are real. The engineering solutions exist. What remains is the will to implement them, even when doing so is slower, more expensive, and less competitive than ignoring them.</p>
 
                 <p>At Sphinx Agent, we build AI agents for businesses. We do it with human-in-the-loop design, sandboxed execution, secure-by-design architecture, and hard outcome boundaries. Not because these practices make our product faster or cheaper &mdash; they don&rsquo;t. We implement them because they are the right way to build AI systems that serve humans rather than replacing them.</p>
 
@@ -316,10 +321,10 @@
             <!-- Author Bio -->
             <div class="mt-12 p-6 rounded-2xl bg-white dark:bg-midnight-light border border-gold/10 dark:border-gold/20">
                 <div class="flex items-start gap-4">
-                    <img src="author-avatar.png" alt="Terrell K. Flautt" width="56" height="56" class="w-14 h-14 rounded-full object-cover flex-shrink-0">
+                    <img loading="lazy" src="author-avatar.png" alt="Terrell K. Flautt" width="56" height="56" class="w-14 h-14 rounded-full object-cover flex-shrink-0">
                     <div>
                         <p class="font-bold text-midnight dark:text-parchment mb-1">About the Author</p>
-                        <p class="text-sm text-midnight/70 dark:text-parchment/70 leading-relaxed"><a href="https://terrellflautt.com" target="_blank" rel="noopener" class="hover:text-gold transition-colors">Terrell K. Flautt</a> is a Cloud Architect with 5,000+ hours building with large language models since 2022, leading DevOps and infrastructure across 20+ SaaS products at <a href="https://snapitsaas.com" target="_blank" rel="noopener" class="text-gold hover:underline">SnapIT SaaS</a>.</p>
+                        <p class="text-sm text-midnight/70 dark:text-parchment/70 leading-relaxed"><a href="https://terrellflautt.com" target="_blank" rel="noopener" class="hover:text-gold transition-colors">Terrell K. Flautt</a> is a Cloud Architect building with large language models since 2022, leading DevOps and infrastructure across 20+ SaaS products at <a href="https://snapitsaas.com" target="_blank" rel="noopener" class="text-gold hover:underline">SnapIT SaaS</a>.</p>
                     </div>
                 </div>
             </div>
@@ -411,17 +416,18 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
             <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
                 <div class="flex items-center gap-2">
-                    <img src="logo-sphinx-64.png" alt="Sphinx Agent" width="28" height="28" style="border-radius:6px;">
+                    <img src="logo-sphinx-64.png" alt="" width="28" height="28" style="border-radius:6px;">
                     <span class="font-bold text-parchment">Sphinx Agent</span>
                 </div>
                 <nav class="flex flex-wrap justify-center gap-6 text-sm">
-                    <a href="index.html" class="hover:text-gold transition-colors">Think Tank</a>
-                    <a href="https://sphinxagent.ai/#pricing" class="hover:text-gold transition-colors">Pricing</a>
+                    <a href="https://sphinxagent.ai" class="hover:text-gold transition-colors">Product</a>
+                    <a href="https://sphinxagent.ai/pricing.html" class="hover:text-gold transition-colors">Pricing</a>
                     <a href="https://sphinxagent.ai/docs.html" class="hover:text-gold transition-colors">Docs</a>
-                    <a href="https://sphinxagent.com/" class="text-gold">Blog</a>
-                    <a href="https://sphinxagent.com/feed.xml" class="hover:text-gold transition-colors">RSS</a>
+                    <a href="index.html" class="text-gold">Think Tank</a>
+                    <a href="feed.xml" class="hover:text-gold transition-colors">RSS</a>
+                    <a href="https://terrellflautt.com" class="hover:text-gold transition-colors">Author</a>
                 </nav>
-                <p class="text-xs text-parchment/40">&copy; 2026 Sphinx Agent. All rights reserved.</p>
+                <p class="text-xs text-parchment/40">&copy; 2026 <a href="https://snapitsoftware.com" target="_blank" rel="noopener" class="hover:text-white transition">SnapIT Software</a>. All rights reserved.</p>
             </div>
         </div>
     </footer>

@@ -12,6 +12,7 @@
     <meta property="og:description" content="How Palantir, Anthropic, and the Maven Smart System compressed the kill chain to milliseconds, the Epstein-Thiel-Barak nexus financing the surveillance state, and the domestic expansion of military-grade AI into American policing.">
     <meta property="og:url" content="https://sphinxagent.com/digital-kill-chain-gilded-web.html">
     <meta property="og:site_name" content="Sphinx Agent">
+    <meta property="og:image" content="https://sphinxagent.com/og-image.png">
     <meta property="article:published_time" content="2026-03-19T00:00:00Z">
     <meta property="article:author" content="Terrell K. Flautt">
     <meta property="article:section" content="Geopolitics & AI">
@@ -24,6 +25,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="The Digital Kill-Chain and the Gilded Web">
     <meta name="twitter:description" content="How Palantir and Anthropic compressed the kill chain to milliseconds, and the gilded web of relationships financing the surveillance state.">
+    <meta name="twitter:image" content="https://sphinxagent.com/og-image.png">
     <link rel="alternate" type="application/rss+xml" title="Sphinx Agent Think Tank RSS" href="https://sphinxagent.com/feed.xml">
     <link rel="icon" href="favicon.ico" sizes="32x32">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -34,7 +36,7 @@
             theme: {
                 extend: {
                     colors: {
-                        gold: { DEFAULT: '#D4AF37', light: '#e0c96e', dark: '#a88a2e' },
+                        gold: { DEFAULT: '#D4AF37', light: '#E0C252', dark: '#B8960F' },
                         midnight: { DEFAULT: '#1e293b', light: '#334155', dark: '#0f172a' },
                         parchment: { DEFAULT: '#fdf6e3', dark: '#f5edd4' },
                     }
@@ -44,6 +46,7 @@
     </script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        html { scroll-behavior: smooth; }
         body { font-family: 'Inter', system-ui, sans-serif; }
         .prose h2 { scroll-margin-top: 5rem; }
         .prose table { width: 100%; border-collapse: collapse; margin-bottom: 1.5rem; font-size: 0.9rem; }
@@ -108,20 +111,21 @@
         ]
     }
     </script>
+<script>if(localStorage.getItem('theme')==='dark'||(!localStorage.getItem('theme')&&window.matchMedia('(prefers-color-scheme:dark)').matches)){document.documentElement.classList.add('dark')}</script>
 </head>
 <body class="bg-parchment text-midnight dark:bg-midnight-dark dark:text-parchment min-h-screen">
 
     <!-- Sticky Header -->
     <header class="sticky top-0 z-50 bg-parchment/95 dark:bg-midnight/95 backdrop-blur border-b border-gold/20 dark:border-gold/30">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
-            <a href="https://sphinxagent.ai" class="flex items-center gap-2 group">
-                <img src="logo-sphinx-64.png" alt="Sphinx Agent" width="32" height="32" style="border-radius:8px;filter:drop-shadow(0 0 6px rgba(212,175,55,0.5));">
+            <a href="index.html" class="flex items-center gap-2 group">
+                <img src="logo-sphinx-64.png" alt="Sphinx Agent" width="36" height="36" style="border-radius:8px;filter:drop-shadow(0 0 6px rgba(212,175,55,0.5));">
                 <span class="text-xl font-bold text-midnight dark:text-parchment group-hover:text-gold transition-colors">Sphinx Agent</span>
             </a>
             <nav class="hidden sm:flex items-center gap-6 text-sm font-medium">
                 <a href="https://sphinxagent.ai" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors">Product</a>
                 <a href="index.html" class="text-gold font-semibold">Think Tank</a>
-                <a href="https://sphinxagent.ai/#pricing" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors">Pricing</a>
+                <a href="https://sphinxagent.ai/pricing.html" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors">Pricing</a>
                 <a href="submit.html" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors">Submit</a>
             </nav>
             <div class="flex items-center gap-3">
@@ -142,14 +146,14 @@
         <nav class="max-w-6xl mx-auto px-4 py-4 flex flex-col gap-3 text-sm font-medium">
             <a href="index.html" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors py-2 border-b border-gold/10 dark:border-gold/20">Think Tank</a>
             <a href="https://sphinxagent.ai" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors py-2 border-b border-gold/10 dark:border-gold/20">Product</a>
-            <a href="https://sphinxagent.ai/#pricing" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors py-2 border-b border-gold/10 dark:border-gold/20">Pricing</a>
+            <a href="https://sphinxagent.ai/pricing.html" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors py-2 border-b border-gold/10 dark:border-gold/20">Pricing</a>
             <a href="submit.html" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors py-2 border-b border-gold/10 dark:border-gold/20">Submit</a>
             <a href="https://sphinxagent.ai" class="inline-block bg-gold hover:bg-gold-dark text-midnight font-semibold px-4 py-2 rounded-lg text-sm transition-colors shadow-sm text-center mt-1">Start Free</a>
         </nav>
     </div>
 
     <!-- Breadcrumb -->
-    <nav aria-label="Breadcrumb" class="max-w-4xl mx-auto px-4 sm:px-6 pt-6">
+    <nav aria-label="Breadcrumb" class="max-w-6xl mx-auto px-4 sm:px-6 pt-6">
         <ol class="flex items-center gap-2 text-sm text-midnight/50 dark:text-parchment/50">
             <li><a href="https://sphinxagent.ai" class="hover:text-gold transition-colors">Home</a></li>
             <li><span class="mx-1">/</span></li>
@@ -175,7 +179,7 @@
                 <h1 class="text-3xl sm:text-4xl font-extrabold text-midnight dark:text-parchment leading-tight mb-4">The Digital Kill-Chain and the Gilded Web: Algorithmic Warfare, Total Surveillance, and the 2026 Iran Conflict</h1>
                 <p class="text-lg text-midnight/60 dark:text-parchment/60">How Palantir's Ontology and Anthropic's Claude compressed the kill chain to milliseconds, LUCAS drones turned AI targeting into kinetic action at machine scale, and a gilded web of relationships connecting Peter Thiel, Jeffrey Epstein, and Ehud Barak financed the surveillance infrastructure now being turned inward on American citizens.</p>
                 <div class="flex items-center gap-3 mt-6 pt-6 border-t border-gold/10 dark:border-gold/20">
-                    <img src="author-avatar.png" alt="Terrell K. Flautt" width="40" height="40" class="w-10 h-10 rounded-full object-cover">
+                    <img loading="lazy" src="author-avatar.png" alt="Terrell K. Flautt" width="40" height="40" class="w-10 h-10 rounded-full object-cover">
                     <div>
                         <p class="text-sm font-semibold text-midnight dark:text-parchment"><a href="https://terrellflautt.com" target="_blank" rel="noopener" class="hover:text-gold transition-colors">Terrell K. Flautt</a></p>
                         <p class="text-xs text-midnight/50 dark:text-parchment/50">Founder, <a href="https://snapitsaas.com" target="_blank" rel="noopener" class="text-gold hover:underline">SnapIT Software</a></p>
@@ -667,15 +671,16 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
             <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
                 <div class="flex items-center gap-2">
-                    <img src="logo-sphinx-64.png" alt="Sphinx Agent" width="28" height="28" style="border-radius:6px;">
+                    <img src="logo-sphinx-64.png" alt="" width="28" height="28" style="border-radius:6px;">
                     <span class="font-bold text-parchment">Sphinx Agent</span>
                 </div>
                 <nav class="flex flex-wrap justify-center gap-6 text-sm">
-                    <a href="index.html" class="hover:text-gold transition-colors">Think Tank</a>
-                    <a href="https://sphinxagent.ai/#pricing" class="hover:text-gold transition-colors">Pricing</a>
+                    <a href="https://sphinxagent.ai" class="hover:text-gold transition-colors">Product</a>
+                    <a href="https://sphinxagent.ai/pricing.html" class="hover:text-gold transition-colors">Pricing</a>
                     <a href="https://sphinxagent.ai/docs.html" class="hover:text-gold transition-colors">Docs</a>
-                    <a href="https://sphinxagent.com/" class="text-gold">Blog</a>
-                    <a href="https://sphinxagent.com/feed.xml" class="hover:text-gold transition-colors">RSS</a>
+                    <a href="index.html" class="text-gold">Think Tank</a>
+                    <a href="feed.xml" class="hover:text-gold transition-colors">RSS</a>
+                    <a href="https://terrellflautt.com" class="hover:text-gold transition-colors">Author</a>
                 </nav>
                 <p class="text-xs text-parchment/40">&copy; 2026 <a href="https://snapitsoftware.com" target="_blank" rel="noopener" class="hover:text-white transition">SnapIT Software</a>. All rights reserved.</p>
             </div>
