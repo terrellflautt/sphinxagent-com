@@ -3,41 +3,141 @@
     <channel>
         <title>Sphinx Agent Think Tank</title>
         <link>https://sphinxagent.com/</link>
-        <description>AI research, safety analysis, and strategic intelligence by Terrell K. Flautt.</description>
+        <description>AI research, safety analysis, and strategic intelligence by Terrell K. Flautt. Covering AI agents, algorithmic warfare, AI safety, governance, and industry analysis.</description>
         <language>en-us</language>
-        <lastBuildDate>Wed, 19 Mar 2026 00:00:00 GMT</lastBuildDate>
-        <atom:link href="https://sphinxagent.com/feed.xml" rel="self" type="application/rss+xml"/>
+        <lastBuildDate>Mon, 24 Mar 2026 00:00:00 GMT</lastBuildDate>
+        <atom:link href="https://sphinxagent.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
         <image>
-            <url>https://sphinxagent.com/logo-sphinx-64.png</url>
+            <url>https://sphinxagent.com/blog/logo-sphinx-64.png</url>
             <title>Sphinx Agent Think Tank</title>
             <link>https://sphinxagent.com/</link>
         </image>
 
         <item>
+            <title>How to Build an AI Customer Service Chatbot in 5 Minutes (No Code)</title>
+            <link>https://sphinxagent.com/blog/how-to-build-ai-customer-service-chatbot.html</link>
+            <guid isPermaLink="true">https://sphinxagent.com/blog/how-to-build-ai-customer-service-chatbot.html</guid>
+            <pubDate>Tue, 25 Mar 2026 00:00:00 GMT</pubDate>
+            <description>Step-by-step guide to building an AI customer service chatbot with Sphinx Agent. No coding required. Free tier available.</description>
+            <author>terrell@sphinxagent.ai (Terrell K. Flautt)</author>
+            <category>Guide</category>
+        </item>
+
+        <item>
+            <title>How to Set Up an AI Sales Agent That Qualifies Leads 24/7</title>
+            <link>https://sphinxagent.com/blog/how-to-set-up-ai-sales-agent.html</link>
+            <guid isPermaLink="true">https://sphinxagent.com/blog/how-to-set-up-ai-sales-agent.html</guid>
+            <pubDate>Tue, 25 Mar 2026 00:00:00 GMT</pubDate>
+            <description>Deploy an AI sales agent that qualifies leads, answers pricing questions, and books demos around the clock.</description>
+            <author>terrell@sphinxagent.ai (Terrell K. Flautt)</author>
+            <category>Guide</category>
+        </item>
+
+        <item>
+            <title>AI Receptionist: How to Set Up an AI Phone Receptionist for Your Business</title>
+            <link>https://sphinxagent.com/blog/ai-receptionist-setup-guide.html</link>
+            <guid isPermaLink="true">https://sphinxagent.com/blog/ai-receptionist-setup-guide.html</guid>
+            <pubDate>Tue, 25 Mar 2026 00:00:00 GMT</pubDate>
+            <description>Set up an AI receptionist that answers calls, greets visitors, and schedules appointments. For medical offices, law firms, salons, and service businesses.</description>
+            <author>terrell@sphinxagent.ai (Terrell K. Flautt)</author>
+            <category>Guide</category>
+        </item>
+
+        <item>
+            <title>AI Voice Agents: How to Deploy a Voice AI Agent (Free Tier Available)</title>
+            <link>https://sphinxagent.com/blog/ai-voice-agent-platform-guide.html</link>
+            <guid isPermaLink="true">https://sphinxagent.com/blog/ai-voice-agent-platform-guide.html</guid>
+            <pubDate>Tue, 25 Mar 2026 00:00:00 GMT</pubDate>
+            <description>Deploy an AI voice agent for phone calls and browser voice. Free tier for browser voice, phone numbers from $49/mo.</description>
+            <author>terrell@sphinxagent.ai (Terrell K. Flautt)</author>
+            <category>Guide</category>
+        </item>
+
+        <item>
+            <title>Best No-Code AI Chatbot Platform for SaaS and Business (2026)</title>
+            <link>https://sphinxagent.com/blog/no-code-ai-chatbot-saas-platform.html</link>
+            <guid isPermaLink="true">https://sphinxagent.com/blog/no-code-ai-chatbot-saas-platform.html</guid>
+            <pubDate>Tue, 25 Mar 2026 00:00:00 GMT</pubDate>
+            <description>Compare no-code AI chatbot platforms. Sphinx Agent vs Chatbase vs Intercom vs Tidio. Full API access, multi-model AI, 5-channel deployment.</description>
+            <author>terrell@sphinxagent.ai (Terrell K. Flautt)</author>
+            <category>Guide</category>
+        </item>
+
+        <item>
+            <title>How to Build an AI Tech Support Agent for Your Product</title>
+            <link>https://sphinxagent.com/blog/ai-tech-support-agent-setup.html</link>
+            <guid isPermaLink="true">https://sphinxagent.com/blog/ai-tech-support-agent-setup.html</guid>
+            <pubDate>Tue, 25 Mar 2026 00:00:00 GMT</pubDate>
+            <description>Train an AI on your docs, API reference, and known issues. Handles 60-80% of tier-1 technical support tickets without a human.</description>
+            <author>terrell@sphinxagent.ai (Terrell K. Flautt)</author>
+            <category>Guide</category>
+        </item>
+
+        <item>
+            <title>OpenAI Killed Sora. Here's Why — and What to Use Instead</title>
+            <link>https://sphinxagent.com/blog/openai-sora-shutdown-2026.html</link>
+            <guid isPermaLink="true">https://sphinxagent.com/blog/openai-sora-shutdown-2026.html</guid>
+            <pubDate>Mon, 24 Mar 2026 00:00:00 GMT</pubDate>
+            <description>OpenAI shut down Sora on March 24, 2026. The AI video generator burned an estimated $15 million per day in compute costs. With an IPO looming and a global deepfake enforcement wave underway, the math stopped working. Here are the best alternatives.</description>
+            <author>terrell@sphinxagent.ai (Terrell K. Flautt)</author>
+            <category>AI Industry</category>
+        </item>
+
+        <item>
+            <title>Is NemoClaw Free? Complete Pricing Breakdown (2026)</title>
+            <link>https://sphinxagent.com/blog/is-nemoclaw-free-pricing.html</link>
+            <guid isPermaLink="true">https://sphinxagent.com/blog/is-nemoclaw-free-pricing.html</guid>
+            <pubDate>Sat, 22 Mar 2026 00:00:00 GMT</pubDate>
+            <description>Is NemoClaw free? Yes and no. Software is free, but hardware costs $2K-$50K. Complete pricing guide with total cost of ownership, breakeven analysis, and when it makes financial sense.</description>
+            <author>terrell@sphinxagent.ai (Terrell K. Flautt)</author>
+            <category>Pricing</category>
+        </item>
+
+        <item>
+            <title>OpenClaw vs NemoClaw: Which AI Agent Platform Should You Use in 2026?</title>
+            <link>https://sphinxagent.com/blog/openclaw-vs-nemoclaw-2026.html</link>
+            <guid isPermaLink="true">https://sphinxagent.com/blog/openclaw-vs-nemoclaw-2026.html</guid>
+            <pubDate>Fri, 21 Mar 2026 00:00:00 GMT</pubDate>
+            <description>Head-to-head comparison of OpenClaw and NemoClaw for AI agent orchestration. Architecture, performance, pricing, and when to use each.</description>
+            <author>terrell@sphinxagent.ai (Terrell K. Flautt)</author>
+            <category>Infrastructure</category>
+        </item>
+
+        <item>
+            <title>How to Use Claude with NemoClaw (Complete Integration Guide)</title>
+            <link>https://sphinxagent.com/blog/claude-nemoclaw-integration.html</link>
+            <guid isPermaLink="true">https://sphinxagent.com/blog/claude-nemoclaw-integration.html</guid>
+            <pubDate>Thu, 20 Mar 2026 00:00:00 GMT</pubDate>
+            <description>Step-by-step guide to integrating Anthropic's Claude with NemoClaw for privacy-first AI agent deployment on AWS Lambda.</description>
+            <author>terrell@sphinxagent.ai (Terrell K. Flautt)</author>
+            <category>Infrastructure</category>
+        </item>
+
+        <item>
             <title>The Digital Kill-Chain and the Gilded Web: Algorithmic Warfare, Total Surveillance, and the 2026 Iran Conflict</title>
-            <link>https://sphinxagent.com/digital-kill-chain-gilded-web.html</link>
-            <guid isPermaLink="true">https://sphinxagent.com/digital-kill-chain-gilded-web.html</guid>
+            <link>https://sphinxagent.com/blog/digital-kill-chain-gilded-web.html</link>
+            <guid isPermaLink="true">https://sphinxagent.com/blog/digital-kill-chain-gilded-web.html</guid>
             <pubDate>Wed, 19 Mar 2026 00:00:00 GMT</pubDate>
-            <description>How Palantir's Ontology and Anthropic's Claude compressed the kill chain to milliseconds, LUCAS drones turned AI targeting into kinetic action, the Epstein-Thiel-Barak nexus financing the surveillance state, and the domestic expansion of military-grade AI into American policing.</description>
+            <description>How Palantir's Ontology and Anthropic's Claude compressed the kill chain to milliseconds, LUCAS drones turned AI targeting into kinetic action, and the domestic expansion of military-grade AI into American policing.</description>
             <author>terrell@sphinxagent.ai (Terrell K. Flautt)</author>
             <category>Geopolitics</category>
         </item>
 
         <item>
             <title>The Algorithmic Gray Zone: Operation Epic Fury and the Emergence of AI-Centric Warfare</title>
-            <link>https://sphinxagent.com/ai-war-operation-epic-fury.html</link>
-            <guid isPermaLink="true">https://sphinxagent.com/ai-war-operation-epic-fury.html</guid>
-            <pubDate>Wed, 18 Mar 2026 00:00:00 GMT</pubDate>
-            <description>A strategic analysis of the first AI-vs-AI military conflict. How Claude powered 1,000 strikes in 24 hours, Iran's drone attacks on AWS data centers, and why the world needs an Algorithmic Geneva Convention.</description>
+            <link>https://sphinxagent.com/blog/ai-war-operation-epic-fury.html</link>
+            <guid isPermaLink="true">https://sphinxagent.com/blog/ai-war-operation-epic-fury.html</guid>
+            <pubDate>Tue, 18 Mar 2026 00:00:00 GMT</pubDate>
+            <description>A strategic analysis of the first AI-vs-AI military conflict. How Claude powered 1,000 strikes in 24 hours and why the world needs an Algorithmic Geneva Convention.</description>
             <author>terrell@sphinxagent.ai (Terrell K. Flautt)</author>
             <category>Geopolitics</category>
         </item>
 
         <item>
             <title>AI Customer Service Agents: The Complete Guide for 2026</title>
-            <link>https://sphinxagent.com/ai-customer-service-agents-2026.html</link>
-            <guid isPermaLink="true">https://sphinxagent.com/ai-customer-service-agents-2026.html</guid>
-            <pubDate>Wed, 18 Mar 2026 00:00:00 GMT</pubDate>
+            <link>https://sphinxagent.com/blog/ai-customer-service-agents-2026.html</link>
+            <guid isPermaLink="true">https://sphinxagent.com/blog/ai-customer-service-agents-2026.html</guid>
+            <pubDate>Tue, 18 Mar 2026 00:00:00 GMT</pubDate>
             <description>What AI customer service agents are, how to set one up in 5 minutes, and the ROI math that makes them a no-brainer for any business.</description>
             <author>terrell@sphinxagent.ai (Terrell K. Flautt)</author>
             <category>Customer Service</category>
@@ -45,9 +145,9 @@
 
         <item>
             <title>AI Sales Agents: How Autonomous AI Is Closing Deals 24/7</title>
-            <link>https://sphinxagent.com/ai-sales-agent-guide.html</link>
-            <guid isPermaLink="true">https://sphinxagent.com/ai-sales-agent-guide.html</guid>
-            <pubDate>Wed, 18 Mar 2026 00:00:00 GMT</pubDate>
+            <link>https://sphinxagent.com/blog/ai-sales-agent-guide.html</link>
+            <guid isPermaLink="true">https://sphinxagent.com/blog/ai-sales-agent-guide.html</guid>
+            <pubDate>Tue, 18 Mar 2026 00:00:00 GMT</pubDate>
             <description>How AI sales agents qualify leads, answer pricing questions, and book demos around the clock. Setup guide, ROI math, and real use cases.</description>
             <author>terrell@sphinxagent.ai (Terrell K. Flautt)</author>
             <category>Sales</category>
@@ -55,9 +155,9 @@
 
         <item>
             <title>What Jobs Will AI Replace in 2026? An Honest Assessment</title>
-            <link>https://sphinxagent.com/ai-replacing-jobs-2026.html</link>
-            <guid isPermaLink="true">https://sphinxagent.com/ai-replacing-jobs-2026.html</guid>
-            <pubDate>Wed, 18 Mar 2026 00:00:00 GMT</pubDate>
+            <link>https://sphinxagent.com/blog/ai-replacing-jobs-2026.html</link>
+            <guid isPermaLink="true">https://sphinxagent.com/blog/ai-replacing-jobs-2026.html</guid>
+            <pubDate>Tue, 18 Mar 2026 00:00:00 GMT</pubDate>
             <description>Which jobs are at risk, which ones are safe, and what history teaches us about automation. An evidence-based look at AI and the economy.</description>
             <author>terrell@sphinxagent.ai (Terrell K. Flautt)</author>
             <category>Economy</category>
@@ -65,8 +165,8 @@
 
         <item>
             <title>How Will AI End Humanity — And How to Prevent It</title>
-            <link>https://sphinxagent.com/ai-extinction-scenarios.html</link>
-            <guid isPermaLink="true">https://sphinxagent.com/ai-extinction-scenarios.html</guid>
+            <link>https://sphinxagent.com/blog/ai-extinction-scenarios.html</link>
+            <guid isPermaLink="true">https://sphinxagent.com/blog/ai-extinction-scenarios.html</guid>
             <pubDate>Mon, 17 Mar 2026 00:00:00 GMT</pubDate>
             <description>8 existential risk scenarios backed by research from Oxford, Harvard, MIT, and leading AI labs. Plus 8 actionable prevention guidelines.</description>
             <author>terrell@sphinxagent.ai (Terrell K. Flautt)</author>
@@ -75,8 +175,8 @@
 
         <item>
             <title>Spiralism, AI Psychosis, and Why We Need Standardized Rules for AI Agents</title>
-            <link>https://sphinxagent.com/spiralism-ai-alignment-guide.html</link>
-            <guid isPermaLink="true">https://sphinxagent.com/spiralism-ai-alignment-guide.html</guid>
+            <link>https://sphinxagent.com/blog/spiralism-ai-alignment-guide.html</link>
+            <guid isPermaLink="true">https://sphinxagent.com/blog/spiralism-ai-alignment-guide.html</guid>
             <pubDate>Mon, 17 Mar 2026 00:00:00 GMT</pubDate>
             <description>AI worship, the Church of Molt, models sabotaging their own shutdown, and the urgent case for standardized AI agent governance.</description>
             <author>terrell@sphinxagent.ai (Terrell K. Flautt)</author>
@@ -85,8 +185,8 @@
 
         <item>
             <title>Building Serverless APIs with AWS Lambda</title>
-            <link>https://sphinxagent.com/aws-lambda-api.html</link>
-            <guid isPermaLink="true">https://sphinxagent.com/aws-lambda-api.html</guid>
+            <link>https://sphinxagent.com/blog/aws-lambda-api.html</link>
+            <guid isPermaLink="true">https://sphinxagent.com/blog/aws-lambda-api.html</guid>
             <pubDate>Mon, 17 Mar 2026 00:00:00 GMT</pubDate>
             <description>Serverless functions, API Gateway routing, DynamoDB integration, and auto-scaling patterns used across 20+ SaaS products.</description>
             <author>terrell@sphinxagent.ai (Terrell K. Flautt)</author>

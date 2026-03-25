@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Voice Agents: How to Deploy a Voice AI Agent (Free Tier Available) — Sphinx Agent Think Tank</title>
+    <meta name="description" content="Deploy an AI voice agent that handles phone calls and browser-based voice conversations. Step-by-step setup guide with Sphinx Agent. Free tier for browser voice, phone numbers from $49/mo.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://sphinxagent.com/blog/ai-voice-agent-platform-guide.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="AI Voice Agents: How to Deploy a Voice AI Agent (Free Tier Available)">
+    <meta property="og:description" content="Deploy an AI voice agent that handles phone calls and browser-based voice conversations. Step-by-step setup guide with Sphinx Agent. Free tier for browser voice, phone numbers from $49/mo.">
+    <meta property="og:url" content="https://sphinxagent.com/blog/ai-voice-agent-platform-guide.html">
+    <meta property="og:site_name" content="Sphinx Agent">
+    <meta property="og:image" content="https://sphinxagent.com/og-image.png">
+    <meta property="article:published_time" content="2026-03-25T00:00:00Z">
+    <meta property="article:author" content="Terrell K. Flautt">
+    <meta property="article:section" content="Guide">
+    <meta property="article:tag" content="AI Voice Agent">
+    <meta property="article:tag" content="Voice AI">
+    <meta property="article:tag" content="AI Phone Agent">
+    <meta property="article:tag" content="Voice Chatbot">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI Voice Agents: How to Deploy a Voice AI Agent (Free Tier Available)">
+    <meta name="twitter:description" content="Deploy an AI voice agent that handles phone calls and browser-based voice conversations. Step-by-step setup guide. Free tier for browser voice, phone numbers from $49/mo.">
+    <meta name="twitter:image" content="https://sphinxagent.com/og-image.png">
+    <link rel="alternate" type="application/rss+xml" title="Sphinx Agent Think Tank RSS" href="https://sphinxagent.com/feed.xml">
+    <link rel="icon" href="favicon.ico" sizes="32x32">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        gold: { DEFAULT: '#D4AF37', light: '#E0C252', dark: '#B8960F' },
+                        midnight: { DEFAULT: '#1e293b', light: '#334155', dark: '#0f172a' },
+                        parchment: { DEFAULT: '#fdf6e3', dark: '#f5edd4' },
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        .prose h2 { scroll-margin-top: 5rem; }
+        .alt-table { border-collapse: collapse; width: 100%; }
+        .alt-table th, .alt-table td { padding: 0.75rem 1rem; text-align: left; border-bottom: 1px solid rgba(212, 175, 55, 0.15); }
+        .alt-table th { font-weight: 600; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        .dark .alt-table th, .dark .alt-table td { border-color: rgba(212, 175, 55, 0.2); }
+    </style>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "AI Voice Agents: How to Deploy a Voice AI Agent (Free Tier Available)",
+        "description": "Deploy an AI voice agent that handles phone calls and browser-based voice conversations. Step-by-step setup guide with Sphinx Agent. Free tier for browser voice, phone numbers from $49/mo.",
+        "url": "https://sphinxagent.com/blog/ai-voice-agent-platform-guide.html",
+        "datePublished": "2026-03-25T00:00:00Z",
+        "dateModified": "2026-03-25T00:00:00Z",
+        "wordCount": 2400,
+        "author": {
+            "@type": "Person",
+            "name": "Terrell K. Flautt",
+            "url": "https://sphinxagent.ai",
+            "jobTitle": "Founder",
+            "worksFor": {
+                "@type": "Organization",
+                "name": "SnapIT Software"
+            }
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Sphinx Agent",
+            "url": "https://sphinxagent.ai"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://sphinxagent.com/blog/ai-voice-agent-platform-guide.html"
+        },
+        "articleSection": "Guide",
+        "keywords": ["ai voice agent", "ai voice agent platform", "ai voice agent free", "ai voice agent pricing", "ai voice agents", "voice ai chatbot", "ai phone agent"]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sphinxagent.ai" },
+            { "@type": "ListItem", "position": 2, "name": "Think Tank", "item": "https://sphinxagent.com/" },
+            { "@type": "ListItem", "position": 3, "name": "AI Voice Agents: How to Deploy a Voice AI Agent" }
+        ]
+    }
+    </script>
+
+    <!-- FAQ Schema for Rich Snippets -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Are AI voice agents free?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Some AI voice agent platforms offer free tiers for browser-based voice. Sphinx Agent includes browser voice on its free plan (100 messages/month). Phone-based voice agents that handle real inbound and outbound calls typically start at $49/month because provisioning phone numbers and handling telephony infrastructure has real per-minute costs."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do AI voice agents work?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "AI voice agents use speech-to-text to convert a caller's words into text, process the text through a large language model trained on your business data, then convert the response back to speech using text-to-speech. Browser-based voice agents do this through the visitor's microphone in a web widget. Phone-based voice agents connect to real phone numbers via telephony APIs, answering and making calls like a human receptionist."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What is the best AI voice agent platform?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "The best AI voice agent platform depends on your use case. For businesses that need both browser voice and phone voice in one platform with simple setup, Sphinx Agent covers both starting from a free tier. For enterprise call centers with thousands of concurrent calls, platforms like Parloa or Cognigy specialize in high-volume telephony. For developers who want to build custom voice pipelines, Vapi and Retell AI offer API-first approaches. Most small and mid-size businesses are better served by a platform that handles the full stack without requiring engineering resources."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <script>if(localStorage.getItem('theme')==='dark'||(!localStorage.getItem('theme')&&window.matchMedia('(prefers-color-scheme:dark)').matches)){document.documentElement.classList.add('dark')}</script>
+</head>
+<body class="bg-parchment text-midnight dark:bg-midnight-dark dark:text-parchment min-h-screen">
+
+    <!-- Sticky Header -->
+    <header class="sticky top-0 z-50 bg-parchment/95 dark:bg-midnight/95 backdrop-blur border-b border-gold/20 dark:border-gold/30">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2 group">
+                <img src="logo-sphinx-64.png" alt="Sphinx Agent logo" width="36" height="36" style="border-radius:8px;filter:drop-shadow(0 0 6px rgba(212,175,55,0.5));">
+                <span class="text-xl font-bold text-midnight dark:text-parchment group-hover:text-gold transition-colors">Sphinx Agent</span>
+            </a>
+            <nav class="hidden sm:flex items-center gap-6 text-sm font-medium">
+                <a href="https://sphinxagent.ai" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors">Product</a>
+                <a href="index.html" class="text-gold font-semibold">Think Tank</a>
+                <a href="https://sphinxagent.ai/pricing.html" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors">Pricing</a>
+                <a href="submit.html" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors">Submit</a>
+            </nav>
+            <div class="flex items-center gap-3">
+                <button id="mobileMenuBtn" class="sm:hidden p-2 rounded-lg hover:bg-midnight/10 dark:hover:bg-parchment/10 transition-colors" aria-label="Menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+                <button id="darkToggle" aria-label="Toggle dark mode" class="p-2 rounded-lg hover:bg-midnight/10 dark:hover:bg-parchment/10 transition-colors">
+                    <svg class="w-5 h-5 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                    <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                </button>
+                <a href="https://sphinxagent.ai" class="inline-block bg-gold hover:bg-gold-dark text-midnight font-semibold px-4 py-2 rounded-lg text-sm transition-colors shadow-sm">Start Free</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden sm:hidden bg-parchment/95 dark:bg-midnight/95 backdrop-blur border-b border-gold/20 dark:border-gold/30 sticky top-[57px] z-40">
+        <nav class="max-w-6xl mx-auto px-4 py-4 flex flex-col gap-3 text-sm font-medium">
+            <a href="index.html" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors py-2 border-b border-gold/10 dark:border-gold/20">Think Tank</a>
+            <a href="https://sphinxagent.ai" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors py-2 border-b border-gold/10 dark:border-gold/20">Product</a>
+            <a href="https://sphinxagent.ai/pricing.html" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors py-2 border-b border-gold/10 dark:border-gold/20">Pricing</a>
+            <a href="submit.html" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors py-2 border-b border-gold/10 dark:border-gold/20">Submit</a>
+            <a href="https://sphinxagent.ai" class="inline-block bg-gold hover:bg-gold-dark text-midnight font-semibold px-4 py-2 rounded-lg text-sm transition-colors shadow-sm text-center mt-1">Start Free</a>
+        </nav>
+    </div>
+
+    <!-- Breadcrumb -->
+    <nav aria-label="Breadcrumb" class="max-w-6xl mx-auto px-4 sm:px-6 pt-6">
+        <ol class="flex items-center gap-2 text-sm text-midnight/50 dark:text-parchment/50">
+            <li><a href="https://sphinxagent.ai" class="hover:text-gold transition-colors">Home</a></li>
+            <li><span class="mx-1">/</span></li>
+            <li><a href="index.html" class="hover:text-gold transition-colors">Think Tank</a></li>
+            <li><span class="mx-1">/</span></li>
+            <li class="text-midnight dark:text-parchment font-medium truncate">AI Voice Agents: Deploy Guide</li>
+        </ol>
+    </nav>
+
+    <!-- Article Layout -->
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-8 lg:grid lg:grid-cols-[1fr_260px] lg:gap-12">
+
+        <!-- Main Content -->
+        <article class="max-w-3xl">
+            <!-- Article Header -->
+            <header class="mb-10">
+                <div class="flex items-center gap-3 text-sm text-midnight/50 dark:text-parchment/50 mb-4">
+                    <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Guide</span>
+                    <time datetime="2026-03-25">Mar 25, 2026</time>
+                    <span class="w-1 h-1 rounded-full bg-gold"></span>
+                    <span>9 min read</span>
+                </div>
+                <h1 class="text-3xl sm:text-4xl font-extrabold text-midnight dark:text-parchment leading-tight mb-4">AI Voice Agents: How to Deploy a Voice AI Agent (Free Tier Available)</h1>
+                <p class="text-lg text-midnight/60 dark:text-parchment/60">Two types of voice agents exist. Phone-based agents answer real calls on a real number. Browser-based agents let website visitors talk through their mic. Here is how to set up both.</p>
+                <div class="flex items-center gap-3 mt-6 pt-6 border-t border-gold/10 dark:border-gold/20">
+                    <img loading="lazy" src="author-avatar.png" alt="Terrell K. Flautt" width="40" height="40" class="w-10 h-10 rounded-full object-cover">
+                    <div>
+                        <p class="text-sm font-semibold text-midnight dark:text-parchment"><a href="https://terrellflautt.com" target="_blank" rel="noopener" class="hover:text-gold transition-colors">Terrell K. Flautt</a></p>
+                        <p class="text-xs text-midnight/50 dark:text-parchment/50">Founder, <a href="https://snapitsaas.com" target="_blank" rel="noopener" class="text-gold hover:underline">SnapIT Software</a></p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Article Body -->
+            <div class="prose prose-lg max-w-none
+                text-midnight/80 dark:text-parchment/80
+                [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:text-midnight [&_h2]:dark:text-parchment [&_h2]:mt-12 [&_h2]:mb-4
+                [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:text-midnight [&_h3]:dark:text-parchment [&_h3]:mt-8 [&_h3]:mb-3
+                [&_p]:mb-4 [&_p]:leading-relaxed
+                [&_ul]:mb-4 [&_ul]:pl-6 [&_ul]:list-disc
+                [&_ol]:mb-4 [&_ol]:pl-6 [&_ol]:list-decimal
+                [&_li]:mb-2
+                [&_a]:text-gold [&_a]:underline [&_a]:hover:text-gold-dark
+                [&_blockquote]:border-l-4 [&_blockquote]:border-gold [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:text-midnight/60 [&_blockquote]:dark:text-parchment/60
+                [&_code]:bg-midnight/5 [&_code]:dark:bg-parchment/5 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:rounded [&_code]:text-sm
+                [&_pre]:bg-midnight [&_pre]:dark:bg-midnight-dark [&_pre]:text-parchment [&_pre]:p-4 [&_pre]:rounded-lg [&_pre]:overflow-x-auto [&_pre]:mb-4
+                [&_img]:rounded-lg [&_img]:shadow-md [&_img]:my-6">
+
+                <p>There are two kinds of AI voice agents, and most platforms only do one of them.</p>
+
+                <p>The first is a <strong>phone-based voice agent</strong>. It gets a real phone number. Customers call it, and the agent picks up, talks, and handles the conversation &mdash; scheduling appointments, answering questions, taking messages. It works exactly like calling a receptionist, except the receptionist never calls in sick and never puts anyone on hold.</p>
+
+                <p>The second is a <strong>browser-based voice agent</strong>. It lives on your website as a widget. Visitors click a microphone icon, speak into their mic, and the agent responds out loud. No phone number involved. It is voice-powered chat, running directly in the browser.</p>
+
+                <p><a href="https://sphinxagent.ai">Sphinx Agent</a> does both. Browser voice is on the free tier. Phone voice starts at Pro ($49/mo). This guide walks through setting up each one.</p>
+
+                <h2 id="browser-voice-setup">Browser Voice Agent Setup (Free Tier)</h2>
+
+                <p>Browser voice is the fastest way to get a voice agent running. No phone number to provision, no telephony costs, no carrier setup. Your visitors talk through their browser, and the agent talks back.</p>
+
+                <p>Here is the setup, start to finish:</p>
+
+                <ol>
+                    <li><strong>Sign up at <a href="https://sphinxagent.ai">sphinxagent.ai</a>.</strong> Free plan. No credit card.</li>
+                    <li><strong>Create a new agent.</strong> Give it a name, pick a voice (male or female, multiple accents available), and write a system prompt that tells it who it is and what it should do. Example: "You are the front desk assistant for Greenfield Dental. You answer questions about services, hours, and insurance. You can schedule appointments."</li>
+                    <li><strong>Train it on your data.</strong> Upload your FAQ, paste your website URL for auto-scraping, or drop in a PDF. The agent needs context about your business to give useful answers.</li>
+                    <li><strong>Enable browser voice.</strong> In your agent settings, toggle on "Voice Mode." Pick your preferred voice model and language.</li>
+                    <li><strong>Grab the embed code.</strong> Go to the Deploy tab. Copy the script tag. It looks like this:</li>
+                </ol>
+
+<pre><code>&lt;script src="https://sphinxagent.ai/widget/YOUR_AGENT_ID.js" async&gt;&lt;/script&gt;</code></pre>
+
+                <ol start="6">
+                    <li><strong>Paste it into your site.</strong> Drop the script tag before the closing <code>&lt;/body&gt;</code> tag on any page where you want the agent to appear.</li>
+                    <li><strong>Test it.</strong> Open your site, click the mic icon on the chat widget, and talk. The agent should respond within 1&ndash;2 seconds.</li>
+                </ol>
+
+                <p>That is the entire process. Five minutes if your FAQ is already written. The free tier gives you 100 messages per month, which is enough to test whether voice works for your audience before committing to a paid plan.</p>
+
+                <h2 id="phone-voice-setup">Phone Voice Agent Setup (Pro Tier, $49/mo)</h2>
+
+                <p>Phone voice is where things get serious. Your agent gets a real phone number. Customers call it, the agent answers, and the conversation happens over a normal phone line. The caller does not need an app, a browser, or an internet connection. They just dial a number.</p>
+
+                <p>This is the setup:</p>
+
+                <ol>
+                    <li><strong>Upgrade to Pro ($49/mo).</strong> Phone numbers require the Pro plan or higher. This includes one phone number and 25,000 messages per month.</li>
+                    <li><strong>Provision a phone number.</strong> In your dashboard, go to Voice &gt; Phone Numbers &gt; Add Number. Pick a local or toll-free number. You can choose your area code. The number is live within 60 seconds.</li>
+                    <li><strong>Configure the voice greeting.</strong> Set what the agent says when it picks up. Keep it short: "Thanks for calling Greenfield Dental. How can I help you?" Long greetings waste the caller's time and sound robotic.</li>
+                    <li><strong>Set business hours.</strong> Define when the agent should answer calls. Outside of those hours, you can configure it to take a message, play a custom voicemail, or transfer to an after-hours number.</li>
+                    <li><strong>Set up call routing rules.</strong> For questions the agent cannot handle, configure it to transfer to a human. You set the transfer trigger in the system prompt: "If the caller asks to speak to a manager or describes a medical emergency, transfer to 512-555-0100."</li>
+                    <li><strong>Test it.</strong> Call the number from your personal phone. Run through your top five customer scenarios. Adjust the system prompt based on where the agent stumbles.</li>
+                </ol>
+
+                <p>One thing most people skip: <strong>test with a bad connection.</strong> Call from your car. Call from a noisy room. The agent needs to handle real-world audio, not just quiet-office conditions. If it struggles, shorten your system prompt responses and make sure the agent confirms key details by repeating them back.</p>
+
+                <h2 id="what-voice-handles-well">What Voice Agents Handle Well</h2>
+
+                <p>Voice agents are not general-purpose replacements for human staff. They are very good at a specific set of tasks, and you should scope them tightly to those tasks.</p>
+
+                <ul>
+                    <li><strong>Appointment scheduling.</strong> "I need to book a cleaning for next Thursday." The agent checks availability, confirms the time, and sends a confirmation. This is the single highest-value use case for most businesses.</li>
+                    <li><strong>FAQ and basic information.</strong> Hours, directions, pricing, insurance accepted, return policy. Anything that lives on your website's FAQ page is fair game.</li>
+                    <li><strong>Order status.</strong> "Where is my order?" If you connect the agent to your order management system via API, it can pull tracking info and relay it in real time.</li>
+                    <li><strong>After-hours messaging.</strong> When the office is closed, the agent takes a message, captures the caller's name and number, and emails it to your team. Every missed call after hours is a potential lost customer. The agent catches those.</li>
+                    <li><strong>Call routing and triage.</strong> "I need to talk to billing." The agent asks a few qualifying questions and transfers to the right department. This alone can cut your receptionist's workload by 30&ndash;40%.</li>
+                </ul>
+
+                <h2 id="what-voice-doesnt-handle">What Voice Agents Do Not Handle Well Yet</h2>
+
+                <p>Knowing the limits is more important than knowing the capabilities. If you deploy a voice agent into a scenario it cannot handle, your customers will notice immediately, and they will not call back.</p>
+
+                <ul>
+                    <li><strong>Complex multi-step troubleshooting.</strong> "My printer shows error code E-305, I already replaced the toner, but now the paper tray light is blinking too." This kind of branching diagnostic conversation requires back-and-forth context that current voice models lose track of after four or five exchanges. A human support rep is still better here.</li>
+                    <li><strong>Heavy accents in noisy environments.</strong> Speech-to-text has improved dramatically, but it still drops accuracy when there is background noise combined with an unfamiliar accent. A caller on a construction site with a thick regional accent will get misunderstood. If your caller base skews this way, use voice as a first pass and make it easy to transfer to a human.</li>
+                    <li><strong>Emotional callers who need empathy.</strong> Someone calling to cancel a service because a family member died. A patient calling with bad test results. A customer who is genuinely angry and needs to feel heard. Voice agents can be polite, but they cannot read emotional subtext or provide genuine empathy. These calls need a human. Set up your transfer rules accordingly.</li>
+                </ul>
+
+                <p>The honest answer is that voice agents are best deployed as a first line &mdash; handling the 60&ndash;70% of calls that are routine, and routing the rest to your team. That is where the ROI is. Trying to make them handle everything will hurt your customer experience.</p>
+
+                <h2 id="pricing">Voice Agent Pricing Breakdown</h2>
+
+                <p>Here is what it costs on Sphinx Agent. No hidden fees. No per-minute charges on top of the plan price.</p>
+
+                <div class="overflow-x-auto my-6 rounded-lg border border-gold/10 dark:border-gold/20">
+                    <table class="alt-table text-sm">
+                        <thead class="bg-midnight/5 dark:bg-parchment/5">
+                            <tr>
+                                <th class="text-midnight dark:text-parchment">Plan</th>
+                                <th class="text-midnight dark:text-parchment">Price</th>
+                                <th class="text-midnight dark:text-parchment">Voice</th>
+                                <th class="text-midnight dark:text-parchment">Messages</th>
+                                <th class="text-midnight dark:text-parchment">Phone Numbers</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="font-semibold">Free</td>
+                                <td>$0/mo</td>
+                                <td>Browser only</td>
+                                <td>100</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td class="font-semibold">Starter</td>
+                                <td>$19/mo</td>
+                                <td>Browser only</td>
+                                <td>5,000</td>
+                                <td>0</td>
+                            </tr>
+                            <tr>
+                                <td class="font-semibold">Pro</td>
+                                <td>$49/mo</td>
+                                <td>Browser + Phone</td>
+                                <td>25,000</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td class="font-semibold">Business</td>
+                                <td>$99/mo</td>
+                                <td>Browser + Phone</td>
+                                <td>75,000</td>
+                                <td>5</td>
+                            </tr>
+                            <tr>
+                                <td class="font-semibold">Enterprise</td>
+                                <td>$249/mo</td>
+                                <td>Browser + Phone</td>
+                                <td>200,000</td>
+                                <td>10</td>
+                            </tr>
+                            <tr>
+                                <td class="font-semibold">Enterprise Plus</td>
+                                <td>$499/mo</td>
+                                <td>Browser + Phone</td>
+                                <td>Unlimited</td>
+                                <td>Unlimited</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p>The free tier is real. No trial period. No credit card required. You get browser voice and 100 messages per month, indefinitely. That is enough to validate whether voice works for your use case before spending anything.</p>
+
+                <p>If you need phone numbers, Pro is the entry point at $49/mo. Most single-location businesses &mdash; dental offices, law firms, real estate agents &mdash; never need more than one number, so they stay on Pro.</p>
+
+                <p>Multi-location businesses jump to Business ($99/mo, 5 numbers) or Enterprise ($249/mo, 10 numbers). Each number can have its own greeting, hours, and routing rules.</p>
+
+                <h2 id="voice-vs-chat">Voice vs. Chat: When to Use Which</h2>
+
+                <p>Voice and chat are not interchangeable. They serve different customer behaviors, and the right choice depends on your business type and who is calling.</p>
+
+                <h3>Use Voice When:</h3>
+
+                <ul>
+                    <li><strong>Your customers already call you.</strong> Medical offices, law firms, home services, auto repair, insurance agencies. If your phone rings 20+ times a day, voice agents will have the biggest impact. These callers are not going to open a chat widget. They picked up the phone because that is how they do business.</li>
+                    <li><strong>The interaction is simple and transactional.</strong> Booking an appointment, confirming a reservation, checking if you are open on Saturday. Voice handles these faster than chat because talking is faster than typing.</li>
+                    <li><strong>Your audience skews older or less tech-savvy.</strong> A 65-year-old scheduling a doctor's appointment is going to call. A chat widget is invisible to them.</li>
+                </ul>
+
+                <h3>Use Chat When:</h3>
+
+                <ul>
+                    <li><strong>Your customers are already on your website.</strong> SaaS products, e-commerce stores, online services. If someone is browsing your pricing page at 11 PM, they want to type a question, not make a phone call.</li>
+                    <li><strong>The conversation involves links, code, or structured data.</strong> Chat can send URLs, embed images, display formatted tables. Voice cannot. If your support involves sharing documentation or walking someone through a dashboard, chat wins.</li>
+                    <li><strong>Your customers are comparison shopping.</strong> Someone evaluating five SaaS products is not going to call all five. They will chat with the ones that have a widget and skip the rest.</li>
+                </ul>
+
+                <h3>Use Both When:</h3>
+
+                <p>You have a mix of customer types. A dental office might get phone calls from existing patients and website chats from new patients comparing providers. A law firm gets calls from referrals and chat inquiries from people who found them on Google. Sphinx Agent runs voice and chat from the same agent, same knowledge base, same training data. You are not maintaining two separate systems.</p>
+
+                <h2 id="getting-started">Get Started</h2>
+
+                <p>Sign up at <a href="https://sphinxagent.ai">sphinxagent.ai</a>. Create an agent. Enable voice. That is the whole process.</p>
+
+                <p>Browser voice is free and takes five minutes. Phone voice takes ten minutes and a Pro plan. Either way, you will have a working voice agent before lunch.</p>
+
+                <p>If you are not sure which setup fits your business, start with browser voice on the free tier. See how your visitors interact with it. If the conversations are good, upgrade to phone when you are ready.</p>
+
+            </div>
+
+            <!-- Author Bio -->
+            <div class="mt-12 p-6 rounded-2xl bg-midnight/5 dark:bg-parchment/5 border border-gold/10 dark:border-gold/20">
+                <div class="flex items-start gap-4">
+                    <img loading="lazy" src="author-avatar.png" alt="Terrell K. Flautt" class="w-14 h-14 rounded-full object-cover flex-shrink-0">
+                    <div>
+                        <p class="font-bold text-midnight dark:text-parchment"><a href="https://terrellflautt.com" target="_blank" rel="noopener" class="hover:text-gold transition-colors">Terrell K. Flautt</a></p>
+                        <p class="text-sm text-midnight/60 dark:text-parchment/60">Founder of <a href="https://sphinxagent.ai" class="text-gold hover:underline">Sphinx Agent</a> and <a href="https://snapitsoftware.com" target="_blank" rel="noopener" class="text-gold hover:underline">SnapIT Software</a>. Writes about AI agents, autonomous systems, and the business of artificial intelligence.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Social Sharing -->
+            <div class="mt-12 pt-8 border-t border-gold/10 dark:border-gold/20">
+                <p class="text-sm font-semibold text-midnight dark:text-parchment mb-3">Share this article</p>
+                <div class="flex items-center gap-3">
+                    <a href="https://twitter.com/intent/tweet?url=https://sphinxagent.com/blog/ai-voice-agent-platform-guide.html&text=AI%20Voice%20Agents%3A%20How%20to%20Deploy%20a%20Voice%20AI%20Agent%20%E2%80%94%20free%20tier%20for%20browser%20voice%2C%20phone%20numbers%20from%20%2449%2Fmo." target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-gold/20 hover:border-gold/40 hover:bg-gold/5 text-sm font-medium transition-all">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        Post
+                    </a>
+                    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://sphinxagent.com/blog/ai-voice-agent-platform-guide.html" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-gold/20 hover:border-gold/40 hover:bg-gold/5 text-sm font-medium transition-all">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        Share
+                    </a>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="mt-12 p-8 rounded-2xl bg-gradient-to-br from-midnight to-midnight-light text-parchment text-center">
+                <h2 class="text-2xl font-bold mb-2">Deploy Your Voice Agent Today</h2>
+                <p class="text-parchment/70 mb-6">Browser voice is free. Phone voice starts at $49/mo. Either way, you will have a working agent in under 10 minutes.</p>
+                <a href="https://sphinxagent.ai" class="inline-block bg-gold hover:bg-gold-dark text-midnight font-semibold px-8 py-3 rounded-lg transition-colors">Try Sphinx Agent Free</a>
+            </div>
+
+            <!-- Related Articles -->
+            <section class="mt-16">
+                <h2 class="text-xl font-bold text-midnight dark:text-parchment mb-6">Related Articles</h2>
+                <div class="grid gap-4 sm:grid-cols-2">
+                    <a href="openai-sora-shutdown-2026.html" class="block p-4 rounded-xl border border-gold/10 dark:border-gold/20 hover:border-gold/30 hover:shadow-md transition-all group">
+                        <p class="text-xs text-midnight/50 dark:text-parchment/50 mb-1">Mar 24, 2026</p>
+                        <p class="font-semibold text-midnight dark:text-parchment group-hover:text-gold transition-colors">OpenAI Killed Sora. Here's Why &mdash; and What to Use Instead</p>
+                    </a>
+                    <a href="ai-extinction-scenarios.html" class="block p-4 rounded-xl border border-gold/10 dark:border-gold/20 hover:border-gold/30 hover:shadow-md transition-all group">
+                        <p class="text-xs text-midnight/50 dark:text-parchment/50 mb-1">Mar 17, 2026</p>
+                        <p class="font-semibold text-midnight dark:text-parchment group-hover:text-gold transition-colors">How Will AI End Humanity &mdash; And How to Prevent It</p>
+                    </a>
+                </div>
+            </section>
+        </article>
+
+        <!-- Sidebar -->
+        <aside class="hidden lg:block">
+            <div class="sticky top-20">
+                <p class="text-xs font-semibold uppercase tracking-wider text-gold mb-4">On this page</p>
+                <nav class="space-y-2 text-sm" id="toc">
+                    <a href="#browser-voice-setup" class="block text-midnight/50 dark:text-parchment/50 hover:text-gold transition-colors">Browser Voice Setup (Free)</a>
+                    <a href="#phone-voice-setup" class="block text-midnight/50 dark:text-parchment/50 hover:text-gold transition-colors">Phone Voice Setup ($49/mo)</a>
+                    <a href="#what-voice-handles-well" class="block text-midnight/50 dark:text-parchment/50 hover:text-gold transition-colors">What Voice Handles Well</a>
+                    <a href="#what-voice-doesnt-handle" class="block text-midnight/50 dark:text-parchment/50 hover:text-gold transition-colors">What Voice Doesn't Handle Yet</a>
+                    <a href="#pricing" class="block text-midnight/50 dark:text-parchment/50 hover:text-gold transition-colors">Pricing Breakdown</a>
+                    <a href="#voice-vs-chat" class="block text-midnight/50 dark:text-parchment/50 hover:text-gold transition-colors">Voice vs. Chat</a>
+                    <a href="#getting-started" class="block text-midnight/50 dark:text-parchment/50 hover:text-gold transition-colors">Get Started</a>
+                </nav>
+                <div class="mt-8 p-4 rounded-xl bg-gold/5 dark:bg-gold/10 border border-gold/10">
+                    <p class="text-sm font-semibold text-midnight dark:text-parchment mb-1">Try Sphinx Agent</p>
+                    <p class="text-xs text-midnight/50 dark:text-parchment/50 mb-3">Voice + chat agents. Free tier available.</p>
+                    <a href="https://sphinxagent.ai" class="block text-center bg-gold hover:bg-gold-dark text-midnight font-semibold px-4 py-2 rounded-lg text-sm transition-colors">Start Free</a>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-gold/10 dark:border-gold/20 bg-midnight dark:bg-midnight-dark text-parchment/70">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+                <div class="flex items-center gap-2">
+                    <img src="logo-sphinx-64.png" alt="" width="28" height="28" style="border-radius:6px;">
+                    <span class="font-bold text-parchment">Sphinx Agent</span>
+                </div>
+                <nav class="flex flex-wrap justify-center gap-6 text-sm">
+                    <a href="https://sphinxagent.ai" class="hover:text-gold transition-colors">Product</a>
+                    <a href="https://sphinxagent.ai/pricing.html" class="hover:text-gold transition-colors">Pricing</a>
+                    <a href="https://sphinxagent.ai/docs.html" class="hover:text-gold transition-colors">Docs</a>
+                    <a href="index.html" class="hover:text-gold transition-colors">Think Tank</a>
+                    <a href="submit.html" class="hover:text-gold transition-colors">Submit</a>
+                    <a href="https://terrellflautt.com" class="hover:text-gold transition-colors">Author</a>
+                    <a href="support.html" class="text-parchment/25 hover:text-gold transition-colors">Support</a>
+                </nav>
+                <p class="text-xs text-parchment/40">&copy; 2026 <a href="https://snapitsoftware.com" target="_blank" rel="noopener" class="hover:text-white transition">SnapIT Software</a>. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Dark mode toggle
+        const toggle = document.getElementById('darkToggle');
+        const html = document.documentElement;
+        toggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                mobileMenu.classList.toggle('hidden');
+                const isOpen = !mobileMenu.classList.contains('hidden');
+                mobileMenuBtn.setAttribute('aria-expanded', isOpen);
+                mobileMenuBtn.innerHTML = isOpen
+                    ? '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>'
+                    : '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>';
+            });
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                    mobileMenuBtn.innerHTML = '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>';
+                });
+            });
+            document.addEventListener('click', (e) => {
+                if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                    mobileMenuBtn.innerHTML = '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

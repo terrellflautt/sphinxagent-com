@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support Our Research — Sphinx Agent Think Tank</title>
+    <meta name="description" content="Fund independent research on AI agent architecture, governance, safety, and autonomous systems policy at the Sphinx Agent Think Tank.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://sphinxagent.com/blog/support.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Support Our Research — Sphinx Agent Think Tank">
+    <meta property="og:description" content="Fund independent research on AI agent architecture, governance, safety, and autonomous systems policy.">
+    <meta property="og:url" content="https://sphinxagent.com/blog/support.html">
+    <meta property="og:site_name" content="Sphinx Agent">
+    <meta property="og:image" content="https://sphinxagent.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Support Our Research — Sphinx Agent Think Tank">
+    <meta name="twitter:description" content="Fund independent research on AI agents, governance, and safety.">
+    <meta name="twitter:image" content="https://sphinxagent.com/og-image.png">
+    <link rel="icon" href="favicon.ico" sizes="32x32">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        gold: { DEFAULT: '#D4AF37', light: '#E0C252', dark: '#B8960F' },
+                        midnight: { DEFAULT: '#1e293b', light: '#334155', dark: '#0f172a' },
+                        parchment: { DEFAULT: '#fdf6e3', dark: '#f5edd4' },
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        .amount-btn { transition: all 0.2s ease; }
+        .amount-btn.selected { background: #D4AF37; color: #1e293b; font-weight: 700; box-shadow: 0 0 0 2px #D4AF37, 0 4px 12px rgba(212,175,55,0.3); }
+        .amount-btn:not(.selected):hover { border-color: #D4AF37; color: #D4AF37; }
+        @keyframes fadeUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+        .fade-up { animation: fadeUp 0.5s ease both; }
+        .fade-up-d1 { animation-delay: 0.1s; }
+        .fade-up-d2 { animation-delay: 0.2s; }
+        .fade-up-d3 { animation-delay: 0.3s; }
+        /* Certificate styles */
+        .cert-border { border: 3px double #D4AF37; }
+    </style>
+    <script>if(localStorage.getItem('theme')==='dark'||(!localStorage.getItem('theme')&&window.matchMedia('(prefers-color-scheme:dark)').matches)){document.documentElement.classList.add('dark')}</script>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.2/jspdf.umd.min.js"></script>
+</head>
+<body class="bg-parchment text-midnight dark:bg-midnight-dark dark:text-parchment min-h-screen">
+
+    <!-- Sticky Header -->
+    <header class="sticky top-0 z-50 bg-parchment/95 dark:bg-midnight/95 backdrop-blur border-b border-gold/20 dark:border-gold/30">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2 group">
+                <img src="logo-sphinx-64.png" alt="Sphinx Agent logo" width="36" height="36" style="border-radius:8px;filter:drop-shadow(0 0 6px rgba(212,175,55,0.5));">
+                <span class="text-xl font-bold text-midnight dark:text-parchment group-hover:text-gold transition-colors">Sphinx Agent</span>
+            </a>
+            <nav class="hidden sm:flex items-center gap-6 text-sm font-medium">
+                <a href="https://sphinxagent.ai" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors">Product</a>
+                <a href="index.html" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors">Think Tank</a>
+                <a href="https://sphinxagent.ai/pricing.html" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors">Pricing</a>
+                <a href="submit.html" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors">Submit</a>
+                <a href="fellowship.html" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors">Fellowship</a>
+            </nav>
+            <div class="flex items-center gap-3">
+                <button id="mobileMenuBtn" class="sm:hidden p-2 rounded-lg hover:bg-midnight/10 dark:hover:bg-parchment/10 transition-colors" aria-label="Menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+                <button id="darkToggle" aria-label="Toggle dark mode" class="p-2 rounded-lg hover:bg-midnight/10 dark:hover:bg-parchment/10 transition-colors">
+                    <svg class="w-5 h-5 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                    <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                </button>
+                <a href="https://sphinxagent.ai" class="inline-block bg-gold hover:bg-gold-dark text-midnight font-semibold px-4 py-2 rounded-lg text-sm transition-colors shadow-sm">Start Free</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden sm:hidden bg-parchment/95 dark:bg-midnight/95 backdrop-blur border-b border-gold/20 dark:border-gold/30 sticky top-[57px] z-40">
+        <nav class="max-w-6xl mx-auto px-4 py-4 flex flex-col gap-3 text-sm font-medium">
+            <a href="index.html" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors py-2 border-b border-gold/10 dark:border-gold/20">Think Tank</a>
+            <a href="https://sphinxagent.ai" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors py-2 border-b border-gold/10 dark:border-gold/20">Product</a>
+            <a href="https://sphinxagent.ai/pricing.html" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors py-2 border-b border-gold/10 dark:border-gold/20">Pricing</a>
+            <a href="submit.html" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors py-2 border-b border-gold/10 dark:border-gold/20">Submit</a>
+            <a href="fellowship.html" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors py-2 border-b border-gold/10 dark:border-gold/20">Fellowship</a>
+            <a href="https://sphinxagent.ai" class="inline-block bg-gold hover:bg-gold-dark text-midnight font-semibold px-4 py-2 rounded-lg text-sm transition-colors shadow-sm text-center mt-1">Start Free</a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main class="max-w-2xl mx-auto px-4 sm:px-6 py-16">
+
+        <!-- Contribution Form (hidden on success) -->
+        <div id="formSection">
+            <!-- Page Header -->
+            <div class="text-center mb-12 fade-up">
+                <p class="text-sm font-semibold text-gold uppercase tracking-wider mb-3">Support Independent Research</p>
+                <h1 class="text-3xl sm:text-4xl font-extrabold text-midnight dark:text-parchment mb-4">Fund AI Research That Matters</h1>
+                <p class="text-base text-midnight/60 dark:text-parchment/60 max-w-xl mx-auto leading-relaxed mb-5">Your contribution funds original work in AI alignment, autonomous systems safety, algorithmic warfare policy, and agent governance. Every dollar goes directly to research operations.</p>
+                <div class="flex flex-wrap justify-center gap-2 text-xs font-medium">
+                    <span class="px-3 py-1.5 rounded-full bg-gold/10 dark:bg-gold/20 text-gold border border-gold/20">AI Alignment &amp; Safety</span>
+                    <span class="px-3 py-1.5 rounded-full bg-gold/10 dark:bg-gold/20 text-gold border border-gold/20">Autonomous Weapons Systems</span>
+                    <span class="px-3 py-1.5 rounded-full bg-gold/10 dark:bg-gold/20 text-gold border border-gold/20">AI Cybersecurity &amp; Defense</span>
+                    <span class="px-3 py-1.5 rounded-full bg-gold/10 dark:bg-gold/20 text-gold border border-gold/20">Algorithmic Warfare</span>
+                    <span class="px-3 py-1.5 rounded-full bg-gold/10 dark:bg-gold/20 text-gold border border-gold/20">AI Surveillance &amp; Privacy</span>
+                    <span class="px-3 py-1.5 rounded-full bg-gold/10 dark:bg-gold/20 text-gold border border-gold/20">AI Governance &amp; Policy</span>
+                </div>
+            </div>
+
+            <!-- Where Funds Go -->
+            <div class="mb-10 p-5 rounded-2xl bg-white dark:bg-midnight-light border border-gold/10 dark:border-gold/20 fade-up fade-up-d1">
+                <h2 class="text-sm font-bold text-midnight dark:text-parchment uppercase tracking-wider mb-3">How Contributions Are Used</h2>
+                <div class="grid grid-cols-2 gap-3 text-sm text-midnight/70 dark:text-parchment/70">
+                    <div class="flex items-start gap-2">
+                        <span class="text-gold mt-0.5">&#9670;</span>
+                        <span>White paper &amp; policy brief publication</span>
+                    </div>
+                    <div class="flex items-start gap-2">
+                        <span class="text-gold mt-0.5">&#9670;</span>
+                        <span>Research fellowship stipends</span>
+                    </div>
+                    <div class="flex items-start gap-2">
+                        <span class="text-gold mt-0.5">&#9670;</span>
+                        <span>Compute &amp; infrastructure for experiments</span>
+                    </div>
+                    <div class="flex items-start gap-2">
+                        <span class="text-gold mt-0.5">&#9670;</span>
+                        <span>Open-source tooling &amp; datasets</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contribution Form -->
+            <form id="supportForm" class="space-y-6 fade-up fade-up-d2">
+
+                <!-- Amount Selection -->
+                <div>
+                    <label class="block text-sm font-semibold text-midnight dark:text-parchment mb-3">Select Amount</label>
+                    <div class="grid grid-cols-4 sm:grid-cols-7 gap-2 mb-3">
+                        <button type="button" class="amount-btn px-3 py-2.5 rounded-xl border border-gold/20 dark:border-gold/30 text-sm font-medium text-midnight dark:text-parchment bg-white dark:bg-midnight-light" data-amount="5">$5</button>
+                        <button type="button" class="amount-btn px-3 py-2.5 rounded-xl border border-gold/20 dark:border-gold/30 text-sm font-medium text-midnight dark:text-parchment bg-white dark:bg-midnight-light" data-amount="25">$25</button>
+                        <button type="button" class="amount-btn px-3 py-2.5 rounded-xl border border-gold/20 dark:border-gold/30 text-sm font-medium text-midnight dark:text-parchment bg-white dark:bg-midnight-light" data-amount="50">$50</button>
+                        <button type="button" class="amount-btn px-3 py-2.5 rounded-xl border border-gold/20 dark:border-gold/30 text-sm font-medium text-midnight dark:text-parchment bg-white dark:bg-midnight-light" data-amount="100">$100</button>
+                        <button type="button" class="amount-btn px-3 py-2.5 rounded-xl border border-gold/20 dark:border-gold/30 text-sm font-medium text-midnight dark:text-parchment bg-white dark:bg-midnight-light" data-amount="250">$250</button>
+                        <button type="button" class="amount-btn px-3 py-2.5 rounded-xl border border-gold/20 dark:border-gold/30 text-sm font-medium text-midnight dark:text-parchment bg-white dark:bg-midnight-light" data-amount="500">$500</button>
+                        <button type="button" class="amount-btn px-3 py-2.5 rounded-xl border border-gold/20 dark:border-gold/30 text-sm font-medium text-midnight dark:text-parchment bg-white dark:bg-midnight-light" data-amount="1000">$1,000</button>
+                        <button type="button" class="amount-btn px-3 py-2.5 rounded-xl border border-gold/20 dark:border-gold/30 text-sm font-medium text-midnight dark:text-parchment bg-white dark:bg-midnight-light" data-amount="5000">$5,000</button>
+                    </div>
+                    <div class="relative">
+                        <span class="absolute left-4 top-1/2 -translate-y-1/2 text-midnight/40 dark:text-parchment/40 font-semibold">$</span>
+                        <input type="number" id="customAmount" min="5" max="500000" step="1" placeholder="Custom amount ($5 – $500,000)" class="w-full pl-8 pr-4 py-3 rounded-xl bg-white dark:bg-midnight-light border border-gold/20 dark:border-gold/30 text-midnight dark:text-parchment placeholder-midnight/30 dark:placeholder-parchment/30 focus:outline-none focus:ring-2 focus:ring-gold/50 transition-colors text-sm">
+                    </div>
+                </div>
+
+                <!-- Research Focus -->
+                <div>
+                    <label for="researchFocus" class="block text-sm font-semibold text-midnight dark:text-parchment mb-2">Direct Your Contribution <span class="text-midnight/40 dark:text-parchment/40 font-normal">(optional)</span></label>
+                    <select id="researchFocus" name="researchFocus" class="w-full px-4 py-3 rounded-xl bg-white dark:bg-midnight-light border border-gold/20 dark:border-gold/30 text-midnight dark:text-parchment focus:outline-none focus:ring-2 focus:ring-gold/50 transition-colors text-sm">
+                        <option value="General Research Fund">General Research Fund — allocate where most needed</option>
+                        <option value="Voice Agent UX & Ethics">Voice Agent UX &amp; Ethics</option>
+                        <option value="Enterprise Automation Security">Enterprise Automation Security</option>
+                        <option value="AI Governance & Policy">AI Governance &amp; Policy</option>
+                        <option value="Agentic Architecture">Agentic Architecture</option>
+                        <option value="AI Alignment & Safety">AI Alignment &amp; Safety</option>
+                        <option value="AI Cybersecurity & Defense">AI Cybersecurity &amp; Defense</option>
+                        <option value="Algorithmic Warfare & Autonomous Operations">Algorithmic Warfare &amp; Autonomous Operations</option>
+                        <option value="Anti-Spiralism & AI Religion">Anti-Spiralism &amp; AI Religion</option>
+                        <option value="AI Agent Orchestration & Multi-Agent Systems">AI Agent Orchestration &amp; Multi-Agent Systems</option>
+                        <option value="AI Ethics & Bias Auditing">AI Ethics &amp; Bias Auditing</option>
+                        <option value="Autonomous Decision-Making & Kill Chains">Autonomous Decision-Making &amp; Kill Chains</option>
+                        <option value="AI Regulatory Compliance">AI Regulatory Compliance</option>
+                        <option value="Open-Source AI Security">Open-Source AI Security</option>
+                        <option value="AI Disinformation & Influence Operations">AI Disinformation &amp; Influence Operations</option>
+                        <option value="Deepfakes & Synthetic Media">Deepfakes &amp; Synthetic Media</option>
+                        <option value="AI Surveillance & Privacy">AI Surveillance &amp; Privacy</option>
+                        <option value="Autonomous Weapons Systems">Autonomous Weapons Systems</option>
+                        <option value="Fellowship Program">Fellowship Program — fund researcher stipends</option>
+                    </select>
+                </div>
+
+                <!-- Message -->
+                <div>
+                    <label for="researchMessage" class="block text-sm font-semibold text-midnight dark:text-parchment mb-2">Message <span class="text-midnight/40 dark:text-parchment/40 font-normal">(optional)</span></label>
+                    <textarea id="researchMessage" name="researchMessage" rows="3" maxlength="500" class="w-full px-4 py-3 rounded-xl bg-white dark:bg-midnight-light border border-gold/20 dark:border-gold/30 text-midnight dark:text-parchment placeholder-midnight/30 dark:placeholder-parchment/30 focus:outline-none focus:ring-2 focus:ring-gold/50 transition-colors resize-y text-sm" placeholder="Tell us what research matters most to you, or leave a note for the team..."></textarea>
+                </div>
+
+                <!-- Contributor Info -->
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <div>
+                        <label for="contribName" class="block text-sm font-semibold text-midnight dark:text-parchment mb-2">Full Name <span class="text-gold">*</span></label>
+                        <input type="text" id="contribName" name="contribName" required class="w-full px-4 py-3 rounded-xl bg-white dark:bg-midnight-light border border-gold/20 dark:border-gold/30 text-midnight dark:text-parchment placeholder-midnight/30 dark:placeholder-parchment/30 focus:outline-none focus:ring-2 focus:ring-gold/50 transition-colors text-sm" placeholder="Your name for the certificate">
+                    </div>
+                    <div>
+                        <label for="contribEmail" class="block text-sm font-semibold text-midnight dark:text-parchment mb-2">Email <span class="text-gold">*</span></label>
+                        <input type="email" id="contribEmail" name="contribEmail" required class="w-full px-4 py-3 rounded-xl bg-white dark:bg-midnight-light border border-gold/20 dark:border-gold/30 text-midnight dark:text-parchment placeholder-midnight/30 dark:placeholder-parchment/30 focus:outline-none focus:ring-2 focus:ring-gold/50 transition-colors text-sm" placeholder="For your receipt &amp; certificate">
+                    </div>
+                </div>
+
+                <!-- Mailing List Opt-in -->
+                <div class="flex items-start gap-3">
+                    <input type="checkbox" id="mailingList" name="mailingList" class="mt-1 accent-gold">
+                    <label for="mailingList" class="text-sm text-midnight/70 dark:text-parchment/70">Send me research updates, published white papers, and Think Tank news. <span class="text-midnight/40 dark:text-parchment/40">(1&ndash;2 emails per month, unsubscribe anytime.)</span></label>
+                </div>
+
+                <!-- Submit -->
+                <button type="submit" id="contributeBtn" class="w-full bg-gold hover:bg-gold-dark text-midnight font-bold py-4 px-8 rounded-xl text-lg transition-all shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed">
+                    Continue to Payment
+                </button>
+
+                <div id="formError" class="hidden text-center p-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-700 dark:text-red-400 text-sm"></div>
+
+                <!-- Disclaimer -->
+                <p class="text-xs text-center text-midnight/35 dark:text-parchment/35 leading-relaxed mt-4">
+                    Contributions to Sphinx Agent Think Tank are processed securely via Stripe. Sphinx Agent is a division of <a href="https://snapitsoftware.com" target="_blank" rel="noopener" class="underline hover:text-gold transition-colors">SnapIT Software LLC</a>. Contributions are <strong>not tax-deductible</strong>. You will receive a payment receipt from Stripe and a PDF certificate of support. By contributing you agree to our <a href="../terms.html" class="underline hover:text-gold transition-colors">Terms of Service</a> and <a href="../privacy.html" class="underline hover:text-gold transition-colors">Privacy Policy</a>.
+                </p>
+            </form>
+        </div>
+
+        <!-- Success State (hidden by default) -->
+        <div id="successSection" class="hidden">
+            <div class="text-center mb-10 fade-up">
+                <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-500/10 border-2 border-green-500/30 mb-6">
+                    <svg class="w-8 h-8 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                </div>
+                <h1 class="text-3xl font-extrabold text-midnight dark:text-parchment mb-3">Thank You for Your Support</h1>
+                <p class="text-base text-midnight/60 dark:text-parchment/60 max-w-lg mx-auto" id="successMessage">Your contribution has been received. A payment receipt has been sent to your email by Stripe.</p>
+            </div>
+
+            <!-- Certificate Preview -->
+            <div id="certPreview" class="mx-auto max-w-lg p-8 rounded-2xl bg-white dark:bg-midnight-light cert-border fade-up fade-up-d1">
+                <div class="text-center">
+                    <img src="logo-sphinx-64.png" alt="" width="48" height="48" class="mx-auto mb-4" style="border-radius:10px;">
+                    <p class="text-xs font-semibold text-gold uppercase tracking-[0.2em] mb-1">Sphinx Agent Think Tank</p>
+                    <h2 class="text-xl font-extrabold text-midnight dark:text-parchment mb-1">Certificate of Support</h2>
+                    <div class="w-16 h-0.5 bg-gold mx-auto my-4"></div>
+                    <p class="text-sm text-midnight/60 dark:text-parchment/60 mb-1">This certifies that</p>
+                    <p class="text-2xl font-bold text-midnight dark:text-parchment mb-1" id="certName">&mdash;</p>
+                    <p class="text-sm text-midnight/60 dark:text-parchment/60 mb-4">has contributed to independent AI research</p>
+                    <div class="inline-block px-4 py-1.5 rounded-lg bg-gold/10 border border-gold/20 mb-4">
+                        <span class="text-lg font-bold text-gold" id="certAmount">$0</span>
+                        <span class="text-xs text-midnight/50 dark:text-parchment/50 ml-1" id="certFocus"></span>
+                    </div>
+                    <p class="text-xs text-midnight/40 dark:text-parchment/40" id="certDate"></p>
+                </div>
+            </div>
+
+            <div class="text-center mt-6 space-y-3 fade-up fade-up-d2">
+                <button id="downloadCert" class="inline-flex items-center gap-2 bg-gold hover:bg-gold-dark text-midnight font-semibold px-6 py-3 rounded-xl transition-colors shadow-md">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                    Download PDF Certificate
+                </button>
+                <p class="text-xs text-midnight/40 dark:text-parchment/40">A copy will also be sent to your email.</p>
+            </div>
+
+            <div class="text-center mt-10 fade-up fade-up-d3">
+                <a href="index.html" class="text-sm text-gold hover:text-gold-dark transition-colors font-medium">&larr; Back to Think Tank</a>
+            </div>
+        </div>
+
+        <!-- Canceled State (hidden by default) -->
+        <div id="canceledSection" class="hidden">
+            <div class="text-center py-12 fade-up">
+                <p class="text-sm font-semibold text-gold uppercase tracking-wider mb-3">No Worries</p>
+                <h1 class="text-2xl font-bold text-midnight dark:text-parchment mb-3">Payment Was Canceled</h1>
+                <p class="text-base text-midnight/60 dark:text-parchment/60 mb-6">Your contribution was not processed. You can try again anytime.</p>
+                <button onclick="showForm()" class="text-sm text-gold hover:text-gold-dark transition-colors font-medium">&larr; Try Again</button>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-gold/10 dark:border-gold/20 bg-midnight dark:bg-midnight-dark text-parchment/70">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+                <div class="flex items-center gap-2">
+                    <img src="logo-sphinx-64.png" alt="" width="28" height="28" style="border-radius:6px;">
+                    <span class="font-bold text-parchment">Sphinx Agent</span>
+                </div>
+                <nav class="flex flex-wrap justify-center gap-6 text-sm">
+                    <a href="https://sphinxagent.ai" class="hover:text-gold transition-colors">Product</a>
+                    <a href="https://sphinxagent.ai/pricing.html" class="hover:text-gold transition-colors">Pricing</a>
+                    <a href="https://sphinxagent.ai/docs.html" class="hover:text-gold transition-colors">Docs</a>
+                    <a href="index.html" class="hover:text-gold transition-colors">Think Tank</a>
+                    <a href="submit.html" class="hover:text-gold transition-colors">Submit</a>
+                    <a href="fellowship.html" class="hover:text-gold transition-colors">Fellowship</a>
+                    <a href="https://terrellflautt.com" class="hover:text-gold transition-colors">Author</a>
+                    <a href="support.html" class="text-parchment/25 hover:text-gold transition-colors">Support</a>
+                </nav>
+                <p class="text-xs text-parchment/40">&copy; 2026 <a href="https://snapitsoftware.com" target="_blank" rel="noopener" class="hover:text-white transition">SnapIT Software</a>. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ── Dark mode ──
+        const toggle = document.getElementById('darkToggle');
+        toggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+        });
+
+        // ── Mobile menu ──
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                mobileMenu.classList.toggle('hidden');
+                const isOpen = !mobileMenu.classList.contains('hidden');
+                mobileMenuBtn.setAttribute('aria-expanded', isOpen);
+                mobileMenuBtn.innerHTML = isOpen
+                    ? '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>'
+                    : '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>';
+            });
+            document.addEventListener('click', (e) => {
+                if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                    mobileMenuBtn.innerHTML = '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>';
+                }
+            });
+        }
+
+        // ── Amount selection ──
+        let selectedAmount = 0;
+        const amountBtns = document.querySelectorAll('.amount-btn');
+        const customInput = document.getElementById('customAmount');
+
+        amountBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                amountBtns.forEach(b => b.classList.remove('selected'));
+                btn.classList.add('selected');
+                selectedAmount = parseInt(btn.dataset.amount);
+                customInput.value = '';
+            });
+        });
+
+        customInput.addEventListener('input', () => {
+            amountBtns.forEach(b => b.classList.remove('selected'));
+            selectedAmount = parseInt(customInput.value) || 0;
+            // Highlight matching preset if exists
+            amountBtns.forEach(btn => {
+                if (parseInt(btn.dataset.amount) === selectedAmount) btn.classList.add('selected');
+            });
+        });
+
+        // ── API config ──
+        // TODO: Replace with your deployed Lambda endpoint
+        const CHECKOUT_API = 'https://api.sphinxagent.com/support/checkout';
+
+        // ── Form submission ──
+        const form = document.getElementById('supportForm');
+        const contributeBtn = document.getElementById('contributeBtn');
+        const formError = document.getElementById('formError');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            formError.classList.add('hidden');
+
+            const amount = selectedAmount;
+            const name = document.getElementById('contribName').value.trim();
+            const email = document.getElementById('contribEmail').value.trim();
+            const focus = document.getElementById('researchFocus').value;
+            const message = document.getElementById('researchMessage').value.trim();
+            const mailingList = document.getElementById('mailingList').checked;
+
+            // Validate amount
+            if (!amount || amount < 5) {
+                formError.textContent = 'Please select or enter an amount of at least $5.';
+                formError.classList.remove('hidden');
+                return;
+            }
+            if (amount > 500000) {
+                formError.textContent = 'For contributions over $500,000, please contact us directly at research@sphinxagent.com.';
+                formError.classList.remove('hidden');
+                return;
+            }
+
+            // Store contributor info for certificate generation after redirect
+            sessionStorage.setItem('sphinx_contrib', JSON.stringify({
+                name, email, amount, focus, message, mailingList,
+                date: new Date().toISOString()
+            }));
+
+            contributeBtn.disabled = true;
+            contributeBtn.textContent = 'Redirecting to Stripe...';
+
+            try {
+                const res = await fetch(CHECKOUT_API, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ amount, name, email, focus, message, mailingList })
+                });
+
+                const data = await res.json();
+
+                if (data.url) {
+                    window.location.href = data.url;
+                } else if (data.sessionId) {
+                    const stripe = Stripe('pk_live_51SrpMC7lGnd7R4bah2FuNyyrowiuAzUZyakznyIMbash2yMm8ZXzTNYrzAd1e68aiJnr8pKas7Q7ABvFD7V4WGdZ00fHdqDgHA');
+                    await stripe.redirectToCheckout({ sessionId: data.sessionId });
+                } else {
+                    throw new Error(data.error || 'Failed to create checkout session');
+                }
+            } catch (err) {
+                formError.textContent = err.message || 'Something went wrong. Please try again.';
+                formError.classList.remove('hidden');
+                contributeBtn.disabled = false;
+                contributeBtn.textContent = 'Continue to Payment';
+            }
+        });
+
+        // ── Handle return from Stripe ──
+        function showForm() {
+            document.getElementById('formSection').classList.remove('hidden');
+            document.getElementById('successSection').classList.add('hidden');
+            document.getElementById('canceledSection').classList.add('hidden');
+            // Clear URL params
+            window.history.replaceState({}, '', window.location.pathname);
+        }
+
+        (function handleReturn() {
+            const params = new URLSearchParams(window.location.search);
+
+            if (params.get('success') === 'true') {
+                document.getElementById('formSection').classList.add('hidden');
+                document.getElementById('successSection').classList.remove('hidden');
+
+                // Populate certificate from sessionStorage
+                const contrib = JSON.parse(sessionStorage.getItem('sphinx_contrib') || '{}');
+                if (contrib.name) {
+                    document.getElementById('certName').textContent = contrib.name;
+                    document.getElementById('certAmount').textContent = '$' + Number(contrib.amount).toLocaleString();
+                    document.getElementById('certFocus').textContent = contrib.focus ? '— ' + contrib.focus : '';
+                    document.getElementById('certDate').textContent = new Date(contrib.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+                    document.getElementById('successMessage').textContent =
+                        `Your $${Number(contrib.amount).toLocaleString()} contribution has been received. A payment receipt has been sent to ${contrib.email} by Stripe.`;
+                }
+
+                // Also submit contributor info to mailing list if opted in
+                if (contrib.mailingList && contrib.email) {
+                    fetch('https://api.snapitforms.com/submit', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            access_key: 'sf_d3169f4c7a6cea7a2914e681003d6167',
+                            name: contrib.name,
+                            email: contrib.email,
+                            _subject: `[Mailing List Opt-In] ${contrib.name} — Research Contributor ($${contrib.amount})`,
+                            source: 'support-page',
+                            contribution_amount: contrib.amount,
+                            research_focus: contrib.focus,
+                            message: contrib.message || 'No message'
+                        })
+                    }).catch(() => {});
+                }
+
+            } else if (params.get('canceled') === 'true') {
+                document.getElementById('formSection').classList.add('hidden');
+                document.getElementById('canceledSection').classList.remove('hidden');
+            }
+        })();
+
+        // ── PDF Certificate Generation ──
+        document.getElementById('downloadCert')?.addEventListener('click', () => {
+            const contrib = JSON.parse(sessionStorage.getItem('sphinx_contrib') || '{}');
+            if (!contrib.name) return;
+
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF({ orientation: 'landscape', unit: 'pt', format: 'letter' });
+            const w = doc.internal.pageSize.getWidth();
+            const h = doc.internal.pageSize.getHeight();
+
+            // Background
+            doc.setFillColor(253, 246, 227); // parchment
+            doc.rect(0, 0, w, h, 'F');
+
+            // Double border
+            doc.setDrawColor(212, 175, 55); // gold
+            doc.setLineWidth(3);
+            doc.rect(30, 30, w - 60, h - 60);
+            doc.setLineWidth(1);
+            doc.rect(38, 38, w - 76, h - 76);
+
+            // Corner accents
+            const cornerSize = 20;
+            [[42, 42], [w - 42, 42], [42, h - 42], [w - 42, h - 42]].forEach(([x, y]) => {
+                doc.setDrawColor(212, 175, 55);
+                doc.setLineWidth(2);
+                const dx = x < w / 2 ? 1 : -1;
+                const dy = y < h / 2 ? 1 : -1;
+                doc.line(x, y, x + cornerSize * dx, y);
+                doc.line(x, y, x, y + cornerSize * dy);
+            });
+
+            // Header
+            doc.setFont('helvetica', 'normal');
+            doc.setFontSize(11);
+            doc.setTextColor(212, 175, 55);
+            doc.text('SPHINX AGENT THINK TANK', w / 2, 100, { align: 'center' });
+
+            // Title
+            doc.setFontSize(32);
+            doc.setTextColor(30, 41, 59); // midnight
+            doc.setFont('helvetica', 'bold');
+            doc.text('Certificate of Support', w / 2, 150, { align: 'center' });
+
+            // Gold divider
+            doc.setDrawColor(212, 175, 55);
+            doc.setLineWidth(2);
+            doc.line(w / 2 - 60, 168, w / 2 + 60, 168);
+
+            // Body text
+            doc.setFont('helvetica', 'normal');
+            doc.setFontSize(14);
+            doc.setTextColor(100, 116, 139);
+            doc.text('This certifies that', w / 2, 210, { align: 'center' });
+
+            // Contributor name
+            doc.setFont('helvetica', 'bold');
+            doc.setFontSize(28);
+            doc.setTextColor(30, 41, 59);
+            doc.text(contrib.name, w / 2, 252, { align: 'center' });
+
+            // Contribution line
+            doc.setFont('helvetica', 'normal');
+            doc.setFontSize(14);
+            doc.setTextColor(100, 116, 139);
+            doc.text('has generously contributed to independent AI research', w / 2, 290, { align: 'center' });
+
+            // Amount badge
+            doc.setFillColor(212, 175, 55);
+            const amountText = '$' + Number(contrib.amount).toLocaleString();
+            const amountWidth = doc.getTextWidth(amountText) * 1.5 + 40;
+            doc.roundedRect(w / 2 - amountWidth / 2, 310, amountWidth, 36, 6, 6, 'F');
+            doc.setFont('helvetica', 'bold');
+            doc.setFontSize(18);
+            doc.setTextColor(30, 41, 59);
+            doc.text(amountText, w / 2, 334, { align: 'center' });
+
+            // Research focus
+            if (contrib.focus && contrib.focus !== 'General Research Fund') {
+                doc.setFont('helvetica', 'italic');
+                doc.setFontSize(12);
+                doc.setTextColor(100, 116, 139);
+                doc.text('Directed to: ' + contrib.focus, w / 2, 370, { align: 'center' });
+            }
+
+            // Date
+            const dateStr = new Date(contrib.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+            doc.setFont('helvetica', 'normal');
+            doc.setFontSize(11);
+            doc.setTextColor(148, 163, 184);
+            doc.text(dateStr, w / 2, 410, { align: 'center' });
+
+            // Signature line
+            doc.setDrawColor(212, 175, 55);
+            doc.setLineWidth(0.5);
+            doc.line(w / 2 - 100, 470, w / 2 + 100, 470);
+            doc.setFont('helvetica', 'normal');
+            doc.setFontSize(10);
+            doc.setTextColor(100, 116, 139);
+            doc.text('Terrell K. Flautt — Director, Sphinx Agent Think Tank', w / 2, 488, { align: 'center' });
+
+            // Footer disclaimer
+            doc.setFontSize(8);
+            doc.setTextColor(148, 163, 184);
+            doc.text('Sphinx Agent Think Tank is a division of SnapIT Software LLC. Contributions are not tax-deductible.', w / 2, h - 50, { align: 'center' });
+            doc.text('5900 Balcones Drive, Austin, TX 78731 | sphinxagent.com', w / 2, h - 38, { align: 'center' });
+
+            // Save
+            doc.save(`sphinx-agent-certificate-${contrib.name.replace(/\s+/g, '-').toLowerCase()}.pdf`);
+        });
+    </script>
+</body>
+</html>

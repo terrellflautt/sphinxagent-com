@@ -1,23 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://sphinxagent.ai/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://sphinxagent.ai/pricing.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://sphinxagent.ai/docs.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://sphinxagent.ai/faq.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://sphinxagent.ai/contact.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://sphinxagent.ai/about.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://sphinxagent.ai/privacy.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://sphinxagent.ai/terms.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://sphinxagent.ai/do-not-sell.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://sphinxagent.ai/cookie-policy.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
-  <!-- SEO Sniper Pages -->
-  <url><loc>https://sphinxagent.ai/free-ai-chatbot.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://sphinxagent.ai/ai-chatbot-for-website.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://sphinxagent.ai/ai-chatbot-for-small-business.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://sphinxagent.ai/ai-phone-agent.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://sphinxagent.ai/chatbase-alternative.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://sphinxagent.ai/intercom-alternative.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://sphinxagent.ai/tidio-alternative.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://sphinxagent.ai/drift-alternative.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://sphinxagent.ai/customer-service-chatbot.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <!-- Blog Index -->
+  <url><loc>https://sphinxagent.com/blog/index.html</loc><lastmod>2026-03-24</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
+
+  <!-- Articles (newest first) -->
+  <url><loc>https://sphinxagent.com/blog/sphinx-agent-vs-chatbase-vs-intercom-2026.html</loc><lastmod>2026-03-25</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://sphinxagent.com/blog/how-to-build-ai-customer-service-chatbot.html</loc><lastmod>2026-03-25</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://sphinxagent.com/blog/how-to-set-up-ai-sales-agent.html</loc><lastmod>2026-03-25</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://sphinxagent.com/blog/ai-receptionist-setup-guide.html</loc><lastmod>2026-03-25</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://sphinxagent.com/blog/ai-voice-agent-platform-guide.html</loc><lastmod>2026-03-25</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://sphinxagent.com/blog/no-code-ai-chatbot-saas-platform.html</loc><lastmod>2026-03-25</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://sphinxagent.com/blog/ai-tech-support-agent-setup.html</loc><lastmod>2026-03-25</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://sphinxagent.com/blog/openai-sora-shutdown-2026.html</loc><lastmod>2026-03-24</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://sphinxagent.com/blog/is-nemoclaw-free-pricing.html</loc><lastmod>2026-03-22</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://sphinxagent.com/blog/openclaw-vs-nemoclaw-2026.html</loc><lastmod>2026-03-21</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://sphinxagent.com/blog/claude-nemoclaw-integration.html</loc><lastmod>2026-03-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://sphinxagent.com/blog/digital-kill-chain-gilded-web.html</loc><lastmod>2026-03-19</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://sphinxagent.com/blog/ai-war-operation-epic-fury.html</loc><lastmod>2026-03-18</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://sphinxagent.com/blog/ai-customer-service-agents-2026.html</loc><lastmod>2026-03-18</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://sphinxagent.com/blog/ai-sales-agent-guide.html</loc><lastmod>2026-03-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://sphinxagent.com/blog/ai-replacing-jobs-2026.html</loc><lastmod>2026-03-18</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://sphinxagent.com/blog/ai-extinction-scenarios.html</loc><lastmod>2026-03-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://sphinxagent.com/blog/spiralism-ai-alignment-guide.html</loc><lastmod>2026-03-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://sphinxagent.com/blog/aws-lambda-api.html</loc><lastmod>2026-03-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sphinxagent.com/blog/ai-customer-service-guide-2026.html</loc><lastmod>2026-03-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://sphinxagent.com/blog/ai-phone-agents-business.html</loc><lastmod>2026-03-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://sphinxagent.com/blog/how-we-built-5-channel-ai-platform.html</loc><lastmod>2026-03-17</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sphinxagent.com/blog/sphinx-agent-vs-chatbase-vs-intercom.html</loc><lastmod>2026-03-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- Utility Pages -->
+  <url><loc>https://sphinxagent.com/blog/submit.html</loc><lastmod>2026-03-25</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://sphinxagent.com/blog/fellowship.html</loc><lastmod>2026-03-25</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
 </urlset>

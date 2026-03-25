@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Build an AI Customer Service Chatbot in 5 Minutes (No Code) — Sphinx Agent Think Tank</title>
+    <meta name="description" content="Step-by-step guide to building an AI customer service chatbot with Sphinx Agent. No coding required. Free tier available. Handles FAQs, order status, returns, and billing questions 24/7.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://sphinxagent.com/blog/how-to-build-ai-customer-service-chatbot.html">
+    <meta name="keywords" content="ai customer service, ai customer service chatbot, ai customer support, ai customer service agent, customer service chatbot, ai support chatbot">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="How to Build an AI Customer Service Chatbot in 5 Minutes (No Code)">
+    <meta property="og:description" content="Step-by-step guide to building an AI customer service chatbot with Sphinx Agent. No coding required. Free tier available.">
+    <meta property="og:url" content="https://sphinxagent.com/blog/how-to-build-ai-customer-service-chatbot.html">
+    <meta property="og:site_name" content="Sphinx Agent">
+    <meta property="og:image" content="https://sphinxagent.com/og-image.png">
+    <meta property="article:published_time" content="2026-03-25T00:00:00Z">
+    <meta property="article:author" content="Terrell K. Flautt">
+    <meta property="article:section" content="Guide">
+    <meta property="article:tag" content="AI Customer Service">
+    <meta property="article:tag" content="Chatbot">
+    <meta property="article:tag" content="Customer Support">
+    <meta property="article:tag" content="No Code">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How to Build an AI Customer Service Chatbot in 5 Minutes (No Code)">
+    <meta name="twitter:description" content="Step-by-step guide to building an AI customer service chatbot with Sphinx Agent. No coding. Free tier. Handles FAQs, orders, returns, and billing 24/7.">
+    <meta name="twitter:image" content="https://sphinxagent.com/og-image.png">
+    <link rel="alternate" type="application/rss+xml" title="Sphinx Agent Think Tank RSS" href="https://sphinxagent.com/feed.xml">
+    <link rel="icon" href="favicon.ico" sizes="32x32">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        gold: { DEFAULT: '#D4AF37', light: '#E0C252', dark: '#B8960F' },
+                        midnight: { DEFAULT: '#1e293b', light: '#334155', dark: '#0f172a' },
+                        parchment: { DEFAULT: '#fdf6e3', dark: '#f5edd4' },
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        .prose h2 { scroll-margin-top: 5rem; }
+        .alt-table { border-collapse: collapse; width: 100%; }
+        .alt-table th, .alt-table td { padding: 0.75rem 1rem; text-align: left; border-bottom: 1px solid rgba(212, 175, 55, 0.15); }
+        .alt-table th { font-weight: 600; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        .dark .alt-table th, .dark .alt-table td { border-color: rgba(212, 175, 55, 0.2); }
+    </style>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "How to Build an AI Customer Service Chatbot in 5 Minutes (No Code)",
+        "description": "Step-by-step guide to building an AI customer service chatbot with Sphinx Agent. No coding required. Free tier available. Handles FAQs, order status, returns, and billing questions 24/7.",
+        "url": "https://sphinxagent.com/blog/how-to-build-ai-customer-service-chatbot.html",
+        "datePublished": "2026-03-25T00:00:00Z",
+        "dateModified": "2026-03-25T00:00:00Z",
+        "wordCount": 1800,
+        "author": {
+            "@type": "Person",
+            "name": "Terrell K. Flautt",
+            "url": "https://terrellflautt.com",
+            "jobTitle": "Founder",
+            "worksFor": {
+                "@type": "Organization",
+                "name": "SnapIT Software"
+            }
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Sphinx Agent",
+            "url": "https://sphinxagent.ai"
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://sphinxagent.com/blog/how-to-build-ai-customer-service-chatbot.html"
+        },
+        "articleSection": "Guide",
+        "keywords": ["ai customer service", "ai customer service chatbot", "ai customer support", "ai customer service agent", "customer service chatbot", "ai support chatbot"]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sphinxagent.ai" },
+            { "@type": "ListItem", "position": 2, "name": "Think Tank", "item": "https://sphinxagent.com/" },
+            { "@type": "ListItem", "position": 3, "name": "How to Build an AI Customer Service Chatbot" }
+        ]
+    }
+    </script>
+
+    <!-- FAQ Schema for Rich Snippets -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How much does an AI customer service chatbot cost?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "AI customer service chatbots range from free to $99/month depending on message volume. Sphinx Agent offers a free tier with 100 messages per month, a Starter plan at $19/month for 5,000 messages, a Pro plan at $49/month for 25,000 messages with phone support, and a Business plan at $99/month for 50,000 messages with white-label branding. Most small businesses start on the Starter plan and upgrade as volume grows."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can an AI chatbot handle customer complaints?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes, AI chatbots can handle most routine customer complaints including order status inquiries, return requests, shipping issues, and basic billing questions. However, they should hand off to a human agent for billing disputes involving refunds over a set threshold, emotionally charged situations where the customer is upset and needs empathy, and edge cases that fall outside the knowledge base. A well-configured AI chatbot typically resolves 60-80% of incoming support requests without human intervention."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How long does it take to set up an AI customer service chatbot?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "With Sphinx Agent, you can set up a working AI customer service chatbot in under 5 minutes. The process involves creating an account, selecting the Customer Service agent type, adding your business information, building a knowledge base with FAQ pairs, and embedding a single line of JavaScript on your website. No coding is required. The chatbot starts answering questions immediately based on the knowledge base you provide."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <script>if(localStorage.getItem('theme')==='dark'||(!localStorage.getItem('theme')&&window.matchMedia('(prefers-color-scheme:dark)').matches)){document.documentElement.classList.add('dark')}</script>
+</head>
+<body class="bg-parchment text-midnight dark:bg-midnight-dark dark:text-parchment min-h-screen">
+
+    <!-- Sticky Header -->
+    <header class="sticky top-0 z-50 bg-parchment/95 dark:bg-midnight/95 backdrop-blur border-b border-gold/20 dark:border-gold/30">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2 group">
+                <img src="logo-sphinx-64.png" alt="Sphinx Agent logo" width="36" height="36" style="border-radius:8px;filter:drop-shadow(0 0 6px rgba(212,175,55,0.5));">
+                <span class="text-xl font-bold text-midnight dark:text-parchment group-hover:text-gold transition-colors">Sphinx Agent</span>
+            </a>
+            <nav class="hidden sm:flex items-center gap-6 text-sm font-medium">
+                <a href="https://sphinxagent.ai" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors">Product</a>
+                <a href="index.html" class="text-gold font-semibold">Think Tank</a>
+                <a href="https://sphinxagent.ai/pricing.html" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors">Pricing</a>
+                <a href="submit.html" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors">Submit</a>
+            </nav>
+            <div class="flex items-center gap-3">
+                <button id="mobileMenuBtn" class="sm:hidden p-2 rounded-lg hover:bg-midnight/10 dark:hover:bg-parchment/10 transition-colors" aria-label="Menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+                <button id="darkToggle" aria-label="Toggle dark mode" class="p-2 rounded-lg hover:bg-midnight/10 dark:hover:bg-parchment/10 transition-colors">
+                    <svg class="w-5 h-5 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                    <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                </button>
+                <a href="https://sphinxagent.ai" class="inline-block bg-gold hover:bg-gold-dark text-midnight font-semibold px-4 py-2 rounded-lg text-sm transition-colors shadow-sm">Start Free</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden sm:hidden bg-parchment/95 dark:bg-midnight/95 backdrop-blur border-b border-gold/20 dark:border-gold/30 sticky top-[57px] z-40">
+        <nav class="max-w-6xl mx-auto px-4 py-4 flex flex-col gap-3 text-sm font-medium">
+            <a href="index.html" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors py-2 border-b border-gold/10 dark:border-gold/20">Think Tank</a>
+            <a href="https://sphinxagent.ai" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors py-2 border-b border-gold/10 dark:border-gold/20">Product</a>
+            <a href="https://sphinxagent.ai/pricing.html" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors py-2 border-b border-gold/10 dark:border-gold/20">Pricing</a>
+            <a href="submit.html" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors py-2 border-b border-gold/10 dark:border-gold/20">Submit</a>
+            <a href="https://sphinxagent.ai" class="inline-block bg-gold hover:bg-gold-dark text-midnight font-semibold px-4 py-2 rounded-lg text-sm transition-colors shadow-sm text-center mt-1">Start Free</a>
+        </nav>
+    </div>
+
+    <!-- Breadcrumb -->
+    <nav aria-label="Breadcrumb" class="max-w-6xl mx-auto px-4 sm:px-6 pt-6">
+        <ol class="flex items-center gap-2 text-sm text-midnight/50 dark:text-parchment/50">
+            <li><a href="https://sphinxagent.ai" class="hover:text-gold transition-colors">Home</a></li>
+            <li><span class="mx-1">/</span></li>
+            <li><a href="index.html" class="hover:text-gold transition-colors">Think Tank</a></li>
+            <li><span class="mx-1">/</span></li>
+            <li class="text-midnight dark:text-parchment font-medium truncate">How to Build an AI Customer Service Chatbot</li>
+        </ol>
+    </nav>
+
+    <!-- Article Layout -->
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-8 lg:grid lg:grid-cols-[1fr_260px] lg:gap-12">
+
+        <!-- Main Content -->
+        <article class="max-w-3xl">
+            <!-- Article Header -->
+            <header class="mb-10">
+                <div class="flex items-center gap-3 text-sm text-midnight/50 dark:text-parchment/50 mb-4">
+                    <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Guide</span>
+                    <time datetime="2026-03-25">Mar 25, 2026</time>
+                    <span class="w-1 h-1 rounded-full bg-gold"></span>
+                    <span>7 min read</span>
+                </div>
+                <h1 class="text-3xl sm:text-4xl font-extrabold text-midnight dark:text-parchment leading-tight mb-4">How to Build an AI Customer Service Chatbot in 5 Minutes (No Code)</h1>
+                <p class="text-lg text-midnight/60 dark:text-parchment/60">Your customers have the same 20 questions. An AI agent can answer all of them, around the clock, without a salary. Here is exactly how to set one up.</p>
+                <div class="flex items-center gap-3 mt-6 pt-6 border-t border-gold/10 dark:border-gold/20">
+                    <img loading="lazy" src="author-avatar.png" alt="Terrell K. Flautt" width="40" height="40" class="w-10 h-10 rounded-full object-cover">
+                    <div>
+                        <p class="text-sm font-semibold text-midnight dark:text-parchment"><a href="https://terrellflautt.com" target="_blank" rel="noopener" class="hover:text-gold transition-colors">Terrell K. Flautt</a></p>
+                        <p class="text-xs text-midnight/50 dark:text-parchment/50">Founder, <a href="https://snapitsaas.com" target="_blank" rel="noopener" class="text-gold hover:underline">SnapIT Software</a></p>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Article Body -->
+            <div class="prose prose-lg max-w-none
+                text-midnight/80 dark:text-parchment/80
+                [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:text-midnight [&_h2]:dark:text-parchment [&_h2]:mt-12 [&_h2]:mb-4
+                [&_h3]:text-xl [&_h3]:font-semibold [&_h3]:text-midnight [&_h3]:dark:text-parchment [&_h3]:mt-8 [&_h3]:mb-3
+                [&_p]:mb-4 [&_p]:leading-relaxed
+                [&_ul]:mb-4 [&_ul]:pl-6 [&_ul]:list-disc
+                [&_ol]:mb-4 [&_ol]:pl-6 [&_ol]:list-decimal
+                [&_li]:mb-2
+                [&_a]:text-gold [&_a]:underline [&_a]:hover:text-gold-dark
+                [&_blockquote]:border-l-4 [&_blockquote]:border-gold [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:text-midnight/60 [&_blockquote]:dark:text-parchment/60
+                [&_code]:bg-midnight/5 [&_code]:dark:bg-parchment/5 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:rounded [&_code]:text-sm
+                [&_pre]:bg-midnight [&_pre]:dark:bg-midnight-dark [&_pre]:text-parchment [&_pre]:p-4 [&_pre]:rounded-lg [&_pre]:overflow-x-auto [&_pre]:mb-4
+                [&_img]:rounded-lg [&_img]:shadow-md [&_img]:my-6">
+
+                <p>An AI customer service chatbot reads your customer's question, checks it against your knowledge base, and gives back a specific answer &mdash; no queue, no hold music, no "let me transfer you." It works at 3 AM on a Saturday the same way it works at 10 AM on a Tuesday. For most businesses, it handles 60&ndash;80% of incoming support volume without a human ever touching the ticket.</p>
+
+                <p>This guide walks you through building one with <a href="https://sphinxagent.ai">Sphinx Agent</a>. No code. No API keys. Five minutes from signup to a working chatbot on your site.</p>
+
+                <h2 id="setup">Step-by-Step Setup</h2>
+
+                <h3>Step 1: Create Your Account</h3>
+
+                <p>Go to <a href="https://sphinxagent.ai">sphinxagent.ai</a> and sign up. Email and password. No credit card required on the free tier. You get 100 messages per month to test everything before you pay a cent.</p>
+
+                <h3>Step 2: Create a New Agent</h3>
+
+                <p>Once you are in the dashboard, click <strong>"Create Agent."</strong> Give it a name your team will recognize &mdash; something like "Support Bot" or your company name followed by "CS Agent." This is internal only. Your customers will not see it.</p>
+
+                <h3>Step 3: Select "Customer Service" Type</h3>
+
+                <p>Sphinx Agent has pre-built agent types. Pick <strong>"Customer Service."</strong> This configures the agent's tone, response structure, and escalation behavior for support conversations. It knows how to handle greetings, follow-up questions, and polite deflections when it does not have an answer.</p>
+
+                <h3>Step 4: Add Your Business Info</h3>
+
+                <p>Fill in your company name, website, support email, and business hours. This is what the agent uses when a customer asks "how do I reach a real person?" or "are you open right now?" Get this right. Customers notice when it is wrong.</p>
+
+                <h3>Step 5: Build Your Knowledge Base</h3>
+
+                <p>This is the most important step. Your agent is only as good as the information you give it. Add FAQ pairs &mdash; question and answer, one at a time. Start with the questions your support team gets asked the most. You can always add more later.</p>
+
+                <p>We will cover exactly what to include <a href="#knowledge-base">below</a>.</p>
+
+                <h3>Step 6: Embed the Widget on Your Site</h3>
+
+                <p>Sphinx Agent gives you a single line of JavaScript. Copy it and paste it before the closing <code>&lt;/body&gt;</code> tag on any page where you want the chat widget to appear.</p>
+
+<pre><code>&lt;script src="https://sphinxagent.ai/widget/sphinx-widget.js" data-agent-id="your-agent-id"&gt;&lt;/script&gt;</code></pre>
+
+                <p>Replace <code>your-agent-id</code> with the ID from your dashboard. That is it. The widget appears in the bottom-right corner of your page. It matches your site's look automatically, or you can customize colors in the dashboard.</p>
+
+                <h3>Step 7: Test It</h3>
+
+                <p>Open your site in an incognito window. Ask the chatbot a question from your knowledge base. Ask it something you did not add yet. See how it handles both. Tweak your FAQ pairs based on what you see. The first round of testing usually reveals 5&ndash;10 questions you forgot to add.</p>
+
+                <h2 id="knowledge-base">What to Put in Your Knowledge Base</h2>
+
+                <p>Start with these categories. They cover 80% of what customers ask, regardless of industry.</p>
+
+                <ul>
+                    <li><strong>Returns and exchanges:</strong> What is your return window? Do you offer free returns? What condition does the item need to be in? How long until the refund hits?</li>
+                    <li><strong>Shipping:</strong> How long does shipping take? Do you ship internationally? How much does it cost? How do I track my order?</li>
+                    <li><strong>Billing:</strong> How do I update my payment method? Why was I charged twice? How do I cancel my subscription? Do you offer refunds?</li>
+                    <li><strong>Product questions:</strong> What are the sizes/specs? Is this compatible with X? What is the difference between Plan A and Plan B?</li>
+                    <li><strong>Business hours and contact:</strong> When are you open? Where are you located? What is your phone number? How do I reach a human?</li>
+                </ul>
+
+                <p>Write answers the way you would actually talk to a customer. Not corporate-speak. Not legalese. If your return policy is 30 days, say "You have 30 days from delivery to return any item for a full refund." Do not make the AI sound like a terms-of-service document.</p>
+
+                <blockquote>Pro tip: Export your last 100 support tickets. Look at the subject lines. Those are your knowledge base entries.</blockquote>
+
+                <h2 id="channels">Channels: More Than Just a Web Widget</h2>
+
+                <p>The embedded widget is the starting point, but Sphinx Agent supports multiple ways for customers to reach your AI agent.</p>
+
+                <div class="overflow-x-auto my-6 rounded-lg border border-gold/10 dark:border-gold/20">
+                    <table class="alt-table text-sm">
+                        <thead class="bg-midnight/5 dark:bg-parchment/5">
+                            <tr>
+                                <th class="text-midnight dark:text-parchment">Channel</th>
+                                <th class="text-midnight dark:text-parchment">How It Works</th>
+                                <th class="text-midnight dark:text-parchment">Best For</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="font-semibold">Web Widget</td>
+                                <td>Embed on any page with one line of JS</td>
+                                <td>E-commerce, SaaS, service businesses</td>
+                            </tr>
+                            <tr>
+                                <td class="font-semibold">Chat Link</td>
+                                <td>Shareable URL that opens a full-page chat</td>
+                                <td>Email signatures, social media bios, QR codes</td>
+                            </tr>
+                            <tr>
+                                <td class="font-semibold">Telegram</td>
+                                <td>Connect your agent to a Telegram bot</td>
+                                <td>International customers, crypto/tech communities</td>
+                            </tr>
+                            <tr>
+                                <td class="font-semibold">Browser Voice</td>
+                                <td>Customers speak instead of type</td>
+                                <td>Accessibility, mobile users, hands-free support</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p>You set up each channel in the dashboard. Same knowledge base powers all of them. One source of truth, multiple entry points.</p>
+
+                <h2 id="human-handoff">When to Hand Off to Humans</h2>
+
+                <p>AI is not a replacement for your entire support team. It is a filter. It handles the repetitive stuff so your humans can focus on the conversations that actually need a person.</p>
+
+                <p>Set up human handoff rules for these situations:</p>
+
+                <ul>
+                    <li><strong>Billing disputes:</strong> Anything involving a refund over a certain dollar amount, chargebacks, or payment processing errors. These need a human with authority to issue credits.</li>
+                    <li><strong>Emotional situations:</strong> If a customer is angry, frustrated, or dealing with something sensitive, the AI should recognize the tone and route to a person. Empathy is not something you can FAQ your way through.</li>
+                    <li><strong>Edge cases:</strong> Questions the AI cannot answer confidently. A good chatbot says "Let me connect you with someone who can help" instead of guessing. Sphinx Agent does this automatically when confidence drops below your set threshold.</li>
+                    <li><strong>Account security:</strong> Password resets, account lockouts, suspicious activity reports. These should always go to a human.</li>
+                </ul>
+
+                <p>The goal is not zero human agents. The goal is making sure your human agents only handle the work that requires a human.</p>
+
+                <h2 id="pricing">Pricing</h2>
+
+                <p>Sphinx Agent pricing is based on monthly message volume. No per-seat fees. No contracts.</p>
+
+                <div class="overflow-x-auto my-6 rounded-lg border border-gold/10 dark:border-gold/20">
+                    <table class="alt-table text-sm">
+                        <thead class="bg-midnight/5 dark:bg-parchment/5">
+                            <tr>
+                                <th class="text-midnight dark:text-parchment">Plan</th>
+                                <th class="text-midnight dark:text-parchment">Price</th>
+                                <th class="text-midnight dark:text-parchment">Messages/Month</th>
+                                <th class="text-midnight dark:text-parchment">Includes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="font-semibold">Free</td>
+                                <td>$0</td>
+                                <td>100</td>
+                                <td>Web widget, chat link, knowledge base</td>
+                            </tr>
+                            <tr>
+                                <td class="font-semibold">Starter</td>
+                                <td>$19/mo</td>
+                                <td>5,000</td>
+                                <td>All channels, custom branding, analytics</td>
+                            </tr>
+                            <tr>
+                                <td class="font-semibold">Pro</td>
+                                <td>$49/mo</td>
+                                <td>25,000</td>
+                                <td>Everything in Starter + phone/voice support</td>
+                            </tr>
+                            <tr>
+                                <td class="font-semibold">Business</td>
+                                <td>$99/mo</td>
+                                <td>50,000</td>
+                                <td>Everything in Pro + white-label branding</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p>For context: a single full-time customer service rep costs $35,000&ndash;$50,000 per year. An AI agent that handles 5,000 conversations a month costs $228 per year. The math is not close.</p>
+
+                <p>Start on Free. Upgrade when you hit the limit. You will know pretty fast whether it is working for your business.</p>
+
+                <h2 id="faq">Frequently Asked Questions</h2>
+
+                <h3>How much does an AI customer service chatbot cost?</h3>
+
+                <p>Anywhere from free to $99/month depending on volume. Sphinx Agent's free tier gives you 100 messages per month &mdash; enough to test the concept. Most small businesses land on the Starter plan at $19/month for 5,000 messages. Compare that to $3,000+/month for a human agent and the ROI is obvious.</p>
+
+                <h3>Can an AI chatbot handle customer complaints?</h3>
+
+                <p>Yes, for routine complaints. Order issues, shipping delays, return requests &mdash; an AI handles these fine as long as your knowledge base has the answers. For situations involving real anger or complex billing disputes, you want a human. The best setup is AI for the first pass, human escalation for anything the bot cannot resolve with confidence.</p>
+
+                <h3>How long does it take to set up an AI customer service chatbot?</h3>
+
+                <p>With Sphinx Agent, about five minutes for a basic setup. Sign up, pick the Customer Service agent type, add your top 10&ndash;20 FAQ pairs, and embed the widget code. You will spend more time writing good answers than you will on the technical setup. There is no technical setup. It is one line of JavaScript.</p>
+
+            </div>
+
+            <!-- Author Bio -->
+            <div class="mt-12 p-6 rounded-2xl bg-midnight/5 dark:bg-parchment/5 border border-gold/10 dark:border-gold/20">
+                <div class="flex items-start gap-4">
+                    <img loading="lazy" src="author-avatar.png" alt="Terrell K. Flautt" class="w-14 h-14 rounded-full object-cover flex-shrink-0">
+                    <div>
+                        <p class="font-bold text-midnight dark:text-parchment"><a href="https://terrellflautt.com" target="_blank" rel="noopener" class="hover:text-gold transition-colors">Terrell K. Flautt</a></p>
+                        <p class="text-sm text-midnight/60 dark:text-parchment/60">Founder of <a href="https://sphinxagent.ai" class="text-gold hover:underline">Sphinx Agent</a> and <a href="https://snapitsoftware.com" target="_blank" rel="noopener" class="text-gold hover:underline">SnapIT Software</a>. Writes about AI agents, autonomous systems, and the business of artificial intelligence.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Social Sharing -->
+            <div class="mt-12 pt-8 border-t border-gold/10 dark:border-gold/20">
+                <p class="text-sm font-semibold text-midnight dark:text-parchment mb-3">Share this article</p>
+                <div class="flex items-center gap-3">
+                    <a href="https://twitter.com/intent/tweet?url=https://sphinxagent.com/blog/how-to-build-ai-customer-service-chatbot.html&text=How%20to%20build%20an%20AI%20customer%20service%20chatbot%20in%205%20minutes.%20No%20code." target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-gold/20 hover:border-gold/40 hover:bg-gold/5 text-sm font-medium transition-all">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        Post
+                    </a>
+                    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://sphinxagent.com/blog/how-to-build-ai-customer-service-chatbot.html" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-gold/20 hover:border-gold/40 hover:bg-gold/5 text-sm font-medium transition-all">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        Share
+                    </a>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="mt-12 p-8 rounded-2xl bg-gradient-to-br from-midnight to-midnight-light text-parchment text-center">
+                <h2 class="text-2xl font-bold mb-2">Build Your AI Customer Service Agent</h2>
+                <p class="text-parchment/70 mb-6">Free tier. No credit card. No code. Your chatbot answers its first customer question in under 5 minutes.</p>
+                <a href="https://sphinxagent.ai" class="inline-block bg-gold hover:bg-gold-dark text-midnight font-semibold px-8 py-3 rounded-lg transition-colors">Try Sphinx Agent Free</a>
+            </div>
+
+            <!-- Related Articles -->
+            <section class="mt-16">
+                <h2 class="text-xl font-bold text-midnight dark:text-parchment mb-6">Related Articles</h2>
+                <div class="grid gap-4 sm:grid-cols-2">
+                    <a href="openai-sora-shutdown-2026.html" class="block p-4 rounded-xl border border-gold/10 dark:border-gold/20 hover:border-gold/30 hover:shadow-md transition-all group">
+                        <p class="text-xs text-midnight/50 dark:text-parchment/50 mb-1">Mar 24, 2026</p>
+                        <p class="font-semibold text-midnight dark:text-parchment group-hover:text-gold transition-colors">OpenAI Killed Sora. Here's Why &mdash; and What to Use Instead</p>
+                    </a>
+                    <a href="ai-extinction-scenarios.html" class="block p-4 rounded-xl border border-gold/10 dark:border-gold/20 hover:border-gold/30 hover:shadow-md transition-all group">
+                        <p class="text-xs text-midnight/50 dark:text-parchment/50 mb-1">Mar 17, 2026</p>
+                        <p class="font-semibold text-midnight dark:text-parchment group-hover:text-gold transition-colors">How Will AI End Humanity &mdash; And How to Prevent It</p>
+                    </a>
+                </div>
+            </section>
+        </article>
+
+        <!-- Sidebar -->
+        <aside class="hidden lg:block">
+            <div class="sticky top-20">
+                <p class="text-xs font-semibold uppercase tracking-wider text-gold mb-4">On this page</p>
+                <nav class="space-y-2 text-sm" id="toc">
+                    <a href="#setup" class="block text-midnight/50 dark:text-parchment/50 hover:text-gold transition-colors">Step-by-Step Setup</a>
+                    <a href="#knowledge-base" class="block text-midnight/50 dark:text-parchment/50 hover:text-gold transition-colors">What to Put in Your Knowledge Base</a>
+                    <a href="#channels" class="block text-midnight/50 dark:text-parchment/50 hover:text-gold transition-colors">Channels</a>
+                    <a href="#human-handoff" class="block text-midnight/50 dark:text-parchment/50 hover:text-gold transition-colors">When to Hand Off to Humans</a>
+                    <a href="#pricing" class="block text-midnight/50 dark:text-parchment/50 hover:text-gold transition-colors">Pricing</a>
+                    <a href="#faq" class="block text-midnight/50 dark:text-parchment/50 hover:text-gold transition-colors">FAQ</a>
+                </nav>
+                <div class="mt-8 p-4 rounded-xl bg-gold/5 dark:bg-gold/10 border border-gold/10">
+                    <p class="text-sm font-semibold text-midnight dark:text-parchment mb-1">Try Sphinx Agent</p>
+                    <p class="text-xs text-midnight/50 dark:text-parchment/50 mb-3">AI customer service in 5 minutes. No code.</p>
+                    <a href="https://sphinxagent.ai" class="block text-center bg-gold hover:bg-gold-dark text-midnight font-semibold px-4 py-2 rounded-lg text-sm transition-colors">Start Free</a>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-gold/10 dark:border-gold/20 bg-midnight dark:bg-midnight-dark text-parchment/70">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+                <div class="flex items-center gap-2">
+                    <img src="logo-sphinx-64.png" alt="" width="28" height="28" style="border-radius:6px;">
+                    <span class="font-bold text-parchment">Sphinx Agent</span>
+                </div>
+                <nav class="flex flex-wrap justify-center gap-6 text-sm">
+                    <a href="https://sphinxagent.ai" class="hover:text-gold transition-colors">Product</a>
+                    <a href="https://sphinxagent.ai/pricing.html" class="hover:text-gold transition-colors">Pricing</a>
+                    <a href="https://sphinxagent.ai/docs.html" class="hover:text-gold transition-colors">Docs</a>
+                    <a href="index.html" class="hover:text-gold transition-colors">Think Tank</a>
+                    <a href="submit.html" class="hover:text-gold transition-colors">Submit</a>
+                    <a href="https://terrellflautt.com" class="hover:text-gold transition-colors">Author</a>
+                    <a href="support.html" class="text-parchment/25 hover:text-gold transition-colors">Support</a>
+                </nav>
+                <p class="text-xs text-parchment/40">&copy; 2026 <a href="https://snapitsoftware.com" target="_blank" rel="noopener" class="hover:text-white transition">SnapIT Software</a>. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Dark mode toggle
+        const toggle = document.getElementById('darkToggle');
+        const html = document.documentElement;
+        toggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                mobileMenu.classList.toggle('hidden');
+                const isOpen = !mobileMenu.classList.contains('hidden');
+                mobileMenuBtn.setAttribute('aria-expanded', isOpen);
+                mobileMenuBtn.innerHTML = isOpen
+                    ? '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>'
+                    : '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>';
+            });
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                    mobileMenuBtn.innerHTML = '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>';
+                });
+            });
+            document.addEventListener('click', (e) => {
+                if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                    mobileMenuBtn.innerHTML = '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

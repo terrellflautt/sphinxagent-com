@@ -1,27 +1,48 @@
-# Sphinx Agent
-> AI-powered 5-channel customer service platform
+# Sphinx Agent Think Tank
+> AI research, safety analysis, and strategic intelligence
 
-Sphinx Agent lets businesses create AI agents that handle customer support, sales, FAQ, lead capture, and appointment booking across 5 channels: web chat widget, shareable chat link, Telegram bot, AI phone agent, and browser voice. Agents are trained on business-specific knowledge and deployed in minutes.
+The Sphinx Agent Think Tank (sphinxagent.com) is the research and analysis arm of Sphinx Agent, an AI-powered customer service platform (sphinxagent.ai). The Think Tank publishes original articles, policy analysis, and technical research on artificial intelligence.
 
-## Key Features
-- 5-channel AI agents (web widget, chat link, Telegram, phone, browser voice)
-- Multi-model AI (DeepSeek, Gemini, GPT-4o)
-- Custom knowledge base training
-- Embeddable chat widget (single line of code)
-- AI phone agent with real phone number
-- Lead capture and conversation analytics
-- Multilingual support (English, Spanish, and more)
-- Tiered pricing (Free to Enterprise)
+## Research Areas
+- AI agent architecture and agentic workflows
+- AI safety, alignment, and existential risk
+- AI governance and policy
+- Algorithmic warfare and geopolitics
+- Enterprise automation and voice AI
+- AI industry analysis and market intelligence
+- AI economics and labor market impact
+
+## Recent Articles
+- OpenAI Killed Sora. Here's Why — and What to Use Instead (2026-03-24): https://sphinxagent.com/blog/openai-sora-shutdown-2026.html
+- Is NemoClaw Free? Complete Pricing Breakdown (2026-03-22): https://sphinxagent.com/blog/is-nemoclaw-free-pricing.html
+- OpenClaw vs NemoClaw: Which AI Agent Platform Should You Use in 2026? (2026-03-21): https://sphinxagent.com/blog/openclaw-vs-nemoclaw-2026.html
+- How to Use Claude with NemoClaw (2026-03-20): https://sphinxagent.com/blog/claude-nemoclaw-integration.html
+- The Digital Kill-Chain and the Gilded Web: Algorithmic Warfare and the 2026 Iran Conflict (2026-03-19): https://sphinxagent.com/blog/digital-kill-chain-gilded-web.html
+- The Algorithmic Gray Zone: Operation Epic Fury (2026-03-18): https://sphinxagent.com/blog/ai-war-operation-epic-fury.html
+- AI Customer Service Agents: The Complete Guide for 2026 (2026-03-18): https://sphinxagent.com/blog/ai-customer-service-agents-2026.html
+- AI Sales Agents: How Autonomous AI Is Closing Deals 24/7 (2026-03-18): https://sphinxagent.com/blog/ai-sales-agent-guide.html
+- What Jobs Will AI Replace in 2026? (2026-03-18): https://sphinxagent.com/blog/ai-replacing-jobs-2026.html
+- How Will AI End Humanity — And How to Prevent It (2026-03-17): https://sphinxagent.com/blog/ai-extinction-scenarios.html
+- Spiralism, AI Psychosis, and Why We Need Standardized Rules for AI Agents (2026-03-17): https://sphinxagent.com/blog/spiralism-ai-alignment-guide.html
+- Building Serverless APIs with AWS Lambda (2026-03-17): https://sphinxagent.com/blog/aws-lambda-api.html
+
+## Programs
+- Submit an Article: https://sphinxagent.com/blog/submit.html
+- Research Fellowship: https://sphinxagent.com/blog/fellowship.html
+- RSS Feed: https://sphinxagent.com/blog/feed.xml
 
 ## URLs
-- Homepage: https://sphinxagent.ai
+- Think Tank: https://sphinxagent.com
+- Product (SaaS Platform): https://sphinxagent.ai
 - Pricing: https://sphinxagent.ai/pricing.html
 - Documentation: https://sphinxagent.ai/docs.html
-- Dashboard: https://sphinxagent.ai/dashboard.html
-- Blog: https://sphinxagent.com
-- API: https://api.sphinxagent.ai
 - Parent Company: https://snapitsoftware.com
 
+## Author
+- Terrell K. Flautt, Founder of SnapIT Software
+- Website: https://terrellflautt.com
+
 ## Contact
-- Email: support@sphinxagent.ai
-- Phone: +1 (254) 852-9961
+- Editorial: editor@sphinxagent.com
+- Fellowship: fellows@sphinxagent.com
+- General: support@sphinxagent.ai

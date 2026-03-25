@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Fellows — Sphinx Agent Think Tank</title>
+    <meta name="description" content="Meet the research fellows at the Sphinx Agent Think Tank — AI researchers, cloud architects, and builders working at the frontier of autonomous systems, governance, and applied AI.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://sphinxagent.com/blog/fellows.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Research Fellows — Sphinx Agent Think Tank">
+    <meta property="og:description" content="Meet the research fellows at the Sphinx Agent Think Tank.">
+    <meta property="og:url" content="https://sphinxagent.com/blog/fellows.html">
+    <meta property="og:site_name" content="Sphinx Agent">
+    <meta property="og:image" content="https://sphinxagent.com/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Research Fellows — Sphinx Agent Think Tank">
+    <meta name="twitter:description" content="Meet the research fellows at the Sphinx Agent Think Tank.">
+    <meta name="twitter:image" content="https://sphinxagent.com/og-image.png">
+    <link rel="icon" href="favicon.ico" sizes="32x32">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        gold: { DEFAULT: '#D4AF37', light: '#E0C252', dark: '#B8960F' },
+                        midnight: { DEFAULT: '#1e293b', light: '#334155', dark: '#0f172a' },
+                        parchment: { DEFAULT: '#fdf6e3', dark: '#f5edd4' },
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', system-ui, sans-serif; }
+    </style>
+    <script>if(localStorage.getItem('theme')==='dark'||(!localStorage.getItem('theme')&&window.matchMedia('(prefers-color-scheme:dark)').matches)){document.documentElement.classList.add('dark')}</script>
+</head>
+<body class="bg-parchment text-midnight dark:bg-midnight-dark dark:text-parchment min-h-screen">
+
+    <!-- Sticky Header -->
+    <header class="sticky top-0 z-50 bg-parchment/95 dark:bg-midnight/95 backdrop-blur border-b border-gold/20 dark:border-gold/30">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2 group">
+                <img src="logo-sphinx-64.png" alt="Sphinx Agent logo" width="36" height="36" style="border-radius:8px;filter:drop-shadow(0 0 6px rgba(212,175,55,0.5));">
+                <span class="text-xl font-bold text-midnight dark:text-parchment group-hover:text-gold transition-colors">Sphinx Agent</span>
+            </a>
+            <nav class="hidden sm:flex items-center gap-6 text-sm font-medium">
+                <a href="https://sphinxagent.ai" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors">Product</a>
+                <a href="index.html" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors">Think Tank</a>
+                <a href="https://sphinxagent.ai/pricing.html" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors">Pricing</a>
+                <a href="submit.html" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors">Submit</a>
+                <a href="fellowship.html" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors">Fellowship</a>
+            </nav>
+            <div class="flex items-center gap-3">
+                <button id="mobileMenuBtn" class="sm:hidden p-2 rounded-lg hover:bg-midnight/10 dark:hover:bg-parchment/10 transition-colors" aria-label="Menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+                <button id="darkToggle" aria-label="Toggle dark mode" class="p-2 rounded-lg hover:bg-midnight/10 dark:hover:bg-parchment/10 transition-colors">
+                    <svg class="w-5 h-5 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                    <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                </button>
+                <a href="https://sphinxagent.ai" class="inline-block bg-gold hover:bg-gold-dark text-midnight font-semibold px-4 py-2 rounded-lg text-sm transition-colors shadow-sm">Start Free</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden sm:hidden bg-parchment/95 dark:bg-midnight/95 backdrop-blur border-b border-gold/20 dark:border-gold/30 sticky top-[57px] z-40">
+        <nav class="max-w-6xl mx-auto px-4 py-4 flex flex-col gap-3 text-sm font-medium">
+            <a href="index.html" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors py-2 border-b border-gold/10 dark:border-gold/20">Think Tank</a>
+            <a href="https://sphinxagent.ai" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors py-2 border-b border-gold/10 dark:border-gold/20">Product</a>
+            <a href="https://sphinxagent.ai/pricing.html" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors py-2 border-b border-gold/10 dark:border-gold/20">Pricing</a>
+            <a href="submit.html" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors py-2 border-b border-gold/10 dark:border-gold/20">Submit</a>
+            <a href="fellowship.html" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors py-2 border-b border-gold/10 dark:border-gold/20">Fellowship</a>
+            <a href="https://sphinxagent.ai" class="inline-block bg-gold hover:bg-gold-dark text-midnight font-semibold px-4 py-2 rounded-lg text-sm transition-colors shadow-sm text-center mt-1">Start Free</a>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <main class="max-w-3xl mx-auto px-4 sm:px-6 py-16">
+
+        <!-- Page Header -->
+        <div class="text-center mb-14">
+            <p class="text-sm font-semibold text-gold uppercase tracking-wider mb-3">Our People</p>
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-midnight dark:text-parchment mb-4">Research Fellows</h1>
+            <p class="text-base text-midnight/60 dark:text-parchment/60 max-w-xl mx-auto leading-relaxed">The Sphinx Agent Think Tank is powered by researchers and builders who work at the intersection of AI systems, cloud infrastructure, and policy. Fellows produce original research, white papers, and technical analysis published through the Think Tank.</p>
+        </div>
+
+        <!-- Fellows Grid -->
+        <div class="space-y-8 mb-16">
+
+            <!-- Fellow: T.K. Flautt -->
+            <div class="p-6 rounded-2xl bg-white dark:bg-midnight-light border border-gold/10 dark:border-gold/20 hover:border-gold/30 dark:hover:border-gold/40 transition-colors">
+                <div class="flex flex-col sm:flex-row gap-5">
+                    <div class="flex-shrink-0">
+                        <div class="w-20 h-20 rounded-xl bg-gradient-to-br from-gold to-gold-dark flex items-center justify-center text-midnight font-extrabold text-2xl shadow-md">
+                            TF
+                        </div>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-1">
+                            <h2 class="text-xl font-bold text-midnight dark:text-parchment">T.K. Flautt</h2>
+                            <span class="text-xs font-semibold text-gold bg-gold/10 px-2 py-0.5 rounded-full">Senior Fellow</span>
+                        </div>
+                        <p class="text-sm font-medium text-midnight/50 dark:text-parchment/50 mb-3">AI Researcher &amp; Cloud Architect</p>
+                        <p class="text-sm text-midnight/70 dark:text-parchment/70 leading-relaxed mb-4">Founding director of the Sphinx Agent Think Tank and cloud architect at SnapIT SaaS. Research focus areas include agentic architecture, multi-model orchestration, enterprise automation security, and AI governance frameworks. Leads the Think Tank's editorial direction and publishes on autonomous systems policy, voice agent design, and the operational security of deployed AI agents.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs px-2.5 py-1 rounded-lg bg-midnight/5 dark:bg-parchment/5 text-midnight/60 dark:text-parchment/60 border border-midnight/5 dark:border-parchment/10">Agentic Architecture</span>
+                            <span class="text-xs px-2.5 py-1 rounded-lg bg-midnight/5 dark:bg-parchment/5 text-midnight/60 dark:text-parchment/60 border border-midnight/5 dark:border-parchment/10">Enterprise Automation Security</span>
+                            <span class="text-xs px-2.5 py-1 rounded-lg bg-midnight/5 dark:bg-parchment/5 text-midnight/60 dark:text-parchment/60 border border-midnight/5 dark:border-parchment/10">AI Governance &amp; Policy</span>
+                            <span class="text-xs px-2.5 py-1 rounded-lg bg-midnight/5 dark:bg-parchment/5 text-midnight/60 dark:text-parchment/60 border border-midnight/5 dark:border-parchment/10">Cloud Infrastructure</span>
+                        </div>
+                        <div class="flex flex-wrap gap-4 text-sm">
+                            <a href="https://terrellflautt.com" target="_blank" rel="noopener" class="text-gold hover:text-gold-dark transition-colors font-medium">Personal Site &rarr;</a>
+                            <a href="https://snapitsaas.com" target="_blank" rel="noopener" class="text-midnight/40 dark:text-parchment/40 hover:text-gold transition-colors">SnapIT SaaS</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fellow: Nathan B. Carroll -->
+            <div class="p-6 rounded-2xl bg-white dark:bg-midnight-light border border-gold/10 dark:border-gold/20 hover:border-gold/30 dark:hover:border-gold/40 transition-colors">
+                <div class="flex flex-col sm:flex-row gap-5">
+                    <div class="flex-shrink-0">
+                        <div class="w-20 h-20 rounded-xl bg-gradient-to-br from-midnight-light to-midnight flex items-center justify-center text-gold font-extrabold text-2xl shadow-md">
+                            NC
+                        </div>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-1">
+                            <h2 class="text-xl font-bold text-midnight dark:text-parchment">Nathan B. Carroll</h2>
+                            <span class="text-xs font-semibold text-gold bg-gold/10 px-2 py-0.5 rounded-full">Research Fellow</span>
+                        </div>
+                        <p class="text-sm font-medium text-midnight/50 dark:text-parchment/50 mb-3">AI Researcher &amp; iOS Developer</p>
+                        <p class="text-sm text-midnight/70 dark:text-parchment/70 leading-relaxed mb-4">Research fellow at the Sphinx Agent Think Tank and iOS developer at SnapIT Software. Research interests span mobile-native AI agent integration, on-device inference architectures, voice agent UX for consumer applications, and the intersection of edge computing with autonomous agent deployment. Contributes to the Think Tank's work on making AI agent technology accessible across platform boundaries.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs px-2.5 py-1 rounded-lg bg-midnight/5 dark:bg-parchment/5 text-midnight/60 dark:text-parchment/60 border border-midnight/5 dark:border-parchment/10">Voice Agent UX &amp; Ethics</span>
+                            <span class="text-xs px-2.5 py-1 rounded-lg bg-midnight/5 dark:bg-parchment/5 text-midnight/60 dark:text-parchment/60 border border-midnight/5 dark:border-parchment/10">Mobile AI Integration</span>
+                            <span class="text-xs px-2.5 py-1 rounded-lg bg-midnight/5 dark:bg-parchment/5 text-midnight/60 dark:text-parchment/60 border border-midnight/5 dark:border-parchment/10">On-Device Inference</span>
+                            <span class="text-xs px-2.5 py-1 rounded-lg bg-midnight/5 dark:bg-parchment/5 text-midnight/60 dark:text-parchment/60 border border-midnight/5 dark:border-parchment/10">Edge Computing</span>
+                        </div>
+                        <div class="flex flex-wrap gap-4 text-sm">
+                            <a href="https://nathaniel-b-carroll.github.io/" target="_blank" rel="noopener" class="text-gold hover:text-gold-dark transition-colors font-medium">Personal Site &rarr;</a>
+                            <a href="https://snapitsoftware.com" target="_blank" rel="noopener" class="text-midnight/40 dark:text-parchment/40 hover:text-gold transition-colors">SnapIT Software</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Join CTA -->
+        <div class="text-center p-8 rounded-2xl bg-gradient-to-br from-midnight to-midnight-light text-parchment border border-gold/20">
+            <h2 class="text-lg font-bold mb-2">Interested in Joining?</h2>
+            <p class="text-sm text-parchment/60 mb-5 max-w-md mx-auto">We appoint fellows on a rolling basis. If you're a researcher or builder working on AI agents, autonomous systems, or AI policy, we'd like to hear from you.</p>
+            <a href="fellowship.html" class="inline-block bg-gold hover:bg-gold-dark text-midnight font-semibold px-6 py-3 rounded-xl text-sm transition-colors shadow-md">Apply for a Fellowship</a>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-gold/10 dark:border-gold/20 bg-midnight dark:bg-midnight-dark text-parchment/70">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+                <div class="flex items-center gap-2">
+                    <img src="logo-sphinx-64.png" alt="" width="28" height="28" style="border-radius:6px;">
+                    <span class="font-bold text-parchment">Sphinx Agent</span>
+                </div>
+                <nav class="flex flex-wrap justify-center gap-6 text-sm">
+                    <a href="https://sphinxagent.ai" class="hover:text-gold transition-colors">Product</a>
+                    <a href="https://sphinxagent.ai/pricing.html" class="hover:text-gold transition-colors">Pricing</a>
+                    <a href="https://sphinxagent.ai/docs.html" class="hover:text-gold transition-colors">Docs</a>
+                    <a href="index.html" class="hover:text-gold transition-colors">Think Tank</a>
+                    <a href="submit.html" class="hover:text-gold transition-colors">Submit</a>
+                    <a href="fellowship.html" class="hover:text-gold transition-colors">Fellowship</a>
+                    <a href="https://terrellflautt.com" class="hover:text-gold transition-colors">Author</a>
+                    <a href="support.html" class="text-parchment/25 hover:text-gold transition-colors">Support</a>
+                </nav>
+                <p class="text-xs text-parchment/40">&copy; 2026 <a href="https://snapitsoftware.com" target="_blank" rel="noopener" class="hover:text-white transition">SnapIT Software</a>. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Dark mode toggle
+        const toggle = document.getElementById('darkToggle');
+        toggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                mobileMenu.classList.toggle('hidden');
+                const isOpen = !mobileMenu.classList.contains('hidden');
+                mobileMenuBtn.setAttribute('aria-expanded', isOpen);
+                mobileMenuBtn.innerHTML = isOpen
+                    ? '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>'
+                    : '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>';
+            });
+            document.addEventListener('click', (e) => {
+                if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                    mobileMenuBtn.innerHTML = '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

@@ -152,6 +152,7 @@
 
             <div id="formMessage" class="hidden text-center p-4 rounded-xl"></div>
         </form>
+        <p class="text-center mt-4"><a href="https://snapitforms.com" target="_blank" rel="noopener" class="text-xs text-pink-400/60 hover:text-pink-400 transition-colors">powered by snapITforms.com</a></p>
     </main>
 
     <!-- Footer -->
@@ -169,6 +170,7 @@
                     <a href="index.html" class="hover:text-gold transition-colors">Think Tank</a>
                     <a href="submit.html" class="text-gold">Submit</a>
                     <a href="https://terrellflautt.com" class="hover:text-gold transition-colors">Author</a>
+                    <a href="support.html" class="text-parchment/25 hover:text-gold transition-colors">Support</a>
                 </nav>
                 <p class="text-xs text-parchment/40">&copy; 2026 <a href="https://snapitsoftware.com" target="_blank" rel="noopener" class="hover:text-white transition">SnapIT Software</a>. All rights reserved.</p>
             </div>
@@ -225,16 +227,15 @@
             submitBtn.classList.add('opacity-60');
 
             const formData = {
-                to: 'snapitsaas@gmail.com',
-                subject: `[Think Tank Submission] ${document.getElementById('articleTitle').value}`,
-                authorName: document.getElementById('authorName').value,
-                authorEmail: document.getElementById('authorEmail').value,
+                access_key: 'sf_d3169f4c7a6cea7a2914e681003d6167',
+                name: document.getElementById('authorName').value,
+                email: document.getElementById('authorEmail').value,
+                _subject: `[Think Tank Submission] ${document.getElementById('articleTitle').value}`,
                 articleTitle: document.getElementById('articleTitle').value,
                 category: document.getElementById('category').value,
                 summary: document.getElementById('summary').value,
                 articleBody: document.getElementById('articleBody').value,
-                bio: document.getElementById('bio').value || 'Not provided',
-                submittedAt: new Date().toISOString()
+                bio: document.getElementById('bio').value || 'Not provided'
             };
 
             try {
@@ -244,22 +245,21 @@
                     body: JSON.stringify(formData)
                 });
 
-                if (response.ok) {
-                    formMessage.className = 'text-center p-4 rounded-xl bg-green-500/10 border border-green-500/20 text-green-400';
+                const result = await response.json();
+
+                if (response.ok && result.success) {
+                    formMessage.className = 'text-center p-4 rounded-xl bg-green-500/10 border border-green-500/20 text-green-700 dark:text-green-400';
                     formMessage.textContent = 'Article submitted successfully! We will review your submission and get back to you within 7 business days.';
                     formMessage.classList.remove('hidden');
                     form.reset();
                 } else {
-                    throw new Error('Submission failed');
+                    formMessage.className = 'text-center p-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-700 dark:text-red-400';
+                    formMessage.textContent = result.message || 'Something went wrong. Please try again or contact editor@sphinxagent.com.';
+                    formMessage.classList.remove('hidden');
                 }
             } catch (err) {
-                // Fallback: open mailto
-                const mailtoBody = `Article Title: ${formData.articleTitle}\nCategory: ${formData.category}\nAuthor: ${formData.authorName} (${formData.authorEmail})\n\nSummary:\n${formData.summary}\n\nArticle:\n${formData.articleBody}\n\nBio: ${formData.bio}`;
-                const mailtoLink = `mailto:snapitsaas@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(mailtoBody)}`;
-                window.location.href = mailtoLink;
-
-                formMessage.className = 'text-center p-4 rounded-xl bg-gold/10 border border-gold/20 text-gold';
-                formMessage.textContent = 'Opening your email client to send the submission. If it does not open, please email your article directly to snapitsaas@gmail.com.';
+                formMessage.className = 'text-center p-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-700 dark:text-red-400';
+                formMessage.textContent = 'Network error. Please try again or contact editor@sphinxagent.com.';
                 formMessage.classList.remove('hidden');
             }
 
