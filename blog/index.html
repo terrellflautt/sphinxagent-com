@@ -519,6 +519,41 @@
         </div>
     </section>
 
+    <!-- Newsletter Signup -->
+    <section class="py-16 px-4">
+        <div style="max-width:600px;margin:0 auto;padding:40px 28px;background:rgba(212,175,55,0.06);border:1px solid rgba(212,175,55,0.15);border-radius:16px;text-align:center;">
+            <h3 style="color:#D4AF37;font-size:1.4rem;font-weight:700;margin:0 0 8px;">The Sphinx Agent Think Tank</h3>
+            <p style="color:#94a3b8;font-size:0.95rem;margin:0 0 6px;max-width:460px;margin-left:auto;margin-right:auto;">Subscribe for AI insights, agent architecture deep-dives, and product updates.</p>
+            <p style="color:#D4AF37;font-size:0.85rem;font-weight:600;margin:0 0 20px;">Get a free early copy of <em>The Agentic Architect</em> ebook.</p>
+            <form id="sphinxNewsletterForm" style="display:flex;gap:8px;max-width:440px;margin:0 auto;" onsubmit="return submitSphinxNewsletter(event)">
+                <input type="email" id="sphinxNewsletterEmail" placeholder="you@email.com" required style="flex:1;padding:12px 18px;border-radius:50px;border:1px solid rgba(212,175,55,0.25);background:rgba(0,0,0,0.2);color:#e2e8f0;font-size:0.9rem;outline:none;font-family:inherit;" onfocus="this.style.borderColor='#D4AF37'" onblur="this.style.borderColor='rgba(212,175,55,0.25)'">
+                <button type="submit" style="padding:12px 24px;border-radius:50px;border:none;background:#D4AF37;color:#1e293b;font-size:0.9rem;font-weight:700;cursor:pointer;font-family:inherit;white-space:nowrap;transition:background 0.2s,transform 0.2s;" onmouseover="this.style.background='#C5A028';this.style.transform='translateY(-1px)'" onmouseout="this.style.background='#D4AF37';this.style.transform=''">Subscribe</button>
+            </form>
+            <div id="sphinxNewsletterMsg" style="margin-top:12px;font-size:0.85rem;min-height:20px;"></div>
+            <p style="margin-top:12px;font-size:0.75rem;color:#64748b;">No spam. Unsubscribe anytime.</p>
+        </div>
+    </section>
+    <script>
+    function submitSphinxNewsletter(e) {
+        e.preventDefault();
+        var input = document.getElementById('sphinxNewsletterEmail');
+        var msg = document.getElementById('sphinxNewsletterMsg');
+        var email = input.value.trim();
+        if (!email) return false;
+        msg.textContent = 'Subscribing...';
+        msg.style.color = '#94a3b8';
+        fetch('https://api.terrellflautt.com/newsletter/subscribe', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: email, source: 'sphinxagent.com' })
+        }).then(function(r) { return r.json(); }).then(function(data) {
+            if (data.error) { msg.textContent = data.error; msg.style.color = '#ef4444'; }
+            else { msg.textContent = data.message; msg.style.color = '#10b981'; input.value = ''; }
+        }).catch(function() { msg.textContent = 'Something went wrong. Please try again.'; msg.style.color = '#ef4444'; });
+        return false;
+    }
+    </script>
+
     <!-- Footer -->
     <footer class="border-t border-gold/10 dark:border-gold/20 bg-midnight dark:bg-midnight-dark text-parchment/70">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
@@ -589,12 +624,15 @@
             const API = 'https://api.terrellflautt.com';
             const USER_KEY = 'sphinxagent_user_id';
 
+            function setCookie(n, v, d) { document.cookie = n + '=' + encodeURIComponent(v) + ';expires=' + new Date(Date.now() + d * 864e5).toUTCString() + ';path=/;SameSite=Lax'; }
+            function getCookie(n) { const m = document.cookie.match(new RegExp('(?:^|; )' + n + '=([^;]*)')); return m ? decodeURIComponent(m[1]) : null; }
             function getUserId() {
-                let id = localStorage.getItem(USER_KEY);
+                let id = getCookie(USER_KEY) || localStorage.getItem(USER_KEY);
                 if (!id) {
                     id = 'sa_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
-                    localStorage.setItem(USER_KEY, id);
                 }
+                localStorage.setItem(USER_KEY, id);
+                setCookie(USER_KEY, id, 365);
                 return id;
             }
 
