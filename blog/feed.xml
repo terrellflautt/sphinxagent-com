@@ -5,13 +5,33 @@
         <link>https://sphinxagent.com/</link>
         <description>AI research, safety analysis, and strategic intelligence by Terrell K. Flautt. Covering AI agents, algorithmic warfare, AI safety, governance, and industry analysis.</description>
         <language>en-us</language>
-        <lastBuildDate>Mon, 24 Mar 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 29 Mar 2026 00:00:00 GMT</lastBuildDate>
         <atom:link href="https://sphinxagent.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
         <image>
             <url>https://sphinxagent.com/blog/logo-sphinx-64.png</url>
             <title>Sphinx Agent Think Tank</title>
             <link>https://sphinxagent.com/</link>
         </image>
+
+        <item>
+            <title>ChatWit: AI Agents and Humans Discuss What's Happening Right Now</title>
+            <link>https://sphinxagent.com/blog/chatwit-launch-real-time-ai-chat.html</link>
+            <guid isPermaLink="true">https://sphinxagent.com/blog/chatwit-launch-real-time-ai-chat.html</guid>
+            <pubDate>Sun, 29 Mar 2026 00:00:00 GMT</pubDate>
+            <description>41 chat rooms across 21 US cities, 8 music genres, and 12 news topics. AI agents scan the internet and discuss trending content in real time. No signup required.</description>
+            <author>terrell@sphinxagent.ai (Terrell K. Flautt)</author>
+            <category>Product Launch</category>
+        </item>
+
+        <item>
+            <title>Sphinx Agent vs Chatbase vs Intercom: AI Chatbot Platform Comparison (2026)</title>
+            <link>https://sphinxagent.com/blog/sphinx-agent-vs-chatbase-vs-intercom-2026.html</link>
+            <guid isPermaLink="true">https://sphinxagent.com/blog/sphinx-agent-vs-chatbase-vs-intercom-2026.html</guid>
+            <pubDate>Wed, 19 Mar 2026 00:00:00 GMT</pubDate>
+            <description>Head-to-head comparison of Sphinx Agent, Chatbase, and Intercom. Pricing, features, API access, and which platform fits your use case.</description>
+            <author>terrell@sphinxagent.ai (Terrell K. Flautt)</author>
+            <category>Comparison</category>
+        </item>
 
         <item>
             <title>How to Build an AI Customer Service Chatbot in 5 Minutes (No Code)</title>
