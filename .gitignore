@@ -1,0 +1,37 @@
+# Dependencies
+node_modules/
+**/node_modules/
+package-lock.json
+
+# Build artifacts
+dist/
+build/
+.next/
+out/
+
+# Test outputs
+test-results/
+playwright-report/
+.playwright-cache/
+coverage/
+
+# Editor / OS
+.DS_Store
+*.swp
+*.swo
+.idea/
+.vscode/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Local env / secrets
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# Lambda deployment zips
+*.zip

@@ -22,21 +22,7 @@
     <link rel="alternate" type="application/rss+xml" title="Sphinx Agent Think Tank RSS" href="https://sphinxagent.com/feed.xml">
     <link rel="icon" href="favicon.ico" sizes="32x32">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        gold: { DEFAULT: '#D4AF37', light: '#E0C252', dark: '#B8960F' },
-                        midnight: { DEFAULT: '#1e293b', light: '#334155', dark: '#0f172a' },
-                        parchment: { DEFAULT: '#fdf6e3', dark: '#f5edd4' },
-                    }
-                }
-            }
-        }
-    </script>
+    <link rel="stylesheet" href="/css/tailwind.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
         html { scroll-behavior: smooth; }
@@ -87,6 +73,8 @@
     }
     </script>
 <script>if(localStorage.getItem('theme')==='dark'||(!localStorage.getItem('theme')&&window.matchMedia('(prefers-color-scheme:dark)').matches)){document.documentElement.classList.add('dark')}</script>
+<script>window.SNAPIT_TRACKING_ID='SA_851a71420715';</script>
+<script src="https://snapitanalytics.com/analytics.js" defer></script>
 </head>
 <body class="bg-parchment text-midnight dark:bg-midnight-dark dark:text-parchment min-h-screen">
 
@@ -427,6 +415,7 @@
                     <a href="feed.xml" class="hover:text-gold transition-colors">RSS</a>
                     <a href="https://terrellflautt.com" class="hover:text-gold transition-colors">Author</a>
                     <a href="contribute.html" class="text-parchment/25 hover:text-gold transition-colors">Contribute</a>
+                    <a href="https://geogryphon.com" class="hover:text-gold transition-colors" target="_blank" rel="noopener">GeoGryphon</a>
                 </nav>
                 <p class="text-xs text-parchment/40">&copy; 2026 <a href="https://snapitsoftware.com" target="_blank" rel="noopener" class="hover:text-white transition">SnapIT Software</a>. All rights reserved.</p>
             </div>

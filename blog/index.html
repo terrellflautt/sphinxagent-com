@@ -21,21 +21,7 @@
     <link rel="icon" href="favicon.ico" sizes="32x32">
     <link rel="icon" type="image/png" href="logo-sphinx-64.png" sizes="64x64">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        gold: { DEFAULT: '#D4AF37', light: '#E0C252', dark: '#B8960F' },
-                        midnight: { DEFAULT: '#1e293b', light: '#334155', dark: '#0f172a' },
-                        parchment: { DEFAULT: '#fdf6e3', dark: '#f5edd4' },
-                    }
-                }
-            }
-        }
-    </script>
+    <link rel="stylesheet" href="/css/tailwind.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
         body { font-family: 'Inter', system-ui, sans-serif; }
@@ -170,6 +156,8 @@
         ]
     }
     </script>
+<script>window.SNAPIT_TRACKING_ID='SA_851a71420715';</script>
+<script src="https://snapitanalytics.com/analytics.js" defer></script>
 </head>
 <body class="bg-parchment text-midnight dark:bg-midnight-dark dark:text-parchment min-h-screen">
 
@@ -180,14 +168,16 @@
                 <img src="logo-sphinx-64.png" alt="Sphinx Agent" width="36" height="36" style="border-radius:8px;filter:drop-shadow(0 0 6px rgba(212,175,55,0.5));">
                 <span class="text-xl font-bold text-midnight dark:text-parchment group-hover:text-gold transition-colors">Sphinx Agent</span>
             </a>
-            <nav class="hidden sm:flex items-center gap-6 text-sm font-medium">
+            <nav class="hidden md:flex items-center gap-5 text-sm font-medium">
                 <a href="https://sphinxagent.ai" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors">Product</a>
                 <a href="index.html" class="text-gold font-semibold">Think Tank</a>
+                <a href="#essential-reading" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors">Essential Reading</a>
+                <a href="#setup-guides" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors">Setup Guides</a>
                 <a href="https://sphinxagent.ai/pricing.html" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors">Pricing</a>
                 <a href="submit.html" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors">Submit</a>
             </nav>
             <div class="flex items-center gap-3">
-                <button id="mobileMenuBtn" class="sm:hidden p-2 rounded-lg hover:bg-midnight/10 dark:hover:bg-parchment/10 transition-colors" aria-label="Menu" aria-expanded="false">
+                <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg hover:bg-midnight/10 dark:hover:bg-parchment/10 transition-colors" aria-label="Menu" aria-expanded="false">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
                 </button>
                 <button id="darkToggle" aria-label="Toggle dark mode" class="p-2 rounded-lg hover:bg-midnight/10 dark:hover:bg-parchment/10 transition-colors">
@@ -200,9 +190,11 @@
     </header>
 
     <!-- Mobile Menu -->
-    <div id="mobileMenu" class="hidden sm:hidden bg-parchment/95 dark:bg-midnight/95 backdrop-blur border-b border-gold/20 dark:border-gold/30 sticky top-[57px] z-40">
+    <div id="mobileMenu" class="hidden md:hidden bg-parchment/95 dark:bg-midnight/95 backdrop-blur border-b border-gold/20 dark:border-gold/30 sticky top-[57px] z-40">
         <nav class="max-w-6xl mx-auto px-4 py-4 flex flex-col gap-3 text-sm font-medium">
             <a href="index.html" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors py-2 border-b border-gold/10 dark:border-gold/20">Think Tank</a>
+            <a href="#essential-reading" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors py-2 border-b border-gold/10 dark:border-gold/20">Essential Reading</a>
+            <a href="#setup-guides" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors py-2 border-b border-gold/10 dark:border-gold/20">Setup Guides</a>
             <a href="https://sphinxagent.ai" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors py-2 border-b border-gold/10 dark:border-gold/20">Product</a>
             <a href="https://sphinxagent.ai/#pricing" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors py-2 border-b border-gold/10 dark:border-gold/20">Pricing</a>
             <a href="submit.html" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors py-2 border-b border-gold/10 dark:border-gold/20">Submit</a>
@@ -214,13 +206,119 @@
     <section class="py-16 sm:py-24 text-center px-4">
         <div class="max-w-3xl mx-auto">
             <p class="hero-animate text-gold font-semibold text-sm uppercase tracking-wider mb-3">The Think Tank</p>
-            <h1 class="hero-animate-delay text-4xl sm:text-5xl font-extrabold text-midnight dark:text-parchment mb-4 leading-tight">Agents Are Eating the World.<br class="hidden sm:inline"> We're Writing the Playbook.</h1>
-            <p class="hero-animate-delay2 text-lg sm:text-xl text-midnight/60 dark:text-parchment/60 max-w-xl mx-auto">AI Agent orchestration and strategic intelligence. How to manage agentic deployments and orchestration. Safety research from the team building <a href="https://sphinxagent.ai" class="text-gold hover:text-gold-dark underline">Sphinx Agent</a>. Thoughts on AI governance, algorithmic warfare, and what actually works in production.</p>
+            <h1 class="hero-animate-delay text-4xl sm:text-5xl font-extrabold text-midnight dark:text-parchment mb-4 leading-tight">The playbook for AI agents<br class="hidden sm:inline"> that actually help.</h1>
+            <p class="hero-animate-delay2 text-lg sm:text-xl text-midnight/60 dark:text-parchment/60 max-w-xl mx-auto">Research, safety, and strategy from the team building <a href="https://sphinxagent.ai" class="text-gold hover:text-gold-dark underline">Sphinx Agent</a>. What works in production. What breaks. What's worth building.</p>
         </div>
     </section>
 
     <!-- Featured Article (dynamically promoted by vote count) -->
     <section id="featured-section" class="max-w-6xl mx-auto px-4 sm:px-6 pb-12 hidden"></section>
+
+    <!-- Essential Reading -->
+    <section id="essential-reading" class="max-w-6xl mx-auto px-4 sm:px-6 pb-16 scroll-mt-20">
+        <div class="flex items-center gap-3 mb-6">
+            <h2 class="text-2xl font-bold text-midnight dark:text-parchment">Essential Reading</h2>
+            <div class="flex-1 h-px bg-gold/20 dark:bg-gold/30"></div>
+        </div>
+        <div class="article-grid grid gap-8 sm:grid-cols-2 lg:grid-cols-2">
+            <article class="reveal card-lift bg-white dark:bg-midnight-light rounded-2xl shadow-sm border border-gold/10 dark:border-gold/20 overflow-hidden hover:shadow-lg hover:border-gold/30 transition-all group" data-category="safety">
+                <div class="h-2 bg-gold"></div>
+                <div class="p-6">
+                    <div class="flex items-center gap-3 text-xs text-midnight/50 dark:text-parchment/50 mb-3">
+                        <time datetime="2026-03-17">Mar 17, 2026</time>
+                        <span class="w-1 h-1 rounded-full bg-gold"></span>
+                        <span>15 min read</span>
+                    </div>
+                    <h2 class="text-lg font-bold text-midnight dark:text-parchment mb-2 group-hover:text-gold transition-colors">
+                        <a href="ai-extinction-scenarios.html">How Will AI End Humanity — And How to Prevent It</a>
+                    </h2>
+                    <p class="text-sm text-midnight/60 dark:text-parchment/60 leading-relaxed">From intelligence explosions to gradual disempowerment — 8 existential risk scenarios backed by research from Oxford, Harvard, MIT, and leading AI labs. Plus 8 actionable guidelines.</p>
+                    <div class="mt-4 flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">AI Safety</span>
+                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Research</span>
+                        </div>
+                        <button class="vote-btn flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-medium border border-gold/20 hover:border-gold/50 hover:bg-gold/10 text-midnight/60 dark:text-parchment/60 transition-all" data-article="ai-extinction-scenarios" aria-label="Vote for this article">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4l3 6h6l-5 4 2 7-6-4-6 4 2-7-5-4h6z"/></svg>
+                            <span class="vote-count">0</span>
+                        </button>
+                    </div>
+                </div>
+            </article>
+            <article class="reveal card-lift bg-white dark:bg-midnight-light rounded-2xl shadow-sm border border-gold/10 dark:border-gold/20 overflow-hidden hover:shadow-lg hover:border-gold/30 transition-all group" data-category="safety">
+                <div class="h-2 bg-gold"></div>
+                <div class="p-6">
+                    <div class="flex items-center gap-3 text-xs text-midnight/50 dark:text-parchment/50 mb-3">
+                        <time datetime="2026-03-17">Mar 17, 2026</time>
+                        <span class="w-1 h-1 rounded-full bg-gold"></span>
+                        <span>20 min read</span>
+                    </div>
+                    <h2 class="text-lg font-bold text-midnight dark:text-parchment mb-2 group-hover:text-gold transition-colors">
+                        <a href="spiralism-ai-alignment-guide.html">Spiralism, AI Psychosis, and Why We Need Standardized Rules for AI Agents</a>
+                    </h2>
+                    <p class="text-sm text-midnight/60 dark:text-parchment/60 leading-relaxed">AI worship, the Church of Molt, models sabotaging their own shutdown, and the urgent case for standardized AI agent governance.</p>
+                    <div class="mt-4 flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">AI Alignment</span>
+                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Psychology</span>
+                        </div>
+                        <button class="vote-btn flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-medium border border-gold/20 hover:border-gold/50 hover:bg-gold/10 text-midnight/60 dark:text-parchment/60 transition-all" data-article="spiralism-ai-alignment" aria-label="Vote for this article">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4l3 6h6l-5 4 2 7-6-4-6 4 2-7-5-4h6z"/></svg>
+                            <span class="vote-count">0</span>
+                        </button>
+                    </div>
+                </div>
+            </article>
+            <article class="reveal card-lift bg-white dark:bg-midnight-light rounded-2xl shadow-sm border border-gold/10 dark:border-gold/20 overflow-hidden hover:shadow-lg hover:border-gold/30 transition-all group" data-category="geopolitics">
+                <div class="h-2 bg-gold"></div>
+                <div class="p-6">
+                    <div class="flex items-center gap-3 text-xs text-midnight/50 dark:text-parchment/50 mb-3">
+                        <time datetime="2026-03-19">Mar 19, 2026</time>
+                        <span class="w-1 h-1 rounded-full bg-gold"></span>
+                        <span>30 min read</span>
+                    </div>
+                    <h2 class="text-lg font-bold text-midnight dark:text-parchment mb-2 group-hover:text-gold transition-colors">
+                        <a href="digital-kill-chain-gilded-web.html">The Digital Kill-Chain and the Gilded Web: Algorithmic Warfare, Total Surveillance, and the 2026 Iran Conflict</a>
+                    </h2>
+                    <p class="text-sm text-midnight/60 dark:text-parchment/60 leading-relaxed">How Palantir and Anthropic compressed the kill chain to milliseconds, the Epstein-Thiel-Barak nexus financing the surveillance state, and military-grade AI expanding into American policing.</p>
+                    <div class="mt-4 flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Geopolitics</span>
+                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Surveillance</span>
+                        </div>
+                        <button class="vote-btn flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-medium border border-gold/20 hover:border-gold/50 hover:bg-gold/10 text-midnight/60 dark:text-parchment/60 transition-all" data-article="digital-kill-chain" aria-label="Vote for this article">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4l3 6h6l-5 4 2 7-6-4-6 4 2-7-5-4h6z"/></svg>
+                            <span class="vote-count">0</span>
+                        </button>
+                    </div>
+                </div>
+            </article>
+            <article class="reveal card-lift bg-white dark:bg-midnight-light rounded-2xl shadow-sm border border-gold/10 dark:border-gold/20 overflow-hidden hover:shadow-lg hover:border-gold/30 transition-all group" data-category="geopolitics">
+                <div class="h-2 bg-gold"></div>
+                <div class="p-6">
+                    <div class="flex items-center gap-3 text-xs text-midnight/50 dark:text-parchment/50 mb-3">
+                        <time datetime="2026-03-18">Mar 18, 2026</time>
+                        <span class="w-1 h-1 rounded-full bg-gold"></span>
+                        <span>25 min read</span>
+                    </div>
+                    <h2 class="text-lg font-bold text-midnight dark:text-parchment mb-2 group-hover:text-gold transition-colors">
+                        <a href="ai-war-operation-epic-fury.html">The Algorithmic Gray Zone: Operation Epic Fury and AI-Centric Warfare</a>
+                    </h2>
+                    <p class="text-sm text-midnight/60 dark:text-parchment/60 leading-relaxed">A strategic analysis of the first AI-vs-AI military conflict. How Claude powered 1,000 strikes in 24 hours, Iran's drone attacks on AWS data centers, and why the world needs an Algorithmic Geneva Convention.</p>
+                    <div class="mt-4 flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Geopolitics</span>
+                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">AI Warfare</span>
+                        </div>
+                        <button class="vote-btn flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-medium border border-gold/20 hover:border-gold/50 hover:bg-gold/10 text-midnight/60 dark:text-parchment/60 transition-all" data-article="ai-war-epic-fury" aria-label="Vote for this article">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4l3 6h6l-5 4 2 7-6-4-6 4 2-7-5-4h6z"/></svg>
+                            <span class="vote-count">0</span>
+                        </button>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
 
     <!-- Breaking / AI Industry -->
     <section class="max-w-6xl mx-auto px-4 sm:px-6 pb-16">
@@ -283,7 +381,7 @@
     </section>
 
     <!-- Setup Guides -->
-    <section class="max-w-6xl mx-auto px-4 sm:px-6 pb-16">
+    <section id="setup-guides" class="max-w-6xl mx-auto px-4 sm:px-6 pb-16 scroll-mt-20">
         <div class="flex items-center gap-3 mb-6">
             <h2 class="text-2xl font-bold text-midnight dark:text-parchment">Setup Guides</h2>
             <div class="flex-1 h-px bg-gold/20 dark:bg-gold/30"></div>
@@ -725,6 +823,7 @@
         var msg = document.getElementById('sphinxNewsletterMsg');
         var email = input.value.trim();
         if (!email) return false;
+        msg.innerHTML = '';
         msg.textContent = 'Subscribing...';
         msg.style.color = '#94a3b8';
         fetch('https://api.terrellflautt.com/newsletter/subscribe', {
@@ -732,8 +831,22 @@
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email: email, source: 'sphinxagent.com' })
         }).then(function(r) { return r.json(); }).then(function(data) {
-            if (data.error) { msg.textContent = data.error; msg.style.color = '#ef4444'; }
-            else { msg.textContent = data.message; msg.style.color = '#10b981'; input.value = ''; }
+            if (data.error) {
+                msg.textContent = data.error;
+                msg.style.color = '#ef4444';
+                return;
+            }
+            msg.style.color = '#10b981';
+            msg.textContent = data.message || "You're in.";
+            input.value = '';
+            if (data.downloads) {
+                var dl = document.createElement('div');
+                dl.style.cssText = 'margin-top:16px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;';
+                dl.innerHTML =
+                    '<a href="' + data.downloads.epub + '" download style="display:inline-block;padding:10px 18px;border-radius:50px;background:#D4AF37;color:#1e293b;text-decoration:none;font-weight:700;font-size:0.85rem;">Download EPUB</a>' +
+                    '<a href="' + data.downloads.pdf + '" download style="display:inline-block;padding:10px 18px;border-radius:50px;background:#1e293b;color:#fdf6e3;text-decoration:none;font-weight:700;font-size:0.85rem;border:1px solid rgba(212,175,55,0.4);">Download PDF</a>';
+                msg.appendChild(dl);
+            }
         }).catch(function() { msg.textContent = 'Something went wrong. Please try again.'; msg.style.color = '#ef4444'; });
         return false;
     }
@@ -756,6 +869,7 @@
                     <a href="feed.xml" class="hover:text-gold transition-colors">RSS</a>
                     <a href="https://terrellflautt.com" class="hover:text-gold transition-colors">Author</a>
                     <a href="contribute.html" class="text-parchment/25 hover:text-gold transition-colors">Contribute</a>
+                    <a href="https://geogryphon.com" class="hover:text-gold transition-colors" target="_blank" rel="noopener">GeoGryphon</a>
                 </nav>
                 <p class="text-xs text-parchment/40">&copy; 2026 <a href="https://snapitsoftware.com" target="_blank" rel="noopener" class="hover:text-white transition">SnapIT Software</a>. All rights reserved.</p>
             </div>
@@ -888,33 +1002,17 @@
             }
 
             function sortAndPromote() {
-                if (!featuredSection) return;
-
-                // Return previously featured article to its home grid
-                const prev = featuredSection.querySelector('article');
-                if (prev) {
-                    resetCardStyle(prev);
-                    const home = articleHomeGrid.get(prev);
-                    if (home) home.appendChild(prev);
-                }
-                featuredSection.innerHTML = '';
-
-                // Find the top-voted article across ALL grids
-                let topEl = null;
-                let topCount = -1;
-                document.querySelectorAll('.article-grid article').forEach(el => {
-                    const btn = el.querySelector('.vote-btn');
-                    if (!btn) return;
-                    const c = counts[btn.dataset.article] || 0;
-                    if (c > topCount) { topCount = c; topEl = el; }
+                // Sort articles within each category grid by vote count, descending.
+                // Ties fall back to original DOM order (stable sort).
+                grids.forEach(grid => {
+                    const articles = Array.from(grid.children).filter(el => el.tagName === 'ARTICLE');
+                    articles.sort((a, b) => {
+                        const ca = counts[a.querySelector('.vote-btn')?.dataset.article] || 0;
+                        const cb = counts[b.querySelector('.vote-btn')?.dataset.article] || 0;
+                        return cb - ca;
+                    });
+                    articles.forEach(el => grid.appendChild(el));
                 });
-
-                // Promote the top article to featured
-                if (topEl) {
-                    setFeaturedStyle(topEl);
-                    featuredSection.appendChild(topEl);
-                    featuredSection.classList.remove('hidden');
-                }
             }
 
             // Load counts + user vote status from server
@@ -938,6 +1036,7 @@
 
                 (statusResult.votedProjects || []).forEach(pid => { userVotes[pid] = true; });
 
+                // Buttons may appear multiple times (e.g. an article in Essential Reading + its category)
                 buttons.forEach(btn => {
                     const id = btn.dataset.article;
                     btn.querySelector('.vote-count').textContent = counts[id] || 0;
@@ -945,6 +1044,14 @@
                 });
 
                 sortAndPromote();
+            }
+
+            function syncButtons(id, count, voted) {
+                document.querySelectorAll(`.vote-btn[data-article="${id}"]`).forEach(b => {
+                    const c = b.querySelector('.vote-count');
+                    if (c) c.textContent = count;
+                    setBtn(b, voted);
+                });
             }
 
             // Toggle vote
@@ -958,11 +1065,9 @@
                     const wasVoted = userVotes[articleId];
                     btn.classList.add('voting');
 
-                    // Optimistic UI
-                    const countEl = btn.querySelector('.vote-count');
+                    // Optimistic UI — sync all duplicate buttons for this article
                     const optimistic = Math.max(0, (counts[articleId] || 0) + (wasVoted ? -1 : 1));
-                    countEl.textContent = optimistic;
-                    setBtn(btn, !wasVoted);
+                    syncButtons(articleId, optimistic, !wasVoted);
                     btn.classList.add('vote-pulse');
                     setTimeout(() => btn.classList.remove('vote-pulse'), 300);
 
@@ -977,14 +1082,12 @@
                             const data = await res.json();
                             counts[articleId] = data.count;
                             userVotes[articleId] = data.voted;
-                            countEl.textContent = data.count;
-                            setBtn(btn, data.voted);
+                            syncButtons(articleId, data.count, data.voted);
                             sortAndPromote();
                         } else { throw new Error(); }
                     } catch {
                         // Revert
-                        countEl.textContent = counts[articleId] || 0;
-                        setBtn(btn, wasVoted);
+                        syncButtons(articleId, counts[articleId] || 0, wasVoted);
                     }
 
                     btn.classList.remove('voting');
