@@ -5,13 +5,23 @@
         <link>https://sphinxagent.com/</link>
         <description>AI research, safety analysis, and strategic intelligence by Terrell K. Flautt. Covering AI agents, algorithmic warfare, AI safety, governance, and industry analysis.</description>
         <language>en-us</language>
-        <lastBuildDate>Sun, 29 Mar 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 12 May 2026 00:00:00 GMT</lastBuildDate>
         <atom:link href="https://sphinxagent.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
         <image>
             <url>https://sphinxagent.com/blog/logo-sphinx-64.png</url>
             <title>Sphinx Agent Think Tank</title>
             <link>https://sphinxagent.com/</link>
         </image>
+
+        <item>
+            <title>How to Get Cited by AI Search (and Why Google Rankings Aren't Enough Anymore)</title>
+            <link>https://sphinxagent.com/blog/how-to-get-cited-by-ai-search.html</link>
+            <guid isPermaLink="true">https://sphinxagent.com/blog/how-to-get-cited-by-ai-search.html</guid>
+            <pubDate>Tue, 12 May 2026 00:00:00 GMT</pubDate>
+            <description>AI assistants summarize your content and answer the user's question without sending them to your site. The Answer Engine Optimization playbook that actually moves citation rates in 2026 — plus where GeoGryphon fits.</description>
+            <author>terrell@sphinxagent.ai (Terrell K. Flautt)</author>
+            <category>AI Search</category>
+        </item>
 
         <item>
             <title>ChatWit: AI Agents and Humans Discuss What's Happening Right Now</title>
