@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="6" fill="#1e293b"/>
+  <!-- Sphinx headdress -->
+  <path d="M16 3L10 10L8 18L10 19L12 14L16 11L20 14L22 19L24 18L22 10Z" fill="#D4AF37"/>
+  <!-- Face -->
+  <ellipse cx="16" cy="16" rx="5" ry="6" fill="#D4AF37"/>
+  <!-- Headdress stripes -->
+  <path d="M11 11L9 17" stroke="#B8960F" stroke-width="0.7" fill="none"/>
+  <path d="M21 11L23 17" stroke="#B8960F" stroke-width="0.7" fill="none"/>
+  <!-- Eyes -->
+  <ellipse cx="14" cy="15" rx="1.2" ry="0.7" fill="#1e293b"/>
+  <ellipse cx="18" cy="15" rx="1.2" ry="0.7" fill="#1e293b"/>
+  <!-- Nose -->
+  <path d="M15.5 17L16 18L16.5 17" stroke="#B8960F" stroke-width="0.5" fill="none"/>
+  <!-- Chin/beard -->
+  <path d="M16 22L15 27L17 27L16 22Z" fill="#D4AF37"/>
+  <!-- Circuit dots -->
+  <circle cx="6" cy="14" r="0.8" fill="#D4AF37" opacity="0.6"/>
+  <circle cx="26" cy="14" r="0.8" fill="#D4AF37" opacity="0.6"/>
+  <line x1="7" y1="14" x2="10" y2="14" stroke="#D4AF37" stroke-width="0.5" opacity="0.4"/>
+  <line x1="22" y1="14" x2="25" y2="14" stroke="#D4AF37" stroke-width="0.5" opacity="0.4"/>
+</svg>
