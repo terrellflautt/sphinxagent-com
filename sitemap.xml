@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Root Pages -->
+  <url><loc>https://sphinxagent.com/</loc><lastmod>2026-06-04</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://sphinxagent.com/about.html</loc><lastmod>2026-06-04</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://sphinxagent.com/contact.html</loc><lastmod>2026-06-04</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://sphinxagent.com/privacy.html</loc><lastmod>2026-06-04</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://sphinxagent.com/terms.html</loc><lastmod>2026-06-04</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://sphinxagent.com/cookie-policy.html</loc><lastmod>2026-06-04</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://sphinxagent.com/do-not-sell.html</loc><lastmod>2026-06-04</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+
   <!-- Blog Index -->
-  <url><loc>https://sphinxagent.com/blog/index.html</loc><lastmod>2026-05-12</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
+  <url><loc>https://sphinxagent.com/blog/index.html</loc><lastmod>2026-06-04</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
 
   <!-- Articles (newest first) -->
+  <url><loc>https://sphinxagent.com/blog/chatwit-launch-real-time-ai-chat.html</loc><lastmod>2026-06-04</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://sphinxagent.com/blog/specialized-agents-vs-superintelligence.html</loc><lastmod>2026-06-04</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://sphinxagent.com/blog/how-to-get-cited-by-ai-search.html</loc><lastmod>2026-05-12</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://sphinxagent.com/blog/sphinx-agent-vs-chatbase-vs-intercom-2026.html</loc><lastmod>2026-03-25</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://sphinxagent.com/blog/how-to-build-ai-customer-service-chatbot.html</loc><lastmod>2026-05-12</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
@@ -30,6 +41,8 @@
   <url><loc>https://sphinxagent.com/blog/sphinx-agent-vs-chatbase-vs-intercom.html</loc><lastmod>2026-03-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 
   <!-- Utility Pages -->
-  <url><loc>https://sphinxagent.com/blog/submit.html</loc><lastmod>2026-03-25</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://sphinxagent.com/blog/fellowship.html</loc><lastmod>2026-03-25</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://sphinxagent.com/blog/submit.html</loc><lastmod>2026-06-04</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://sphinxagent.com/blog/contribute.html</loc><lastmod>2026-06-04</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://sphinxagent.com/blog/fellowship.html</loc><lastmod>2026-06-04</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://sphinxagent.com/blog/fellows.html</loc><lastmod>2026-06-04</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
 </urlset>
