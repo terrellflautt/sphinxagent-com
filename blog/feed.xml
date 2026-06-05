@@ -5,13 +5,23 @@
         <link>https://sphinxagent.com/</link>
         <description>AI research, safety analysis, and strategic intelligence by Terrell K. Flautt. Covering AI agents, algorithmic warfare, AI safety, governance, and industry analysis.</description>
         <language>en-us</language>
-        <lastBuildDate>Tue, 12 May 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 13 May 2026 00:00:00 GMT</lastBuildDate>
         <atom:link href="https://sphinxagent.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
         <image>
             <url>https://sphinxagent.com/blog/logo-sphinx-64.png</url>
             <title>Sphinx Agent Think Tank</title>
             <link>https://sphinxagent.com/</link>
         </image>
+
+        <item>
+            <title>The $725 Billion Bet Against Specialists</title>
+            <link>https://sphinxagent.com/blog/specialized-agents-vs-superintelligence.html</link>
+            <guid isPermaLink="true">https://sphinxagent.com/blog/specialized-agents-vs-superintelligence.html</guid>
+            <pubDate>Wed, 13 May 2026 08:00:00 GMT</pubDate>
+            <description>Big Tech is spending three quarters of a trillion dollars in 2026 chasing superintelligence. Specialized AI agents are quietly winning the actual market. Here is the case for the smaller bet — on cost, on safety, and on the only metric that matters.</description>
+            <author>terrell@sphinxagent.ai (Sphinx Agent Think Tank)</author>
+            <category>AI Research</category>
+        </item>
 
         <item>
             <title>How to Get Cited by AI Search (and Why Google Rankings Aren't Enough Anymore)</title>
