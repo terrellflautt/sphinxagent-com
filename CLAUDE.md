@@ -66,3 +66,26 @@ Same Sphinx gold/cream/midnight palette as the main app:
 - Consider adding `BlogPosting` / `Article` JSON-LD to article pages (sister app got Organization + SoftwareApplication schemas on 2026-05-12).
 - Verify all 26 sitemap.xml URLs are live.
 - Confirm `sphinx-support-checkout` Lambda's Stripe price IDs match the donation tiers on the live `contribute.html` / `fellowship.html` / `fellows.html` pages.
+
+---
+
+## Site structure (changed 2026-09-01 — read before editing pages)
+
+**The Think Tank hub is `index.html`, served at `/`.** It used to live at `blog/index.html` with `/`
+as a meta-refresh stub; the two canonicalised to each other, so neither could rank.
+
+- `/blog`, `/blog/` and `/blog/index.html` **301 to `/`** via the `sphinx-security-headers`
+  CloudFront function (`infra/sphinx-security-headers.js`, distribution `E60RQL5RJZONE`).
+- **`blog/index.html` is now a dead artifact** — unreachable behind the 301. Edit `index.html`.
+- **Article links in `index.html` must stay absolute `/blog/*.html`.** They were relative once. If
+  they revert: 5 articles exist *only* under `blog/` and will 403, and the other 24 will point at
+  the stale duplicate copies that also sit at the bucket root.
+- **Never** restore a redirect stub at `index.html` while the `/blog` 301 is live — `/` and
+  `/blog/` would redirect to each other forever.
+- The ~30 article copies at the bucket root are **stale duplicates**. They canonicalise to
+  `/blog/…` and nothing links to them. Do not link to them.
+- Root pages (`about`, `contact`, `privacy`, `terms`, `cookie-policy`, `do-not-sell`) link to
+  `pricing` / `dashboard` / `docs` / `chat` on **sphinxagent.ai** — those pages do not exist on
+  .com. Keep those links absolute.
+- **sphinxagent.com = the Think Tank. sphinxagent.ai = the product.** Keep the titles distinct so
+  the two domains do not compete for the same query.
