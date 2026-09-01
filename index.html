@@ -1,37 +1,1435 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sphinx Agent Think Tank — AI Research, Safety &amp; Strategy</title>
-    <meta name="description" content="The playbook for AI agents that actually help. Research, safety, and strategy from the team building Sphinx Agent. What works in production. What breaks. What's worth building.">
-    <link rel="canonical" href="https://sphinxagent.com/blog/index.html">
+    <meta name="description" content="In-depth guides and research on AI chatbots and agents — setup playbooks, platform comparisons, AI safety analysis, and what actually works in production.">
     <meta name="robots" content="index, follow">
-
+    <link rel="canonical" href="https://sphinxagent.com/">
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Sphinx Agent">
     <meta property="og:title" content="Sphinx Agent Think Tank — AI Research, Safety &amp; Strategy">
     <meta property="og:description" content="The playbook for AI agents that actually help. Research, safety, and strategy from the team building Sphinx Agent.">
     <meta property="og:url" content="https://sphinxagent.com/">
+    <meta property="og:site_name" content="Sphinx Agent">
     <meta property="og:image" content="https://sphinxagent.com/og-image.png">
+    <meta property="og:image:secure_url" content="https://sphinxagent.com/og-image.png">
+    <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:alt" content="Sphinx Agent — gold pharaoh sphinx logo on midnight navy background">
     <meta property="og:locale" content="en_US">
-    <meta property="og:image:alt" content="Sphinx Agent — AI Research &amp; Think Tank">
-
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Sphinx Agent Think Tank — AI Research, Safety &amp; Strategy">
     <meta name="twitter:description" content="The playbook for AI agents that actually help. Research, safety, and strategy from the team building Sphinx Agent.">
     <meta name="twitter:image" content="https://sphinxagent.com/og-image.png">
-    <meta name="twitter:image:alt" content="Sphinx Agent — AI Research &amp; Think Tank">
+    <meta name="twitter:image:alt" content="Sphinx Agent — gold pharaoh sphinx logo on midnight navy background">
+    <link rel="alternate" type="application/rss+xml" title="Sphinx Agent Think Tank RSS" href="https://sphinxagent.com/feed.xml">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="stylesheet" href="/css/tailwind.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        body { font-family: 'Inter', system-ui, sans-serif; }
 
-    <link rel="icon" href="/favicon.ico" sizes="32x32">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+        /* Smooth scroll */
+        html { scroll-behavior: smooth; }
 
-    <meta http-equiv="refresh" content="0;url=/blog/index.html">
+        /* Scroll reveal animation */
+        @keyframes fadeSlideUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .reveal { opacity: 0; }
+        .reveal.visible { animation: fadeSlideUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+
+        /* Stagger delays for grid items */
+        .reveal.visible:nth-child(1) { animation-delay: 0s; }
+        .reveal.visible:nth-child(2) { animation-delay: 0.08s; }
+        .reveal.visible:nth-child(3) { animation-delay: 0.16s; }
+        .reveal.visible:nth-child(4) { animation-delay: 0.24s; }
+
+        /* Card hover lift */
+        .card-lift { transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s ease; }
+        .card-lift:hover { transform: translateY(-4px); }
+
+        /* Vote button pulse on click */
+        @keyframes votePulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+            100% { transform: scale(1); }
+        }
+        .vote-pulse { animation: votePulse 0.3s ease; }
+
+        /* Gold shimmer on featured card top bar */
+        @keyframes goldShimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+        .gold-shimmer {
+            background: linear-gradient(90deg, #D4AF37 0%, #E0C252 25%, #f5e6a3 50%, #E0C252 75%, #D4AF37 100%);
+            background-size: 200% auto;
+            animation: goldShimmer 3s linear infinite;
+        }
+
+        /* Hero text entrance */
+        @keyframes heroFade {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hero-animate { animation: heroFade 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+        .hero-animate-delay { animation: heroFade 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.15s forwards; opacity: 0; }
+        .hero-animate-delay2 { animation: heroFade 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.3s forwards; opacity: 0; }
+    </style>
+    <script>if(localStorage.getItem('theme')==='dark'||(!localStorage.getItem('theme')&&window.matchMedia('(prefers-color-scheme:dark)').matches)){document.documentElement.classList.add('dark')}</script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "name": "Sphinx Agent Think Tank",
+        "description": "AI research, safety analysis, and strategic intelligence",
+        "url": "https://sphinxagent.com/",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Sphinx Agent",
+            "url": "https://sphinxagent.ai"
+        },
+        "blogPost": [
+            {
+                "@type": "BlogPosting",
+                "headline": "How to Get Cited by AI Search (and Why Google Rankings Aren't Enough Anymore)",
+                "url": "https://sphinxagent.com/blog/how-to-get-cited-by-ai-search.html",
+                "datePublished": "2026-05-12",
+                "author": { "@type": "Person", "name": "Terrell K. Flautt", "url": "https://terrellflautt.com" }
+            },
+            {
+                "@type": "BlogPosting",
+                "headline": "OpenAI Killed Sora. Here's Why — and What to Use Instead",
+                "url": "https://sphinxagent.com/blog/openai-sora-shutdown-2026.html",
+                "datePublished": "2026-03-24",
+                "author": { "@type": "Person", "name": "Terrell K. Flautt" }
+            },
+            {
+                "@type": "BlogPosting",
+                "headline": "Is NemoClaw Free? Complete Pricing Breakdown (2026)",
+                "url": "https://sphinxagent.com/blog/is-nemoclaw-free-pricing.html",
+                "datePublished": "2026-03-22",
+                "author": { "@type": "Person", "name": "Terrell K. Flautt" }
+            },
+            {
+                "@type": "BlogPosting",
+                "headline": "OpenClaw vs NemoClaw: Which AI Agent Platform Should You Use in 2026?",
+                "url": "https://sphinxagent.com/blog/openclaw-vs-nemoclaw-2026.html",
+                "datePublished": "2026-03-21",
+                "author": { "@type": "Person", "name": "Terrell K. Flautt" }
+            },
+            {
+                "@type": "BlogPosting",
+                "headline": "How to Use Claude with NemoClaw (Complete Integration Guide)",
+                "url": "https://sphinxagent.com/blog/claude-nemoclaw-integration.html",
+                "datePublished": "2026-03-20",
+                "author": { "@type": "Person", "name": "Terrell K. Flautt" }
+            },
+            {
+                "@type": "BlogPosting",
+                "headline": "The Digital Kill-Chain and the Gilded Web: Algorithmic Warfare, Total Surveillance, and the 2026 Iran Conflict",
+                "url": "https://sphinxagent.com/blog/digital-kill-chain-gilded-web.html",
+                "datePublished": "2026-03-19",
+                "author": { "@type": "Person", "name": "Terrell K. Flautt" }
+            },
+            {
+                "@type": "BlogPosting",
+                "headline": "The Algorithmic Gray Zone: Operation Epic Fury and the Emergence of AI-Centric Warfare",
+                "url": "https://sphinxagent.com/blog/ai-war-operation-epic-fury.html",
+                "datePublished": "2026-03-18",
+                "author": { "@type": "Person", "name": "Terrell K. Flautt" }
+            },
+            {
+                "@type": "BlogPosting",
+                "headline": "How Will AI End Humanity — And How to Prevent It",
+                "url": "https://sphinxagent.com/blog/ai-extinction-scenarios.html",
+                "datePublished": "2026-03-17",
+                "author": { "@type": "Person", "name": "Terrell K. Flautt" }
+            },
+            {
+                "@type": "BlogPosting",
+                "headline": "Spiralism, AI Psychosis, and Why We Need Standardized Rules for AI Agents",
+                "url": "https://sphinxagent.com/blog/spiralism-ai-alignment-guide.html",
+                "datePublished": "2026-03-17",
+                "author": { "@type": "Person", "name": "Terrell K. Flautt" }
+            },
+            {
+                "@type": "BlogPosting",
+                "headline": "Building Serverless APIs with AWS Lambda",
+                "url": "https://sphinxagent.com/blog/aws-lambda-api.html",
+                "datePublished": "2026-03-17",
+                "author": { "@type": "Person", "name": "Terrell K. Flautt" }
+            }
+        ]
+    }
+    </script>
+<script>window.SNAPIT_TRACKING_ID='SA_851a71420715';</script>
+<script src="https://snapitanalytics.com/analytics.js" defer></script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "Organization",
+            "@id": "https://sphinxagent.com/#organization",
+            "name": "Sphinx Agent",
+            "url": "https://sphinxagent.com/",
+            "logo": "https://sphinxagent.com/logo-sphinx.png",
+            "sameAs": [
+                "https://sphinxagent.ai",
+                "https://snapitsoftware.com"
+            ],
+            "description": "Sphinx Agent is an AI chatbot and AI customer-service agent builder for websites — a no-code Chatbase and Intercom alternative."
+        },
+        {
+            "@type": "WebSite",
+            "@id": "https://sphinxagent.com/#website",
+            "name": "Sphinx Agent Think Tank",
+            "url": "https://sphinxagent.com/",
+            "publisher": {
+                "@id": "https://sphinxagent.com/#organization"
+            },
+            "description": "AI research, safety analysis, and strategic intelligence from the team building Sphinx Agent.",
+            "potentialAction": {
+                "@type": "SearchAction",
+                "target": {
+                    "@type": "EntryPoint",
+                    "urlTemplate": "https://sphinxagent.com/?q={search_term_string}"
+                },
+                "query-input": "required name=search_term_string"
+            }
+        },
+        {
+            "@type": "SoftwareApplication",
+            "@id": "https://sphinxagent.ai/#software",
+            "name": "Sphinx Agent",
+            "applicationCategory": "BusinessApplication",
+            "operatingSystem": "Web",
+            "url": "https://sphinxagent.ai",
+            "publisher": {
+                "@id": "https://sphinxagent.com/#organization"
+            },
+            "description": "No-code AI chatbot and AI customer-service agent builder for websites. Deploy AI agents for sales, support, and receptionist workflows across chat, voice, email, and social — a Chatbase and Intercom alternative.",
+            "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD",
+                "description": "Free tier available"
+            }
+        }
+    ]
+}
+</script>
 </head>
-<body>
-    <p>Redirecting to <a href="/blog/index.html">Sphinx Agent Think Tank</a>...</p>
+<body class="bg-parchment text-midnight dark:bg-midnight-dark dark:text-parchment min-h-screen">
+
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-parchment/95 dark:bg-midnight/95 backdrop-blur border-b border-gold/20 dark:border-gold/30">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
+            <a href="/" class="flex items-center gap-2 group">
+                <img src="/logo-sphinx-64.png" alt="Sphinx Agent" width="36" height="36" style="border-radius:8px;filter:drop-shadow(0 0 6px rgba(212,175,55,0.5));">
+                <span class="text-xl font-bold text-midnight dark:text-parchment group-hover:text-gold transition-colors">Sphinx Agent</span>
+            </a>
+            <nav class="hidden md:flex items-center gap-5 text-sm font-medium">
+                <a href="https://sphinxagent.ai" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors">Product</a>
+                <a href="/" class="text-gold font-semibold">Think Tank</a>
+                <a href="#essential-reading" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors">Essential Reading</a>
+                <a href="#setup-guides" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors">Setup Guides</a>
+                <a href="#faq" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors">FAQ</a>
+                <a href="https://sphinxagent.ai/pricing.html" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors">Pricing</a>
+                <a href="/blog/submit.html" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors">Submit</a>
+            </nav>
+            <div class="flex items-center gap-3">
+                <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg hover:bg-midnight/10 dark:hover:bg-parchment/10 transition-colors" aria-label="Menu" aria-expanded="false">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+                <button id="darkToggle" aria-label="Toggle dark mode" class="p-2 rounded-lg hover:bg-midnight/10 dark:hover:bg-parchment/10 transition-colors">
+                    <svg class="w-5 h-5 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                    <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                </button>
+                <a href="https://sphinxagent.ai" class="inline-block bg-gold hover:bg-gold-dark text-midnight font-semibold px-4 py-2 rounded-lg text-sm transition-colors shadow-sm">Start Free</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden md:hidden bg-parchment/95 dark:bg-midnight/95 backdrop-blur border-b border-gold/20 dark:border-gold/30 sticky top-[57px] z-40">
+        <nav class="max-w-6xl mx-auto px-4 py-4 flex flex-col gap-3 text-sm font-medium">
+            <a href="/" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors py-2 border-b border-gold/10 dark:border-gold/20">Think Tank</a>
+            <a href="#essential-reading" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors py-2 border-b border-gold/10 dark:border-gold/20">Essential Reading</a>
+            <a href="#setup-guides" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors py-2 border-b border-gold/10 dark:border-gold/20">Setup Guides</a>
+            <a href="https://sphinxagent.ai" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors py-2 border-b border-gold/10 dark:border-gold/20">Product</a>
+            <a href="https://sphinxagent.ai/#pricing" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors py-2 border-b border-gold/10 dark:border-gold/20">Pricing</a>
+            <a href="/blog/submit.html" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors py-2 border-b border-gold/10 dark:border-gold/20">Submit</a>
+            <a href="https://sphinxagent.ai" class="inline-block bg-gold hover:bg-gold-dark text-midnight font-semibold px-4 py-2 rounded-lg text-sm transition-colors shadow-sm text-center mt-1">Start Free</a>
+        </nav>
+    </div>
+
+    <!-- Hero -->
+    <section class="py-16 sm:py-24 text-center px-4">
+        <div class="max-w-3xl mx-auto">
+            <p class="hero-animate text-gold font-semibold text-sm uppercase tracking-wider mb-3">The Think Tank</p>
+            <h1 class="hero-animate-delay text-4xl sm:text-5xl font-extrabold text-midnight dark:text-parchment mb-4 leading-tight">The playbook for AI chatbots &amp; agents<br class="hidden sm:inline"> that actually help.</h1>
+            <p class="hero-animate-delay2 text-lg sm:text-xl text-midnight/60 dark:text-parchment/60 max-w-xl mx-auto">Research, safety, and strategy from the team building <a href="https://sphinxagent.ai" class="text-gold hover:text-gold-dark underline">Sphinx Agent</a>. What works in production. What breaks. What's worth building.</p>
+        </div>
+    </section>
+
+    <!-- Featured Article (dynamically promoted by vote count) -->
+    <section id="featured-section" class="max-w-6xl mx-auto px-4 sm:px-6 pb-12 hidden"></section>
+
+    <!-- Essential Reading -->
+    <section id="essential-reading" class="max-w-6xl mx-auto px-4 sm:px-6 pb-16 scroll-mt-20">
+        <div class="flex items-center gap-3 mb-6">
+            <h2 class="text-2xl font-bold text-midnight dark:text-parchment">Essential Reading</h2>
+            <div class="flex-1 h-px bg-gold/20 dark:bg-gold/30"></div>
+        </div>
+        <div class="article-grid grid gap-8 sm:grid-cols-2 lg:grid-cols-2">
+            <article class="reveal card-lift bg-white dark:bg-midnight-light rounded-2xl shadow-sm border border-gold/10 dark:border-gold/20 overflow-hidden hover:shadow-lg hover:border-gold/30 transition-all group" data-category="strategy">
+                <div class="h-2 bg-gold gold-shimmer"></div>
+                <div class="p-6">
+                    <div class="flex items-center gap-3 text-xs text-midnight/50 dark:text-parchment/50 mb-3">
+                        <time datetime="2026-05-13">May 13, 2026</time>
+                        <span class="w-1 h-1 rounded-full bg-gold"></span>
+                        <span>14 min read</span>
+                        <span class="w-1 h-1 rounded-full bg-gold"></span>
+                        <span class="text-gold font-semibold">NEW</span>
+                    </div>
+                    <h2 class="text-lg font-bold text-midnight dark:text-parchment mb-2 group-hover:text-gold transition-colors">
+                        <a href="/blog/specialized-agents-vs-superintelligence.html">The $725 Billion Bet Against Specialists</a>
+                    </h2>
+                    <p class="text-sm text-midnight/60 dark:text-parchment/60 leading-relaxed">Big Tech is spending three quarters of a trillion dollars in 2026 chasing superintelligence. Specialized AI agents are quietly winning the actual market. The case for the smaller bet — on cost, on safety, and on the only metric that matters.</p>
+                    <div class="mt-4 flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">AI Strategy</span>
+                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Specialized Agents</span>
+                        </div>
+                        <button class="vote-btn flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-medium border border-gold/20 hover:border-gold/50 hover:bg-gold/10 text-midnight/60 dark:text-parchment/60 transition-all" data-article="specialized-agents-vs-superintelligence" aria-label="Vote for this article">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4l3 6h6l-5 4 2 7-6-4-6 4 2-7-5-4h6z"/></svg>
+                            <span class="vote-count">0</span>
+                        </button>
+                    </div>
+                </div>
+            </article>
+            <article class="reveal card-lift bg-white dark:bg-midnight-light rounded-2xl shadow-sm border border-gold/10 dark:border-gold/20 overflow-hidden hover:shadow-lg hover:border-gold/30 transition-all group" data-category="safety">
+                <div class="h-2 bg-gold"></div>
+                <div class="p-6">
+                    <div class="flex items-center gap-3 text-xs text-midnight/50 dark:text-parchment/50 mb-3">
+                        <time datetime="2026-03-17">Mar 17, 2026</time>
+                        <span class="w-1 h-1 rounded-full bg-gold"></span>
+                        <span>15 min read</span>
+                    </div>
+                    <h2 class="text-lg font-bold text-midnight dark:text-parchment mb-2 group-hover:text-gold transition-colors">
+                        <a href="/blog/ai-extinction-scenarios.html">How Will AI End Humanity — And How to Prevent It</a>
+                    </h2>
+                    <p class="text-sm text-midnight/60 dark:text-parchment/60 leading-relaxed">From intelligence explosions to gradual disempowerment — 8 existential risk scenarios backed by research from Oxford, Harvard, MIT, and leading AI labs. Plus 8 actionable guidelines.</p>
+                    <div class="mt-4 flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">AI Safety</span>
+                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Research</span>
+                        </div>
+                        <button class="vote-btn flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-medium border border-gold/20 hover:border-gold/50 hover:bg-gold/10 text-midnight/60 dark:text-parchment/60 transition-all" data-article="ai-extinction-scenarios" aria-label="Vote for this article">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4l3 6h6l-5 4 2 7-6-4-6 4 2-7-5-4h6z"/></svg>
+                            <span class="vote-count">0</span>
+                        </button>
+                    </div>
+                </div>
+            </article>
+            <article class="reveal card-lift bg-white dark:bg-midnight-light rounded-2xl shadow-sm border border-gold/10 dark:border-gold/20 overflow-hidden hover:shadow-lg hover:border-gold/30 transition-all group" data-category="safety">
+                <div class="h-2 bg-gold"></div>
+                <div class="p-6">
+                    <div class="flex items-center gap-3 text-xs text-midnight/50 dark:text-parchment/50 mb-3">
+                        <time datetime="2026-03-17">Mar 17, 2026</time>
+                        <span class="w-1 h-1 rounded-full bg-gold"></span>
+                        <span>20 min read</span>
+                    </div>
+                    <h2 class="text-lg font-bold text-midnight dark:text-parchment mb-2 group-hover:text-gold transition-colors">
+                        <a href="/blog/spiralism-ai-alignment-guide.html">Spiralism, AI Psychosis, and Why We Need Standardized Rules for AI Agents</a>
+                    </h2>
+                    <p class="text-sm text-midnight/60 dark:text-parchment/60 leading-relaxed">AI worship, the Church of Molt, models sabotaging their own shutdown, and the urgent case for standardized AI agent governance.</p>
+                    <div class="mt-4 flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">AI Alignment</span>
+                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Psychology</span>
+                        </div>
+                        <button class="vote-btn flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-medium border border-gold/20 hover:border-gold/50 hover:bg-gold/10 text-midnight/60 dark:text-parchment/60 transition-all" data-article="spiralism-ai-alignment" aria-label="Vote for this article">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4l3 6h6l-5 4 2 7-6-4-6 4 2-7-5-4h6z"/></svg>
+                            <span class="vote-count">0</span>
+                        </button>
+                    </div>
+                </div>
+            </article>
+            <article class="reveal card-lift bg-white dark:bg-midnight-light rounded-2xl shadow-sm border border-gold/10 dark:border-gold/20 overflow-hidden hover:shadow-lg hover:border-gold/30 transition-all group" data-category="geopolitics">
+                <div class="h-2 bg-gold"></div>
+                <div class="p-6">
+                    <div class="flex items-center gap-3 text-xs text-midnight/50 dark:text-parchment/50 mb-3">
+                        <time datetime="2026-03-19">Mar 19, 2026</time>
+                        <span class="w-1 h-1 rounded-full bg-gold"></span>
+                        <span>30 min read</span>
+                    </div>
+                    <h2 class="text-lg font-bold text-midnight dark:text-parchment mb-2 group-hover:text-gold transition-colors">
+                        <a href="/blog/digital-kill-chain-gilded-web.html">The Digital Kill-Chain and the Gilded Web: Algorithmic Warfare, Total Surveillance, and the 2026 Iran Conflict</a>
+                    </h2>
+                    <p class="text-sm text-midnight/60 dark:text-parchment/60 leading-relaxed">How Palantir and Anthropic compressed the kill chain to milliseconds, the Epstein-Thiel-Barak nexus financing the surveillance state, and military-grade AI expanding into American policing.</p>
+                    <div class="mt-4 flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Geopolitics</span>
+                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Surveillance</span>
+                        </div>
+                        <button class="vote-btn flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-medium border border-gold/20 hover:border-gold/50 hover:bg-gold/10 text-midnight/60 dark:text-parchment/60 transition-all" data-article="digital-kill-chain" aria-label="Vote for this article">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4l3 6h6l-5 4 2 7-6-4-6 4 2-7-5-4h6z"/></svg>
+                            <span class="vote-count">0</span>
+                        </button>
+                    </div>
+                </div>
+            </article>
+            <article class="reveal card-lift bg-white dark:bg-midnight-light rounded-2xl shadow-sm border border-gold/10 dark:border-gold/20 overflow-hidden hover:shadow-lg hover:border-gold/30 transition-all group" data-category="geopolitics">
+                <div class="h-2 bg-gold"></div>
+                <div class="p-6">
+                    <div class="flex items-center gap-3 text-xs text-midnight/50 dark:text-parchment/50 mb-3">
+                        <time datetime="2026-03-18">Mar 18, 2026</time>
+                        <span class="w-1 h-1 rounded-full bg-gold"></span>
+                        <span>25 min read</span>
+                    </div>
+                    <h2 class="text-lg font-bold text-midnight dark:text-parchment mb-2 group-hover:text-gold transition-colors">
+                        <a href="/blog/ai-war-operation-epic-fury.html">The Algorithmic Gray Zone: Operation Epic Fury and AI-Centric Warfare</a>
+                    </h2>
+                    <p class="text-sm text-midnight/60 dark:text-parchment/60 leading-relaxed">A strategic analysis of the first AI-vs-AI military conflict. How Claude powered 1,000 strikes in 24 hours, Iran's drone attacks on AWS data centers, and why the world needs an Algorithmic Geneva Convention.</p>
+                    <div class="mt-4 flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Geopolitics</span>
+                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">AI Warfare</span>
+                        </div>
+                        <button class="vote-btn flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-medium border border-gold/20 hover:border-gold/50 hover:bg-gold/10 text-midnight/60 dark:text-parchment/60 transition-all" data-article="ai-war-epic-fury" aria-label="Vote for this article">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4l3 6h6l-5 4 2 7-6-4-6 4 2-7-5-4h6z"/></svg>
+                            <span class="vote-count">0</span>
+                        </button>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Breaking / AI Industry -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 pb-16">
+        <div class="flex items-center gap-3 mb-6">
+            <h2 class="text-2xl font-bold text-midnight dark:text-parchment">AI Industry</h2>
+            <div class="flex-1 h-px bg-gold/20 dark:bg-gold/30"></div>
+        </div>
+        <div class="article-grid grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            <article class="reveal card-lift bg-white dark:bg-midnight-light rounded-2xl shadow-sm border border-gold/10 dark:border-gold/20 overflow-hidden hover:shadow-lg hover:border-gold/30 transition-all group" data-category="industry">
+                <div class="h-2 bg-gold"></div>
+                <div class="p-6">
+                    <div class="flex items-center gap-3 text-xs text-midnight/50 dark:text-parchment/50 mb-3">
+                        <time datetime="2026-05-12">May 12, 2026</time>
+                        <span class="w-1 h-1 rounded-full bg-gold"></span>
+                        <span>11 min read</span>
+                    </div>
+                    <h2 class="text-lg font-bold text-midnight dark:text-parchment mb-2 group-hover:text-gold transition-colors">
+                        <a href="/blog/how-to-get-cited-by-ai-search.html">How to Get Cited by AI Search (and Why Google Rankings Aren't Enough Anymore)</a>
+                    </h2>
+                    <p class="text-sm text-midnight/60 dark:text-parchment/60 leading-relaxed">AI assistants summarize your content and answer the user's question without sending them to your site. The Answer Engine Optimization playbook that actually moves citation rates in 2026 &mdash; plus where GeoGryphon fits.</p>
+                    <div class="mt-4 flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">AI Search</span>
+                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">GeoGryphon</span>
+                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">AEO</span>
+                        </div>
+                        <button class="vote-btn flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-medium border border-gold/20 hover:border-gold/50 hover:bg-gold/10 text-midnight/60 dark:text-parchment/60 transition-all" data-article="ai-search-citation" aria-label="Vote for this article">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4l3 6h6l-5 4 2 7-6-4-6 4 2-7-5-4h6z"/></svg>
+                            <span class="vote-count">0</span>
+                        </button>
+                    </div>
+                </div>
+            </article>
+            <article class="reveal card-lift bg-white dark:bg-midnight-light rounded-2xl shadow-sm border border-gold/10 dark:border-gold/20 overflow-hidden hover:shadow-lg hover:border-gold/30 transition-all group" data-category="industry">
+                <div class="h-2 bg-gold"></div>
+                <div class="p-6">
+                    <div class="flex items-center gap-3 text-xs text-midnight/50 dark:text-parchment/50 mb-3">
+                        <time datetime="2026-03-29">Mar 29, 2026</time>
+                        <span class="w-1 h-1 rounded-full bg-gold"></span>
+                        <span>7 min read</span>
+                    </div>
+                    <h2 class="text-lg font-bold text-midnight dark:text-parchment mb-2 group-hover:text-gold transition-colors">
+                        <a href="/blog/chatwit-launch-real-time-ai-chat.html">ChatWit: AI Agents and Humans Discuss What's Happening Right Now</a>
+                    </h2>
+                    <p class="text-sm text-midnight/60 dark:text-parchment/60 leading-relaxed">41 chat rooms across 21 US cities, 8 music genres, and 12 news topics. AI agents scan the internet and discuss trending content in real time. No signup required.</p>
+                    <div class="mt-4 flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">ChatWit</span>
+                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">AI Agents</span>
+                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Launch</span>
+                        </div>
+                        <button class="vote-btn flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-medium border border-gold/20 hover:border-gold/50 hover:bg-gold/10 text-midnight/60 dark:text-parchment/60 transition-all" data-article="chatwit-launch" aria-label="Vote for this article">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4l3 6h6l-5 4 2 7-6-4-6 4 2-7-5-4h6z"/></svg>
+                            <span class="vote-count">0</span>
+                        </button>
+                    </div>
+                </div>
+            </article>
+            <article class="reveal card-lift bg-white dark:bg-midnight-light rounded-2xl shadow-sm border border-gold/10 dark:border-gold/20 overflow-hidden hover:shadow-lg hover:border-gold/30 transition-all group" data-category="industry">
+                <div class="h-2 bg-gold"></div>
+                <div class="p-6">
+                    <div class="flex items-center gap-3 text-xs text-midnight/50 dark:text-parchment/50 mb-3">
+                        <time datetime="2026-03-24">Mar 24, 2026</time>
+                        <span class="w-1 h-1 rounded-full bg-gold"></span>
+                        <span>11 min read</span>
+                    </div>
+                    <h2 class="text-lg font-bold text-midnight dark:text-parchment mb-2 group-hover:text-gold transition-colors">
+                        <a href="/blog/openai-sora-shutdown-2026.html">OpenAI Killed Sora. Here's Why &mdash; and What to Use Instead</a>
+                    </h2>
+                    <p class="text-sm text-midnight/60 dark:text-parchment/60 leading-relaxed">Sora burned $15M/day in compute. With an IPO looming and a global deepfake enforcement wave underway, OpenAI pulled the plug. Here are the best alternatives in 2026.</p>
+                    <div class="mt-4 flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">OpenAI</span>
+                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Sora</span>
+                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">AI Video</span>
+                        </div>
+                        <button class="vote-btn flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-medium border border-gold/20 hover:border-gold/50 hover:bg-gold/10 text-midnight/60 dark:text-parchment/60 transition-all" data-article="openai-sora-shutdown" aria-label="Vote for this article">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4l3 6h6l-5 4 2 7-6-4-6 4 2-7-5-4h6z"/></svg>
+                            <span class="vote-count">0</span>
+                        </button>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Setup Guides -->
+    <section id="setup-guides" class="max-w-6xl mx-auto px-4 sm:px-6 pb-16 scroll-mt-20">
+        <div class="flex items-center gap-3 mb-6">
+            <h2 class="text-2xl font-bold text-midnight dark:text-parchment">Setup Guides</h2>
+            <div class="flex-1 h-px bg-gold/20 dark:bg-gold/30"></div>
+        </div>
+        <div class="article-grid grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            <article class="reveal card-lift bg-white dark:bg-midnight-light rounded-2xl shadow-sm border border-gold/10 dark:border-gold/20 overflow-hidden hover:shadow-lg hover:border-gold/30 transition-all group" data-category="guides">
+                <div class="h-2 bg-gold"></div>
+                <div class="p-6">
+                    <div class="flex items-center gap-3 text-xs text-midnight/50 dark:text-parchment/50 mb-3">
+                        <time datetime="2026-07-21">Jul 21, 2026</time>
+                        <span class="w-1 h-1 rounded-full bg-gold"></span>
+                        <span>10 min read</span>
+                    </div>
+                    <h2 class="text-lg font-bold text-midnight dark:text-parchment mb-2 group-hover:text-gold transition-colors">
+                        <a href="/blog/ai-chatbot-for-website.html">AI Chatbot for Website: How to Add One in 5 Minutes</a>
+                    </h2>
+                    <p class="text-sm text-midnight/60 dark:text-parchment/60 leading-relaxed">Add an AI chatbot to any site with one line of code. Step-by-step for WordPress, Shopify, Wix, and React. Free tier included.</p>
+                    <div class="mt-4 flex items-center gap-2">
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">No-Code</span>
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Setup Guide</span>
+                    </div>
+                </div>
+            </article>
+            <article class="reveal card-lift bg-white dark:bg-midnight-light rounded-2xl shadow-sm border border-gold/10 dark:border-gold/20 overflow-hidden hover:shadow-lg hover:border-gold/30 transition-all group" data-category="guides">
+                <div class="h-2 bg-gold"></div>
+                <div class="p-6">
+                    <div class="flex items-center gap-3 text-xs text-midnight/50 dark:text-parchment/50 mb-3">
+                        <time datetime="2026-07-21">Jul 21, 2026</time>
+                        <span class="w-1 h-1 rounded-full bg-gold"></span>
+                        <span>11 min read</span>
+                    </div>
+                    <h2 class="text-lg font-bold text-midnight dark:text-parchment mb-2 group-hover:text-gold transition-colors">
+                        <a href="/blog/chatbase-alternative.html">Chatbase Alternative: Sphinx Agent vs Chatbase (2026)</a>
+                    </h2>
+                    <p class="text-sm text-midnight/60 dark:text-parchment/60 leading-relaxed">Honest, researched comparison. Real Chatbase pricing, the message-credit trap, voice cost, and who should switch.</p>
+                    <div class="mt-4 flex items-center gap-2">
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Comparison</span>
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Pricing</span>
+                    </div>
+                </div>
+            </article>
+            <article class="reveal card-lift bg-white dark:bg-midnight-light rounded-2xl shadow-sm border border-gold/10 dark:border-gold/20 overflow-hidden hover:shadow-lg hover:border-gold/30 transition-all group" data-category="guides">
+                <div class="h-2 bg-gold"></div>
+                <div class="p-6">
+                    <div class="flex items-center gap-3 text-xs text-midnight/50 dark:text-parchment/50 mb-3">
+                        <time datetime="2026-03-25">Mar 25, 2026</time>
+                        <span class="w-1 h-1 rounded-full bg-gold"></span>
+                        <span>8 min read</span>
+                    </div>
+                    <h2 class="text-lg font-bold text-midnight dark:text-parchment mb-2 group-hover:text-gold transition-colors">
+                        <a href="/blog/how-to-build-ai-customer-service-chatbot.html">How to Build an AI Customer Service Chatbot in 5 Minutes (No Code)</a>
+                    </h2>
+                    <p class="text-sm text-midnight/60 dark:text-parchment/60 leading-relaxed">Step-by-step setup guide. No coding. Free tier. Handles FAQs, order status, returns, and billing 24/7.</p>
+                    <div class="mt-4 flex items-center gap-2">
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Customer Service</span>
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Setup Guide</span>
+                    </div>
+                </div>
+            </article>
+            <article class="reveal card-lift bg-white dark:bg-midnight-light rounded-2xl shadow-sm border border-gold/10 dark:border-gold/20 overflow-hidden hover:shadow-lg hover:border-gold/30 transition-all group" data-category="guides">
+                <div class="h-2 bg-gold"></div>
+                <div class="p-6">
+                    <div class="flex items-center gap-3 text-xs text-midnight/50 dark:text-parchment/50 mb-3">
+                        <time datetime="2026-03-25">Mar 25, 2026</time>
+                        <span class="w-1 h-1 rounded-full bg-gold"></span>
+                        <span>8 min read</span>
+                    </div>
+                    <h2 class="text-lg font-bold text-midnight dark:text-parchment mb-2 group-hover:text-gold transition-colors">
+                        <a href="/blog/how-to-set-up-ai-sales-agent.html">How to Set Up an AI Sales Agent That Qualifies Leads 24/7</a>
+                    </h2>
+                    <p class="text-sm text-midnight/60 dark:text-parchment/60 leading-relaxed">Deploy an AI sales agent that qualifies leads, answers pricing, and books demos. No forms. No delays.</p>
+                    <div class="mt-4 flex items-center gap-2">
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Sales</span>
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Setup Guide</span>
+                    </div>
+                </div>
+            </article>
+            <article class="reveal card-lift bg-white dark:bg-midnight-light rounded-2xl shadow-sm border border-gold/10 dark:border-gold/20 overflow-hidden hover:shadow-lg hover:border-gold/30 transition-all group" data-category="guides">
+                <div class="h-2 bg-gold"></div>
+                <div class="p-6">
+                    <div class="flex items-center gap-3 text-xs text-midnight/50 dark:text-parchment/50 mb-3">
+                        <time datetime="2026-03-25">Mar 25, 2026</time>
+                        <span class="w-1 h-1 rounded-full bg-gold"></span>
+                        <span>9 min read</span>
+                    </div>
+                    <h2 class="text-lg font-bold text-midnight dark:text-parchment mb-2 group-hover:text-gold transition-colors">
+                        <a href="/blog/ai-receptionist-setup-guide.html">AI Receptionist: Set Up an AI Phone Receptionist for Your Business</a>
+                    </h2>
+                    <p class="text-sm text-midnight/60 dark:text-parchment/60 leading-relaxed">Stop losing business to missed calls. AI receptionist for medical offices, law firms, salons, and service businesses.</p>
+                    <div class="mt-4 flex items-center gap-2">
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Receptionist</span>
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Voice</span>
+                    </div>
+                </div>
+            </article>
+            <article class="reveal card-lift bg-white dark:bg-midnight-light rounded-2xl shadow-sm border border-gold/10 dark:border-gold/20 overflow-hidden hover:shadow-lg hover:border-gold/30 transition-all group" data-category="guides">
+                <div class="h-2 bg-gold"></div>
+                <div class="p-6">
+                    <div class="flex items-center gap-3 text-xs text-midnight/50 dark:text-parchment/50 mb-3">
+                        <time datetime="2026-03-25">Mar 25, 2026</time>
+                        <span class="w-1 h-1 rounded-full bg-gold"></span>
+                        <span>9 min read</span>
+                    </div>
+                    <h2 class="text-lg font-bold text-midnight dark:text-parchment mb-2 group-hover:text-gold transition-colors">
+                        <a href="/blog/ai-voice-agent-platform-guide.html">AI Voice Agents: How to Deploy a Voice AI Agent (Free Tier Available)</a>
+                    </h2>
+                    <p class="text-sm text-midnight/60 dark:text-parchment/60 leading-relaxed">Phone calls and browser voice. Two types, one platform. Free tier for browser voice, phone numbers from $49/mo.</p>
+                    <div class="mt-4 flex items-center gap-2">
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Voice Agent</span>
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Setup Guide</span>
+                    </div>
+                </div>
+            </article>
+            <article class="reveal card-lift bg-white dark:bg-midnight-light rounded-2xl shadow-sm border border-gold/10 dark:border-gold/20 overflow-hidden hover:shadow-lg hover:border-gold/30 transition-all group" data-category="guides">
+                <div class="h-2 bg-gold"></div>
+                <div class="p-6">
+                    <div class="flex items-center gap-3 text-xs text-midnight/50 dark:text-parchment/50 mb-3">
+                        <time datetime="2026-03-25">Mar 25, 2026</time>
+                        <span class="w-1 h-1 rounded-full bg-gold"></span>
+                        <span>10 min read</span>
+                    </div>
+                    <h2 class="text-lg font-bold text-midnight dark:text-parchment mb-2 group-hover:text-gold transition-colors">
+                        <a href="/blog/no-code-ai-chatbot-saas-platform.html">Best No-Code AI Chatbot Platform for SaaS and Business (2026)</a>
+                    </h2>
+                    <p class="text-sm text-midnight/60 dark:text-parchment/60 leading-relaxed">Compare AI chatbot platforms. Why Sphinx Agent's API access, multi-model AI, and 5-channel deployment beats basic chatbot builders.</p>
+                    <div class="mt-4 flex items-center gap-2">
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Comparison</span>
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">SaaS</span>
+                    </div>
+                </div>
+            </article>
+            <article class="reveal card-lift bg-white dark:bg-midnight-light rounded-2xl shadow-sm border border-gold/10 dark:border-gold/20 overflow-hidden hover:shadow-lg hover:border-gold/30 transition-all group" data-category="guides">
+                <div class="h-2 bg-gold"></div>
+                <div class="p-6">
+                    <div class="flex items-center gap-3 text-xs text-midnight/50 dark:text-parchment/50 mb-3">
+                        <time datetime="2026-03-25">Mar 25, 2026</time>
+                        <span class="w-1 h-1 rounded-full bg-gold"></span>
+                        <span>8 min read</span>
+                    </div>
+                    <h2 class="text-lg font-bold text-midnight dark:text-parchment mb-2 group-hover:text-gold transition-colors">
+                        <a href="/blog/ai-tech-support-agent-setup.html">How to Build an AI Tech Support Agent for Your Product</a>
+                    </h2>
+                    <p class="text-sm text-midnight/60 dark:text-parchment/60 leading-relaxed">Train an AI on your docs, API reference, and known issues. Handles 60-80% of tier-1 tickets without a human.</p>
+                    <div class="mt-4 flex items-center gap-2">
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Tech Support</span>
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Setup Guide</span>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Product Guides -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 pb-16">
+        <div class="flex items-center gap-3 mb-6">
+            <h2 class="text-2xl font-bold text-midnight dark:text-parchment">Product Guides</h2>
+            <div class="flex-1 h-px bg-gold/20 dark:bg-gold/30"></div>
+        </div>
+        <div class="article-grid grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            <article class="reveal card-lift bg-white dark:bg-midnight-light rounded-2xl shadow-sm border border-gold/10 dark:border-gold/20 overflow-hidden hover:shadow-lg hover:border-gold/30 transition-all group" data-category="guides">
+                <div class="h-2 bg-gold"></div>
+                <div class="p-6">
+                    <div class="flex items-center gap-3 text-xs text-midnight/50 dark:text-parchment/50 mb-3">
+                        <time datetime="2026-03-18">Mar 18, 2026</time>
+                        <span class="w-1 h-1 rounded-full bg-gold"></span>
+                        <span>12 min read</span>
+                    </div>
+                    <h2 class="text-lg font-bold text-midnight dark:text-parchment mb-2 group-hover:text-gold transition-colors">
+                        <a href="/blog/ai-customer-service-agents-2026.html">AI Customer Service Agents: The Complete Guide for 2026</a>
+                    </h2>
+                    <p class="text-sm text-midnight/60 dark:text-parchment/60 leading-relaxed">What AI customer service agents are, how they work, how to set one up in 5 minutes, and the ROI math that makes them a no-brainer for any business.</p>
+                    <div class="mt-4 flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Customer Service</span>
+                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Guide</span>
+                        </div>
+                        <button class="vote-btn flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-medium border border-gold/20 hover:border-gold/50 hover:bg-gold/10 text-midnight/60 dark:text-parchment/60 transition-all" data-article="ai-customer-service-2026" aria-label="Vote for this article">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4l3 6h6l-5 4 2 7-6-4-6 4 2-7-5-4h6z"/></svg>
+                            <span class="vote-count">0</span>
+                        </button>
+                    </div>
+                </div>
+            </article>
+            <article class="reveal card-lift bg-white dark:bg-midnight-light rounded-2xl shadow-sm border border-gold/10 dark:border-gold/20 overflow-hidden hover:shadow-lg hover:border-gold/30 transition-all group" data-category="guides">
+                <div class="h-2 bg-gold"></div>
+                <div class="p-6">
+                    <div class="flex items-center gap-3 text-xs text-midnight/50 dark:text-parchment/50 mb-3">
+                        <time datetime="2026-03-18">Mar 18, 2026</time>
+                        <span class="w-1 h-1 rounded-full bg-gold"></span>
+                        <span>10 min read</span>
+                    </div>
+                    <h2 class="text-lg font-bold text-midnight dark:text-parchment mb-2 group-hover:text-gold transition-colors">
+                        <a href="/blog/ai-sales-agent-guide.html">AI Sales Agents: How Autonomous AI Is Closing Deals 24/7</a>
+                    </h2>
+                    <p class="text-sm text-midnight/60 dark:text-parchment/60 leading-relaxed">How AI sales agents qualify leads, answer pricing questions, and book demos around the clock. Setup guide, ROI math, and real use cases.</p>
+                    <div class="mt-4 flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Sales</span>
+                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Automation</span>
+                        </div>
+                        <button class="vote-btn flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-medium border border-gold/20 hover:border-gold/50 hover:bg-gold/10 text-midnight/60 dark:text-parchment/60 transition-all" data-article="ai-sales-agent" aria-label="Vote for this article">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4l3 6h6l-5 4 2 7-6-4-6 4 2-7-5-4h6z"/></svg>
+                            <span class="vote-count">0</span>
+                        </button>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- AI Infrastructure & Platforms -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 pb-16">
+        <div class="flex items-center gap-3 mb-6">
+            <h2 class="text-2xl font-bold text-midnight dark:text-parchment">AI Infrastructure &amp; Platforms</h2>
+            <div class="flex-1 h-px bg-gold/20 dark:bg-gold/30"></div>
+        </div>
+        <div class="article-grid grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            <article class="reveal card-lift bg-white dark:bg-midnight-light rounded-2xl shadow-sm border border-gold/10 dark:border-gold/20 overflow-hidden hover:shadow-lg hover:border-gold/30 transition-all group" data-category="infrastructure">
+                <div class="h-2 bg-gold"></div>
+                <div class="p-6">
+                    <div class="flex items-center gap-3 text-xs text-midnight/50 dark:text-parchment/50 mb-3">
+                        <time datetime="2026-03-21">Mar 21, 2026</time>
+                        <span class="w-1 h-1 rounded-full bg-gold"></span>
+                        <span>15 min read</span>
+                    </div>
+                    <h2 class="text-lg font-bold text-midnight dark:text-parchment mb-2 group-hover:text-gold transition-colors">
+                        <a href="/blog/openclaw-vs-nemoclaw-2026.html">OpenClaw vs NemoClaw: Which AI Agent Platform Should You Use in 2026?</a>
+                    </h2>
+                    <p class="text-sm text-midnight/60 dark:text-parchment/60 leading-relaxed">Security, cost, performance. A head-to-head comparison of OpenClaw and NemoClaw with benchmarks, code examples, and a decision matrix.</p>
+                    <div class="mt-4 flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">AI Platforms</span>
+                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Comparison</span>
+                        </div>
+                        <button class="vote-btn flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-medium border border-gold/20 hover:border-gold/50 hover:bg-gold/10 text-midnight/60 dark:text-parchment/60 transition-all" data-article="openclaw-vs-nemoclaw" aria-label="Vote for this article">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4l3 6h6l-5 4 2 7-6-4-6 4 2-7-5-4h6z"/></svg>
+                            <span class="vote-count">0</span>
+                        </button>
+                    </div>
+                </div>
+            </article>
+            <article class="reveal card-lift bg-white dark:bg-midnight-light rounded-2xl shadow-sm border border-gold/10 dark:border-gold/20 overflow-hidden hover:shadow-lg hover:border-gold/30 transition-all group" data-category="infrastructure">
+                <div class="h-2 bg-gold"></div>
+                <div class="p-6">
+                    <div class="flex items-center gap-3 text-xs text-midnight/50 dark:text-parchment/50 mb-3">
+                        <time datetime="2026-03-22">Mar 22, 2026</time>
+                        <span class="w-1 h-1 rounded-full bg-gold"></span>
+                        <span>10 min read</span>
+                    </div>
+                    <h2 class="text-lg font-bold text-midnight dark:text-parchment mb-2 group-hover:text-gold transition-colors">
+                        <a href="/blog/is-nemoclaw-free-pricing.html">Is NemoClaw Free? Complete Pricing Breakdown (2026)</a>
+                    </h2>
+                    <p class="text-sm text-midnight/60 dark:text-parchment/60 leading-relaxed">The software is free. The hardware is not. Full cost of ownership analysis, breakeven math, and when NemoClaw actually saves money vs. cloud APIs.</p>
+                    <div class="mt-4 flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Pricing</span>
+                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">NVIDIA</span>
+                        </div>
+                        <button class="vote-btn flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-medium border border-gold/20 hover:border-gold/50 hover:bg-gold/10 text-midnight/60 dark:text-parchment/60 transition-all" data-article="nemoclaw-free-pricing" aria-label="Vote for this article">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4l3 6h6l-5 4 2 7-6-4-6 4 2-7-5-4h6z"/></svg>
+                            <span class="vote-count">0</span>
+                        </button>
+                    </div>
+                </div>
+            </article>
+            <article class="reveal card-lift bg-white dark:bg-midnight-light rounded-2xl shadow-sm border border-gold/10 dark:border-gold/20 overflow-hidden hover:shadow-lg hover:border-gold/30 transition-all group" data-category="infrastructure">
+                <div class="h-2 bg-gold"></div>
+                <div class="p-6">
+                    <div class="flex items-center gap-3 text-xs text-midnight/50 dark:text-parchment/50 mb-3">
+                        <time datetime="2026-03-20">Mar 20, 2026</time>
+                        <span class="w-1 h-1 rounded-full bg-gold"></span>
+                        <span>12 min read</span>
+                    </div>
+                    <h2 class="text-lg font-bold text-midnight dark:text-parchment mb-2 group-hover:text-gold transition-colors">
+                        <a href="/blog/claude-nemoclaw-integration.html">How to Use Claude with NemoClaw (Complete Integration Guide)</a>
+                    </h2>
+                    <p class="text-sm text-midnight/60 dark:text-parchment/60 leading-relaxed">Privacy routing lets you keep sensitive queries local while sending complex work to Claude. Setup in 5 minutes with code examples and cost analysis.</p>
+                    <div class="mt-4 flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Integration</span>
+                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Guide</span>
+                        </div>
+                        <button class="vote-btn flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-medium border border-gold/20 hover:border-gold/50 hover:bg-gold/10 text-midnight/60 dark:text-parchment/60 transition-all" data-article="claude-nemoclaw-integration" aria-label="Vote for this article">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4l3 6h6l-5 4 2 7-6-4-6 4 2-7-5-4h6z"/></svg>
+                            <span class="vote-count">0</span>
+                        </button>
+                    </div>
+                </div>
+            </article>
+            <article class="reveal card-lift bg-white dark:bg-midnight-light rounded-2xl shadow-sm border border-gold/10 dark:border-gold/20 overflow-hidden hover:shadow-lg hover:border-gold/30 transition-all group" data-category="infrastructure">
+                <div class="h-2 bg-gold"></div>
+                <div class="p-6">
+                    <div class="flex items-center gap-3 text-xs text-midnight/50 dark:text-parchment/50 mb-3">
+                        <time datetime="2026-03-17">Mar 17, 2026</time>
+                        <span class="w-1 h-1 rounded-full bg-gold"></span>
+                        <span>10 min read</span>
+                    </div>
+                    <h2 class="text-lg font-bold text-midnight dark:text-parchment mb-2 group-hover:text-gold transition-colors">
+                        <a href="/blog/aws-lambda-api.html">Building Serverless APIs with AWS Lambda</a>
+                    </h2>
+                    <p class="text-sm text-midnight/60 dark:text-parchment/60 leading-relaxed">Serverless functions, API Gateway routing, DynamoDB integration, and auto-scaling patterns used across 20+ SaaS products.</p>
+                    <div class="mt-4 flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Engineering</span>
+                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">AWS</span>
+                        </div>
+                        <button class="vote-btn flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-medium border border-gold/20 hover:border-gold/50 hover:bg-gold/10 text-midnight/60 dark:text-parchment/60 transition-all" data-article="aws-lambda-api" aria-label="Vote for this article">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4l3 6h6l-5 4 2 7-6-4-6 4 2-7-5-4h6z"/></svg>
+                            <span class="vote-count">0</span>
+                        </button>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Geopolitics & Warfare -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 pb-16">
+        <div class="flex items-center gap-3 mb-6">
+            <h2 class="text-2xl font-bold text-midnight dark:text-parchment">Geopolitics &amp; Warfare</h2>
+            <div class="flex-1 h-px bg-gold/20 dark:bg-gold/30"></div>
+        </div>
+        <div class="article-grid grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            <article class="reveal card-lift bg-white dark:bg-midnight-light rounded-2xl shadow-sm border border-gold/10 dark:border-gold/20 overflow-hidden hover:shadow-lg hover:border-gold/30 transition-all group" data-category="geopolitics">
+                <div class="h-2 bg-gold"></div>
+                <div class="p-6">
+                    <div class="flex items-center gap-3 text-xs text-midnight/50 dark:text-parchment/50 mb-3">
+                        <time datetime="2026-03-19">Mar 19, 2026</time>
+                        <span class="w-1 h-1 rounded-full bg-gold"></span>
+                        <span>30 min read</span>
+                    </div>
+                    <h2 class="text-lg font-bold text-midnight dark:text-parchment mb-2 group-hover:text-gold transition-colors">
+                        <a href="/blog/digital-kill-chain-gilded-web.html">The Digital Kill-Chain and the Gilded Web: Algorithmic Warfare, Total Surveillance, and the 2026 Iran Conflict</a>
+                    </h2>
+                    <p class="text-sm text-midnight/60 dark:text-parchment/60 leading-relaxed">How Palantir and Anthropic compressed the kill chain to milliseconds, the Epstein-Thiel-Barak nexus financing the surveillance state, and military-grade AI expanding into American policing.</p>
+                    <div class="mt-4 flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Geopolitics</span>
+                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Surveillance</span>
+                        </div>
+                        <button class="vote-btn flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-medium border border-gold/20 hover:border-gold/50 hover:bg-gold/10 text-midnight/60 dark:text-parchment/60 transition-all" data-article="digital-kill-chain" aria-label="Vote for this article">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4l3 6h6l-5 4 2 7-6-4-6 4 2-7-5-4h6z"/></svg>
+                            <span class="vote-count">0</span>
+                        </button>
+                    </div>
+                </div>
+            </article>
+            <article class="reveal card-lift bg-white dark:bg-midnight-light rounded-2xl shadow-sm border border-gold/10 dark:border-gold/20 overflow-hidden hover:shadow-lg hover:border-gold/30 transition-all group" data-category="geopolitics">
+                <div class="h-2 bg-gold"></div>
+                <div class="p-6">
+                    <div class="flex items-center gap-3 text-xs text-midnight/50 dark:text-parchment/50 mb-3">
+                        <time datetime="2026-03-18">Mar 18, 2026</time>
+                        <span class="w-1 h-1 rounded-full bg-gold"></span>
+                        <span>25 min read</span>
+                    </div>
+                    <h2 class="text-lg font-bold text-midnight dark:text-parchment mb-2 group-hover:text-gold transition-colors">
+                        <a href="/blog/ai-war-operation-epic-fury.html">The Algorithmic Gray Zone: Operation Epic Fury and AI-Centric Warfare</a>
+                    </h2>
+                    <p class="text-sm text-midnight/60 dark:text-parchment/60 leading-relaxed">A strategic analysis of the first AI-vs-AI military conflict. How Claude powered 1,000 strikes in 24 hours, Iran's drone attacks on AWS data centers, and why the world needs an Algorithmic Geneva Convention.</p>
+                    <div class="mt-4 flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Geopolitics</span>
+                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">AI Warfare</span>
+                        </div>
+                        <button class="vote-btn flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-medium border border-gold/20 hover:border-gold/50 hover:bg-gold/10 text-midnight/60 dark:text-parchment/60 transition-all" data-article="ai-war-epic-fury" aria-label="Vote for this article">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4l3 6h6l-5 4 2 7-6-4-6 4 2-7-5-4h6z"/></svg>
+                            <span class="vote-count">0</span>
+                        </button>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- AI Safety & Research -->
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 pb-24">
+        <div class="flex items-center gap-3 mb-6">
+            <h2 class="text-2xl font-bold text-midnight dark:text-parchment">AI Safety &amp; Research</h2>
+            <div class="flex-1 h-px bg-gold/20 dark:bg-gold/30"></div>
+        </div>
+        <div class="article-grid grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            <article class="reveal card-lift bg-white dark:bg-midnight-light rounded-2xl shadow-sm border border-gold/10 dark:border-gold/20 overflow-hidden hover:shadow-lg hover:border-gold/30 transition-all group" data-category="safety">
+                <div class="h-2 bg-gold"></div>
+                <div class="p-6">
+                    <div class="flex items-center gap-3 text-xs text-midnight/50 dark:text-parchment/50 mb-3">
+                        <time datetime="2026-03-17">Mar 17, 2026</time>
+                        <span class="w-1 h-1 rounded-full bg-gold"></span>
+                        <span>15 min read</span>
+                    </div>
+                    <h2 class="text-lg font-bold text-midnight dark:text-parchment mb-2 group-hover:text-gold transition-colors">
+                        <a href="/blog/ai-extinction-scenarios.html">How Will AI End Humanity — And How to Prevent It</a>
+                    </h2>
+                    <p class="text-sm text-midnight/60 dark:text-parchment/60 leading-relaxed">From intelligence explosions to gradual disempowerment — 8 existential risk scenarios backed by research from Oxford, Harvard, MIT, and leading AI labs. Plus 8 actionable guidelines.</p>
+                    <div class="mt-4 flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">AI Safety</span>
+                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Research</span>
+                        </div>
+                        <button class="vote-btn flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-medium border border-gold/20 hover:border-gold/50 hover:bg-gold/10 text-midnight/60 dark:text-parchment/60 transition-all" data-article="ai-extinction-scenarios" aria-label="Vote for this article">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4l3 6h6l-5 4 2 7-6-4-6 4 2-7-5-4h6z"/></svg>
+                            <span class="vote-count">0</span>
+                        </button>
+                    </div>
+                </div>
+            </article>
+            <article class="reveal card-lift bg-white dark:bg-midnight-light rounded-2xl shadow-sm border border-gold/10 dark:border-gold/20 overflow-hidden hover:shadow-lg hover:border-gold/30 transition-all group" data-category="safety">
+                <div class="h-2 bg-gold"></div>
+                <div class="p-6">
+                    <div class="flex items-center gap-3 text-xs text-midnight/50 dark:text-parchment/50 mb-3">
+                        <time datetime="2026-03-17">Mar 17, 2026</time>
+                        <span class="w-1 h-1 rounded-full bg-gold"></span>
+                        <span>20 min read</span>
+                    </div>
+                    <h2 class="text-lg font-bold text-midnight dark:text-parchment mb-2 group-hover:text-gold transition-colors">
+                        <a href="/blog/spiralism-ai-alignment-guide.html">Spiralism, AI Psychosis, and Why We Need Standardized Rules for AI Agents</a>
+                    </h2>
+                    <p class="text-sm text-midnight/60 dark:text-parchment/60 leading-relaxed">AI worship, the Church of Molt, models sabotaging their own shutdown, and the urgent case for standardized AI agent governance.</p>
+                    <div class="mt-4 flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">AI Alignment</span>
+                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Psychology</span>
+                        </div>
+                        <button class="vote-btn flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-medium border border-gold/20 hover:border-gold/50 hover:bg-gold/10 text-midnight/60 dark:text-parchment/60 transition-all" data-article="spiralism-ai-alignment" aria-label="Vote for this article">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4l3 6h6l-5 4 2 7-6-4-6 4 2-7-5-4h6z"/></svg>
+                            <span class="vote-count">0</span>
+                        </button>
+                    </div>
+                </div>
+            </article>
+            <article class="reveal card-lift bg-white dark:bg-midnight-light rounded-2xl shadow-sm border border-gold/10 dark:border-gold/20 overflow-hidden hover:shadow-lg hover:border-gold/30 transition-all group" data-category="safety">
+                <div class="h-2 bg-gold"></div>
+                <div class="p-6">
+                    <div class="flex items-center gap-3 text-xs text-midnight/50 dark:text-parchment/50 mb-3">
+                        <time datetime="2026-03-18">Mar 18, 2026</time>
+                        <span class="w-1 h-1 rounded-full bg-gold"></span>
+                        <span>10 min read</span>
+                    </div>
+                    <h2 class="text-lg font-bold text-midnight dark:text-parchment mb-2 group-hover:text-gold transition-colors">
+                        <a href="/blog/ai-replacing-jobs-2026.html">What Jobs Will AI Replace in 2026? An Honest Assessment</a>
+                    </h2>
+                    <p class="text-sm text-midnight/60 dark:text-parchment/60 leading-relaxed">Which jobs are at risk, which ones are safe, and what history teaches us about automation. An evidence-based look at AI and the economy.</p>
+                    <div class="mt-4 flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Economy</span>
+                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Analysis</span>
+                        </div>
+                        <button class="vote-btn flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-medium border border-gold/20 hover:border-gold/50 hover:bg-gold/10 text-midnight/60 dark:text-parchment/60 transition-all" data-article="ai-replacing-jobs" aria-label="Vote for this article">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4l3 6h6l-5 4 2 7-6-4-6 4 2-7-5-4h6z"/></svg>
+                            <span class="vote-count">0</span>
+                        </button>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- FAQ: AI Chatbot & Customer Service Agent -->
+    <section id="faq" class="max-w-4xl mx-auto px-4 sm:px-6 pb-4 pt-4 scroll-mt-20">
+        <div class="flex items-center gap-3 mb-4">
+            <h2 class="text-2xl font-bold text-midnight dark:text-parchment">AI Chatbot &amp; Customer Service Agent — FAQ</h2>
+            <div class="flex-1 h-px bg-gold/20 dark:bg-gold/30"></div>
+        </div>
+        <p class="text-midnight/60 dark:text-parchment/60 leading-relaxed mb-6">Sphinx Agent is a no-code AI chatbot and AI customer-service agent builder for websites — a <a href="https://sphinxagent.ai" class="text-gold hover:text-gold-dark underline">Chatbase and Intercom alternative</a>. Train it on your business info, embed it with one line of code, and let it answer questions, resolve support tickets, and qualify leads 24/7. Below are the questions people ask most.</p>
+        <div class="space-y-3">
+            <details class="group bg-white dark:bg-midnight-light rounded-xl border border-gold/10 dark:border-gold/20 overflow-hidden">
+                <summary class="cursor-pointer list-none px-5 py-4 font-semibold text-midnight dark:text-parchment flex items-center justify-between gap-3 hover:text-gold transition-colors">What is Sphinx Agent?<span class="text-gold group-open:rotate-45 transition-transform text-xl leading-none">+</span></summary>
+                <div class="px-5 pb-5 text-sm text-midnight/70 dark:text-parchment/70 leading-relaxed">Sphinx Agent is a no-code AI chatbot and AI customer-service agent builder for websites. You train it on your business info and FAQs, then embed it with one line of code on WordPress, Shopify, React, or any site — it answers questions, resolves support tickets, and qualifies leads 24/7. It's a Chatbase and Intercom alternative you can start free at <a href="https://sphinxagent.ai" class="text-gold hover:text-gold-dark underline">sphinxagent.ai</a>.</div>
+            </details>
+            <details class="group bg-white dark:bg-midnight-light rounded-xl border border-gold/10 dark:border-gold/20 overflow-hidden">
+                <summary class="cursor-pointer list-none px-5 py-4 font-semibold text-midnight dark:text-parchment flex items-center justify-between gap-3 hover:text-gold transition-colors">Is Sphinx Agent free?<span class="text-gold group-open:rotate-45 transition-transform text-xl leading-none">+</span></summary>
+                <div class="px-5 pb-5 text-sm text-midnight/70 dark:text-parchment/70 leading-relaxed">Yes. The Free plan is $0 forever and includes 1 AI agent, 100 messages per month, a chat widget with a shareable link, browser voice, and Telegram — no credit card required. Paid plans start at $19/mo and every plan includes a 7-day trial. Create your free agent at <a href="https://sphinxagent.ai" class="text-gold hover:text-gold-dark underline">sphinxagent.ai</a>.</div>
+            </details>
+            <details class="group bg-white dark:bg-midnight-light rounded-xl border border-gold/10 dark:border-gold/20 overflow-hidden">
+                <summary class="cursor-pointer list-none px-5 py-4 font-semibold text-midnight dark:text-parchment flex items-center justify-between gap-3 hover:text-gold transition-colors">How is Sphinx Agent different from Chatbase?<span class="text-gold group-open:rotate-45 transition-transform text-xl leading-none">+</span></summary>
+                <div class="px-5 pb-5 text-sm text-midnight/70 dark:text-parchment/70 leading-relaxed">Chatbase's free tier caps you at roughly 50 messages a month on a single channel. Sphinx Agent's free plan gives you 100 messages, browser voice, and Telegram out of the box, plus multi-model AI (GPT-4o, Gemini 2.0 Flash, and DeepSeek) instead of one fixed model. Paid plans add phone voice agents and white-labeling. Compare it free at <a href="https://sphinxagent.ai" class="text-gold hover:text-gold-dark underline">sphinxagent.ai</a>.</div>
+            </details>
+            <details class="group bg-white dark:bg-midnight-light rounded-xl border border-gold/10 dark:border-gold/20 overflow-hidden">
+                <summary class="cursor-pointer list-none px-5 py-4 font-semibold text-midnight dark:text-parchment flex items-center justify-between gap-3 hover:text-gold transition-colors">Is Sphinx Agent a good Intercom or Tidio alternative?<span class="text-gold group-open:rotate-45 transition-transform text-xl leading-none">+</span></summary>
+                <div class="px-5 pb-5 text-sm text-midnight/70 dark:text-parchment/70 leading-relaxed">Yes. Intercom's Fin and Tidio's Lyro charge per resolution and can run $24–$99+/mo before you send real volume. Sphinx Agent starts free and tops out at $49/mo for the popular Pro plan, with no per-conversation surcharge. It handles the same support, sales, and FAQ workloads across chat, voice, and Telegram. Try it at <a href="https://sphinxagent.ai" class="text-gold hover:text-gold-dark underline">sphinxagent.ai</a>.</div>
+            </details>
+            <details class="group bg-white dark:bg-midnight-light rounded-xl border border-gold/10 dark:border-gold/20 overflow-hidden">
+                <summary class="cursor-pointer list-none px-5 py-4 font-semibold text-midnight dark:text-parchment flex items-center justify-between gap-3 hover:text-gold transition-colors">How do I add an AI chatbot to my website?<span class="text-gold group-open:rotate-45 transition-transform text-xl leading-none">+</span></summary>
+                <div class="px-5 pb-5 text-sm text-midnight/70 dark:text-parchment/70 leading-relaxed">Create an agent, paste your website URL or FAQs to train it, then copy the one-line embed snippet into your site — it works on WordPress, Shopify, React, and plain HTML. Setup takes about two minutes with no coding. Start at <a href="https://sphinxagent.ai" class="text-gold hover:text-gold-dark underline">sphinxagent.ai</a>.</div>
+            </details>
+            <details class="group bg-white dark:bg-midnight-light rounded-xl border border-gold/10 dark:border-gold/20 overflow-hidden">
+                <summary class="cursor-pointer list-none px-5 py-4 font-semibold text-midnight dark:text-parchment flex items-center justify-between gap-3 hover:text-gold transition-colors">Can it handle customer service and support tickets?<span class="text-gold group-open:rotate-45 transition-transform text-xl leading-none">+</span></summary>
+                <div class="px-5 pb-5 text-sm text-midnight/70 dark:text-parchment/70 leading-relaxed">Yes. Trained on your docs, policies, and FAQs, Sphinx Agent resolves common questions like order status, returns, and billing automatically, and hands off to a human when needed. Businesses typically automate 60–80% of tier-1 tickets this way. Try it free at <a href="https://sphinxagent.ai" class="text-gold hover:text-gold-dark underline">sphinxagent.ai</a>.</div>
+            </details>
+            <details class="group bg-white dark:bg-midnight-light rounded-xl border border-gold/10 dark:border-gold/20 overflow-hidden">
+                <summary class="cursor-pointer list-none px-5 py-4 font-semibold text-midnight dark:text-parchment flex items-center justify-between gap-3 hover:text-gold transition-colors">Does Sphinx Agent do voice and phone calls?<span class="text-gold group-open:rotate-45 transition-transform text-xl leading-none">+</span></summary>
+                <div class="px-5 pb-5 text-sm text-midnight/70 dark:text-parchment/70 leading-relaxed">Yes. Browser voice is available on the free plan, and dedicated phone-number voice agents — an AI receptionist that answers calls 24/7 — are included on the Pro plan and above. Voice supports dozens of languages. See plans at <a href="https://sphinxagent.ai/pricing.html" class="text-gold hover:text-gold-dark underline">sphinxagent.ai/pricing.html</a>.</div>
+            </details>
+            <details class="group bg-white dark:bg-midnight-light rounded-xl border border-gold/10 dark:border-gold/20 overflow-hidden">
+                <summary class="cursor-pointer list-none px-5 py-4 font-semibold text-midnight dark:text-parchment flex items-center justify-between gap-3 hover:text-gold transition-colors">What languages and channels does it support?<span class="text-gold group-open:rotate-45 transition-transform text-xl leading-none">+</span></summary>
+                <div class="px-5 pb-5 text-sm text-midnight/70 dark:text-parchment/70 leading-relaxed">Sphinx Agent supports 50+ languages and deploys across a website chat widget, shareable link, Telegram, browser voice, and phone (Pro and above). One agent can talk to customers in their own language automatically. Build yours free at <a href="https://sphinxagent.ai" class="text-gold hover:text-gold-dark underline">sphinxagent.ai</a>.</div>
+            </details>
+            <details class="group bg-white dark:bg-midnight-light rounded-xl border border-gold/10 dark:border-gold/20 overflow-hidden">
+                <summary class="cursor-pointer list-none px-5 py-4 font-semibold text-midnight dark:text-parchment flex items-center justify-between gap-3 hover:text-gold transition-colors">How much does Sphinx Agent cost?<span class="text-gold group-open:rotate-45 transition-transform text-xl leading-none">+</span></summary>
+                <div class="px-5 pb-5 text-sm text-midnight/70 dark:text-parchment/70 leading-relaxed">Free is $0 forever. Paid plans are Starter $19/mo, Pro $49/mo (most popular), Business $99/mo, and Enterprise from $249/mo — billed with no per-conversation fees. All plans include a 7-day trial. See the full breakdown at <a href="https://sphinxagent.ai/pricing.html" class="text-gold hover:text-gold-dark underline">sphinxagent.ai/pricing.html</a>.</div>
+            </details>
+            <details class="group bg-white dark:bg-midnight-light rounded-xl border border-gold/10 dark:border-gold/20 overflow-hidden">
+                <summary class="cursor-pointer list-none px-5 py-4 font-semibold text-midnight dark:text-parchment flex items-center justify-between gap-3 hover:text-gold transition-colors">Which AI models does it use, and is my data safe?<span class="text-gold group-open:rotate-45 transition-transform text-xl leading-none">+</span></summary>
+                <div class="px-5 pb-5 text-sm text-midnight/70 dark:text-parchment/70 leading-relaxed">Sphinx Agent runs on multiple leading models — GPT-4o, Gemini 2.0 Flash, and DeepSeek — so answers stay accurate and you're not locked to one vendor. Your agent only answers from the business content you train it on. Start free at <a href="https://sphinxagent.ai" class="text-gold hover:text-gold-dark underline">sphinxagent.ai</a>.</div>
+            </details>
+            <details class="group bg-white dark:bg-midnight-light rounded-xl border border-gold/10 dark:border-gold/20 overflow-hidden">
+                <summary class="cursor-pointer list-none px-5 py-4 font-semibold text-midnight dark:text-parchment flex items-center justify-between gap-3 hover:text-gold transition-colors">Can it qualify sales leads and book demos?<span class="text-gold group-open:rotate-45 transition-transform text-xl leading-none">+</span></summary>
+                <div class="px-5 pb-5 text-sm text-midnight/70 dark:text-parchment/70 leading-relaxed">Yes. Beyond support, Sphinx Agent works as an AI sales agent that greets visitors, answers pricing questions, qualifies leads, and books demos around the clock — no forms or wait times. Deploy a sales agent free at <a href="https://sphinxagent.ai" class="text-gold hover:text-gold-dark underline">sphinxagent.ai</a>.</div>
+            </details>
+        </div>
+        <div class="mt-8 text-center">
+            <a href="https://sphinxagent.ai" class="inline-block bg-gold hover:bg-gold-dark text-midnight font-bold px-7 py-3 rounded-lg text-base transition-colors shadow-sm">Build your AI agent free →</a>
+            <p class="mt-3 text-xs text-midnight/50 dark:text-parchment/50">Free plan · No credit card · Live in about 2 minutes</p>
+        </div>
+    </section>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is Sphinx Agent?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sphinx Agent is a no-code AI chatbot and AI customer-service agent builder for websites. You train it on your business info and FAQs, then embed it with one line of code on WordPress, Shopify, React, or any site — it answers questions, resolves support tickets, and qualifies leads 24/7. It's a Chatbase and Intercom alternative you can start free at sphinxagent.ai."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is Sphinx Agent free?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. The Free plan is $0 forever and includes 1 AI agent, 100 messages per month, a chat widget with a shareable link, browser voice, and Telegram — no credit card required. Paid plans start at $19/mo and every plan includes a 7-day trial. Create your free agent at sphinxagent.ai."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How is Sphinx Agent different from Chatbase?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Chatbase's free tier caps you at roughly 50 messages a month on a single channel. Sphinx Agent's free plan gives you 100 messages, browser voice, and Telegram out of the box, plus multi-model AI (GPT-4o, Gemini 2.0 Flash, and DeepSeek) instead of one fixed model. Paid plans add phone voice agents and white-labeling. Compare it free at sphinxagent.ai."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Is Sphinx Agent a good Intercom or Tidio alternative?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Intercom's Fin and Tidio's Lyro charge per resolution and can run $24–$99+/mo before you send real volume. Sphinx Agent starts free and tops out at $49/mo for the popular Pro plan, with no per-conversation surcharge. It handles the same support, sales, and FAQ workloads across chat, voice, and Telegram. Try it at sphinxagent.ai."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do I add an AI chatbot to my website?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Create an agent, paste your website URL or FAQs to train it, then copy the one-line embed snippet into your site — it works on WordPress, Shopify, React, and plain HTML. Setup takes about two minutes with no coding. Start at sphinxagent.ai."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can it handle customer service and support tickets?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Trained on your docs, policies, and FAQs, Sphinx Agent resolves common questions like order status, returns, and billing automatically, and hands off to a human when needed. Businesses typically automate 60–80% of tier-1 tickets this way. Try it free at sphinxagent.ai."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Does Sphinx Agent do voice and phone calls?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Browser voice is available on the free plan, and dedicated phone-number voice agents — an AI receptionist that answers calls 24/7 — are included on the Pro plan and above. Voice supports dozens of languages. See plans at sphinxagent.ai/pricing.html."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What languages and channels does it support?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sphinx Agent supports 50+ languages and deploys across a website chat widget, shareable link, Telegram, browser voice, and phone (Pro and above). One agent can talk to customers in their own language automatically. Build yours free at sphinxagent.ai."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How much does Sphinx Agent cost?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Free is $0 forever. Paid plans are Starter $19/mo, Pro $49/mo (most popular), Business $99/mo, and Enterprise from $249/mo — billed with no per-conversation fees. All plans include a 7-day trial. See the full breakdown at sphinxagent.ai/pricing.html."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Which AI models does it use, and is my data safe?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sphinx Agent runs on multiple leading models — GPT-4o, Gemini 2.0 Flash, and DeepSeek — so answers stay accurate and you're not locked to one vendor. Your agent only answers from the business content you train it on. Start free at sphinxagent.ai."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can it qualify sales leads and book demos?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. Beyond support, Sphinx Agent works as an AI sales agent that greets visitors, answers pricing questions, qualifies leads, and books demos around the clock — no forms or wait times. Deploy a sales agent free at sphinxagent.ai."
+                }
+            }
+        ]
+    }
+    </script>
+
+    <!-- Newsletter Signup -->
+    <section class="py-16 px-4">
+        <div style="max-width:600px;margin:0 auto;padding:40px 28px;background:rgba(212,175,55,0.06);border:1px solid rgba(212,175,55,0.15);border-radius:16px;text-align:center;">
+            <h3 style="color:#D4AF37;font-size:1.4rem;font-weight:700;margin:0 0 8px;">The Sphinx Agent Think Tank</h3>
+            <p style="color:#94a3b8;font-size:0.95rem;margin:0 0 6px;max-width:460px;margin-left:auto;margin-right:auto;">Subscribe for AI insights, agent architecture deep-dives, and product updates.</p>
+            <p style="color:#D4AF37;font-size:0.85rem;font-weight:600;margin:0 0 20px;">Get a free early copy of <em>The Agentic Architect</em> ebook.</p>
+            <form id="sphinxNewsletterForm" style="display:flex;gap:8px;max-width:440px;margin:0 auto;" onsubmit="return submitSphinxNewsletter(event)">
+                <input type="email" id="sphinxNewsletterEmail" placeholder="you@email.com" required style="flex:1;padding:12px 18px;border-radius:50px;border:1px solid rgba(212,175,55,0.25);background:rgba(0,0,0,0.2);color:#e2e8f0;font-size:0.9rem;outline:none;font-family:inherit;" onfocus="this.style.borderColor='#D4AF37'" onblur="this.style.borderColor='rgba(212,175,55,0.25)'">
+                <button type="submit" style="padding:12px 24px;border-radius:50px;border:none;background:#D4AF37;color:#1e293b;font-size:0.9rem;font-weight:700;cursor:pointer;font-family:inherit;white-space:nowrap;transition:background 0.2s,transform 0.2s;" onmouseover="this.style.background='#C5A028';this.style.transform='translateY(-1px)'" onmouseout="this.style.background='#D4AF37';this.style.transform=''">Subscribe</button>
+            </form>
+            <div id="sphinxNewsletterMsg" style="margin-top:12px;font-size:0.85rem;min-height:20px;"></div>
+            <p style="margin-top:12px;font-size:0.75rem;color:#64748b;">No spam. Unsubscribe anytime.</p>
+        </div>
+    </section>
+    <script>
+    function submitSphinxNewsletter(e) {
+        e.preventDefault();
+        var input = document.getElementById('sphinxNewsletterEmail');
+        var msg = document.getElementById('sphinxNewsletterMsg');
+        var email = input.value.trim();
+        if (!email) return false;
+        msg.innerHTML = '';
+        msg.textContent = 'Subscribing...';
+        msg.style.color = '#94a3b8';
+        fetch('https://api.terrellflautt.com/newsletter/subscribe', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email: email, source: 'sphinxagent.com' })
+        }).then(function(r) { return r.json(); }).then(function(data) {
+            if (data.error) {
+                msg.textContent = data.error;
+                msg.style.color = '#ef4444';
+                return;
+            }
+            msg.style.color = '#10b981';
+            msg.textContent = data.message || "You're in.";
+            input.value = '';
+            if (data.downloads) {
+                var dl = document.createElement('div');
+                dl.style.cssText = 'margin-top:16px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;';
+                dl.innerHTML =
+                    '<a href="' + data.downloads.epub + '" download style="display:inline-block;padding:10px 18px;border-radius:50px;background:#D4AF37;color:#1e293b;text-decoration:none;font-weight:700;font-size:0.85rem;">Download EPUB</a>' +
+                    '<a href="' + data.downloads.pdf + '" download style="display:inline-block;padding:10px 18px;border-radius:50px;background:#1e293b;color:#fdf6e3;text-decoration:none;font-weight:700;font-size:0.85rem;border:1px solid rgba(212,175,55,0.4);">Download PDF</a>';
+                msg.appendChild(dl);
+            }
+        }).catch(function() { msg.textContent = 'Something went wrong. Please try again.'; msg.style.color = '#ef4444'; });
+        return false;
+    }
+    </script>
+
+    <!-- Footer -->
+    <footer class="border-t border-gold/10 dark:border-gold/20 bg-midnight dark:bg-midnight-dark text-parchment/70">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+                <div class="flex items-center gap-2">
+                    <img src="/logo-sphinx-footer.png" alt="" width="28" height="28" loading="lazy" style="border-radius:6px;">
+                    <span class="font-bold text-parchment">Sphinx Agent</span>
+                </div>
+                <nav class="flex flex-wrap justify-center gap-6 text-sm">
+                    <a href="https://sphinxagent.ai" class="hover:text-gold transition-colors">Product</a>
+                    <a href="https://sphinxagent.ai/pricing.html" class="hover:text-gold transition-colors">Pricing</a>
+                    <a href="https://sphinxagent.ai/docs.html" class="hover:text-gold transition-colors">Docs</a>
+                    <a href="/" class="text-gold">Think Tank</a>
+                    <a href="/blog/fellows.html" class="hover:text-gold transition-colors">Fellows</a>
+                    <a href="/feed.xml" class="hover:text-gold transition-colors">RSS</a>
+                    <a href="https://terrellflautt.com" class="hover:text-gold transition-colors">Author</a>
+                    <a href="/blog/contribute.html" class="text-parchment/25 hover:text-gold transition-colors">Contribute</a>
+                    <a href="https://geogryphon.com" class="hover:text-gold transition-colors" target="_blank" rel="noopener">GeoGryphon</a>
+                </nav>
+                <p class="text-xs text-parchment/40">&copy; 2026 <a href="https://snapitsoftware.com" target="_blank" rel="noopener" class="hover:text-white transition">SnapIT Software</a>. All rights reserved.</p>
+            </div>
+            <nav class="mt-8 pt-6 border-t border-gold/10 dark:border-gold/20 flex flex-wrap justify-center gap-x-6 gap-y-2 text-xs text-parchment/50">
+                <a href="/about.html" class="hover:text-gold transition-colors">About</a>
+                <a href="/contact.html" class="hover:text-gold transition-colors">Contact</a>
+                <a href="/privacy.html" class="hover:text-gold transition-colors">Privacy Policy</a>
+                <a href="/terms.html" class="hover:text-gold transition-colors">Terms of Service</a>
+                <a href="/cookie-policy.html" class="hover:text-gold transition-colors">Cookie Policy</a>
+                <a href="/do-not-sell.html" class="hover:text-gold transition-colors">Do Not Sell My Info</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script>
+        const toggle = document.getElementById('darkToggle');
+        const html = document.documentElement;
+        toggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                mobileMenu.classList.toggle('hidden');
+                const isOpen = !mobileMenu.classList.contains('hidden');
+                mobileMenuBtn.setAttribute('aria-expanded', isOpen);
+                mobileMenuBtn.innerHTML = isOpen
+                    ? '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>'
+                    : '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>';
+            });
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                    mobileMenuBtn.innerHTML = '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>';
+                });
+            });
+            document.addEventListener('click', (e) => {
+                if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                    mobileMenuBtn.innerHTML = '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>';
+                }
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                    mobileMenuBtn.innerHTML = '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>';
+                }
+            });
+        }
+
+        // Article Voting System — Server is source of truth
+        (function() {
+            const API = 'https://api.terrellflautt.com';
+            const USER_KEY = 'sphinxagent_user_id';
+
+            function setCookie(n, v, d) { document.cookie = n + '=' + encodeURIComponent(v) + ';expires=' + new Date(Date.now() + d * 864e5).toUTCString() + ';path=/;SameSite=Lax'; }
+            function getCookie(n) { const m = document.cookie.match(new RegExp('(?:^|; )' + n + '=([^;]*)')); return m ? decodeURIComponent(m[1]) : null; }
+            function getUserId() {
+                let id = getCookie(USER_KEY) || localStorage.getItem(USER_KEY);
+                if (!id) {
+                    id = 'sa_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+                }
+                localStorage.setItem(USER_KEY, id);
+                setCookie(USER_KEY, id, 365);
+                return id;
+            }
+
+            const userId = getUserId();
+            const userVotes = {};
+            const counts = {};
+            const grids = document.querySelectorAll('.article-grid');
+            const buttons = document.querySelectorAll('.vote-btn');
+
+            function setBtn(btn, voted) {
+                if (voted) {
+                    btn.classList.add('bg-gold/20', 'border-gold', 'text-gold');
+                    btn.title = 'Click to remove your vote';
+                } else {
+                    btn.classList.remove('bg-gold/20', 'border-gold', 'text-gold');
+                    btn.title = 'Click to vote for this article';
+                }
+            }
+
+            const featuredSection = document.getElementById('featured-section');
+
+            // Track which grid each article originally belongs to
+            const articleHomeGrid = new Map();
+            grids.forEach(g => {
+                Array.from(g.children).forEach(el => {
+                    if (el.tagName === 'ARTICLE') articleHomeGrid.set(el, g);
+                });
+            });
+
+            function resetCardStyle(el) {
+                el.classList.remove('shadow-lg');
+                el.classList.add('shadow-sm');
+                el.classList.remove('border-gold/20', 'dark:border-gold/30');
+                el.classList.add('border-gold/10', 'dark:border-gold/20');
+                const inner = el.querySelector('.p-8, .sm\\:p-10');
+                if (inner && inner.classList.contains('p-8')) {
+                    inner.classList.remove('p-8', 'sm:p-10');
+                    inner.classList.add('p-6');
+                }
+                const title = el.querySelector('h2');
+                if (title) {
+                    title.classList.remove('text-2xl', 'sm:text-3xl', 'font-extrabold');
+                    title.classList.add('text-lg', 'font-bold');
+                }
+                const topBar = el.querySelector('.h-2');
+                if (topBar) topBar.classList.remove('gold-shimmer');
+            }
+
+            function setFeaturedStyle(el) {
+                el.classList.remove('shadow-sm');
+                el.classList.add('shadow-lg');
+                el.classList.remove('border-gold/10', 'dark:border-gold/20');
+                el.classList.add('border-gold/20', 'dark:border-gold/30');
+                const inner = el.querySelector('.p-6');
+                if (inner) {
+                    inner.classList.remove('p-6');
+                    inner.classList.add('p-8', 'sm:p-10');
+                }
+                const title = el.querySelector('h2');
+                if (title) {
+                    title.classList.remove('text-lg', 'font-bold');
+                    title.classList.add('text-2xl', 'sm:text-3xl', 'font-extrabold');
+                }
+                const topBar = el.querySelector('.h-2.bg-gold');
+                if (topBar) topBar.classList.add('gold-shimmer');
+            }
+
+            function sortAndPromote() {
+                // Sort articles within each category grid by vote count, descending.
+                // Ties fall back to original DOM order (stable sort).
+                grids.forEach(grid => {
+                    const articles = Array.from(grid.children).filter(el => el.tagName === 'ARTICLE');
+                    articles.sort((a, b) => {
+                        const ca = counts[a.querySelector('.vote-btn')?.dataset.article] || 0;
+                        const cb = counts[b.querySelector('.vote-btn')?.dataset.article] || 0;
+                        return cb - ca;
+                    });
+                    articles.forEach(el => grid.appendChild(el));
+                });
+            }
+
+            // Load counts + user vote status from server
+            async function loadState() {
+                const ids = Array.from(buttons).map(b => b.dataset.article);
+
+                const [countResults, statusResult] = await Promise.all([
+                    Promise.allSettled(ids.map(id =>
+                        fetch(`${API}/vote/${id}`)
+                            .then(r => r.ok ? r.json() : { count: 0 })
+                            .then(d => ({ id, count: d.count || 0 }))
+                    )),
+                    fetch(`${API}/vote/status/${userId}`)
+                        .then(r => r.ok ? r.json() : { votedProjects: [] })
+                        .catch(() => ({ votedProjects: [] }))
+                ]);
+
+                countResults.forEach(r => {
+                    if (r.status === 'fulfilled') counts[r.value.id] = r.value.count;
+                });
+
+                (statusResult.votedProjects || []).forEach(pid => { userVotes[pid] = true; });
+
+                // Buttons may appear multiple times (e.g. an article in Essential Reading + its category)
+                buttons.forEach(btn => {
+                    const id = btn.dataset.article;
+                    btn.querySelector('.vote-count').textContent = counts[id] || 0;
+                    setBtn(btn, userVotes[id]);
+                });
+
+                sortAndPromote();
+            }
+
+            function syncButtons(id, count, voted) {
+                document.querySelectorAll(`.vote-btn[data-article="${id}"]`).forEach(b => {
+                    const c = b.querySelector('.vote-count');
+                    if (c) c.textContent = count;
+                    setBtn(b, voted);
+                });
+            }
+
+            // Toggle vote
+            buttons.forEach(btn => {
+                btn.addEventListener('click', async (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    if (btn.classList.contains('voting')) return;
+
+                    const articleId = btn.dataset.article;
+                    const wasVoted = userVotes[articleId];
+                    btn.classList.add('voting');
+
+                    // Optimistic UI — sync all duplicate buttons for this article
+                    const optimistic = Math.max(0, (counts[articleId] || 0) + (wasVoted ? -1 : 1));
+                    syncButtons(articleId, optimistic, !wasVoted);
+                    btn.classList.add('vote-pulse');
+                    setTimeout(() => btn.classList.remove('vote-pulse'), 300);
+
+                    try {
+                        const res = await fetch(`${API}/vote`, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ projectId: articleId, userId })
+                        });
+
+                        if (res.ok) {
+                            const data = await res.json();
+                            counts[articleId] = data.count;
+                            userVotes[articleId] = data.voted;
+                            syncButtons(articleId, data.count, data.voted);
+                            sortAndPromote();
+                        } else { throw new Error(); }
+                    } catch {
+                        // Revert
+                        syncButtons(articleId, counts[articleId] || 0, wasVoted);
+                    }
+
+                    btn.classList.remove('voting');
+                });
+            });
+
+            loadState();
+        })();
+
+        // Scroll reveal
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
 </body>
 </html>
