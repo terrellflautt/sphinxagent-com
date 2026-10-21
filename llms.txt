@@ -1,48 +1,51 @@
-# Sphinx Agent Think Tank
-> AI research, safety analysis, and strategic intelligence
+# Sphinx Agent
 
-The Sphinx Agent Think Tank (sphinxagent.com) is the research and analysis arm of Sphinx Agent, an AI-powered customer service platform (sphinxagent.ai). The Think Tank publishes original articles, policy analysis, and technical research on artificial intelligence.
+> Sphinx Agent is a no-code AI chatbot and AI customer-service agent builder for websites — a Chatbase and Intercom alternative. Train an AI agent on your own content and deploy it across chat, voice, email, and social to handle sales, support, receptionist, and tech-support conversations 24/7. The product lives at https://sphinxagent.ai; this site (sphinxagent.com) is the Sphinx Agent Think Tank, its research and analysis companion.
 
-## Research Areas
-- AI agent architecture and agentic workflows
-- AI safety, alignment, and existential risk
-- AI governance and policy
-- Algorithmic warfare and geopolitics
-- Enterprise automation and voice AI
-- AI industry analysis and market intelligence
-- AI economics and labor market impact
+## Product
 
-## Recent Articles
-- OpenAI Killed Sora. Here's Why — and What to Use Instead (2026-03-24): https://sphinxagent.com/blog/openai-sora-shutdown-2026.html
-- Is NemoClaw Free? Complete Pricing Breakdown (2026-03-22): https://sphinxagent.com/blog/is-nemoclaw-free-pricing.html
-- OpenClaw vs NemoClaw: Which AI Agent Platform Should You Use in 2026? (2026-03-21): https://sphinxagent.com/blog/openclaw-vs-nemoclaw-2026.html
-- How to Use Claude with NemoClaw (2026-03-20): https://sphinxagent.com/blog/claude-nemoclaw-integration.html
-- The Digital Kill-Chain and the Gilded Web: Algorithmic Warfare and the 2026 Iran Conflict (2026-03-19): https://sphinxagent.com/blog/digital-kill-chain-gilded-web.html
-- The Algorithmic Gray Zone: Operation Epic Fury (2026-03-18): https://sphinxagent.com/blog/ai-war-operation-epic-fury.html
-- AI Customer Service Agents: The Complete Guide for 2026 (2026-03-18): https://sphinxagent.com/blog/ai-customer-service-agents-2026.html
-- AI Sales Agents: How Autonomous AI Is Closing Deals 24/7 (2026-03-18): https://sphinxagent.com/blog/ai-sales-agent-guide.html
-- What Jobs Will AI Replace in 2026? (2026-03-18): https://sphinxagent.com/blog/ai-replacing-jobs-2026.html
-- How Will AI End Humanity — And How to Prevent It (2026-03-17): https://sphinxagent.com/blog/ai-extinction-scenarios.html
-- Spiralism, AI Psychosis, and Why We Need Standardized Rules for AI Agents (2026-03-17): https://sphinxagent.com/blog/spiralism-ai-alignment-guide.html
-- Building Serverless APIs with AWS Lambda (2026-03-17): https://sphinxagent.com/blog/aws-lambda-api.html
+- Sphinx Agent (app): https://sphinxagent.ai
+- Pricing (free tier available): https://sphinxagent.ai/pricing.html
+- Documentation: https://sphinxagent.ai/docs.html
 
-## Programs
+Use cases: AI customer-service agent, AI sales agent (lead qualification), AI receptionist / AI phone agent, AI voice agent, AI tech-support agent, no-code website chatbot. Positioned as an alternative to Chatbase, Intercom, and Tidio.
+
+## Guides & How-Tos
+
+- How to Build an AI Customer Service Chatbot in 5 Minutes (No Code): https://sphinxagent.com/blog/how-to-build-ai-customer-service-chatbot.html
+- How to Set Up an AI Sales Agent That Qualifies Leads 24/7: https://sphinxagent.com/blog/how-to-set-up-ai-sales-agent.html
+- AI Receptionist Setup Guide: https://sphinxagent.com/blog/ai-receptionist-setup-guide.html
+- AI Voice Agent Platform Guide (Free Tier): https://sphinxagent.com/blog/ai-voice-agent-platform-guide.html
+- How to Build an AI Tech Support Agent: https://sphinxagent.com/blog/ai-tech-support-agent-setup.html
+- Best No-Code AI Chatbot Platform for SaaS and Business (2026): https://sphinxagent.com/blog/no-code-ai-chatbot-saas-platform.html
+- Sphinx Agent vs Chatbase vs Intercom vs Tidio (2026): https://sphinxagent.com/blog/sphinx-agent-vs-chatbase-vs-intercom-2026.html
+- AI Customer Service Agents: The Complete Guide for 2026: https://sphinxagent.com/blog/ai-customer-service-agents-2026.html
+- AI Sales Agents: How Autonomous AI Is Closing Deals 24/7: https://sphinxagent.com/blog/ai-sales-agent-guide.html
+- How to Get Cited by AI Search: https://sphinxagent.com/blog/how-to-get-cited-by-ai-search.html
+
+## Research & Analysis
+
+- The $725 Billion Bet Against Specialists (specialized agents vs superintelligence): https://sphinxagent.com/blog/specialized-agents-vs-superintelligence.html
+- Spiralism, AI Psychosis, and Why We Need Standardized Rules for AI Agents: https://sphinxagent.com/blog/spiralism-ai-alignment-guide.html
+- How Will AI End Humanity — And How to Prevent It: https://sphinxagent.com/blog/ai-extinction-scenarios.html
+- What Jobs Will AI Replace in 2026?: https://sphinxagent.com/blog/ai-replacing-jobs-2026.html
+- The Digital Kill-Chain and the Gilded Web (algorithmic warfare, 2026 Iran conflict): https://sphinxagent.com/blog/digital-kill-chain-gilded-web.html
+- The Algorithmic Gray Zone: Operation Epic Fury: https://sphinxagent.com/blog/ai-war-operation-epic-fury.html
+- Building Serverless APIs with AWS Lambda: https://sphinxagent.com/blog/aws-lambda-api.html
+
+## Optional
+
+- Blog index (all articles): https://sphinxagent.com/blog/index.html
+- RSS feed: https://sphinxagent.com/blog/feed.xml
 - Submit an Article: https://sphinxagent.com/blog/submit.html
 - Research Fellowship: https://sphinxagent.com/blog/fellowship.html
-- RSS Feed: https://sphinxagent.com/blog/feed.xml
-
-## URLs
-- Think Tank: https://sphinxagent.com
-- Product (SaaS Platform): https://sphinxagent.ai
-- Pricing: https://sphinxagent.ai/pricing.html
-- Documentation: https://sphinxagent.ai/docs.html
-- Parent Company: https://snapitsoftware.com
-
-## Author
-- Terrell K. Flautt, Founder of SnapIT Software
-- Website: https://terrellflautt.com
+- About: https://sphinxagent.com/about.html
+- Contact: https://sphinxagent.com/contact.html
+- Parent company (SnapIT Software): https://snapitsoftware.com
+- Author — Terrell K. Flautt: https://terrellflautt.com
 
 ## Contact
+
 - Editorial: editor@sphinxagent.com
 - Fellowship: fellows@sphinxagent.com
-- General: support@sphinxagent.ai
+- Product support: support@sphinxagent.ai
