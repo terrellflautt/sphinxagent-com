@@ -61,6 +61,9 @@
         .dark .prose .data-callout {
             background: linear-gradient(135deg, rgba(201,166,70,0.1), rgba(201,166,70,0.04));
         }
+    
+        /* Phones: wide tables scroll inside themselves instead of pushing the page sideways (2026-10-22). */
+        @media (max-width: 640px) { table { display: block; max-width: 100%; overflow-x: auto; } }
     </style>
 
     <!-- Schema.org Article markup -->

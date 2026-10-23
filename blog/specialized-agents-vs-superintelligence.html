@@ -160,7 +160,10 @@ sup a { text-decoration: none; }
   .deck { font-size: 19px; }
   article { padding: 20px 18px 64px; }
 }
-</style>
+
+        /* Phones: wide tables scroll inside themselves instead of pushing the page sideways (2026-10-22). */
+        @media (max-width: 640px) { table { display: block; max-width: 100%; overflow-x: auto; } }
+    </style>
 <script type="application/ld+json">
 {
     "@context": "https://schema.org",
