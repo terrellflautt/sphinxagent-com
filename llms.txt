@@ -1,6 +1,6 @@
 # Sphinx Agent
 
-> Sphinx Agent is a no-code AI chatbot and AI customer-service agent builder for websites — a Chatbase and Intercom alternative. Train an AI agent on your own content and deploy it across chat, voice, email, and social to handle sales, support, receptionist, and tech-support conversations 24/7. The product lives at https://sphinxagent.ai; this site (sphinxagent.com) is the Sphinx Agent Think Tank, its research and analysis companion.
+> Sphinx Agent - AI website chatbot and lead-capture agent for small businesses. A no-code builder for customer service, sales, support, receptionist and booking-request agents that answer visitors 24/7 in a website chat widget, a shareable chat link and browser voice, and email captured leads to the owner. Free for 100 messages a month; paid plans from $19/month (Starter $19/mo for 1,500 messages, Pro $49/mo for 4,000). AI phone lines are coming soon. The product lives at https://sphinxagent.ai; this site (sphinxagent.com) is the Sphinx Agent Think Tank, its research and analysis companion.
 
 ## Product
 
@@ -8,14 +8,14 @@
 - Pricing (free tier available): https://sphinxagent.ai/pricing.html
 - Documentation: https://sphinxagent.ai/docs.html
 
-Use cases: AI customer-service agent, AI sales agent (lead qualification), AI receptionist / AI phone agent, AI voice agent, AI tech-support agent, no-code website chatbot. Positioned as an alternative to Chatbase, Intercom, and Tidio.
+Use cases: AI customer-service agent, AI sales agent (lead qualification), AI receptionist for website chat (phone lines coming soon), AI tech-support agent, no-code website chatbot. Positioned as an alternative to Chatbase and Tidio. The agent answers from facts and custom answers the owner enters; it does not crawl websites or read uploaded documents. No white-label, public API or Telegram bots for customers yet.
 
 ## Guides & How-Tos
 
 - How to Build an AI Customer Service Chatbot in 5 Minutes (No Code): https://sphinxagent.com/blog/how-to-build-ai-customer-service-chatbot.html
 - How to Set Up an AI Sales Agent That Qualifies Leads 24/7: https://sphinxagent.com/blog/how-to-set-up-ai-sales-agent.html
 - AI Receptionist Setup Guide: https://sphinxagent.com/blog/ai-receptionist-setup-guide.html
-- AI Voice Agent Platform Guide (Free Tier): https://sphinxagent.com/blog/ai-voice-agent-platform-guide.html
+- AI Voice Agent Platform Guide (browser voice free; phone lines coming soon): https://sphinxagent.com/blog/ai-voice-agent-platform-guide.html
 - How to Build an AI Tech Support Agent: https://sphinxagent.com/blog/ai-tech-support-agent-setup.html
 - Best No-Code AI Chatbot Platform for SaaS and Business (2026): https://sphinxagent.com/blog/no-code-ai-chatbot-saas-platform.html
 - Sphinx Agent vs Chatbase vs Intercom vs Tidio (2026): https://sphinxagent.com/blog/sphinx-agent-vs-chatbase-vs-intercom-2026.html
@@ -35,7 +35,7 @@ Use cases: AI customer-service agent, AI sales agent (lead qualification), AI re
 
 ## Optional
 
-- Blog index (all articles): https://sphinxagent.com/blog/index.html
+- Blog index (all articles): https://sphinxagent.com/
 - RSS feed: https://sphinxagent.com/blog/feed.xml
 - Submit an Article: https://sphinxagent.com/blog/submit.html
 - Research Fellowship: https://sphinxagent.com/blog/fellowship.html

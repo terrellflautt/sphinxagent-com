@@ -54,7 +54,7 @@
         "description": "Learn how AI sales agents qualify leads, answer pricing questions, and book demos around the clock. A practical guide to deploying autonomous sales agents across web, phone, and chat.",
         "url": "https://sphinxagent.com/blog/ai-sales-agent-guide.html",
         "datePublished": "2026-03-18T00:00:00Z",
-        "dateModified": "2026-03-18T00:00:00Z",
+        "dateModified": "2026-10-30T00:00:00Z",
         "wordCount": 3000,
         "author": {
             "@type": "Person",
@@ -205,7 +205,7 @@
                     <li><strong>Visitor arrives, widget opens.</strong> The agent greets the visitor with something natural and specific: "Hey, I'm Alex from Acme. Looking for pricing info, or want me to walk you through what we do?" No generic "How can I help you?" -- the greeting is tailored to the business.</li>
                     <li><strong>Agent qualifies the lead.</strong> Instead of dumping a feature list, the agent asks questions. "What kind of business are you running?" "How many customer inquiries do you handle per day?" "Are you using any tools for this right now?" Each answer shapes the next question.</li>
                     <li><strong>Agent captures contact info naturally.</strong> Midway through the conversation, once the agent has established value, it asks for an email or phone number. Not with a form popup -- in the flow of conversation. "I can send you a comparison sheet. What's the best email?" The contact goes directly into your CRM or leads table.</li>
-                    <li><strong>Agent handles pricing.</strong> When the prospect asks about pricing, the agent knows the answer cold. It doesn't link to a page. It says: "Our Pro plan at $49/mo would cover your use case. That gives you 25 agents, 25,000 messages, and voice calling. Want me to set up a trial?"</li>
+                    <li><strong>Agent handles pricing.</strong> When the prospect asks about pricing, the agent knows the answer cold. It doesn't link to a page. It says something like: "Our Team plan would cover a 12-person team. It includes the reporting you asked about. Want me to have someone send you a quote?"</li>
                     <li><strong>Agent converts or escalates.</strong> For straightforward sales, the agent directs the prospect to checkout or a demo booking page. For complex deals, it captures all the qualifying information and routes it to a human rep with full context -- so the rep walks into the conversation knowing exactly what the prospect needs.</li>
                 </ol>
 
@@ -252,7 +252,7 @@
                 <p>Avoid generic greetings like "How can I help you today?" They sound robotic and don't give the visitor a clear reason to engage.</p>
 
                 <h3>Step 4: Paste the Code Snippet</h3>
-                <p>Copy the embed snippet from your dashboard and paste it into your website's HTML. The agent goes live immediately. It works across desktop, tablet, and mobile. If you've set up voice calling or Telegram, those channels activate with the same agent brain -- no separate configuration needed. For deeper integrations, check the <a href="https://sphinxagent.ai/docs.html">API docs and SDK</a>.</p>
+                <p>Copy the embed snippet from your dashboard and paste it into your website's HTML. The agent goes live immediately. It works across desktop, tablet, and mobile. The same agent also answers on its shareable chat link, where visitors can talk to it by browser voice. AI phone lines are coming soon.</p>
 
                 <h2 id="what-makes-great">What Makes a Great AI Sales Agent</h2>
                 <p>I have reviewed thousands of conversations across the Sphinx Agent platform, and the gap between agents that convert and agents that do not comes down to a handful of things. None of them are about the underlying AI model. All of them are about setup.</p>
@@ -290,7 +290,7 @@
 
                 <ul>
                     <li><strong>Human SDR:</strong> $65,000-$85,000/year salary + benefits + training + management overhead. Works 8 hours/day, 5 days/week. Handles maybe 50-80 conversations per day at peak. Takes vacation, gets sick, has off days. Ramps up over 3-6 months.</li>
-                    <li><strong>AI sales agent:</strong> $49/month for a Pro plan. Works 24 hours/day, 7 days/week, 365 days/year. Handles unlimited concurrent conversations. No vacation, no sick days, consistent quality. Live in 10 minutes.</li>
+                    <li><strong>AI sales agent:</strong> $49/month for Sphinx Agent Pro (4,000 messages a month). Works 24 hours/day, 7 days/week, 365 days/year. Handles many conversations at once. No vacation, no sick days, consistent quality. Live in 10 minutes.</li>
                 </ul>
 
                 <p>That's not $65K vs. $588/year as a head-to-head replacement. That's $588/year to handle the first-touch layer so your human reps spend 100% of their time on conversations that are already qualified and ready to close.</p>
@@ -339,18 +339,18 @@
                     <li><strong>Qualification criteria.</strong> What makes a lead "hot" vs. "warm" vs. "cold"? Company size? Budget? Timeline? Give the agent the same criteria your sales team uses.</li>
                 </ul>
 
-                <p>You can paste text directly, upload documents, or point the agent at a URL to pull context from. The more specific you are, the better the agent performs.</p>
+                <p>Paste the text directly into the agent builder (Sphinx Agent does not read uploaded documents or crawl URLs; links you add are shared with visitors). The more specific you are, the better the agent performs.</p>
 
                 <h3>Step 4: Paste the Code Snippet on Your Website</h3>
                 <p>Once your agent is configured, Sphinx Agent generates a code snippet for you. Copy it and paste it into any page where you want the sales agent to appear -- typically right before the closing <code>&lt;/body&gt;</code> tag. It looks something like this:</p>
 
-<pre><code>&lt;script src="https://sphinxagent.ai/widget.js"
+<pre><code>&lt;script src="https://sphinxagent.ai/widget/sphinx-widget.js"
   data-agent-id="your-agent-id"&gt;&lt;/script&gt;</code></pre>
 
-                <p>That's it. The chat widget appears on your page immediately. It works across desktop, tablet, and mobile. You can also enable voice calling for phone-based sales conversations, or connect Telegram for messaging-based sales.</p>
+                <p>That's it. The chat widget appears on your page immediately. It works across desktop, tablet, and mobile. Leads it captures are saved in your dashboard and emailed to you.</p>
 
-                <h3>For Technical Users: API &amp; SDK</h3>
-                <p>If you want deeper integration -- embedding the agent into a custom app, triggering it programmatically, or building workflows around conversation events -- Sphinx Agent provides a full <a href="https://sphinxagent.ai/docs.html">API and SDK</a>. The <a href="https://sphinxagent.ai/docs.html">documentation</a> covers authentication, agent management, conversation hooks, and webhook events. Whether you're building a React app, a mobile experience, or a backend pipeline, the API gives you full control.</p>
+                <h3>For Technical Users</h3>
+                <p>Sphinx Agent does not offer a public API, SDK or webhooks for customers yet. Today you deploy the agent with the embed snippet or the shareable chat link, and export captured leads as CSV or JSON from the Leads page. If you need programmatic access now, choose a platform that documents a public API.</p>
 
                 <p>Four steps. Your website now has an AI sales agent that qualifies leads, answers pricing questions, captures contact information, and converts visitors into customers -- 24 hours a day, 7 days a week.</p>
 
@@ -404,7 +404,7 @@
             <!-- CTA Banner -->
             <div class="mt-12 p-8 rounded-2xl bg-gradient-to-br from-midnight to-midnight-light text-parchment text-center">
                 <h2 class="text-2xl font-bold mb-2">Deploy your AI sales agent today</h2>
-                <p class="text-parchment/70 mb-6 max-w-md mx-auto">Qualify leads, answer pricing questions, and book demos around the clock. Free plan available -- no credit card required.</p>
+                <p class="text-parchment/70 mb-6 max-w-md mx-auto">Try it on your own site: Sphinx Agent is free for 100 AI messages a month. Qualify leads and answer pricing questions around the clock. <a href="https://sphinxagent.ai/pricing.html" class="text-gold underline">See plans</a></p>
                 <a href="https://sphinxagent.ai" class="inline-block bg-gold hover:bg-gold-dark text-midnight font-semibold px-8 py-3 rounded-lg transition-colors shadow-lg">Get started now for free</a>
             </div>
 

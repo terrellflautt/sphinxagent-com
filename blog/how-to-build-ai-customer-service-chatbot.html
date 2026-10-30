@@ -58,7 +58,7 @@
         "description": "Step-by-step guide to building an AI customer service chatbot with Sphinx Agent. No coding required. Free tier available. Handles FAQs, order status, returns, and billing questions 24/7.",
         "url": "https://sphinxagent.com/blog/how-to-build-ai-customer-service-chatbot.html",
         "datePublished": "2026-03-25T00:00:00Z",
-        "dateModified": "2026-05-12T00:00:00Z",
+        "dateModified": "2026-10-30T00:00:00Z",
         "wordCount": 1800,
         "author": {
             "@type": "Person",
@@ -98,36 +98,36 @@
 
     <!-- FAQ Schema for Rich Snippets -->
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-            {
-                "@type": "Question",
-                "name": "How much does an AI customer service chatbot cost?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "AI customer service chatbots range from free to $499/month depending on message volume and feature needs. Sphinx Agent offers a free tier with 100 messages per month, a Starter plan at $19/month for 5,000 messages, a Pro plan at $49/month for 25,000 messages with phone support, a Business plan at $99/month for 50,000 messages with white-label branding, an Enterprise plan at $249/month for 250,000 messages with API access and 10 phone numbers, and an Enterprise Plus plan at $499/month for unlimited messages, 25 phone numbers, interview agents, AI receptionist, and custom integrations with SLA. Most small businesses start on the Starter plan and upgrade as volume grows."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Can an AI chatbot handle customer complaints?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Yes, AI chatbots can handle most routine customer complaints including order status inquiries, return requests, shipping issues, and basic billing questions. However, they should hand off to a human agent for billing disputes involving refunds over a set threshold, emotionally charged situations where the customer is upset and needs empathy, and edge cases that fall outside the knowledge base. A well-configured AI chatbot typically resolves 60-80% of incoming support requests without human intervention."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "How long does it take to set up an AI customer service chatbot?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "With Sphinx Agent, you can set up a working AI customer service chatbot in under 5 minutes. The process involves creating an account, selecting the Customer Service agent type, adding your business information, building a knowledge base with FAQ pairs, and embedding a single line of JavaScript on your website. No coding is required. The chatbot starts answering questions immediately based on the knowledge base you provide."
-                }
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+            "@type": "Question",
+            "name": "How much does an AI customer service chatbot cost?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "AI customer service chatbots range from free to several hundred dollars a month depending on message volume and features. Sphinx Agent is free for 1 agent and 100 messages per month. Starter is $19/month ($190/year) for 3 agents and 1,500 messages, and Pro is $49/month ($490/year) for 10 agents and 4,000 messages with Claude Sonnet and GPT-4o. Larger volumes are quoted on request. Most small businesses start free and upgrade when they hit the limit."
             }
-        ]
-    }
+        },
+        {
+            "@type": "Question",
+            "name": "Can an AI chatbot handle customer complaints?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes, for routine ones: shipping delays, return policies, basic billing questions, as long as the knowledge base has the answers. It should hand off to a human for refunds, billing disputes, emotionally charged situations and anything it cannot answer. Sphinx Agent does not look up orders or issue refunds itself; it collects the customer's contact details and passes the request to your team."
+            }
+        },
+        {
+            "@type": "Question",
+            "name": "How long does it take to set up an AI customer service chatbot?",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "With Sphinx Agent, a basic setup takes about five minutes: sign in with Google, select the Customer Service agent type, add your business information and FAQ answers, and embed a single line of JavaScript on your website. No coding is required. The chatbot starts answering immediately from the knowledge base you provide."
+            }
+        }
+    ]
+}
     </script>
 
     <script>if(localStorage.getItem('theme')==='dark'||(!localStorage.getItem('theme')&&window.matchMedia('(prefers-color-scheme:dark)').matches)){document.documentElement.classList.add('dark')}</script>
@@ -231,7 +231,7 @@
 
                 <h3>Step 1: Create Your Account</h3>
 
-                <p>Go to <a href="https://sphinxagent.ai">sphinxagent.ai</a> and sign up. Email and password. No credit card required on the free tier. You get 100 messages per month to test everything before you pay a cent.</p>
+                <p>Go to <a href="https://sphinxagent.ai">sphinxagent.ai</a> and sign in with Google. No credit card required on the free tier. You get 100 messages per month to test everything before you pay a cent.</p>
 
                 <h3>Step 2: Create a New Agent</h3>
 
@@ -304,20 +304,15 @@
                                 <td>Email signatures, social media bios, QR codes</td>
                             </tr>
                             <tr>
-                                <td class="font-semibold">Telegram</td>
-                                <td>Connect your agent to a Telegram bot</td>
-                                <td>International customers, crypto/tech communities</td>
-                            </tr>
-                            <tr>
                                 <td class="font-semibold">Browser Voice</td>
-                                <td>Customers speak instead of type</td>
+                                <td>Customers speak instead of type on the chat link page</td>
                                 <td>Accessibility, mobile users, hands-free support</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
 
-                <p>You set up each channel in the dashboard. Same knowledge base powers all of them. One source of truth, multiple entry points.</p>
+                <p>Same knowledge base powers all of them. One source of truth, multiple entry points. Telegram and AI phone lines are coming soon.</p>
 
                 <h2 id="human-handoff">When to Hand Off to Humans</h2>
 
@@ -328,7 +323,7 @@
                 <ul>
                     <li><strong>Billing disputes:</strong> Anything involving a refund over a certain dollar amount, chargebacks, or payment processing errors. These need a human with authority to issue credits.</li>
                     <li><strong>Emotional situations:</strong> If a customer is angry, frustrated, or dealing with something sensitive, the AI should recognize the tone and route to a person. Empathy is not something you can FAQ your way through.</li>
-                    <li><strong>Edge cases:</strong> Questions the AI cannot answer confidently. A good chatbot says "Let me connect you with someone who can help" instead of guessing. Sphinx Agent does this automatically when confidence drops below your set threshold.</li>
+                    <li><strong>Edge cases:</strong> Questions the AI cannot answer confidently. A good chatbot says "Let me connect you with someone who can help" instead of guessing. Sphinx Agent is instructed to say when it does not know, and to take the customer's contact details so your team can follow up.</li>
                     <li><strong>Account security:</strong> Password resets, account lockouts, suspicious activity reports. These should always go to a human.</li>
                 </ul>
 
@@ -353,43 +348,31 @@
                                 <td class="font-semibold">Free</td>
                                 <td>$0</td>
                                 <td>100</td>
-                                <td>Web widget, chat link, knowledge base</td>
+                                <td>1 agent, web widget, chat link, browser voice, lead capture</td>
                             </tr>
                             <tr>
                                 <td class="font-semibold">Starter</td>
-                                <td>$19/mo</td>
-                                <td>5,000</td>
-                                <td>All channels, custom branding, analytics</td>
+                                <td>$19/mo ($190/yr)</td>
+                                <td>1,500</td>
+                                <td>3 agents, knowledge base + custom answers, email support</td>
                             </tr>
                             <tr>
                                 <td class="font-semibold">Pro</td>
-                                <td>$49/mo</td>
-                                <td>25,000</td>
-                                <td>Everything in Starter + phone/voice support</td>
+                                <td>$49/mo ($490/yr)</td>
+                                <td>4,000</td>
+                                <td>10 agents, Claude Sonnet + GPT-4o (a premium reply counts as 3), conversation analytics, priority email support</td>
                             </tr>
                             <tr>
-                                <td class="font-semibold">Business</td>
-                                <td>$99/mo</td>
-                                <td>50,000</td>
-                                <td>Everything in Pro + white-label branding</td>
-                            </tr>
-                            <tr>
-                                <td class="font-semibold">Enterprise</td>
-                                <td>$249/mo</td>
-                                <td>250,000</td>
-                                <td>Everything in Business + 10 phone numbers, API access, dedicated support</td>
-                            </tr>
-                            <tr>
-                                <td class="font-semibold">Enterprise Plus</td>
-                                <td>$499/mo</td>
-                                <td>Unlimited</td>
-                                <td>Everything in Enterprise + 25 phone numbers, voice cloning, interview agents, AI receptionist, custom integrations + SLA</td>
+                                <td class="font-semibold">Larger</td>
+                                <td>Quote</td>
+                                <td>Custom</td>
+                                <td><a href="https://sphinxagent.ai/contact.html">Contact us</a></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
 
-                <p>For context: a single full-time customer service rep costs $35,000&ndash;$50,000 per year. An AI agent that handles 5,000 conversations a month costs $228 per year. Even the top Enterprise Plus tier at $499/month is under $6,000 per year &mdash; less than two months of a single human rep. The math is not close.</p>
+                <p>For context: a single full-time customer service rep costs $35,000&ndash;$50,000 per year. Sphinx Agent Starter, at 1,500 messages a month, costs $190 per year billed yearly; Pro is $490 per year. The AI will not replace your team, but it takes the repetitive questions off their plate.</p>
 
                 <p>Start on Free. Upgrade when you hit the limit. You will know pretty fast whether it is working for your business.</p>
 
@@ -397,15 +380,15 @@
 
                 <h3>How much does an AI customer service chatbot cost?</h3>
 
-                <p>Anywhere from free to $499/month depending on volume and what you need. Sphinx Agent's free tier gives you 100 messages per month &mdash; enough to test the concept. Most small businesses land on the Starter plan at $19/month for 5,000 messages. Teams that need API access, multiple phone numbers, or unlimited messages move up to Enterprise ($249/mo) or Enterprise Plus ($499/mo). Compare any of those to $3,000+/month for a single human agent and the ROI is obvious.</p>
+                <p>Anywhere from free to several hundred dollars a month depending on volume and what you need. Sphinx Agent is free for 1 agent and 100 messages per month. Starter is $19/month ($190/year) for 3 agents and 1,500 messages, and Pro is $49/month ($490/year) for 10 agents and 4,000 messages with Claude Sonnet and GPT-4o. Larger volumes are quoted on request. Most small businesses start free and upgrade when they hit the limit. Compare any of those to $3,000+/month for a single human agent.</p>
 
                 <h3>Can an AI chatbot handle customer complaints?</h3>
 
-                <p>Yes, for routine complaints. Order issues, shipping delays, return requests &mdash; an AI handles these fine as long as your knowledge base has the answers. For situations involving real anger or complex billing disputes, you want a human. The best setup is AI for the first pass, human escalation for anything the bot cannot resolve with confidence.</p>
+                <p>Yes, for routine ones: shipping delays, return policies, basic billing questions, as long as your knowledge base has the answers. For refunds, billing disputes, real anger or anything it cannot answer, you want a human. Sphinx Agent does not look up orders or issue refunds itself; it collects the customer's contact details and passes the request to your team.</p>
 
                 <h3>How long does it take to set up an AI customer service chatbot?</h3>
 
-                <p>With Sphinx Agent, about five minutes for a basic setup. Sign up, pick the Customer Service agent type, add your top 10&ndash;20 FAQ pairs, and embed the widget code. You will spend more time writing good answers than you will on the technical setup. There is no technical setup. It is one line of JavaScript.</p>
+                <p>With Sphinx Agent, about five minutes for a basic setup. Sign in with Google, pick the Customer Service agent type, add your top 10&ndash;20 FAQ pairs, and embed the widget code. You will spend more time writing good answers than you will on the technical setup. There is no technical setup. It is one line of JavaScript.</p>
 
             </div>
 
@@ -438,7 +421,7 @@
             <!-- CTA -->
             <div class="mt-12 p-8 rounded-2xl bg-gradient-to-br from-midnight to-midnight-light text-parchment text-center">
                 <h2 class="text-2xl font-bold mb-2">Build Your AI Customer Service Agent</h2>
-                <p class="text-parchment/70 mb-6">Free tier. No credit card. No code. Your chatbot answers its first customer question in under 5 minutes.</p>
+                <p class="text-parchment/70 mb-6">Try it on your own site: Sphinx Agent is free for 100 AI messages a month. No credit card, no code. <a href="https://sphinxagent.ai/pricing.html" class="text-gold underline">See plans</a></p>
                 <a href="https://sphinxagent.ai" class="inline-block bg-gold hover:bg-gold-dark text-midnight font-semibold px-8 py-3 rounded-lg transition-colors">Try Sphinx Agent Free</a>
             </div>
 

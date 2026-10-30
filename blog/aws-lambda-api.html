@@ -58,7 +58,7 @@
         "description": "A deep-dive into building production serverless APIs with AWS Lambda, API Gateway, DynamoDB, JWT auth, rate limiting, and multi-LLM AI integration. Lessons from 20+ SaaS products.",
         "url": "https://sphinxagent.com/blog/aws-lambda-api.html",
         "datePublished": "2026-03-17T00:00:00Z",
-        "dateModified": "2026-03-17T00:00:00Z",
+        "dateModified": "2026-10-30T00:00:00Z",
         "wordCount": 3200,
         "author": {
             "@type": "Person",
@@ -195,7 +195,7 @@
                 <p>Here's the honest trade-off matrix after years in production:</p>
 
                 <ul>
-                    <li><strong>Pay-per-use is real.</strong> My lowest-traffic SaaS products cost $0.00 in compute during quiet months. Try that with an EC2 instance running 24/7 at $30/month minimum. When Sphinx Agent had a traffic spike from a Product Hunt launch, Lambda scaled to 200 concurrent executions and back down in the same hour. Total cost: $1.40.</li>
+                    <li><strong>Pay-per-use is real.</strong> My lowest-traffic SaaS products cost $0.00 in compute during quiet months. Try that with an EC2 instance running 24/7 at $30/month minimum. When one of them had a sudden traffic spike, Lambda scaled to 200 concurrent executions and back down in the same hour. Total cost: $1.40.</li>
                     <li><strong>Cold starts are manageable, not eliminated.</strong> A Node.js Lambda with the AWS SDK v3 cold-starts in 200-400ms. Add DynamoDB client initialization and you're at 500ms. Add a JWT verification library and you're at 600ms. That's noticeable on the first request, invisible on the second. For API endpoints that serve real-time chat, I use provisioned concurrency on exactly two functions -- the chat handler and the auth verifier. Everything else can afford a cold start.</li>
                     <li><strong>Auto-scaling means you never get paged at 3am</strong> because your server ran out of memory. Lambda functions are stateless by design. If one invocation leaks memory, it dies after the response and a fresh container takes its place. I haven't SSH'd into a production server in two years.</li>
                 </ul>
