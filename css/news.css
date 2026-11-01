@@ -1,0 +1,78 @@
+/* News explainers (October 2026 security series). Scoped to .news so the
+   Tailwind preflight and the rest of the Think Tank are untouched. */
+.news {
+  --gold: #D4AF37; --gold-text: #7A6100; --gold-light: #FFF8E1;
+  --panel: #fffef9; --panel-2: #f8f1dc; --text: #111827; --muted: #4b5563; --border: #e2d7b6;
+  --red-bg: #fdf0f0; --red-border: #b42318; --green-bg: #eff8f1; --green-border: #1f7a3a;
+  color: var(--text); line-height: 1.7; font-size: 1.07rem;
+}
+.dark .news {
+  --gold-text: #E0C252; --gold-light: rgba(212,175,55,0.12);
+  --panel: #1e293b; --panel-2: #172033; --text: #f5edd4; --muted: #cbd5e1; --border: rgba(212,175,55,0.25);
+  --red-bg: rgba(180,35,24,0.16); --red-border: #f87171; --green-bg: rgba(31,122,58,0.18); --green-border: #4ade80;
+}
+.news a { color: var(--gold-text); text-decoration: underline; text-underline-offset: 2px; }
+.news a:hover { color: var(--text); }
+.news a:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; border-radius: 2px; }
+
+.news .kicker { display: inline-block; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold-text); background: var(--gold-light); border: 1px solid var(--border); padding: 4px 10px; border-radius: 999px; margin-bottom: 14px; }
+.news h1 { font-size: clamp(1.9rem, 4.4vw, 2.6rem); line-height: 1.18; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 16px; }
+.news .dek { font-size: 1.18rem; color: var(--muted); margin-bottom: 20px; }
+.news .meta { font-size: 0.88rem; color: var(--muted); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 12px 0; margin-bottom: 30px; }
+.news .meta strong { color: var(--text); }
+
+.news h2 { font-size: 1.6rem; line-height: 1.25; font-weight: 800; margin: 48px 0 14px; letter-spacing: -0.01em; scroll-margin-top: 84px; }
+.news h3 { font-size: 1.2rem; font-weight: 700; margin: 30px 0 10px; }
+.news p { margin-bottom: 16px; }
+.news ul, .news ol { margin: 0 0 18px 22px; }
+.news ul { list-style: disc; }
+.news ol { list-style: decimal; }
+.news li { margin-bottom: 8px; font-size: 1.05rem; }
+.news strong { font-weight: 700; }
+.news em { font-style: italic; }
+.news code { background: var(--panel-2); padding: 1px 6px; border-radius: 4px; font-size: 0.92em; }
+.news sup { font-size: 0.72rem; }
+.news sup a { text-decoration: none; font-weight: 700; padding: 0 1px; }
+
+.news .box { background: var(--panel-2); border: 1px solid var(--border); border-left: 5px solid var(--gold); border-radius: 10px; padding: 22px 24px; margin: 24px 0 30px; }
+.news .box h2, .news .box h3 { margin-top: 0; }
+.news .box ul, .news .box p:last-child { margin-bottom: 0; }
+.news .box.warn { background: var(--red-bg); border-left-color: var(--red-border); }
+.news .box.ok { background: var(--green-bg); border-left-color: var(--green-border); }
+.news .label { font-weight: 700; }
+
+.news .toc, .news .series { background: var(--panel); border: 1px solid var(--border); border-radius: 10px; padding: 16px 22px; margin-bottom: 30px; }
+.news .series { border-top: 4px solid var(--gold); }
+.news .toc p { font-weight: 700; margin-bottom: 8px; }
+.news .series p { font-size: 0.82rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+.news .toc ol, .news .series ol { margin-bottom: 0; }
+.news .toc li, .news .series li { font-size: 0.97rem; margin-bottom: 4px; }
+.news .series a[aria-current="page"] { color: var(--text); font-weight: 700; text-decoration: none; }
+
+.news .table-scroll { overflow-x: auto; margin: 18px 0 26px; border: 1px solid var(--border); border-radius: 10px; }
+.news table { border-collapse: collapse; width: 100%; font-size: 0.97rem; background: var(--panel); }
+.news caption { text-align: left; font-weight: 700; padding: 12px 14px 0; font-size: 0.95rem; }
+.news th, .news td { text-align: left; padding: 11px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+.news th { background: var(--panel-2); font-weight: 700; }
+.news tr:last-child td { border-bottom: 0; }
+.news td.num { white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+.news .verdict { font-weight: 700; padding: 2px 8px; border-radius: 6px; font-size: 0.85rem; white-space: nowrap; }
+.news .v-true { background: #e3f2e7; color: #14532d; }
+.news .v-false { background: #fbe4e4; color: #7f1d1d; }
+.news .v-open { background: #fff2cc; color: #713f12; }
+
+.news .related { border-top: 1px solid var(--border); margin-top: 40px; padding-top: 10px; }
+.news .sources, .news .sources li { font-size: 0.93rem; }
+.news .sources li { margin-bottom: 7px; word-break: break-word; }
+
+.news .cta { background: #1e293b; color: #f8fafc; border: 1px solid rgba(212,175,55,0.3); border-radius: 12px; padding: 26px; margin-top: 44px; }
+.news .cta h2 { color: #fff; margin-top: 0; font-size: 1.35rem; }
+.news .cta p { color: #e2e8f0; }
+.news .cta a.btn { display: inline-block; background: #D4AF37; color: #111827; text-decoration: none; font-weight: 700; padding: 11px 22px; border-radius: 8px; }
+.news .cta a.btn:hover { background: #E0C252; }
+
+@media (max-width: 640px) {
+  .news, .news li { font-size: 1.02rem; }
+  .news .box { padding: 18px; }
+}

@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hardware Wallets Drained in 2026: Ledger Spy Chip, Coldcard Bug, How to Check Yours | Sphinx Agent Think Tank</title>
+    <meta name="description" content="How 2026's two biggest hardware wallet attacks worked: a hidden LTE spy chip in Ledger Nano X units sold by CryptoBilis and a weak random number bug in Coldcard firmware. What was lost, and how to check your own device.">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://sphinxagent.com/blog/hardware-wallet-attacks-2026.html">
+    <meta property="og:site_name" content="Sphinx Agent Think Tank">
+    <meta name="author" content="Sphinx Agent Editorial Team">
+    <meta property="og:title" content="How Hardware Wallets Got Drained in 2026, and How to Check Yours">
+    <meta property="og:description" content="A spy chip in resold Ledger devices and a weak-randomness bug in Coldcard firmware. What happened, what was lost, and what to do now.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://sphinxagent.com/blog/hardware-wallet-attacks-2026.html">
+    <meta property="og:image" content="https://sphinxagent.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
+    <meta property="article:published_time" content="2026-10-31T21:00:00Z">
+    <meta property="article:modified_time" content="2026-11-01T00:30:00Z">
+    <meta property="article:section" content="Security">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How Hardware Wallets Got Drained in 2026, and How to Check Yours">
+    <meta name="twitter:description" content="The Ledger spy chip and the Coldcard randomness bug, explained, with steps to check your own device.">
+    <meta property="og:locale" content="en_US">
+    <meta name="twitter:image" content="https://sphinxagent.com/og-image.png">
+    <link rel="alternate" type="application/rss+xml" title="Sphinx Agent Think Tank RSS" href="https://sphinxagent.com/feed.xml">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="stylesheet" href="/css/tailwind.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/news.css?v=1">
+    <style>html { scroll-behavior: smooth; } body { font-family: 'Inter', system-ui, sans-serif; }</style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    "headline": "How Hardware Wallets Got Drained in 2026: The Ledger Spy Chip, the Coldcard Bug, and How to Check Yours",
+    "description": "A plain-English account of the October 2026 Ledger Nano X implant sold through reseller CryptoBilis and the July 2026 Coldcard weak seed generation flaw, with loss estimates and steps to check your device.",
+    "datePublished": "2026-10-31T21:00:00Z",
+    "dateModified": "2026-11-01T00:30:00Z",
+    "mainEntityOfPage": "https://sphinxagent.com/blog/hardware-wallet-attacks-2026.html",
+    "image": "https://sphinxagent.com/og-image.png",
+    "articleSection": "Security",
+    "keywords": "hardware wallet hack 2026, Ledger CryptoBilis, Ledger Nano X implant, Coldcard vulnerability, Coldcard seed generation bug, crypto wallet drained, is my Ledger safe",
+    "author": {"@type": "Organization", "name": "Sphinx Agent Editorial Team", "url": "https://sphinxagent.com/about.html"},
+    "publisher": {"@type": "Organization", "name": "SnapIT Software LLC", "url": "https://sphinxagent.com/", "logo": {"@type": "ImageObject", "url": "https://sphinxagent.com/blog/logo-sphinx-64.png"}},
+    "isPartOf": {"@type": "CreativeWorkSeries", "name": "October 2026 Security Series"},
+    "citation": [
+      "https://www.bleepingcomputer.com/news/security/ledger-confirms-hardware-wallet-spy-implant-behind-crypto-thefts/",
+      "https://www.theblock.co/news/business/2026-10-13-ledger-confirms-hardware-implant-cryptobilis-units-mediamarkt-suspends-sales-europe-418442",
+      "https://blog.coinkite.com/coldcard-mk3-seed-generation-warning/",
+      "https://www.trmlabs.com/resources/blog/the-largest-hardware-wallet-exploit-of-2026-inside-the-usd-116-million-coldcard-hack"
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Think Tank", "item": "https://sphinxagent.com/"},
+      {"@type": "ListItem", "position": 2, "name": "Hardware Wallet Attacks 2026", "item": "https://sphinxagent.com/blog/hardware-wallet-attacks-2026.html"}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "Was Ledger hacked in October 2026?",
+       "acceptedAnswer": {"@type": "Answer", "text": "Ledger says its own systems were not compromised. Some Ledger Nano X devices sold through CryptoBilis, a Malaysia-based reseller, contained an added hardware implant that captured the 24-word recovery phrase during setup and sent it out over LTE using an eSIM. Ledger says every drain reported to it traces back to devices sold by CryptoBilis."}},
+      {"@type": "Question", "name": "How much was stolen from Ledger users?",
+       "acceptedAnswer": {"@type": "Answer", "text": "Ledger has not confirmed a total. Third-party analysts estimate more than $86 million (Specter), $93.2 million from 315 wallets (Bitquery) and $103.4 million from 530 wallets (YFarmX)."}},
+      {"@type": "Question", "name": "What was the Coldcard hack?",
+       "acceptedAnswer": {"@type": "Answer", "text": "A firmware bug made some Coldcard devices generate weak seeds, so attackers could rebuild private keys offline without touching the devices. Galaxy Research confirmed at least 1,778 BTC, about $112 million, taken from more than 5,200 addresses starting July 30, 2026."}},
+      {"@type": "Question", "name": "Which Coldcard firmware versions are affected?",
+       "acceptedAnswer": {"@type": "Answer", "text": "Seeds generated on Mk2 and Mk3 firmware 4.0.1 through 4.1.9, Mk4 and Mk5 standard before 5.6.0, Mk4 and Mk5 Edge before 6.6.0X, Q standard before 1.5.0Q, and Q Edge before 6.6.0QX. Coinkite says to update first, then create a new seed and move funds."}},
+      {"@type": "Question", "name": "Can Ledger Genuine Check detect the implant?",
+       "acceptedAnswer": {"@type": "Answer", "text": "No. Ledger's Genuine Check verifies the Secure Element. It cannot detect added hardware if the original Secure Element is intact."}},
+      {"@type": "Question", "name": "Are hardware wallets still safer than exchanges?",
+       "acceptedAnswer": {"@type": "Answer", "text": "For long-term holdings, a hardware wallet bought directly from the maker and set up correctly is still the safer choice for most people. Both 2026 attacks broke something around the wallet: where it was bought, or the code that created the seed."}}
+    ]
+  }
+  </script>
+<script>if(localStorage.getItem('theme')==='dark'||(!localStorage.getItem('theme')&&window.matchMedia('(prefers-color-scheme:dark)').matches)){document.documentElement.classList.add('dark')}</script>
+<script>window.SNAPIT_TRACKING_ID='SA_851a71420715';</script>
+<script src="https://snapitanalytics.com/analytics.js" defer></script>
+</head>
+<body class="bg-parchment text-midnight dark:bg-midnight-dark dark:text-parchment min-h-screen">
+
+    <!-- Sticky Header -->
+    <header class="sticky top-0 z-50 bg-parchment/95 dark:bg-midnight/95 backdrop-blur border-b border-gold/20 dark:border-gold/30">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
+            <a href="/" class="flex items-center gap-2 group">
+                <img src="logo-sphinx-64.png" alt="Sphinx Agent" width="36" height="36" style="border-radius:8px;filter:drop-shadow(0 0 6px rgba(212,175,55,0.5));">
+                <span class="text-xl font-bold text-midnight dark:text-parchment group-hover:text-gold transition-colors">Sphinx Agent</span>
+            </a>
+            <nav class="hidden sm:flex items-center gap-6 text-sm font-medium">
+                <a href="https://sphinxagent.ai" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors">Product</a>
+                <a href="/" class="text-gold font-semibold">Think Tank</a>
+                <a href="https://sphinxagent.ai/pricing.html" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors">Pricing</a>
+                <a href="submit.html" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors">Submit</a>
+            </nav>
+            <div class="flex items-center gap-3">
+                <button id="mobileMenuBtn" class="sm:hidden p-2 rounded-lg hover:bg-midnight/10 dark:hover:bg-parchment/10 transition-colors" aria-label="Menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+                <button id="darkToggle" aria-label="Toggle dark mode" class="p-2 rounded-lg hover:bg-midnight/10 dark:hover:bg-parchment/10 transition-colors">
+                    <svg class="w-5 h-5 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+                    <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                </button>
+                <a href="https://sphinxagent.ai" class="inline-block bg-gold hover:bg-gold-dark text-midnight font-semibold px-4 py-2 rounded-lg text-sm transition-colors shadow-sm">Start Free</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden sm:hidden bg-parchment/95 dark:bg-midnight/95 backdrop-blur border-b border-gold/20 dark:border-gold/30 sticky top-[57px] z-40">
+        <nav class="max-w-6xl mx-auto px-4 py-4 flex flex-col gap-3 text-sm font-medium">
+            <a href="/" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors py-2 border-b border-gold/10 dark:border-gold/20">Think Tank</a>
+            <a href="https://sphinxagent.ai" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors py-2 border-b border-gold/10 dark:border-gold/20">Product</a>
+            <a href="https://sphinxagent.ai/pricing.html" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors py-2 border-b border-gold/10 dark:border-gold/20">Pricing</a>
+            <a href="submit.html" class="text-midnight/70 dark:text-parchment/70 hover:text-gold transition-colors py-2 border-b border-gold/10 dark:border-gold/20">Submit</a>
+            <a href="https://sphinxagent.ai" class="inline-block bg-gold hover:bg-gold-dark text-midnight font-semibold px-4 py-2 rounded-lg text-sm transition-colors shadow-sm text-center mt-1">Start Free</a>
+        </nav>
+    </div>
+
+    <!-- Breadcrumb -->
+    <nav aria-label="Breadcrumb" class="max-w-3xl mx-auto px-4 sm:px-6 pt-6">
+        <ol class="flex items-center gap-2 text-sm text-midnight/70 dark:text-parchment/70">
+            <li><a href="/" class="hover:text-gold transition-colors">Think Tank</a></li>
+            <li><span class="mx-1" aria-hidden="true">/</span></li>
+            <li>Security</li>
+            <li><span class="mx-1" aria-hidden="true">/</span></li>
+            <li class="text-midnight dark:text-parchment font-medium truncate" aria-current="page">Hardware wallet attacks</li>
+        </ol>
+    </nav>
+
+    <main class="max-w-3xl mx-auto px-4 sm:px-6 py-8">
+    <article class="news">
+      <span class="kicker">Check your device</span>
+      <h1>How Hardware Wallets Got Drained in 2026: The Ledger Spy Chip, the Coldcard Bug, and How to Check Yours</h1>
+      <p class="dek">Hardware wallets are supposed to be the safe place for crypto. This year, two separate attacks took well over $150 million from people who did what they were told. Here's how each one worked and what to do about your own device.</p>
+      <p class="meta">
+        By the <strong>Sphinx Agent Editorial Team</strong> &middot;
+        Published <time datetime="2026-10-31">October 31, 2026</time> &middot;
+        Facts checked against sources up to October 31, 2026.
+      </p>
+
+      <nav class="series" aria-label="October 2026 security series">
+        <p>October 2026 security series</p>
+        <ol>
+          <li><a href="/blog/binance-hack-2026.html">The $6.3 billion Binance hack, explained</a></li>
+          <li><a href="/blog/php2shell-vulnerability.html">PHP2Shell: the AI-found flaw that took websites offline</a></li>
+          <li><a href="/blog/hardware-wallet-attacks-2026.html" aria-current="page">How hardware wallets got drained in 2026</a></li>
+          <li><a href="/blog/90-days-without-power-fact-check.html">Fact check: are governments telling you to prepare for 90 days without power?</a></li>
+        </ol>
+      </nav>
+
+      <div class="box">
+        <h2 id="short-version">The short version</h2>
+        <ul>
+          <li><span class="label">Ledger, October 2026:</span> Some Ledger Nano X devices sold through <strong>CryptoBilis</strong>, a Malaysia-based reseller, had a <strong>hidden chip</strong> that copied the recovery phrase during setup and sent it out over a mobile data connection.<sup><a href="#s1">1</a>,<a href="#s2">2</a></sup></li>
+          <li><span class="label">Ledger losses:</span> Not confirmed by Ledger. Analysts estimate <strong>$86 million to $103 million</strong>.<sup><a href="#s2">2</a>,<a href="#s3">3</a>,<a href="#s4">4</a></sup></li>
+          <li><span class="label">Coldcard, July&ndash;August 2026:</span> A firmware bug made some Coldcard devices create <strong>weak seeds</strong>. Attackers rebuilt the keys on their own computers. Nobody touched the devices.<sup><a href="#s5">5</a></sup></li>
+          <li><span class="label">Coldcard losses:</span> Galaxy Research confirmed at least <strong>1,778 BTC, about $112 million</strong>, from more than 5,200 addresses.<sup><a href="#s9">9</a></sup></li>
+          <li><span class="label">What to do:</span> Bought from CryptoBilis? Move your funds to a new device and seed. Own a Coldcard? Check the firmware your seed was made on. Details below.</li>
+        </ul>
+      </div>
+
+      <h2 id="why-this-matters">Why this matters right now</h2>
+      <p>After the <a href="/blog/binance-hack-2026.html">$6.3 billion Binance hack</a>, the most common advice was simple: get your coins off the exchange and into a hardware wallet. We said it too. It's still good advice for long-term savings.</p>
+      <p>But it comes with a catch that 2026 has made painfully clear. A hardware wallet is only as safe as two things you never see: <strong>where the device came from</strong>, and <strong>the code that made your seed</strong>. Both of this year's big attacks broke one of those. Neither broke the wallet's main security chip.</p>
+
+      <h2 id="ledger">Attack 1: The Ledger spy chip</h2>
+
+      <h3>What happened</h3>
+      <p>On October 9, Ledger opened an investigation after users reported their wallets being emptied, and asked a reseller called CryptoBilis to stop selling and shipping Ledger devices. The next day Ledger confirmed that at least one affected device contained an "unauthorized hardware implant." By October 11 it said every report of unexpected drains it had received traced back to devices sold through CryptoBilis, and described the affected volume as "limited."<sup><a href="#s1">1</a></sup></p>
+      <p>CryptoBilis is a hardware wallet retailer based in Malaysia.<sup><a href="#s1">1</a></sup> It had been listed as an authorized Ledger seller in Indonesia, Malaysia and the Philippines. Its former co-founders say they handed the business to new owners in March 2026.<sup><a href="#s4">4</a></sup></p>
+
+      <h3>How the implant worked</h3>
+      <p>Imagine someone sneaks a tiny phone inside your wallet's case. That's roughly what this was.</p>
+      <p>Ledger's own security team, Donjon, says the implant captured the 24-word recovery phrase while the owner was setting up the device, then sent it out over LTE using a built-in eSIM.<sup><a href="#s2">2</a></sup> Independent researchers who opened affected units found it watched the screen output and button presses to read the phrase as it was shown.<sup><a href="#s1">1</a></sup></p>
+      <p>Researchers found two versions:<sup><a href="#s1">1</a></sup></p>
+      <ul>
+        <li><strong>The cruder one</strong> swapped the original battery for a smaller one to make room for a small circuit board, an eSIM and a shielded LTE module. The markings on the chips had been scraped off.</li>
+        <li><strong>The more advanced one</strong> used the original battery and hid a professionally made flexible circuit board in the foam padding under the screen.</li>
+      </ul>
+      <p>In both, the giveaway was the antenna wire. Researchers also said tampered units were being sold at nearly half the normal price, starting around September 16.<sup><a href="#s1">1</a></sup></p>
+      <p>Here's the part that matters most. The implant <strong>didn't touch Ledger's Secure Element, operating system, transactions or signatures</strong>.<sup><a href="#s2">2</a></sup> It didn't need to. Once someone has your 24 words, they can rebuild your wallet anywhere.</p>
+
+      <h3>Ledger's own check couldn't catch it</h3>
+      <p>Ledger's "Genuine Check" confirms that the device's Secure Element is real. According to Ledger's own support documentation, it cannot detect added hardware if the original Secure Element is intact.<sup><a href="#s1">1</a></sup> So a tampered device could pass the check and still steal your phrase.</p>
+
+      <h3>How much was taken</h3>
+      <p>Ledger has not confirmed any total. In its words: "Figures circulating online come from third parties and Ledger has not fully verified them."<sup><a href="#s2">2</a></sup></p>
+      <div class="table-scroll">
+        <table>
+          <caption>Third-party estimates of Ledger user losses (October 2026)</caption>
+          <thead><tr><th scope="col">Analyst</th><th scope="col">Estimate</th><th scope="col">Notes</th></tr></thead>
+          <tbody>
+            <tr><td>Specter</td><td class="num">More than $86M</td><td>Ethereum, Tron and Bitcoin<sup><a href="#s3">3</a></sup></td></tr>
+            <tr><td>Bitquery</td><td class="num">$93.2M</td><td>315 wallets on six chains, Oct. 9 prices, direct outflows only<sup><a href="#s4">4</a></sup></td></tr>
+            <tr><td>YFarmX</td><td class="num">$103.4M</td><td>530 wallets<sup><a href="#s4">4</a></sup></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Bitquery says wallets across six chains were emptied within 47 minutes starting October 9, including 111 Bitcoin addresses drained in a single block, after two weeks of small test transactions.<sup><a href="#s4">4</a></sup> That's a coordinated operation, not a lone thief. Tether froze 37 linked addresses, and about 2,990 ETH was pushed through the Tornado Cash mixer.<sup><a href="#s4">4</a></sup></p>
+
+      <h3>The fallout</h3>
+      <ul>
+        <li><strong>MediaMarkt Saturn</strong>, one of Europe's biggest electronics chains, stopped selling Ledger devices in stores and online from October 13 after a German customer reported an implant. No money was lost in that case, and Ledger has not linked it to CryptoBilis.<sup><a href="#s2">2</a></sup></li>
+        <li><strong>Trezor</strong> dropped CryptoBilis as a reseller as a precaution and is shrinking its reseller network.<sup><a href="#s2">2</a></sup></li>
+        <li><strong>OneKey</strong> revoked CryptoBilis too, and is offering free replacements for any device bought through it between March 1 and October 13.<sup><a href="#s2">2</a></sup></li>
+      </ul>
+      <p>Nobody has publicly named who built or planted the implants. Ledger says it's working with authorities to find them.<sup><a href="#s4">4</a></sup></p>
+
+      <h2 id="coldcard">Attack 2: The Coldcard randomness bug</h2>
+
+      <h3>What happened</h3>
+      <p>This one is completely different. Nothing was added to any device, and no one had to get their hands on one.</p>
+      <p>Every wallet starts with a seed, a huge random number that your 24 words represent. If that number isn't truly random, someone can guess it. Coinkite, the Canadian company behind Coldcard, says "a firmware bug in affected releases caused weakened seed generation." Attackers then regenerated private keys offline. The devices themselves were not hacked.<sup><a href="#s5">5</a></sup></p>
+      <p>According to BleepingComputer's reporting, the firmware fell back on a predictable software number generator instead of the chip's hardware random source when making seeds.<sup><a href="#s6">6</a></sup> Coinkite estimates newer models' affected seeds had "about 72 bits of entropy rather than the expected 128 bits."<sup><a href="#s5">5</a></sup> TRM Labs says older devices may have had as little as 40 bits.<sup><a href="#s8">8</a></sup></p>
+      <p>To put that in plain terms: 128 bits is so many combinations that no computer on Earth can try them all. Every bit you lose cuts the work in half. Dropping to 40 or even 72 bits turns "impossible" into "a matter of time and money."</p>
+
+      <h3>Which devices are affected</h3>
+      <p>The risk is about <strong>which firmware your seed was created on</strong>, not which firmware you run today. Updating doesn't fix an old seed.</p>
+      <div class="table-scroll">
+        <table>
+          <caption>Coldcard seeds at risk, by model (Coinkite advisory)</caption>
+          <thead><tr><th scope="col">Model</th><th scope="col">Seed is at risk if created on</th><th scope="col">Fixed in</th></tr></thead>
+          <tbody>
+            <tr><td>Mk2 / Mk3</td><td>4.0.1 (March 2021) through 4.1.9</td><td class="num">4.2.0</td></tr>
+            <tr><td>Mk4 / Mk5 standard</td><td>Anything before 5.6.0</td><td class="num">5.6.0</td></tr>
+            <tr><td>Mk4 / Mk5 Edge</td><td>Anything before 6.6.0X</td><td class="num">6.6.0X</td></tr>
+            <tr><td>Q standard</td><td>Anything before 1.5.0Q</td><td class="num">1.5.0Q</td></tr>
+            <tr><td>Q Edge</td><td>Anything before 6.6.0QX</td><td class="num">6.6.0QX</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Standard and Edge are separate release tracks, so an older Edge 6.x isn't safe just because its number looks higher.<sup><a href="#s5">5</a></sup> TAPSIGNER, OPENDIME and SATSCARD are not affected.<sup><a href="#s5">5</a></sup></p>
+      <p><strong>If you added dice rolls:</strong> seeds that mixed in at least 50 fair, private dice rolls are "not considered at risk from this RNG issue alone." Coinkite still recommends moving to a fresh seed.<sup><a href="#s5">5</a></sup></p>
+
+      <h3>How much was taken, and why the numbers keep changing</h3>
+      <p>You'll see figures from $88 million to over $150 million. They're all real counts, just taken on different days as new waves of theft showed up.</p>
+      <div class="table-scroll">
+        <table>
+          <caption>Coldcard theft totals as the count grew</caption>
+          <thead><tr><th scope="col">Date counted</th><th scope="col">Source</th><th scope="col">BTC</th><th scope="col">USD</th></tr></thead>
+          <tbody>
+            <tr><td class="num">Aug 3</td><td>Galaxy, three waves</td><td class="num">1,367</td><td class="num">$88.6M<sup><a href="#s7">7</a></sup></td></tr>
+            <tr><td class="num">Aug 5</td><td>TRM Labs, citing Galaxy</td><td class="num">~1,816</td><td class="num">~$116M<sup><a href="#s8">8</a></sup></td></tr>
+            <tr><td class="num">Aug 14</td><td>Galaxy, confirmed</td><td class="num">1,778+</td><td class="num">~$112M<sup><a href="#s9">9</a></sup></td></tr>
+            <tr><td class="num">Aug 14</td><td>Galaxy, incl. unconfirmed 4th wave</td><td class="num">2,417</td><td class="num">$151M+<sup><a href="#s9">9</a></sup></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>As of mid-August, Galaxy said 1,531 BTC was still sitting untouched in attacker-controlled addresses, and no confirmed attacker activity had been seen after August 6.<sup><a href="#s9">9</a></sup> Coinkite destroyed its remaining inventory built with the vulnerable firmware and halted shipments once the flaw was confirmed.<sup><a href="#s7">7</a></sup></p>
+      <p>No one has been publicly blamed. TRM Labs notes the laundering was slow, which doesn't match how North Korea's TraderTraitor usually moves money.<sup><a href="#s8">8</a></sup></p>
+
+      <h2 id="connection">What these attacks have in common with Binance and PHP2Shell</h2>
+      <p>On the surface, a spy chip, a firmware bug, a hacked exchange and a <a href="/blog/php2shell-vulnerability.html">PHP flaw</a> have nothing in common. Look closer and the same pattern shows up in all four.</p>
+      <ul>
+        <li><strong>The strong part held. Something trusted around it didn't.</strong> Binance says its signing keys never leaked; attackers used <a href="/blog/binance-hack-2026.html#laptop">a trusted engineer's laptop</a> instead. Ledger's Secure Element was never broken; attackers went through a trusted reseller. Coldcard's chip worked; one setting in trusted firmware didn't use it.</li>
+        <li><strong>Old mistakes, found late.</strong> The Coldcard bug dates to a March 2021 release.<sup><a href="#s5">5</a></sup> PHP2Shell sat in PHP for more than a decade. Both were in code that many people had looked at.</li>
+        <li><strong>Speed.</strong> Ledger victims were emptied across six chains in 47 minutes. Binance lost most of $6.3 billion in about 20.</li>
+      </ul>
+      <p>Nobody has said AI was used in either wallet attack, and we won't claim it was. But AI is making it much cheaper to read old code looking for exactly these kinds of mistakes, as the PHP2Shell story shows. Defenders are using it. So is everyone else.</p>
+
+      <h2 id="check">How to check your own wallet</h2>
+
+      <div class="box warn">
+        <h3>Never do these, no matter what</h3>
+        <ul>
+          <li>Never use a recovery phrase that came with the device. "A legitimate Ledger device never comes with a recovery phrase or PIN code pre-configured. Ever."<sup><a href="#s10">10</a></sup></li>
+          <li>Never type your 24 words into a website, app, email or chat.</li>
+          <li>Never pay anyone who offers to "recover" stolen crypto. The FBI warns these offers are often another scam.<sup><a href="#s11">11</a></sup></li>
+        </ul>
+      </div>
+
+      <h3>If you own a Ledger</h3>
+      <ol>
+        <li><strong>Find your receipt.</strong> Where did you buy it? If it was from CryptoBilis, or a marketplace seller shipping from Malaysia, treat it as compromised.</li>
+        <li><strong>Not set up yet?</strong> Don't set it up.<sup><a href="#s1">1</a></sup></li>
+        <li><strong>Already using it?</strong> Buy a new device directly from Ledger, create a <em>brand-new</em> recovery phrase on it, and move everything over. Don't reuse the old phrase.<sup><a href="#s1">1</a></sup></li>
+        <li><strong>Already lost funds?</strong> Ledger says to contact law enforcement <em>before</em> opening the device, so evidence isn't lost.<sup><a href="#s2">2</a></sup> Report it at ic3.gov if you're in the U.S., with wallet addresses and transaction IDs.<sup><a href="#s11">11</a></sup></li>
+        <li><strong>Buying in future?</strong> Buy from Ledger directly or a listed reseller. On Amazon, check the "Sold by" name matches the official store.<sup><a href="#s10">10</a></sup></li>
+      </ol>
+
+      <h3>If you own a Coldcard</h3>
+      <ol>
+        <li><strong>Work out which firmware your seed was created on</strong> and compare it with the table above.</li>
+        <li><strong>Update the firmware first.</strong> Then create the new seed. Doing it the other way around just makes another weak seed.<sup><a href="#s5">5</a></sup></li>
+        <li><strong>Write down and check the new backup</strong>, and confirm a receive address.<sup><a href="#s5">5</a></sup></li>
+        <li><strong>Send a small test amount</strong>, then move the rest.<sup><a href="#s5">5</a></sup></li>
+        <li><strong>Keep the old backup</strong> until you're sure the move worked. Then never use it again.<sup><a href="#s5">5</a></sup></li>
+      </ol>
+
+      <h3>Good habits for any hardware wallet</h3>
+      <ul>
+        <li><strong>Check the packaging.</strong> Coldcard bags carry a number printed in three places that must match what the device shows when first powered on.<sup><a href="#s12">12</a></sup> If anything looks opened or resealed, stop.</li>
+        <li><strong>Add your own randomness.</strong> If your wallet supports dice rolls, use them. Coinkite says 50 to 98 private rolls give at least 128 bits.<sup><a href="#s5">5</a></sup></li>
+        <li><strong>Consider a strong passphrase</strong> (sometimes called the 25th word). It's an extra lock that the 24 words alone can't open. Make it long and unique, and back it up separately.<sup><a href="#s5">5</a></sup></li>
+        <li><strong>Keep your backup offline and private.</strong> Paper or metal, stored somewhere safe. Don't tell people how much you hold. CertiK counted 52 verified physical "wrench attacks" on crypto holders in the first half of 2026, up from 39 a year earlier.<sup><a href="#s13">13</a></sup></li>
+        <li><strong>Plan for no internet.</strong> If a storm or outage knocks out power for days, you still want to know where your backup is and how to reach your funds. Our <a href="/blog/90-days-without-power-fact-check.html">emergency preparedness fact check</a> covers what governments actually recommend.</li>
+      </ul>
+
+      <h2 id="faq">Frequently asked questions</h2>
+      <h3>Was Ledger hacked?</h3>
+      <p>Ledger says its own systems weren't compromised. Some devices sold through reseller CryptoBilis had an added spy chip that stole the recovery phrase at setup.<sup><a href="#s1">1</a>,<a href="#s2">2</a></sup></p>
+      <h3>How much did Ledger users lose?</h3>
+      <p>Ledger hasn't confirmed a figure. Analysts estimate $86 million to $103 million.<sup><a href="#s3">3</a>,<a href="#s4">4</a></sup></p>
+      <h3>What was the Coldcard hack?</h3>
+      <p>A firmware bug made some seeds weak enough for attackers to rebuild offline. Galaxy confirmed at least 1,778 BTC, about $112 million, taken.<sup><a href="#s5">5</a>,<a href="#s9">9</a></sup></p>
+      <h3>Does Ledger Genuine Check detect the implant?</h3>
+      <p>No. It verifies the Secure Element only.<sup><a href="#s1">1</a></sup></p>
+      <h3>Are hardware wallets still worth it?</h3>
+      <p>Yes, for long-term holdings, if you buy direct, check the packaging and set it up yourself. Both attacks went around the wallet's core security, not through it.</p>
+      <h3>Is this connected to the Binance hack?</h3>
+      <p>No link has been reported. The <a href="/blog/binance-hack-2026.html">Binance hack</a> was blamed on North Korea's TraderTraitor, and neither wallet attack has been attributed to anyone.<sup><a href="#s8">8</a></sup></p>
+
+      <section class="related" aria-labelledby="keep-reading">
+        <h2 id="keep-reading">Keep reading</h2>
+        <ul>
+          <li><a href="/blog/binance-hack-2026.html">The $6.3 billion Binance hack, explained</a>: what happened, where the money is, and what to do if you have funds there.</li>
+          <li><a href="/blog/php2shell-vulnerability.html">PHP2Shell, explained</a>: the decade-old flaw AI helped find, and why governments took websites offline.</li>
+          <li><a href="/blog/90-days-without-power-fact-check.html">The 90-days-without-power fact check</a>: what governments actually told households, and how to prepare without panic.</li>
+        </ul>
+      </section>
+
+      <section class="sources" aria-labelledby="sources">
+        <h2 id="sources">Sources</h2>
+        <ol>
+          <li id="s1">BleepingComputer (Bill Toulas), "Ledger confirms spy chip implant behind wallet crypto thefts," Oct. 12, 2026. <a href="https://www.bleepingcomputer.com/news/security/ledger-confirms-hardware-wallet-spy-implant-behind-crypto-thefts/" rel="noopener">bleepingcomputer.com</a></li>
+          <li id="s2">The Block, "Ledger confirms hardware implant in CryptoBilis reseller units as MediaMarkt suspends sales in Europe," Oct. 13, 2026. <a href="https://www.theblock.co/news/business/2026-10-13-ledger-confirms-hardware-implant-cryptobilis-units-mediamarkt-suspends-sales-europe-418442" rel="noopener">theblock.co</a></li>
+          <li id="s3">Decrypt, "Ledger Finds LTE Implant That Stole Recovery Phrases in Suspected $86M Drain," Oct. 13, 2026. <a href="https://decrypt.co/380826/ledger-finds-lte-implant-that-stole-recovery-phrases-in-suspected-86m-drain" rel="noopener">decrypt.co</a></li>
+          <li id="s4">ForkLog, "Bitquery puts Ledger user attack losses at $93.2 million," Oct. 12, 2026. <a href="https://forklog.com/en/news/bitquery-puts-ledger-user-attack-losses-at-93-2-million" rel="noopener">forklog.com</a></li>
+          <li id="s5">Coinkite, COLDCARD seed generation advisory, July 30, 2026, updated Aug. 1. <a href="https://blog.coinkite.com/coldcard-mk3-seed-generation-warning/" rel="noopener">blog.coinkite.com</a></li>
+          <li id="s6">eSecurity Planet, "Coldcard RNG Flaw Linked to Suspected $88.6M Bitcoin Theft," Aug. 3, 2026, citing BleepingComputer. <a href="https://www.esecurityplanet.com/threats/news-coldcard-rng-flaw-bitcoin-theft/" rel="noopener">esecurityplanet.com</a></li>
+          <li id="s7">The Record, "Bitcoin hardware wallet maker destroys some inventory after more than $88 million stolen," Aug. 3, 2026. <a href="https://therecord.media/bitcoin-theft-coldcard-cyberattack" rel="noopener">therecord.media</a></li>
+          <li id="s8">TRM Labs, "The largest hardware wallet exploit of 2026: inside the USD 116 million Coldcard hack," Aug. 5, 2026. <a href="https://www.trmlabs.com/resources/blog/the-largest-hardware-wallet-exploit-of-2026-inside-the-usd-116-million-coldcard-hack" rel="noopener">trmlabs.com</a></li>
+          <li id="s9">Decrypt, "Coldcard Bitcoin Thefts Slow, But Losses Could Top $150 Million: Galaxy," Aug. 14, 2026. <a href="https://decrypt.co/375656/coldcard-bitcoin-thefts-slow-losses-top-150-million" rel="noopener">decrypt.co</a></li>
+          <li id="s10">Ledger Academy, "Best Practices To Securely Buy Your Ledger Signer," updated Sept. 18, 2026. <a href="https://www.ledger.com/academy/topics/ledgersolutions/best-practices-to-securely-buy-ledger-signer" rel="noopener">ledger.com</a></li>
+          <li id="s11">FBI IC3, Public Service Announcement on fraudulent crypto recovery schemes (I-082423-PSA), Aug. 24, 2023. <a href="https://www.ic3.gov/PSA/2023/PSA230824" rel="noopener">ic3.gov</a></li>
+          <li id="s12">Coinkite, COLDCARD "Physical notes" (bag number and tamper checks). <a href="https://coldcard.com/docs/physical-notes/" rel="noopener">coldcard.com</a></li>
+          <li id="s13">Decrypt, "Crypto 'Wrench Attacks' Cost Victims $124M in Six Months, Up 12x: CertiK," July 23, 2026. <a href="https://decrypt.co/374136/crypto-wrench-attacks-cost-victims-124m-in-six-months-up-12x-certik" rel="noopener">decrypt.co</a></li>
+        </ol>
+      </section>
+      <aside class="cta" aria-label="About Sphinx Agent">
+        <h2>Why an AI agent company is writing about this</h2>
+        <p>The Think Tank is the research side of Sphinx Agent. We build AI agents that answer customers on small business websites, so we spend our days thinking about what agents should and shouldn't be allowed to do. Ours only answer from what you give them, and they can't move money or touch your systems. That's on purpose.</p>
+        <p><a class="btn" href="https://sphinxagent.ai/">See how Sphinx Agent works</a></p>
+      </aside>
+
+    </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-gold/10 dark:border-gold/20 bg-midnight dark:bg-midnight-dark text-parchment/70">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+                <div class="flex items-center gap-2">
+                    <img src="logo-sphinx-64.png" alt="" width="28" height="28" style="border-radius:6px;">
+                    <span class="font-bold text-parchment">Sphinx Agent</span>
+                </div>
+                <nav class="flex flex-wrap justify-center gap-6 text-sm">
+                    <a href="https://sphinxagent.ai" class="hover:text-gold transition-colors">Product</a>
+                    <a href="https://sphinxagent.ai/pricing.html" class="hover:text-gold transition-colors">Pricing</a>
+                    <a href="https://sphinxagent.ai/docs.html" class="hover:text-gold transition-colors">Docs</a>
+                    <a href="/" class="text-gold">Think Tank</a>
+                    <a href="feed.xml" class="hover:text-gold transition-colors">RSS</a>
+                    <a href="https://terrellflautt.com" class="hover:text-gold transition-colors">Author</a>
+                    <a href="contribute.html" class="text-parchment/25 hover:text-gold transition-colors">Contribute</a>
+                    <a href="https://geogryphon.com" class="hover:text-gold transition-colors" target="_blank" rel="noopener">GeoGryphon</a>
+                </nav>
+                <p class="text-xs text-parchment/40">&copy; 2026 <a href="https://snapitsoftware.com" target="_blank" rel="noopener" class="hover:text-white transition">SnapIT Software</a>. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Dark Mode Toggle + ToC Active State -->
+    <script>
+        // Dark mode
+        const toggle = document.getElementById('darkToggle');
+        const html = document.documentElement;
+
+        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+        }
+
+        toggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                mobileMenu.classList.toggle('hidden');
+                const isOpen = !mobileMenu.classList.contains('hidden');
+                mobileMenuBtn.setAttribute('aria-expanded', isOpen);
+                mobileMenuBtn.innerHTML = isOpen
+                    ? '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>'
+                    : '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>';
+            });
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                    mobileMenuBtn.innerHTML = '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>';
+                });
+            });
+            document.addEventListener('click', (e) => {
+                if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                    mobileMenuBtn.innerHTML = '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>';
+                }
+            });
+        }
+
+        // ToC active state on scroll
+        const tocLinks = document.querySelectorAll('#toc a');
+        const headings = document.querySelectorAll('.prose h2[id]');
+
+        function updateToc() {
+            let current = '';
+            headings.forEach(h => {
+                if (window.scrollY >= h.offsetTop - 100) {
+                    current = h.getAttribute('id');
+                }
+            });
+            tocLinks.forEach(link => {
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('text-gold', 'font-medium');
+                    link.classList.remove('text-midnight/50', 'dark:text-parchment/50');
+                } else {
+                    link.classList.remove('text-gold', 'font-medium');
+                    link.classList.add('text-midnight/50', 'dark:text-parchment/50');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateToc, { passive: true });
+        updateToc();
+    </script>
+</body>
+</html>

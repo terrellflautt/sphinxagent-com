@@ -23,6 +23,13 @@ Use cases: AI customer-service agent, AI sales agent (lead qualification), AI re
 - AI Sales Agents: How Autonomous AI Is Closing Deals 24/7: https://sphinxagent.com/blog/ai-sales-agent-guide.html
 - How to Get Cited by AI Search: https://sphinxagent.com/blog/how-to-get-cited-by-ai-search.html
 
+## Security Briefings (October 2026)
+
+- Binance hack explained (Oct 29, 2026: $6.3B stolen, where the money went, TraderTraitor attribution, AI rumor checked, safety steps): https://sphinxagent.com/blog/binance-hack-2026.html
+- PHP2Shell explained (CVE-2026-109618/109619, AI-found PHP flaw, fixed in 8.5.12/8.4.27/8.3.36/8.2.35, actively exploited): https://sphinxagent.com/blog/php2shell-vulnerability.html
+- Hardware wallet attacks 2026 (Ledger Nano X spy chip via reseller CryptoBilis; Coldcard weak seed firmware bug; how to check your device): https://sphinxagent.com/blog/hardware-wallet-attacks-2026.html
+- Fact check, 90 days without power (false for households; 90 days is a reported Pentagon goal for military bases; official advice is 3-10 days): https://sphinxagent.com/blog/90-days-without-power-fact-check.html
+
 ## Research & Analysis
 
 - The $725 Billion Bet Against Specialists (specialized agents vs superintelligence): https://sphinxagent.com/blog/specialized-agents-vs-superintelligence.html

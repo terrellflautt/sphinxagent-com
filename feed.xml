@@ -5,13 +5,53 @@
         <link>https://sphinxagent.com/</link>
         <description>AI research, safety analysis, and strategic intelligence by Terrell K. Flautt. Covering AI agents, algorithmic warfare, AI safety, governance, and industry analysis.</description>
         <language>en-us</language>
-        <lastBuildDate>Wed, 13 May 2026 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 01 Nov 2026 00:30:00 GMT</lastBuildDate>
         <atom:link href="https://sphinxagent.com/feed.xml" rel="self" type="application/rss+xml"/>
         <image>
             <url>https://sphinxagent.com/logo-sphinx-64.png</url>
             <title>Sphinx Agent Think Tank</title>
             <link>https://sphinxagent.com/</link>
         </image>
+
+        <item>
+            <title>The $6.3 Billion Binance Hack, Explained: What Happened, Where the Money Went, and What to Do Now</title>
+            <link>https://sphinxagent.com/blog/binance-hack-2026.html</link>
+            <guid isPermaLink="true">https://sphinxagent.com/blog/binance-hack-2026.html</guid>
+            <pubDate>Sat, 31 Oct 2026 18:00:00 GMT</pubDate>
+            <description>Hackers emptied Binance's hot wallets on 10 blockchains in about 20 minutes. What is confirmed, where the money sits now, who investigators blame, the AI rumor checked, and how to protect your crypto.</description>
+            <author>terrell@sphinxagent.ai (Sphinx Agent Editorial Team)</author>
+            <category>Security</category>
+        </item>
+
+        <item>
+            <title>PHP2Shell, Explained: The AI-Found Flaw That Took Government Websites Offline</title>
+            <link>https://sphinxagent.com/blog/php2shell-vulnerability.html</link>
+            <guid isPermaLink="true">https://sphinxagent.com/blog/php2shell-vulnerability.html</guid>
+            <pubDate>Sat, 31 Oct 2026 18:00:00 GMT</pubDate>
+            <description>Two decade-old bugs in PHP itself, found with help from AI models and now under active attack. What it is, who is exploiting it, why five European governments pulled sites offline, and what to patch.</description>
+            <author>terrell@sphinxagent.ai (Sphinx Agent Editorial Team)</author>
+            <category>Security</category>
+        </item>
+
+        <item>
+            <title>How Hardware Wallets Got Drained in 2026: The Ledger Spy Chip and the Coldcard Bug</title>
+            <link>https://sphinxagent.com/blog/hardware-wallet-attacks-2026.html</link>
+            <guid isPermaLink="true">https://sphinxagent.com/blog/hardware-wallet-attacks-2026.html</guid>
+            <pubDate>Sat, 31 Oct 2026 18:00:00 GMT</pubDate>
+            <description>A hidden LTE implant in resold Ledger devices and weak randomness in Coldcard firmware. How each attack worked, what was lost, and the checks to run before you move coins off an exchange.</description>
+            <author>terrell@sphinxagent.ai (Sphinx Agent Editorial Team)</author>
+            <category>Security</category>
+        </item>
+
+        <item>
+            <title>Fact Check: Are Governments Telling You to Prepare for 90 Days Without Power?</title>
+            <link>https://sphinxagent.com/blog/90-days-without-power-fact-check.html</link>
+            <guid isPermaLink="true">https://sphinxagent.com/blog/90-days-without-power-fact-check.html</guid>
+            <pubDate>Sat, 31 Oct 2026 18:00:00 GMT</pubDate>
+            <description>No official advisory asks households for 90 days. What the UK, EU, U.S. and others actually recommend (3 to 10 days), where the 90-day number came from, and a sensible starting kit.</description>
+            <author>terrell@sphinxagent.ai (Sphinx Agent Editorial Team)</author>
+            <category>Security</category>
+        </item>
 
         <item>
             <title>The $725 Billion Bet Against Specialists</title>

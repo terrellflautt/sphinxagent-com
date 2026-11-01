@@ -89,3 +89,11 @@ as a meta-refresh stub; the two canonicalised to each other, so neither could ra
   .com. Keep those links absolute.
 - **sphinxagent.com = the Think Tank. sphinxagent.ai = the product.** Keep the titles distinct so
   the two domains do not compete for the same query.
+- **All articles and news go here, never on sphinxagent.ai.** The October 2026 security series
+  (`blog/binance-hack-2026.html`, `php2shell-vulnerability.html`, `hardware-wallet-attacks-2026.html`,
+  `90-days-without-power-fact-check.html`) was first published on .ai by mistake and moved here on
+  2026-10-31. The old .ai URLs 301 to `/blog/...` via the `MOVED_TO_COM` map in
+  `infra/sphinx-security-headers.js` (the function is shared by both domains' distributions, so
+  update it with `update-function` + `publish-function`, and keep this file in sync with LIVE).
+  These four pages use `css/news.css` (scoped to `.news`, light + dark). Update them in place and
+  bump `dateModified` in both the meta tag and the JSON-LD.
