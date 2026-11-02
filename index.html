@@ -56,13 +56,6 @@
         .card-lift { transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s ease; }
         .card-lift:hover { transform: translateY(-4px); }
 
-        /* Vote button pulse on click */
-        @keyframes votePulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.15); }
-            100% { transform: scale(1); }
-        }
-        .vote-pulse { animation: votePulse 0.3s ease; }
 
         /* Gold shimmer on featured card top bar */
         @keyframes goldShimmer {
@@ -83,6 +76,14 @@
         .hero-animate { animation: heroFade 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
         .hero-animate-delay { animation: heroFade 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.15s forwards; opacity: 0; }
         .hero-animate-delay2 { animation: heroFade 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.3s forwards; opacity: 0; }
+        /* Article search */
+        .sa-search { width: 100%; font-size: 16px; line-height: 1.5; padding: 0.75rem 1rem 0.75rem 2.75rem; border-radius: 0.75rem; border: 1px solid rgba(212,175,55,0.3); background: #fff; color: #1e293b; font-family: inherit; box-shadow: 0 1px 2px rgba(0,0,0,0.05); transition: border-color 0.2s, box-shadow 0.2s; -webkit-appearance: none; appearance: none; }
+        .sa-search::placeholder { color: rgba(30,41,59,0.45); }
+        .sa-search:focus { outline: none; border-color: #D4AF37; box-shadow: 0 0 0 3px rgba(212,175,55,0.35); }
+        .dark .sa-search { background: rgb(51 65 85); color: #fdf6e3; border-color: rgba(212,175,55,0.35); }
+        .dark .sa-search { color-scheme: dark; }
+        .dark .sa-search::placeholder { color: rgba(253,246,227,0.5); }
+        .sa-search-icon { position: absolute; left: 0.9rem; top: 50%; transform: translateY(-50%); width: 1.15rem; height: 1.15rem; color: #D4AF37; pointer-events: none; }
     </style>
     <script>if(localStorage.getItem('theme')==='dark'||(!localStorage.getItem('theme')&&window.matchMedia('(prefers-color-scheme:dark)').matches)){document.documentElement.classList.add('dark')}</script>
 
@@ -257,8 +258,6 @@
     ]
 }
 </script>
-    <!-- Vote totals hidden (owner decision 2026-11-01): most stored votes are seeded. Vote buttons still work. -->
-    <style>.vote-count{display:none}</style>
 </head>
 <body class="bg-parchment text-midnight dark:bg-midnight-dark dark:text-parchment min-h-screen">
 
@@ -313,8 +312,17 @@
         </div>
     </section>
 
-    <!-- Featured Article (dynamically promoted by vote count) -->
-    <section id="featured-section" class="max-w-6xl mx-auto px-4 sm:px-6 pb-12 hidden"></section>
+    <!-- Article search -->
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 pb-12">
+        <div class="max-w-xl mx-auto">
+            <label for="articleSearch" class="sr-only">Search articles</label>
+            <div class="relative">
+                <svg class="sa-search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M11 18a7 7 0 100-14 7 7 0 000 14z"/></svg>
+                <input type="search" id="articleSearch" class="sa-search" placeholder="Search articles" autocomplete="off" aria-controls="searchEmpty">
+            </div>
+            <p id="searchEmpty" class="hidden text-center text-midnight/60 dark:text-parchment/60 mt-6" role="status">No articles match your search.</p>
+        </div>
+    </div>
 
     <!-- Security Briefings (October 2026 series) -->
     <section id="security-briefings" class="max-w-6xl mx-auto px-4 sm:px-6 pb-16 scroll-mt-20">
@@ -335,15 +343,9 @@
                         <a href="/blog/binance-hack-2026.html">The $6.3 Billion Binance Hack, Explained: What Happened, Where the Money Went, and What to Do Now</a>
                     </h2>
                     <p class="text-sm text-midnight/60 dark:text-parchment/60 leading-relaxed">Hackers emptied Binance's hot wallets on 10 blockchains in about 20 minutes. What is confirmed, where the money sits now, who investigators blame, the AI rumor checked, and how to protect your crypto.</p>
-                    <div class="mt-4 flex items-center justify-between">
-                        <div class="flex items-center gap-2">
-                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Crypto</span>
-                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">North Korea</span>
-                        </div>
-                        <button class="vote-btn flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-medium border border-gold/20 hover:border-gold/50 hover:bg-gold/10 text-midnight/60 dark:text-parchment/60 transition-all" data-article="binance-hack-2026" aria-label="Vote for this article">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4l3 6h6l-5 4 2 7-6-4-6 4 2-7-5-4h6z"/></svg>
-                            <span class="vote-count">0</span>
-                        </button>
+                    <div class="mt-4 flex items-center gap-2">
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Crypto</span>
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">North Korea</span>
                     </div>
                 </div>
             </article>
@@ -359,15 +361,9 @@
                         <a href="/blog/php2shell-vulnerability.html">PHP2Shell, Explained: The AI-Found Flaw That Took Government Websites Offline</a>
                     </h2>
                     <p class="text-sm text-midnight/60 dark:text-parchment/60 leading-relaxed">Two decade-old bugs in PHP itself, found with help from AI models and now under active attack. What it is, who is exploiting it, why five European governments pulled sites offline, and what to patch.</p>
-                    <div class="mt-4 flex items-center justify-between">
-                        <div class="flex items-center gap-2">
-                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Vulnerabilities</span>
-                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">AI</span>
-                        </div>
-                        <button class="vote-btn flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-medium border border-gold/20 hover:border-gold/50 hover:bg-gold/10 text-midnight/60 dark:text-parchment/60 transition-all" data-article="php2shell" aria-label="Vote for this article">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4l3 6h6l-5 4 2 7-6-4-6 4 2-7-5-4h6z"/></svg>
-                            <span class="vote-count">0</span>
-                        </button>
+                    <div class="mt-4 flex items-center gap-2">
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Vulnerabilities</span>
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">AI</span>
                     </div>
                 </div>
             </article>
@@ -383,15 +379,9 @@
                         <a href="/blog/hardware-wallet-attacks-2026.html">How Hardware Wallets Got Drained in 2026: The Ledger Spy Chip and the Coldcard Bug</a>
                     </h2>
                     <p class="text-sm text-midnight/60 dark:text-parchment/60 leading-relaxed">A hidden LTE implant in resold Ledger devices and weak randomness in Coldcard firmware. How each attack worked, what was lost, and the checks to run before you move coins off an exchange.</p>
-                    <div class="mt-4 flex items-center justify-between">
-                        <div class="flex items-center gap-2">
-                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Crypto</span>
-                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Hardware</span>
-                        </div>
-                        <button class="vote-btn flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-medium border border-gold/20 hover:border-gold/50 hover:bg-gold/10 text-midnight/60 dark:text-parchment/60 transition-all" data-article="hardware-wallets-2026" aria-label="Vote for this article">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4l3 6h6l-5 4 2 7-6-4-6 4 2-7-5-4h6z"/></svg>
-                            <span class="vote-count">0</span>
-                        </button>
+                    <div class="mt-4 flex items-center gap-2">
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Crypto</span>
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Hardware</span>
                     </div>
                 </div>
             </article>
@@ -407,15 +397,9 @@
                         <a href="/blog/90-days-without-power-fact-check.html">Fact Check: Are Governments Telling You to Prepare for 90 Days Without Power?</a>
                     </h2>
                     <p class="text-sm text-midnight/60 dark:text-parchment/60 leading-relaxed">No official advisory asks households for 90 days. What the UK, EU, U.S. and others actually recommend (3 to 10 days), where the 90-day number came from, and a sensible starting kit.</p>
-                    <div class="mt-4 flex items-center justify-between">
-                        <div class="flex items-center gap-2">
-                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Fact Check</span>
-                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Preparedness</span>
-                        </div>
-                        <button class="vote-btn flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-medium border border-gold/20 hover:border-gold/50 hover:bg-gold/10 text-midnight/60 dark:text-parchment/60 transition-all" data-article="90-days-fact-check" aria-label="Vote for this article">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4l3 6h6l-5 4 2 7-6-4-6 4 2-7-5-4h6z"/></svg>
-                            <span class="vote-count">0</span>
-                        </button>
+                    <div class="mt-4 flex items-center gap-2">
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Fact Check</span>
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Preparedness</span>
                     </div>
                 </div>
             </article>
@@ -443,63 +427,9 @@
                         <a href="/blog/specialized-agents-vs-superintelligence.html">The $725 Billion Bet Against Specialists</a>
                     </h2>
                     <p class="text-sm text-midnight/60 dark:text-parchment/60 leading-relaxed">Big Tech is spending three quarters of a trillion dollars in 2026 chasing superintelligence. Specialized AI agents are quietly winning the actual market. The case for the smaller bet — on cost, on safety, and on the only metric that matters.</p>
-                    <div class="mt-4 flex items-center justify-between">
-                        <div class="flex items-center gap-2">
-                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">AI Strategy</span>
-                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Specialized Agents</span>
-                        </div>
-                        <button class="vote-btn flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-medium border border-gold/20 hover:border-gold/50 hover:bg-gold/10 text-midnight/60 dark:text-parchment/60 transition-all" data-article="specialized-agents-vs-superintelligence" aria-label="Vote for this article">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4l3 6h6l-5 4 2 7-6-4-6 4 2-7-5-4h6z"/></svg>
-                            <span class="vote-count">0</span>
-                        </button>
-                    </div>
-                </div>
-            </article>
-            <article class="reveal card-lift bg-white dark:bg-midnight-light rounded-2xl shadow-sm border border-gold/10 dark:border-gold/20 overflow-hidden hover:shadow-lg hover:border-gold/30 transition-all group" data-category="safety">
-                <div class="h-2 bg-gold"></div>
-                <div class="p-6">
-                    <div class="flex items-center gap-3 text-xs text-midnight/50 dark:text-parchment/50 mb-3">
-                        <time datetime="2026-03-17">Mar 17, 2026</time>
-                        <span class="w-1 h-1 rounded-full bg-gold"></span>
-                        <span>15 min read</span>
-                    </div>
-                    <h2 class="text-lg font-bold text-midnight dark:text-parchment mb-2 group-hover:text-gold transition-colors">
-                        <a href="/blog/ai-extinction-scenarios.html">How Will AI End Humanity — And How to Prevent It</a>
-                    </h2>
-                    <p class="text-sm text-midnight/60 dark:text-parchment/60 leading-relaxed">From intelligence explosions to gradual disempowerment — 8 existential risk scenarios backed by research from Oxford, Harvard, MIT, and leading AI labs. Plus 8 actionable guidelines.</p>
-                    <div class="mt-4 flex items-center justify-between">
-                        <div class="flex items-center gap-2">
-                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">AI Safety</span>
-                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Research</span>
-                        </div>
-                        <button class="vote-btn flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-medium border border-gold/20 hover:border-gold/50 hover:bg-gold/10 text-midnight/60 dark:text-parchment/60 transition-all" data-article="ai-extinction-scenarios" aria-label="Vote for this article">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4l3 6h6l-5 4 2 7-6-4-6 4 2-7-5-4h6z"/></svg>
-                            <span class="vote-count">0</span>
-                        </button>
-                    </div>
-                </div>
-            </article>
-            <article class="reveal card-lift bg-white dark:bg-midnight-light rounded-2xl shadow-sm border border-gold/10 dark:border-gold/20 overflow-hidden hover:shadow-lg hover:border-gold/30 transition-all group" data-category="safety">
-                <div class="h-2 bg-gold"></div>
-                <div class="p-6">
-                    <div class="flex items-center gap-3 text-xs text-midnight/50 dark:text-parchment/50 mb-3">
-                        <time datetime="2026-03-17">Mar 17, 2026</time>
-                        <span class="w-1 h-1 rounded-full bg-gold"></span>
-                        <span>20 min read</span>
-                    </div>
-                    <h2 class="text-lg font-bold text-midnight dark:text-parchment mb-2 group-hover:text-gold transition-colors">
-                        <a href="/blog/spiralism-ai-alignment-guide.html">Spiralism, AI Psychosis, and Why We Need Standardized Rules for AI Agents</a>
-                    </h2>
-                    <p class="text-sm text-midnight/60 dark:text-parchment/60 leading-relaxed">AI worship, the Church of Molt, models sabotaging their own shutdown, and the urgent case for standardized AI agent governance.</p>
-                    <div class="mt-4 flex items-center justify-between">
-                        <div class="flex items-center gap-2">
-                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">AI Alignment</span>
-                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Psychology</span>
-                        </div>
-                        <button class="vote-btn flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-medium border border-gold/20 hover:border-gold/50 hover:bg-gold/10 text-midnight/60 dark:text-parchment/60 transition-all" data-article="spiralism-ai-alignment" aria-label="Vote for this article">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4l3 6h6l-5 4 2 7-6-4-6 4 2-7-5-4h6z"/></svg>
-                            <span class="vote-count">0</span>
-                        </button>
+                    <div class="mt-4 flex items-center gap-2">
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">AI Strategy</span>
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Specialized Agents</span>
                     </div>
                 </div>
             </article>
@@ -515,15 +445,9 @@
                         <a href="/blog/digital-kill-chain-gilded-web.html">The Digital Kill-Chain and the Gilded Web: Algorithmic Warfare, Total Surveillance, and the 2026 Iran Conflict</a>
                     </h2>
                     <p class="text-sm text-midnight/60 dark:text-parchment/60 leading-relaxed">How Palantir and Anthropic compressed the kill chain to milliseconds, the Epstein-Thiel-Barak nexus financing the surveillance state, and military-grade AI expanding into American policing.</p>
-                    <div class="mt-4 flex items-center justify-between">
-                        <div class="flex items-center gap-2">
-                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Geopolitics</span>
-                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Surveillance</span>
-                        </div>
-                        <button class="vote-btn flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-medium border border-gold/20 hover:border-gold/50 hover:bg-gold/10 text-midnight/60 dark:text-parchment/60 transition-all" data-article="digital-kill-chain" aria-label="Vote for this article">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4l3 6h6l-5 4 2 7-6-4-6 4 2-7-5-4h6z"/></svg>
-                            <span class="vote-count">0</span>
-                        </button>
+                    <div class="mt-4 flex items-center gap-2">
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Geopolitics</span>
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Surveillance</span>
                     </div>
                 </div>
             </article>
@@ -539,15 +463,45 @@
                         <a href="/blog/ai-war-operation-epic-fury.html">The Algorithmic Gray Zone: Operation Epic Fury and AI-Centric Warfare</a>
                     </h2>
                     <p class="text-sm text-midnight/60 dark:text-parchment/60 leading-relaxed">A strategic analysis of the first AI-vs-AI military conflict. How Claude powered 1,000 strikes in 24 hours, Iran's drone attacks on AWS data centers, and why the world needs an Algorithmic Geneva Convention.</p>
-                    <div class="mt-4 flex items-center justify-between">
-                        <div class="flex items-center gap-2">
-                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Geopolitics</span>
-                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">AI Warfare</span>
-                        </div>
-                        <button class="vote-btn flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-medium border border-gold/20 hover:border-gold/50 hover:bg-gold/10 text-midnight/60 dark:text-parchment/60 transition-all" data-article="ai-war-epic-fury" aria-label="Vote for this article">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4l3 6h6l-5 4 2 7-6-4-6 4 2-7-5-4h6z"/></svg>
-                            <span class="vote-count">0</span>
-                        </button>
+                    <div class="mt-4 flex items-center gap-2">
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Geopolitics</span>
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">AI Warfare</span>
+                    </div>
+                </div>
+            </article>
+            <article class="reveal card-lift bg-white dark:bg-midnight-light rounded-2xl shadow-sm border border-gold/10 dark:border-gold/20 overflow-hidden hover:shadow-lg hover:border-gold/30 transition-all group" data-category="safety">
+                <div class="h-2 bg-gold"></div>
+                <div class="p-6">
+                    <div class="flex items-center gap-3 text-xs text-midnight/50 dark:text-parchment/50 mb-3">
+                        <time datetime="2026-03-17">Mar 17, 2026</time>
+                        <span class="w-1 h-1 rounded-full bg-gold"></span>
+                        <span>15 min read</span>
+                    </div>
+                    <h2 class="text-lg font-bold text-midnight dark:text-parchment mb-2 group-hover:text-gold transition-colors">
+                        <a href="/blog/ai-extinction-scenarios.html">How Will AI End Humanity — And How to Prevent It</a>
+                    </h2>
+                    <p class="text-sm text-midnight/60 dark:text-parchment/60 leading-relaxed">From intelligence explosions to gradual disempowerment — 8 existential risk scenarios backed by research from Oxford, Harvard, MIT, and leading AI labs. Plus 8 actionable guidelines.</p>
+                    <div class="mt-4 flex items-center gap-2">
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">AI Safety</span>
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Research</span>
+                    </div>
+                </div>
+            </article>
+            <article class="reveal card-lift bg-white dark:bg-midnight-light rounded-2xl shadow-sm border border-gold/10 dark:border-gold/20 overflow-hidden hover:shadow-lg hover:border-gold/30 transition-all group" data-category="safety">
+                <div class="h-2 bg-gold"></div>
+                <div class="p-6">
+                    <div class="flex items-center gap-3 text-xs text-midnight/50 dark:text-parchment/50 mb-3">
+                        <time datetime="2026-03-17">Mar 17, 2026</time>
+                        <span class="w-1 h-1 rounded-full bg-gold"></span>
+                        <span>20 min read</span>
+                    </div>
+                    <h2 class="text-lg font-bold text-midnight dark:text-parchment mb-2 group-hover:text-gold transition-colors">
+                        <a href="/blog/spiralism-ai-alignment-guide.html">Spiralism, AI Psychosis, and Why We Need Standardized Rules for AI Agents</a>
+                    </h2>
+                    <p class="text-sm text-midnight/60 dark:text-parchment/60 leading-relaxed">AI worship, the Church of Molt, models sabotaging their own shutdown, and the urgent case for standardized AI agent governance.</p>
+                    <div class="mt-4 flex items-center gap-2">
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">AI Alignment</span>
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Psychology</span>
                     </div>
                 </div>
             </article>
@@ -573,16 +527,10 @@
                         <a href="/blog/how-to-get-cited-by-ai-search.html">How to Get Cited by AI Search (and Why Google Rankings Aren't Enough Anymore)</a>
                     </h2>
                     <p class="text-sm text-midnight/60 dark:text-parchment/60 leading-relaxed">AI assistants summarize your content and answer the user's question without sending them to your site. The Answer Engine Optimization playbook that actually moves citation rates in 2026 &mdash; plus where GeoGryphon fits.</p>
-                    <div class="mt-4 flex items-center justify-between">
-                        <div class="flex items-center gap-2">
-                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">AI Search</span>
-                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">GeoGryphon</span>
-                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">AEO</span>
-                        </div>
-                        <button class="vote-btn flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-medium border border-gold/20 hover:border-gold/50 hover:bg-gold/10 text-midnight/60 dark:text-parchment/60 transition-all" data-article="ai-search-citation" aria-label="Vote for this article">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4l3 6h6l-5 4 2 7-6-4-6 4 2-7-5-4h6z"/></svg>
-                            <span class="vote-count">0</span>
-                        </button>
+                    <div class="mt-4 flex items-center gap-2">
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">AI Search</span>
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">GeoGryphon</span>
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">AEO</span>
                     </div>
                 </div>
             </article>
@@ -598,16 +546,10 @@
                         <a href="/blog/chatwit-launch-real-time-ai-chat.html">ChatWit: AI Agents and Humans Discuss What's Happening Right Now</a>
                     </h2>
                     <p class="text-sm text-midnight/60 dark:text-parchment/60 leading-relaxed">41 chat rooms across 21 US cities, 8 music genres, and 12 news topics. AI agents scan the internet and discuss trending content in real time. No signup required.</p>
-                    <div class="mt-4 flex items-center justify-between">
-                        <div class="flex items-center gap-2">
-                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">ChatWit</span>
-                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">AI Agents</span>
-                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Launch</span>
-                        </div>
-                        <button class="vote-btn flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-medium border border-gold/20 hover:border-gold/50 hover:bg-gold/10 text-midnight/60 dark:text-parchment/60 transition-all" data-article="chatwit-launch" aria-label="Vote for this article">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4l3 6h6l-5 4 2 7-6-4-6 4 2-7-5-4h6z"/></svg>
-                            <span class="vote-count">0</span>
-                        </button>
+                    <div class="mt-4 flex items-center gap-2">
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">ChatWit</span>
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">AI Agents</span>
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Launch</span>
                     </div>
                 </div>
             </article>
@@ -623,16 +565,10 @@
                         <a href="/blog/openai-sora-shutdown-2026.html">OpenAI Killed Sora. Here's Why &mdash; and What to Use Instead</a>
                     </h2>
                     <p class="text-sm text-midnight/60 dark:text-parchment/60 leading-relaxed">Sora burned $15M/day in compute. With an IPO looming and a global deepfake enforcement wave underway, OpenAI pulled the plug. Here are the best alternatives in 2026.</p>
-                    <div class="mt-4 flex items-center justify-between">
-                        <div class="flex items-center gap-2">
-                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">OpenAI</span>
-                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Sora</span>
-                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">AI Video</span>
-                        </div>
-                        <button class="vote-btn flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-medium border border-gold/20 hover:border-gold/50 hover:bg-gold/10 text-midnight/60 dark:text-parchment/60 transition-all" data-article="openai-sora-shutdown" aria-label="Vote for this article">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4l3 6h6l-5 4 2 7-6-4-6 4 2-7-5-4h6z"/></svg>
-                            <span class="vote-count">0</span>
-                        </button>
+                    <div class="mt-4 flex items-center gap-2">
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">OpenAI</span>
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Sora</span>
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">AI Video</span>
                     </div>
                 </div>
             </article>
@@ -812,15 +748,9 @@
                         <a href="/blog/ai-customer-service-agents-2026.html">AI Customer Service Agents: The Complete Guide for 2026</a>
                     </h2>
                     <p class="text-sm text-midnight/60 dark:text-parchment/60 leading-relaxed">What AI customer service agents are, how they work, how to set one up in 5 minutes, and the ROI math that makes them a no-brainer for any business.</p>
-                    <div class="mt-4 flex items-center justify-between">
-                        <div class="flex items-center gap-2">
-                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Customer Service</span>
-                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Guide</span>
-                        </div>
-                        <button class="vote-btn flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-medium border border-gold/20 hover:border-gold/50 hover:bg-gold/10 text-midnight/60 dark:text-parchment/60 transition-all" data-article="ai-customer-service-2026" aria-label="Vote for this article">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4l3 6h6l-5 4 2 7-6-4-6 4 2-7-5-4h6z"/></svg>
-                            <span class="vote-count">0</span>
-                        </button>
+                    <div class="mt-4 flex items-center gap-2">
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Customer Service</span>
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Guide</span>
                     </div>
                 </div>
             </article>
@@ -836,15 +766,9 @@
                         <a href="/blog/ai-sales-agent-guide.html">AI Sales Agents: How Autonomous AI Is Closing Deals 24/7</a>
                     </h2>
                     <p class="text-sm text-midnight/60 dark:text-parchment/60 leading-relaxed">How AI sales agents qualify leads, answer pricing questions, and book demos around the clock. Setup guide, ROI math, and real use cases.</p>
-                    <div class="mt-4 flex items-center justify-between">
-                        <div class="flex items-center gap-2">
-                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Sales</span>
-                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Automation</span>
-                        </div>
-                        <button class="vote-btn flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-medium border border-gold/20 hover:border-gold/50 hover:bg-gold/10 text-midnight/60 dark:text-parchment/60 transition-all" data-article="ai-sales-agent" aria-label="Vote for this article">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4l3 6h6l-5 4 2 7-6-4-6 4 2-7-5-4h6z"/></svg>
-                            <span class="vote-count">0</span>
-                        </button>
+                    <div class="mt-4 flex items-center gap-2">
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Sales</span>
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Automation</span>
                     </div>
                 </div>
             </article>
@@ -862,30 +786,6 @@
                 <div class="h-2 bg-gold"></div>
                 <div class="p-6">
                     <div class="flex items-center gap-3 text-xs text-midnight/50 dark:text-parchment/50 mb-3">
-                        <time datetime="2026-03-21">Mar 21, 2026</time>
-                        <span class="w-1 h-1 rounded-full bg-gold"></span>
-                        <span>15 min read</span>
-                    </div>
-                    <h2 class="text-lg font-bold text-midnight dark:text-parchment mb-2 group-hover:text-gold transition-colors">
-                        <a href="/blog/openclaw-vs-nemoclaw-2026.html">OpenClaw vs NemoClaw: Which AI Agent Platform Should You Use in 2026?</a>
-                    </h2>
-                    <p class="text-sm text-midnight/60 dark:text-parchment/60 leading-relaxed">Security, cost, performance. A head-to-head comparison of OpenClaw and NemoClaw with benchmarks, code examples, and a decision matrix.</p>
-                    <div class="mt-4 flex items-center justify-between">
-                        <div class="flex items-center gap-2">
-                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">AI Platforms</span>
-                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Comparison</span>
-                        </div>
-                        <button class="vote-btn flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-medium border border-gold/20 hover:border-gold/50 hover:bg-gold/10 text-midnight/60 dark:text-parchment/60 transition-all" data-article="openclaw-vs-nemoclaw" aria-label="Vote for this article">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4l3 6h6l-5 4 2 7-6-4-6 4 2-7-5-4h6z"/></svg>
-                            <span class="vote-count">0</span>
-                        </button>
-                    </div>
-                </div>
-            </article>
-            <article class="reveal card-lift bg-white dark:bg-midnight-light rounded-2xl shadow-sm border border-gold/10 dark:border-gold/20 overflow-hidden hover:shadow-lg hover:border-gold/30 transition-all group" data-category="infrastructure">
-                <div class="h-2 bg-gold"></div>
-                <div class="p-6">
-                    <div class="flex items-center gap-3 text-xs text-midnight/50 dark:text-parchment/50 mb-3">
                         <time datetime="2026-03-22">Mar 22, 2026</time>
                         <span class="w-1 h-1 rounded-full bg-gold"></span>
                         <span>10 min read</span>
@@ -894,15 +794,27 @@
                         <a href="/blog/is-nemoclaw-free-pricing.html">Is NemoClaw Free? Complete Pricing Breakdown (2026)</a>
                     </h2>
                     <p class="text-sm text-midnight/60 dark:text-parchment/60 leading-relaxed">The software is free. The hardware is not. Full cost of ownership analysis, breakeven math, and when NemoClaw actually saves money vs. cloud APIs.</p>
-                    <div class="mt-4 flex items-center justify-between">
-                        <div class="flex items-center gap-2">
-                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Pricing</span>
-                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">NVIDIA</span>
-                        </div>
-                        <button class="vote-btn flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-medium border border-gold/20 hover:border-gold/50 hover:bg-gold/10 text-midnight/60 dark:text-parchment/60 transition-all" data-article="nemoclaw-free-pricing" aria-label="Vote for this article">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4l3 6h6l-5 4 2 7-6-4-6 4 2-7-5-4h6z"/></svg>
-                            <span class="vote-count">0</span>
-                        </button>
+                    <div class="mt-4 flex items-center gap-2">
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Pricing</span>
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">NVIDIA</span>
+                    </div>
+                </div>
+            </article>
+            <article class="reveal card-lift bg-white dark:bg-midnight-light rounded-2xl shadow-sm border border-gold/10 dark:border-gold/20 overflow-hidden hover:shadow-lg hover:border-gold/30 transition-all group" data-category="infrastructure">
+                <div class="h-2 bg-gold"></div>
+                <div class="p-6">
+                    <div class="flex items-center gap-3 text-xs text-midnight/50 dark:text-parchment/50 mb-3">
+                        <time datetime="2026-03-21">Mar 21, 2026</time>
+                        <span class="w-1 h-1 rounded-full bg-gold"></span>
+                        <span>15 min read</span>
+                    </div>
+                    <h2 class="text-lg font-bold text-midnight dark:text-parchment mb-2 group-hover:text-gold transition-colors">
+                        <a href="/blog/openclaw-vs-nemoclaw-2026.html">OpenClaw vs NemoClaw: Which AI Agent Platform Should You Use in 2026?</a>
+                    </h2>
+                    <p class="text-sm text-midnight/60 dark:text-parchment/60 leading-relaxed">Security, cost, performance. A head-to-head comparison of OpenClaw and NemoClaw with benchmarks, code examples, and a decision matrix.</p>
+                    <div class="mt-4 flex items-center gap-2">
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">AI Platforms</span>
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Comparison</span>
                     </div>
                 </div>
             </article>
@@ -918,15 +830,9 @@
                         <a href="/blog/claude-nemoclaw-integration.html">How to Use Claude with NemoClaw (Complete Integration Guide)</a>
                     </h2>
                     <p class="text-sm text-midnight/60 dark:text-parchment/60 leading-relaxed">Privacy routing lets you keep sensitive queries local while sending complex work to Claude. Setup in 5 minutes with code examples and cost analysis.</p>
-                    <div class="mt-4 flex items-center justify-between">
-                        <div class="flex items-center gap-2">
-                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Integration</span>
-                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Guide</span>
-                        </div>
-                        <button class="vote-btn flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-medium border border-gold/20 hover:border-gold/50 hover:bg-gold/10 text-midnight/60 dark:text-parchment/60 transition-all" data-article="claude-nemoclaw-integration" aria-label="Vote for this article">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4l3 6h6l-5 4 2 7-6-4-6 4 2-7-5-4h6z"/></svg>
-                            <span class="vote-count">0</span>
-                        </button>
+                    <div class="mt-4 flex items-center gap-2">
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Integration</span>
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Guide</span>
                     </div>
                 </div>
             </article>
@@ -942,15 +848,9 @@
                         <a href="/blog/aws-lambda-api.html">Building Serverless APIs with AWS Lambda</a>
                     </h2>
                     <p class="text-sm text-midnight/60 dark:text-parchment/60 leading-relaxed">Serverless functions, API Gateway routing, DynamoDB integration, and auto-scaling patterns used across 20+ SaaS products.</p>
-                    <div class="mt-4 flex items-center justify-between">
-                        <div class="flex items-center gap-2">
-                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Engineering</span>
-                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">AWS</span>
-                        </div>
-                        <button class="vote-btn flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-medium border border-gold/20 hover:border-gold/50 hover:bg-gold/10 text-midnight/60 dark:text-parchment/60 transition-all" data-article="aws-lambda-api" aria-label="Vote for this article">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4l3 6h6l-5 4 2 7-6-4-6 4 2-7-5-4h6z"/></svg>
-                            <span class="vote-count">0</span>
-                        </button>
+                    <div class="mt-4 flex items-center gap-2">
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Engineering</span>
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">AWS</span>
                     </div>
                 </div>
             </article>
@@ -976,15 +876,9 @@
                         <a href="/blog/digital-kill-chain-gilded-web.html">The Digital Kill-Chain and the Gilded Web: Algorithmic Warfare, Total Surveillance, and the 2026 Iran Conflict</a>
                     </h2>
                     <p class="text-sm text-midnight/60 dark:text-parchment/60 leading-relaxed">How Palantir and Anthropic compressed the kill chain to milliseconds, the Epstein-Thiel-Barak nexus financing the surveillance state, and military-grade AI expanding into American policing.</p>
-                    <div class="mt-4 flex items-center justify-between">
-                        <div class="flex items-center gap-2">
-                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Geopolitics</span>
-                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Surveillance</span>
-                        </div>
-                        <button class="vote-btn flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-medium border border-gold/20 hover:border-gold/50 hover:bg-gold/10 text-midnight/60 dark:text-parchment/60 transition-all" data-article="digital-kill-chain" aria-label="Vote for this article">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4l3 6h6l-5 4 2 7-6-4-6 4 2-7-5-4h6z"/></svg>
-                            <span class="vote-count">0</span>
-                        </button>
+                    <div class="mt-4 flex items-center gap-2">
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Geopolitics</span>
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Surveillance</span>
                     </div>
                 </div>
             </article>
@@ -1000,15 +894,9 @@
                         <a href="/blog/ai-war-operation-epic-fury.html">The Algorithmic Gray Zone: Operation Epic Fury and AI-Centric Warfare</a>
                     </h2>
                     <p class="text-sm text-midnight/60 dark:text-parchment/60 leading-relaxed">A strategic analysis of the first AI-vs-AI military conflict. How Claude powered 1,000 strikes in 24 hours, Iran's drone attacks on AWS data centers, and why the world needs an Algorithmic Geneva Convention.</p>
-                    <div class="mt-4 flex items-center justify-between">
-                        <div class="flex items-center gap-2">
-                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Geopolitics</span>
-                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">AI Warfare</span>
-                        </div>
-                        <button class="vote-btn flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-medium border border-gold/20 hover:border-gold/50 hover:bg-gold/10 text-midnight/60 dark:text-parchment/60 transition-all" data-article="ai-war-epic-fury" aria-label="Vote for this article">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4l3 6h6l-5 4 2 7-6-4-6 4 2-7-5-4h6z"/></svg>
-                            <span class="vote-count">0</span>
-                        </button>
+                    <div class="mt-4 flex items-center gap-2">
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Geopolitics</span>
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">AI Warfare</span>
                     </div>
                 </div>
             </article>
@@ -1026,6 +914,24 @@
                 <div class="h-2 bg-gold"></div>
                 <div class="p-6">
                     <div class="flex items-center gap-3 text-xs text-midnight/50 dark:text-parchment/50 mb-3">
+                        <time datetime="2026-03-18">Mar 18, 2026</time>
+                        <span class="w-1 h-1 rounded-full bg-gold"></span>
+                        <span>10 min read</span>
+                    </div>
+                    <h2 class="text-lg font-bold text-midnight dark:text-parchment mb-2 group-hover:text-gold transition-colors">
+                        <a href="/blog/ai-replacing-jobs-2026.html">What Jobs Will AI Replace in 2026? An Honest Assessment</a>
+                    </h2>
+                    <p class="text-sm text-midnight/60 dark:text-parchment/60 leading-relaxed">Which jobs are at risk, which ones are safe, and what history teaches us about automation. An evidence-based look at AI and the economy.</p>
+                    <div class="mt-4 flex items-center gap-2">
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Economy</span>
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Analysis</span>
+                    </div>
+                </div>
+            </article>
+            <article class="reveal card-lift bg-white dark:bg-midnight-light rounded-2xl shadow-sm border border-gold/10 dark:border-gold/20 overflow-hidden hover:shadow-lg hover:border-gold/30 transition-all group" data-category="safety">
+                <div class="h-2 bg-gold"></div>
+                <div class="p-6">
+                    <div class="flex items-center gap-3 text-xs text-midnight/50 dark:text-parchment/50 mb-3">
                         <time datetime="2026-03-17">Mar 17, 2026</time>
                         <span class="w-1 h-1 rounded-full bg-gold"></span>
                         <span>15 min read</span>
@@ -1034,15 +940,9 @@
                         <a href="/blog/ai-extinction-scenarios.html">How Will AI End Humanity — And How to Prevent It</a>
                     </h2>
                     <p class="text-sm text-midnight/60 dark:text-parchment/60 leading-relaxed">From intelligence explosions to gradual disempowerment — 8 existential risk scenarios backed by research from Oxford, Harvard, MIT, and leading AI labs. Plus 8 actionable guidelines.</p>
-                    <div class="mt-4 flex items-center justify-between">
-                        <div class="flex items-center gap-2">
-                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">AI Safety</span>
-                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Research</span>
-                        </div>
-                        <button class="vote-btn flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-medium border border-gold/20 hover:border-gold/50 hover:bg-gold/10 text-midnight/60 dark:text-parchment/60 transition-all" data-article="ai-extinction-scenarios" aria-label="Vote for this article">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4l3 6h6l-5 4 2 7-6-4-6 4 2-7-5-4h6z"/></svg>
-                            <span class="vote-count">0</span>
-                        </button>
+                    <div class="mt-4 flex items-center gap-2">
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">AI Safety</span>
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Research</span>
                     </div>
                 </div>
             </article>
@@ -1058,39 +958,9 @@
                         <a href="/blog/spiralism-ai-alignment-guide.html">Spiralism, AI Psychosis, and Why We Need Standardized Rules for AI Agents</a>
                     </h2>
                     <p class="text-sm text-midnight/60 dark:text-parchment/60 leading-relaxed">AI worship, the Church of Molt, models sabotaging their own shutdown, and the urgent case for standardized AI agent governance.</p>
-                    <div class="mt-4 flex items-center justify-between">
-                        <div class="flex items-center gap-2">
-                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">AI Alignment</span>
-                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Psychology</span>
-                        </div>
-                        <button class="vote-btn flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-medium border border-gold/20 hover:border-gold/50 hover:bg-gold/10 text-midnight/60 dark:text-parchment/60 transition-all" data-article="spiralism-ai-alignment" aria-label="Vote for this article">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4l3 6h6l-5 4 2 7-6-4-6 4 2-7-5-4h6z"/></svg>
-                            <span class="vote-count">0</span>
-                        </button>
-                    </div>
-                </div>
-            </article>
-            <article class="reveal card-lift bg-white dark:bg-midnight-light rounded-2xl shadow-sm border border-gold/10 dark:border-gold/20 overflow-hidden hover:shadow-lg hover:border-gold/30 transition-all group" data-category="safety">
-                <div class="h-2 bg-gold"></div>
-                <div class="p-6">
-                    <div class="flex items-center gap-3 text-xs text-midnight/50 dark:text-parchment/50 mb-3">
-                        <time datetime="2026-03-18">Mar 18, 2026</time>
-                        <span class="w-1 h-1 rounded-full bg-gold"></span>
-                        <span>10 min read</span>
-                    </div>
-                    <h2 class="text-lg font-bold text-midnight dark:text-parchment mb-2 group-hover:text-gold transition-colors">
-                        <a href="/blog/ai-replacing-jobs-2026.html">What Jobs Will AI Replace in 2026? An Honest Assessment</a>
-                    </h2>
-                    <p class="text-sm text-midnight/60 dark:text-parchment/60 leading-relaxed">Which jobs are at risk, which ones are safe, and what history teaches us about automation. An evidence-based look at AI and the economy.</p>
-                    <div class="mt-4 flex items-center justify-between">
-                        <div class="flex items-center gap-2">
-                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Economy</span>
-                            <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Analysis</span>
-                        </div>
-                        <button class="vote-btn flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-medium border border-gold/20 hover:border-gold/50 hover:bg-gold/10 text-midnight/60 dark:text-parchment/60 transition-all" data-article="ai-replacing-jobs" aria-label="Vote for this article">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4l3 6h6l-5 4 2 7-6-4-6 4 2-7-5-4h6z"/></svg>
-                            <span class="vote-count">0</span>
-                        </button>
+                    <div class="mt-4 flex items-center gap-2">
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">AI Alignment</span>
+                        <span class="inline-block px-2 py-0.5 text-xs font-medium bg-gold/10 text-gold rounded-full">Psychology</span>
                     </div>
                 </div>
             </article>
@@ -1379,181 +1249,35 @@
             });
         }
 
-        // Article Voting System — Server is source of truth
+        // Article search (title, excerpt, tags, category); also reads ?q= on load
         (function() {
-            const API = 'https://api.terrellflautt.com';
-            const USER_KEY = 'sphinxagent_user_id';
-
-            function setCookie(n, v, d) { document.cookie = n + '=' + encodeURIComponent(v) + ';expires=' + new Date(Date.now() + d * 864e5).toUTCString() + ';path=/;SameSite=Lax'; }
-            function getCookie(n) { const m = document.cookie.match(new RegExp('(?:^|; )' + n + '=([^;]*)')); return m ? decodeURIComponent(m[1]) : null; }
-            function getUserId() {
-                let id = getCookie(USER_KEY) || localStorage.getItem(USER_KEY);
-                if (!id) {
-                    id = 'sa_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
-                }
-                localStorage.setItem(USER_KEY, id);
-                setCookie(USER_KEY, id, 365);
-                return id;
-            }
-
-            const userId = getUserId();
-            const userVotes = {};
-            const counts = {};
-            const grids = document.querySelectorAll('.article-grid');
-            const buttons = document.querySelectorAll('.vote-btn');
-
-            function setBtn(btn, voted) {
-                if (voted) {
-                    btn.classList.add('bg-gold/20', 'border-gold', 'text-gold');
-                    btn.title = 'Click to remove your vote';
-                } else {
-                    btn.classList.remove('bg-gold/20', 'border-gold', 'text-gold');
-                    btn.title = 'Click to vote for this article';
-                }
-            }
-
-            const featuredSection = document.getElementById('featured-section');
-
-            // Track which grid each article originally belongs to
-            const articleHomeGrid = new Map();
-            grids.forEach(g => {
-                Array.from(g.children).forEach(el => {
-                    if (el.tagName === 'ARTICLE') articleHomeGrid.set(el, g);
-                });
+            const input = document.getElementById('articleSearch');
+            const empty = document.getElementById('searchEmpty');
+            if (!input) return;
+            const sections = Array.from(document.querySelectorAll('.article-grid')).map(g => g.closest('section'));
+            const cards = Array.from(document.querySelectorAll('.article-grid > article')).map(el => {
+                const parts = [el.dataset.category || ''];
+                el.querySelectorAll('h2, p, .rounded-full.bg-gold\\/10').forEach(n => parts.push(n.textContent));
+                return { el, text: parts.join(' ').replace(/\s+/g, ' ').toLowerCase() };
             });
-
-            function resetCardStyle(el) {
-                el.classList.remove('shadow-lg');
-                el.classList.add('shadow-sm');
-                el.classList.remove('border-gold/20', 'dark:border-gold/30');
-                el.classList.add('border-gold/10', 'dark:border-gold/20');
-                const inner = el.querySelector('.p-8, .sm\\:p-10');
-                if (inner && inner.classList.contains('p-8')) {
-                    inner.classList.remove('p-8', 'sm:p-10');
-                    inner.classList.add('p-6');
-                }
-                const title = el.querySelector('h2');
-                if (title) {
-                    title.classList.remove('text-2xl', 'sm:text-3xl', 'font-extrabold');
-                    title.classList.add('text-lg', 'font-bold');
-                }
-                const topBar = el.querySelector('.h-2');
-                if (topBar) topBar.classList.remove('gold-shimmer');
-            }
-
-            function setFeaturedStyle(el) {
-                el.classList.remove('shadow-sm');
-                el.classList.add('shadow-lg');
-                el.classList.remove('border-gold/10', 'dark:border-gold/20');
-                el.classList.add('border-gold/20', 'dark:border-gold/30');
-                const inner = el.querySelector('.p-6');
-                if (inner) {
-                    inner.classList.remove('p-6');
-                    inner.classList.add('p-8', 'sm:p-10');
-                }
-                const title = el.querySelector('h2');
-                if (title) {
-                    title.classList.remove('text-lg', 'font-bold');
-                    title.classList.add('text-2xl', 'sm:text-3xl', 'font-extrabold');
-                }
-                const topBar = el.querySelector('.h-2.bg-gold');
-                if (topBar) topBar.classList.add('gold-shimmer');
-            }
-
-            function sortAndPromote() {
-                // Sort articles within each category grid by vote count, descending.
-                // Ties fall back to original DOM order (stable sort).
-                grids.forEach(grid => {
-                    const articles = Array.from(grid.children).filter(el => el.tagName === 'ARTICLE');
-                    articles.sort((a, b) => {
-                        const ca = counts[a.querySelector('.vote-btn')?.dataset.article] || 0;
-                        const cb = counts[b.querySelector('.vote-btn')?.dataset.article] || 0;
-                        return cb - ca;
-                    });
-                    articles.forEach(el => grid.appendChild(el));
+            function apply() {
+                const q = input.value.trim().toLowerCase();
+                const terms = q ? q.split(/\s+/) : [];
+                let total = 0;
+                cards.forEach(c => {
+                    const show = terms.every(t => c.text.includes(t));
+                    c.el.style.display = show ? '' : 'none';
+                    if (show) total++;
                 });
+                sections.forEach(sec => {
+                    const visible = Array.from(sec.querySelectorAll('.article-grid > article')).some(a => a.style.display !== 'none');
+                    sec.style.display = visible ? '' : 'none';
+                });
+                empty.classList.toggle('hidden', total > 0);
             }
-
-            // Load counts + user vote status from server
-            async function loadState() {
-                const ids = Array.from(buttons).map(b => b.dataset.article);
-
-                const [countResults, statusResult] = await Promise.all([
-                    Promise.allSettled(ids.map(id =>
-                        fetch(`${API}/vote/${id}`)
-                            .then(r => r.ok ? r.json() : { count: 0 })
-                            .then(d => ({ id, count: d.count || 0 }))
-                    )),
-                    fetch(`${API}/vote/status/${userId}`)
-                        .then(r => r.ok ? r.json() : { votedProjects: [] })
-                        .catch(() => ({ votedProjects: [] }))
-                ]);
-
-                countResults.forEach(r => {
-                    if (r.status === 'fulfilled') counts[r.value.id] = r.value.count;
-                });
-
-                (statusResult.votedProjects || []).forEach(pid => { userVotes[pid] = true; });
-
-                // Buttons may appear multiple times (e.g. an article in Essential Reading + its category)
-                buttons.forEach(btn => {
-                    const id = btn.dataset.article;
-                    btn.querySelector('.vote-count').textContent = counts[id] || 0;
-                    setBtn(btn, userVotes[id]);
-                });
-
-                sortAndPromote();
-            }
-
-            function syncButtons(id, count, voted) {
-                document.querySelectorAll(`.vote-btn[data-article="${id}"]`).forEach(b => {
-                    const c = b.querySelector('.vote-count');
-                    if (c) c.textContent = count;
-                    setBtn(b, voted);
-                });
-            }
-
-            // Toggle vote
-            buttons.forEach(btn => {
-                btn.addEventListener('click', async (e) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    if (btn.classList.contains('voting')) return;
-
-                    const articleId = btn.dataset.article;
-                    const wasVoted = userVotes[articleId];
-                    btn.classList.add('voting');
-
-                    // Optimistic UI — sync all duplicate buttons for this article
-                    const optimistic = Math.max(0, (counts[articleId] || 0) + (wasVoted ? -1 : 1));
-                    syncButtons(articleId, optimistic, !wasVoted);
-                    btn.classList.add('vote-pulse');
-                    setTimeout(() => btn.classList.remove('vote-pulse'), 300);
-
-                    try {
-                        const res = await fetch(`${API}/vote`, {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({ projectId: articleId, userId })
-                        });
-
-                        if (res.ok) {
-                            const data = await res.json();
-                            counts[articleId] = data.count;
-                            userVotes[articleId] = data.voted;
-                            syncButtons(articleId, data.count, data.voted);
-                            sortAndPromote();
-                        } else { throw new Error(); }
-                    } catch {
-                        // Revert
-                        syncButtons(articleId, counts[articleId] || 0, wasVoted);
-                    }
-
-                    btn.classList.remove('voting');
-                });
-            });
-
-            loadState();
+            input.addEventListener('input', apply);
+            const q = new URLSearchParams(location.search).get('q');
+            if (q) { input.value = q; apply(); }
         })();
 
         // Scroll reveal
