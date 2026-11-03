@@ -27,7 +27,8 @@ Topics: AI customer service / sales / phone agents / receptionist; "AI replacing
 aws s3 sync /mnt/c/Users/decry/Desktop/domain-portfolio/snapit-suite/sphinxagent-com/ s3://$BLOG_BUCKET/ \
   --exclude ".git/*" --exclude "CLAUDE.md" --exclude ".gitignore" \
   --exclude "marketing/*" --exclude "competitor-copy-intel.md" \
-  --exclude "lambda/*" --exclude "tailwind-build/*" --exclude "node_modules/*" --delete
+  --exclude "lambda/*" --exclude "tailwind-build/*" --exclude "node_modules/*" --exclude "notes/*" --exclude "versions/*"
+# No --delete: 37 live pages were missing from git until 2026-11-03 and --delete would have 404ed them.
 aws cloudfront create-invalidation --distribution-id $BLOG_DIST_ID --paths "/*"
 
 # Lambda → support-checkout
