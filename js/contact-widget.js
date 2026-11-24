@@ -193,7 +193,7 @@
   }
 
   // --- Phone hint HTML ---
-  var phoneHint = '<p class="abw-phone">Prefer to call? <a href="tel:+15126695734">(512) 669-5734</a></p>';
+  var phoneHint = '<p class="abw-phone">Prefer to call? <a href="tel:+17373619444">(737) 361-9444</a></p>';
 
   // === CONTACT MODAL (info@) ===
   window.openContact = function () {
