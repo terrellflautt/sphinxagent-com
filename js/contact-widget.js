@@ -14,7 +14,9 @@
   var CONFIG = {
     appName: (script && script.getAttribute('data-app')) || window.location.hostname,
     accent: (script && script.getAttribute('data-accent')) || '#f97316',
-    key: (script && script.getAttribute('data-key')) || '941dde05-6699-4793-b170-fb81b1659e32'
+    // SnapIT Forms account svc_sphinxagent_forms -> snapitsaas@gmail.com (label support). Was
+    // a third-party form service until 2026-11-27 (it dropped tickets; sphinxagent.ai moved 2026-11-23).
+    key: (script && script.getAttribute('data-key')) || 'sf_681c6370da001b63944577ff1e33a397'
   };
 
   var PRODUCTS = [
@@ -147,18 +149,19 @@
     var userInfo = getUserInfo();
     var fd = new FormData(form);
     fd.append('access_key', CONFIG.key);
-    fd.append('from_name', CONFIG.appName + ' ' + formType);
+    var subj = (form.querySelector('[name="subject"]') || {}).value || '';
+    fd.append('_subject', '[' + CONFIG.appName + '] ' + formType + (subj ? ': ' + subj : ''));
     fd.append('App Name', CONFIG.appName);
     fd.append('Page URL', window.location.href);
     fd.append('Browser', navigator.userAgent);
     if (userInfo.userId) fd.append('User ID', userInfo.userId);
-    if (userInfo.accessKey) fd.append('User Access Key', userInfo.accessKey);
 
-    fetch('https://api.web3forms.com/submit', {
+    fetch('https://api.snapitforms.com/submit', {
       method: 'POST',
-      body: fd
+      body: fd,
+      headers: { Accept: 'application/json' }
     })
-      .then(function (r) { return r.json(); })
+      .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
       .then(function (data) {
         if (data.success) {
           var successHtml = '<div class="abw-success">' +
