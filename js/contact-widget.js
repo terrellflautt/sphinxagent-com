@@ -150,7 +150,7 @@
     var fd = new FormData(form);
     fd.append('access_key', CONFIG.key);
     var subj = (form.querySelector('[name="subject"]') || {}).value || '';
-    fd.append('_subject', '[' + CONFIG.appName + '] ' + formType + (subj ? ': ' + subj : ''));
+    fd.append('_subject', 'Support Ticket from ' + CONFIG.appName + ' \u2014 ' + formType + (subj ? ': ' + subj : ''));
     fd.append('App Name', CONFIG.appName);
     fd.append('Page URL', window.location.href);
     fd.append('Browser', navigator.userAgent);
