@@ -1,6 +1,6 @@
 # Sphinx Agent
 
-> Sphinx Agent - AI website chatbot and lead-capture agent for small businesses. A no-code builder for customer service, sales, support, receptionist and booking-request agents that answer visitors 24/7 in a website chat widget, a shareable chat link and browser voice, and email captured leads to the owner. Free for 100 messages a month; paid plans from $19/month (Starter $19/mo for 1,500 messages, Pro $49/mo for 4,000). AI phone lines are coming soon. The product lives at https://sphinxagent.ai; this site (sphinxagent.com) is the Sphinx Agent Think Tank, its research and analysis companion.
+> Sphinx Agent - AI website chatbot and lead-capture agent for small businesses. A no-code builder for customer service, sales, support, receptionist and booking-request agents that answer visitors 24/7 in a website chat widget, a shareable chat link and browser voice, and email captured leads to the owner. Free for 100 messages a month; paid plans from $19/month (Starter $19/mo for 1,500 messages, Pro $49/mo for 4,000 with 1 AI phone line and 60 call minutes, Business $99/mo for 8,000); Enterprise on request. The product lives at https://sphinxagent.ai; this site (sphinxagent.com) is the Sphinx Agent Think Tank, its research and analysis companion.
 
 ## Product
 
